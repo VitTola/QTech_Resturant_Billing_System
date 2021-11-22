@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{209A6926-2491-4480-9CCE-5B6A0C65E5C1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QTech.Base</RootNamespace>
+    <AssemblyName>QTech.Base</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>false</Deterministic>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Modules|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Modules\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.94.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Easy Order\Easy Order.C#\EasyOrder\EasyOrder.Base\Dll\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyServer.Domain, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\EasyServer.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="esc-pos-usb-net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\esc-pos-usb-net.dll</HintPath>
+    </Reference>
+    <Reference Include="FastMember, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\FastMember.dll</HintPath>
+    </Reference>
+    <Reference Include="QTech.Component, Version=2.8.4.25, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Easy Order\Easy Order.C#\EasyOrder\EasyOrder.Base\Dll\QTech.Component.dll</HintPath>
+    </Reference>
+    <Reference Include="Storm.Domain, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\Storm.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="EngineIoClientDotNet, Version=0.9.21.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EngineIoClientDotNet.0.9.21\lib\net45\EngineIoClientDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.6.3.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RestSharp.106.6.3\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SocketIoClientDotNet, Version=0.9.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SocketIoClientDotNet.0.9.12\lib\net45\SocketIoClientDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Storm.Domain, Version=0.8.429.1015, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\Storm.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebSocket4Net, Version=0.14.1.0, Culture=neutral, PublicKeyToken=eb4e154b696bf72a, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebSocket4Net.0.14.1\lib\net45\WebSocket4Net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseModels\ActiveBaseModel.cs" />
+    <Compile Include="BaseModels\BaseModel.cs" />
+    <Compile Include="BaseModels\BaseModule.cs" />
+    <Compile Include="BaseModels\BaseSearchModel.cs" />
+    <Compile Include="BaseModules\LocalVariable.cs" />
+    <Compile Include="BaseReport\ReportFileDownload.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportFileDownload.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enums\AuthKey.cs" />
+    <Compile Include="Enums\InsertImport.cs" />
+    <Compile Include="Enums\MiscellaneousType.cs" />
+    <Compile Include="Enums\PayStatus.cs" />
+    <Compile Include="Enums\Currency.cs" />
+    <Compile Include="Enums\PermissionType.cs" />
+    <Compile Include="Enums\SaleSearchKey.cs" />
+    <Compile Include="Enums\SaleType.cs" />
+    <Compile Include="Enums\SupplierPayStatus.cs" />
+    <Compile Include="Helpers\Constants.cs" />
+    <Compile Include="Helpers\JsonNetSerializer.cs" />
+    <Compile Include="Helpers\Enums.cs" />
+    <Compile Include="Helpers\MimeType.cs" />
+    <Compile Include="BaseReport\ReportHelper.cs" />
+    <Compile Include="Helpers\OtherHeperMethods.cs" />
+    <Compile Include="Helpers\ShareValue.cs" />
+    <Compile Include="Helpers\TempFile.cs" />
+    <Compile Include="Helpers\UISetting.cs" />
+    <Compile Include="Models\ApplicationSetting.cs" />
+    <Compile Include="Models\AuditTrail.cs" />
+    <Compile Include="Models\IncomeExpense.cs" />
+    <Compile Include="Models\PurchaseOrder.cs" />
+    <Compile Include="Models\EmployeeBill.cs" />
+    <Compile Include="Models\SupplierGeneralPaid.cs" />
+    <Compile Include="Models\Invoice.cs" />
+    <Compile Include="Models\CustomerPrice.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\DbConfig.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Sale.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserPermission.cs" />
+    <Compile Include="Models\Version.cs" />
+    <Compile Include="OutFaceModels\DriverDeliveryDetail.cs" />
+    <Compile Include="OutFaceModels\EmployeeBillOutFace.cs" />
+    <Compile Include="OutFaceModels\Expense.cs" />
+    <Compile Include="OutFaceModels\Income.cs" />
+    <Compile Include="OutFaceModels\IncomeExpenseOutface.cs" />
+    <Compile Include="OutFaceModels\MonthlyInvoice.cs" />
+    <Compile Include="OutFaceModels\Profit.cs" />
+    <Compile Include="OutFaceModels\SaleInfo.cs" />
+    <Compile Include="OutFaceModels\Version.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="BaseReport\DialogReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseReport\DialogReportViewer.designer.cs">
+      <DependentUpon>DialogReportViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseReport\ReportNotFound.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportNotFound.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SearchModels\AuditTrailHistorySearch.cs" />
+    <Compile Include="SearchModels\AuditTrailSearch.cs" />
+    <Compile Include="SearchModels\ProfitSearch.cs" />
+    <Compile Include="SearchModels\IncomExpenseSearch.cs" />
+    <Compile Include="SearchModels\ReportExpenseSearch.cs" />
+    <Compile Include="SearchModels\ReportIncomeSearch.cs" />
+    <Compile Include="SearchModels\ReportIncomeExpenseSearch.cs" />
+    <Compile Include="SearchModels\UserPermissionSearch.cs" />
+    <Compile Include="SearchModels\UserSearch.cs" />
+    <Compile Include="SearchModels\PermissionSearch.cs" />
+    <Compile Include="SearchModels\EmployeeBillSearch.cs" />
+    <Compile Include="SearchModels\PurchaseOrderSearch.cs" />
+    <Compile Include="SearchModels\SupplierGeneralPaidSearch.cs" />
+    <Compile Include="SearchModels\ProductSearch.cs" />
+    <Compile Include="SearchModels\CategorySearch.cs" />
+    <Compile Include="SearchModels\CustomerSearch.cs" />
+    <Compile Include="SearchModels\EmployeeSearch.cs" />
+    <Compile Include="SearchModels\ReportDriverDeliverySearch.cs" />
+    <Compile Include="SearchModels\SaleDetailSearch.cs" />
+    <Compile Include="SearchModels\InvoiceSearch.cs" />
+    <Compile Include="SearchModels\SaleSearch.cs" />
+    <Compile Include="SearchModels\SiteSearch.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BaseReport\ReportFileDownload.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportFileDownload.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseReport\DialogReportViewer.resx">
+      <DependentUpon>DialogReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseReport\ReportNotFound.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportNotFound.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgPayment.png" />
+    <None Include="Resources\customer.png" />
+    <None Include="Resources\key.png" />
+    <None Include="Resources\power.png" />
+    <None Include="Resources\meter.png" />
+    <None Include="Resources\Money.png" />
+    <None Include="Resources\billing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.10.0\analyzers\dotnet\cs\Microsoft.DependencyValidation.Analyzers.resources.dll" />
+    <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.10.0\analyzers\dotnet\Microsoft.DependencyValidation.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dll\AcroPDF.dll" />
+    <Content Include="Dll\ClosedXML.dll" />
+    <Content Include="Dll\CrystalDecisions.CrystalReports.Engine.dll" />
+    <Content Include="Dll\DocumentFormat.OpenXml.dll" />
+    <Content Include="Dll\EasyServer.Domain.dll" />
+    <Content Include="Dll\esc-pos-usb-net.dll" />
+    <Content Include="Dll\FastMember.dll" />
+    <Content Include="Dll\QTech.Component.dll" />
+    <None Include="Resources\invoice status_img.png" />
+    <None Include="Resources\invoice status.png" />
+    <None Include="Resources\UpdateIcon.png" />
+    <None Include="Resources\ProfitImg.png" />
+    <None Include="Resources\categorie_ing.png" />
+    <None Include="Resources\expenses_img.png" />
+    <None Include="Resources\InOut.png" />
+    <None Include="Resources\Income_img.png" />
+    <None Include="Resources\IncomeOutcome_img.png" />
+    <None Include="Resources\General_img.png" />
+    <None Include="Resources\Setting_img.png" />
+    <None Include="Resources\Pheng Ry.png" />
+    <None Include="Resources\Customer_img32.png" />
+    <None Include="Resources\user_img.png" />
+    <None Include="Resources\PurchaseOrder_img.png" />
+    <None Include="Resources\GeneralEmployee.png" />
+    <None Include="Resources\RunningBill_img.png" />
+    <None Include="Resources\delivery.png" />
+    <None Include="Resources\Printer.png" />
+    <None Include="Resources\CornerLeft.png" />
+    <None Include="Resources\CornerRight.png" />
+    <None Include="Resources\sale_img32.png" />
+    <None Include="Resources\Report_img32.png" />
+    <None Include="Resources\InvoiceNo.img.png" />
+    <None Include="Resources\PurchaseOrderNo.img.png" />
+    <None Include="Resources\Product32x32.png" />
+    <None Include="Resources\empty_file.png" />
+    <None Include="Resources\Site.img.png" />
+    <None Include="Resources\Category.img.png" />
+    <None Include="Resources\Driver.img.png" />
+    <None Include="Resources\Type.img.png" />
+    <None Include="Resources\imgCollapse.png" />
+    <None Include="Resources\imgExpand.png" />
+    <None Include="Resources\Product.img.png" />
+    <None Include="Resources\prepaid.png" />
+    <None Include="Resources\home.png" />
+    <None Include="Resources\Employee.img.png" />
+    <None Include="Resources\customer2.png" />
+    <None Include="Resources\Customer.img.png" />
+    <None Include="Resources\CloseDateEntery.img.png" />
+    <None Include="Resources\Sale.img.png" />
+    <None Include="Resources\report.png" />
+    <None Include="Resources\Report.img.png" />
+    <None Include="Resources\setting.png" />
+    <None Include="Resources\minimize.png" />
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\Hide.png" />
+    <None Include="Resources\logout11.png" />
+    <None Include="Resources\logout1.png" />
+    <None Include="Resources\report1.png" />
+    <None Include="Resources\setting1.png" />
+    <None Include="Resources\customer1.png" />
+    <None Include="Resources\Christmas-Big-Sale-icon.png" />
+    <None Include="Resources\sale.png" />
+    <None Include="Resources\import.png" />
+    <None Include="Resources\category.png" />
+    <None Include="Resources\employee.png" />
+    <None Include="Resources\supplier1.png" />
+    <None Include="Resources\supplier.png" />
+    <None Include="Resources\salereport.png" />
+    <None Include="Resources\RyLogo.png" />
+    <None Include="Resources\product.png" />
+    <None Include="Resources\settings1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
