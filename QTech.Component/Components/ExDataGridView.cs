@@ -50,8 +50,8 @@ namespace QTech.Component
         {
             this.ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle
             {
-                BackColor = Color.Ivory,
-                SelectionBackColor = Color.Ivory
+                BackColor = Color.LightCoral,
+                SelectionBackColor = Color.LightSkyBlue
             };
             
             this.ApplyDefaultStyle();

@@ -9,6 +9,8 @@ using System.Linq;
 using System.Resources;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Interop;
+using WpfCustomControlLibrary;
 
 namespace QTech
 {
@@ -26,6 +28,12 @@ namespace QTech
 
             //Application.Run(new MainForm());
             Application.Run(new LoginDialog());
+            //Application.Run(new Form1());
+
+            ExWindow form = new ExWindow();
+            //WindowInteropHelper wih = new WindowInteropHelper(this);
+            //wih.Owner = form.Handle;
+            //form.ShowDialog();
 
         }
     }

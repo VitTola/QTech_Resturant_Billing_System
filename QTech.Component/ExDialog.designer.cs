@@ -66,7 +66,7 @@ namespace QTech.Component
             // 
             this.digheader.BackColor = System.Drawing.Color.Transparent;
             this.digheader.Border = true;
-            this.digheader.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(127)))), ((int)(((byte)(0)))));
+            this.digheader.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(117)))), ((int)(((byte)(226)))));
             this.digheader.Colors.Add(this.colorWithAlpha1);
             this.digheader.Colors.Add(this.colorWithAlpha2);
             this.digheader.Colors.Add(this.colorWithAlpha3);
@@ -75,7 +75,7 @@ namespace QTech.Component
             this.digheader.Controls.Add(this.bar);
             this.digheader.Controls.Add(this._lblTITLE);
             this.digheader.Controls.Add(this.imgICON);
-            this.digheader.CornerRadius = 10;
+            this.digheader.CornerRadius = 5;
             this.digheader.Corners = ((QTech.Component.Corners)((QTech.Component.Corners.TopLeft | QTech.Component.Corners.TopRight)));
             this.digheader.Dock = System.Windows.Forms.DockStyle.Top;
             this.digheader.Gradient = true;
@@ -99,19 +99,19 @@ namespace QTech.Component
             // colorWithAlpha1
             // 
             this.colorWithAlpha1.Alpha = 255;
-            this.colorWithAlpha1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(55)))), ((int)(((byte)(59)))));
+            this.colorWithAlpha1.Color = System.Drawing.Color.DodgerBlue;
             this.colorWithAlpha1.Parent = this.digheader;
             // 
             // colorWithAlpha2
             // 
             this.colorWithAlpha2.Alpha = 255;
-            this.colorWithAlpha2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(55)))), ((int)(((byte)(59)))));
+            this.colorWithAlpha2.Color = System.Drawing.Color.DodgerBlue;
             this.colorWithAlpha2.Parent = this.digheader;
             // 
             // colorWithAlpha3
             // 
             this.colorWithAlpha3.Alpha = 255;
-            this.colorWithAlpha3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(55)))), ((int)(((byte)(59)))));
+            this.colorWithAlpha3.Color = System.Drawing.Color.DodgerBlue;
             this.colorWithAlpha3.Parent = this.digheader;
             // 
             // flowLayoutPanel1
@@ -222,7 +222,7 @@ namespace QTech.Component
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(237)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(245)))));
             this.ClientSize = new System.Drawing.Size(447, 328);
             this.Controls.Add(this.container);
             this.Controls.Add(this.digheader);

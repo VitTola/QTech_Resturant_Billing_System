@@ -70,6 +70,7 @@ namespace QTech.Component
             ResourceHelper.Register(QTech.Base.Properties.Resources.ResourceManager);
 
             this.Move += ExDialog_Move;
+            this.Opacity = 0;
 
         }
 

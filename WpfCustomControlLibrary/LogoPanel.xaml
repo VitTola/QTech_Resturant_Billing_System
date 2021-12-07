@@ -1,0 +1,11 @@
+﻿<UserControl x:Class="WpfCustomControlLibrary.LogoPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfCustomControlLibrary"
+             mc:Ignorable="d" Height="412.851" Width="425.733">
+    <Grid xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <Path Data="M401.788,74.476C338.296,-7.956 213.342,40.684 213.342,124.396 213.342,40.684 88.38,-7.95999999999999 24.879,74.476 -40.751,159.698 23.936,308.985 213.338,394.741 402.731,308.985 467.418,159.698 401.788,74.476z" Fill="#FFF05228" />
+    </Grid>
+</UserControl>

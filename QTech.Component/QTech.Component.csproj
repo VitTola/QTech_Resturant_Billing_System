@@ -157,6 +157,12 @@
     <Compile Include="MyComponents\RoundButton.Designer.cs">
       <DependentUpon>RoundButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyComponents\TransparentPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyComponents\TransparentPanel.Designer.cs">
+      <DependentUpon>TransparentPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="panelBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -516,6 +522,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyComponents\ExTabItem2.resx">
       <DependentUpon>ExTabItem2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyComponents\TransparentPanel.resx">
+      <DependentUpon>TransparentPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="panelBar.resx">
       <DependentUpon>panelBar.cs</DependentUpon>
