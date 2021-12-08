@@ -16,15 +16,13 @@ using System.Windows.Shapes;
 namespace WpfCustomControlLibrary
 {
     /// <summary>
-    /// Interaction logic for Star.xaml
+    /// Interaction logic for ExTabButton.xaml
     /// </summary>
-    public partial class Star : UserControl
+    public partial class ExTabButton : UserControl
     {
-        public Star()
+        public ExTabButton()
         {
             InitializeComponent();
-          //  ___lblTable___TableName_.Content = TableName;
         }
-       // public string TableName { get; set; } = "TableName";
     }
 }

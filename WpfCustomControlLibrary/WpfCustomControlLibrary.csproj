@@ -48,17 +48,14 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BorderLine.xaml.cs">
-      <DependentUpon>BorderLine.xaml</DependentUpon>
-    </Compile>
     <Compile Include="CurvePanel.xaml.cs">
       <DependentUpon>CurvePanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ExTabButton.xaml.cs">
+      <DependentUpon>ExTabButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ExWindow.xaml.cs">
       <DependentUpon>ExWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="LogoPanel.xaml.cs">
-      <DependentUpon>LogoPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -73,9 +70,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Table.xaml.cs">
-      <DependentUpon>Table.xaml</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -86,11 +80,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="BorderLine.xaml">
+    <Page Include="CurvePanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CurvePanel.xaml">
+    <Page Include="ExTabButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -98,17 +92,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LogoPanel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Table.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images - Copy.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

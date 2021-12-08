@@ -21,7 +21,7 @@ namespace QTech
         {
             System.Drawing.Color color=Color.Red;
             System.Windows.Media.Color newColor = System.Windows.Media.Color.FromArgb(color.A, color.R, color.G, color.B);
-            curvePanel.BackGroundColor = newColor;
+         
         }
 
         private void elementHost2_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
@@ -35,6 +35,11 @@ namespace QTech
         }
 
         private void elementHost3_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

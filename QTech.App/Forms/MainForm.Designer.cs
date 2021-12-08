@@ -76,6 +76,7 @@
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.curvePanel = new WpfCustomControlLibrary.CurvePanel();
             this.labelHideCurveBg_ = new System.Windows.Forms.Label();
+            this.lblWhitbackG_ = new System.Windows.Forms.Label();
             this.container.SuspendLayout();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -95,12 +96,13 @@
             // container
             // 
             this.container.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.container.Controls.Add(this.labelHideCurveBg_);
             this.container.Controls.Add(this.picLogo);
-            this.container.Controls.Add(this.elementHost1);
             this.container.Controls.Add(this.pSecondMenue1);
+            this.container.Controls.Add(this.labelHideCurveBg_);
             this.container.Controls.Add(this.mainPanel);
+            this.container.Controls.Add(this.elementHost1);
             this.container.Controls.Add(this.pContainBottom);
+            this.container.Controls.Add(this.lblWhitbackG_);
             this.container.Controls.Add(this.topPanel);
             this.container.Padding = new System.Windows.Forms.Padding(1, 0, 1, 1);
             this.container.Size = new System.Drawing.Size(1280, 700);
@@ -209,9 +211,9 @@
             this.picLogo.ErrorImage = global::QTech.Properties.Resources.QTech__2_;
             this.picLogo.Image = global::QTech.Properties.Resources.Pheng_Ry;
             this.picLogo.InitialImage = global::QTech.Properties.Resources.QTech__2_;
-            this.picLogo.Location = new System.Drawing.Point(12, 4);
+            this.picLogo.Location = new System.Drawing.Point(12, 3);
             this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(66, 67);
+            this.picLogo.Size = new System.Drawing.Size(66, 80);
             this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picLogo.TabIndex = 0;
             this.picLogo.TabStop = false;
@@ -566,7 +568,7 @@
             this.pSecondMenue1.Controls.Add(this.pSecondMenue2);
             this.pSecondMenue1.Location = new System.Drawing.Point(104, 31);
             this.pSecondMenue1.Name = "pSecondMenue1";
-            this.pSecondMenue1.Size = new System.Drawing.Size(1176, 84);
+            this.pSecondMenue1.Size = new System.Drawing.Size(1172, 84);
             this.pSecondMenue1.TabIndex = 4;
             // 
             // pSecondMenue2
@@ -575,7 +577,7 @@
             this.pSecondMenue2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pSecondMenue2.Location = new System.Drawing.Point(0, 0);
             this.pSecondMenue2.Name = "pSecondMenue2";
-            this.pSecondMenue2.Size = new System.Drawing.Size(1176, 84);
+            this.pSecondMenue2.Size = new System.Drawing.Size(1172, 84);
             this.pSecondMenue2.TabIndex = 3;
             this.pSecondMenue2.Paint += new System.Windows.Forms.PaintEventHandler(this.pSecondMenue2_Paint);
             // 
@@ -683,9 +685,9 @@
             // 
             // elementHost1
             // 
-            this.elementHost1.Location = new System.Drawing.Point(0, 1);
+            this.elementHost1.Location = new System.Drawing.Point(1, 1);
             this.elementHost1.Name = "elementHost1";
-            this.elementHost1.Size = new System.Drawing.Size(105, 114);
+            this.elementHost1.Size = new System.Drawing.Size(100, 111);
             this.elementHost1.TabIndex = 9;
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.ChildChanged += new System.EventHandler<System.Windows.Forms.Integration.ChildChangedEventArgs>(this.elementHost1_ChildChanged);
@@ -694,11 +696,19 @@
             // labelHideCurveBg_
             // 
             this.labelHideCurveBg_.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.labelHideCurveBg_.Location = new System.Drawing.Point(84, 1);
+            this.labelHideCurveBg_.Location = new System.Drawing.Point(82, 1);
             this.labelHideCurveBg_.Name = "labelHideCurveBg_";
-            this.labelHideCurveBg_.Size = new System.Drawing.Size(23, 30);
+            this.labelHideCurveBg_.Size = new System.Drawing.Size(23, 31);
             this.labelHideCurveBg_.TabIndex = 5;
             this.labelHideCurveBg_.Click += new System.EventHandler(this.labelHideCurveBg_Click);
+            // 
+            // lblWhitbackG_
+            // 
+            this.lblWhitbackG_.BackColor = System.Drawing.SystemColors.Control;
+            this.lblWhitbackG_.Location = new System.Drawing.Point(2, -2);
+            this.lblWhitbackG_.Name = "lblWhitbackG_";
+            this.lblWhitbackG_.Size = new System.Drawing.Size(103, 23);
+            this.lblWhitbackG_.TabIndex = 10;
             // 
             // MainForm
             // 
@@ -785,6 +795,7 @@
         private Component.ColorWithAlpha colorWithAlpha6;
         private System.Windows.Forms.Integration.ElementHost elementHost1;
         private System.Windows.Forms.Label labelHideCurveBg_;
+        private System.Windows.Forms.Label lblWhitbackG_;
         private WpfCustomControlLibrary.CurvePanel curvePanel;
     }
 }
