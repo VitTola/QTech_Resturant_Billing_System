@@ -73,10 +73,10 @@
             this.tmsMenuDevTeam = new System.Windows.Forms.ToolStripMenuItem();
             this.cnmStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnLogOut = new System.Windows.Forms.ToolStripMenuItem();
-            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
-            this.curvePanel = new WpfCustomControlLibrary.CurvePanel();
             this.labelHideCurveBg_ = new System.Windows.Forms.Label();
             this.lblWhitbackG_ = new System.Windows.Forms.Label();
+            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+            this.curvePanel = new WpfCustomControlLibrary.CurvePanel();
             this.container.SuspendLayout();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -95,7 +95,7 @@
             // 
             // container
             // 
-            this.container.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.container.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(185)))), ((int)(((byte)(240)))));
             this.container.Controls.Add(this.picLogo);
             this.container.Controls.Add(this.pSecondMenue1);
             this.container.Controls.Add(this.labelHideCurveBg_);
@@ -107,7 +107,6 @@
             this.container.Padding = new System.Windows.Forms.Padding(1, 0, 1, 1);
             this.container.Size = new System.Drawing.Size(1280, 700);
             this.container.Text = "container";
-            this.container.Paint += new System.Windows.Forms.PaintEventHandler(this.container_Paint);
             // 
             // panel8
             // 
@@ -288,7 +287,6 @@
             this.pBranch.Size = new System.Drawing.Size(277, 23);
             this.pBranch.TabIndex = 11;
             this.pBranch.WrapContents = false;
-            this.pBranch.Paint += new System.Windows.Forms.PaintEventHandler(this.pBranch_Paint);
             // 
             // lblUserProfile_
             // 
@@ -418,7 +416,7 @@
             this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.mainPanel.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.mainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(185)))), ((int)(((byte)(240)))));
             this.mainPanel.Border = true;
             this.mainPanel.BorderColor = System.Drawing.Color.Gray;
             this.mainPanel.ContentPadding = new System.Windows.Forms.Padding(0, -1, 0, -1);
@@ -564,7 +562,7 @@
             // 
             this.pSecondMenue1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pSecondMenue1.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.pSecondMenue1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(185)))), ((int)(((byte)(240)))));
             this.pSecondMenue1.Controls.Add(this.pSecondMenue2);
             this.pSecondMenue1.Location = new System.Drawing.Point(104, 31);
             this.pSecondMenue1.Name = "pSecondMenue1";
@@ -573,7 +571,7 @@
             // 
             // pSecondMenue2
             // 
-            this.pSecondMenue2.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.pSecondMenue2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(185)))), ((int)(((byte)(240)))));
             this.pSecondMenue2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pSecondMenue2.Location = new System.Drawing.Point(0, 0);
             this.pSecondMenue2.Name = "pSecondMenue2";
@@ -683,24 +681,13 @@
             this.btnLogOut.Text = "ចាកចេញ";
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
-            // elementHost1
-            // 
-            this.elementHost1.Location = new System.Drawing.Point(1, 1);
-            this.elementHost1.Name = "elementHost1";
-            this.elementHost1.Size = new System.Drawing.Size(100, 111);
-            this.elementHost1.TabIndex = 9;
-            this.elementHost1.Text = "elementHost1";
-            this.elementHost1.ChildChanged += new System.EventHandler<System.Windows.Forms.Integration.ChildChangedEventArgs>(this.elementHost1_ChildChanged);
-            this.elementHost1.Child = this.curvePanel;
-            // 
             // labelHideCurveBg_
             // 
             this.labelHideCurveBg_.BackColor = System.Drawing.Color.CornflowerBlue;
             this.labelHideCurveBg_.Location = new System.Drawing.Point(82, 1);
             this.labelHideCurveBg_.Name = "labelHideCurveBg_";
-            this.labelHideCurveBg_.Size = new System.Drawing.Size(23, 31);
+            this.labelHideCurveBg_.Size = new System.Drawing.Size(23, 30);
             this.labelHideCurveBg_.TabIndex = 5;
-            this.labelHideCurveBg_.Click += new System.EventHandler(this.labelHideCurveBg_Click);
             // 
             // lblWhitbackG_
             // 
@@ -709,6 +696,15 @@
             this.lblWhitbackG_.Name = "lblWhitbackG_";
             this.lblWhitbackG_.Size = new System.Drawing.Size(103, 23);
             this.lblWhitbackG_.TabIndex = 10;
+            // 
+            // elementHost1
+            // 
+            this.elementHost1.Location = new System.Drawing.Point(1, 1);
+            this.elementHost1.Name = "elementHost1";
+            this.elementHost1.Size = new System.Drawing.Size(100, 111);
+            this.elementHost1.TabIndex = 9;
+            this.elementHost1.Text = "elementHost1";
+            this.elementHost1.Child = this.curvePanel;
             // 
             // MainForm
             // 
@@ -720,7 +716,6 @@
             this.Location = new System.Drawing.Point(0, 0);
             this.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.Name = "MainForm";
-            //this.Opacity = 1D;
             this.Text = "Main";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);

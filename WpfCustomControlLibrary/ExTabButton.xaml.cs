@@ -23,6 +23,7 @@ namespace WpfCustomControlLibrary
         public ExTabButton()
         {
             InitializeComponent();
+            
         }
     }
 }

@@ -75,7 +75,7 @@ namespace QTech.Component
             this.digheader.Controls.Add(this.bar);
             this.digheader.Controls.Add(this._lblTITLE);
             this.digheader.Controls.Add(this.imgICON);
-            this.digheader.CornerRadius = 5;
+            this.digheader.CornerRadius = 10;
             this.digheader.Corners = ((QTech.Component.Corners)((QTech.Component.Corners.TopLeft | QTech.Component.Corners.TopRight)));
             this.digheader.Dock = System.Windows.Forms.DockStyle.Top;
             this.digheader.Gradient = true;
@@ -222,7 +222,7 @@ namespace QTech.Component
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(245)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(219)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(447, 328);
             this.Controls.Add(this.container);
             this.Controls.Add(this.digheader);

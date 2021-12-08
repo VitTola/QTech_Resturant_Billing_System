@@ -329,32 +329,12 @@ namespace QTech.Forms
             }
         }
 
-        private void container_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void pContainForm_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
         private void pSecondMenue2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void labelHideCurveBg_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void elementHost1_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
-        {
-
-        }
-
-        private void pBranch_Paint(object sender, PaintEventArgs e)
         {
 
         }

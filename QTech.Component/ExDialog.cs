@@ -72,9 +72,19 @@ namespace QTech.Component
             this.Move += ExDialog_Move;
             //this.Opacity = 0;
             InitializeFormTransparency();
-
         }
-
+        const int WS_MINIMIZEBOX = 0x20000;
+        const int CS_DBLCLKS = 0x8;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.Style |= WS_MINIMIZEBOX;
+                cp.ClassStyle |= CS_DBLCLKS;
+                return cp;
+            }
+        }
         DDFormsExtentions.DDFormFader FF;
         private void InitializeFormTransparency()
         {
@@ -85,10 +95,10 @@ namespace QTech.Component
             FF.setTransparentLayeredWindow();
 
             //sets the length of time between fade steps in Milliseconds 
-            FF.seekSpeed = 3;
+            FF.seekSpeed = 2;
 
             // sets the amount of steps to take to reach target opacity    
-            FF.StepsToFade = 3;
+            FF.StepsToFade = 2;
 
             FF.updateOpacity((byte)0, false); // set the forms opacity to 0;
 
@@ -126,8 +136,6 @@ namespace QTech.Component
             return c.PointToScreen(Point.Empty);
         }
 
-
-
         public virtual void SetDefaultColumnSize() { }
 
         public virtual void Reload()
@@ -145,11 +153,9 @@ namespace QTech.Component
                 _bMaximize.Visible = show;
         }
 
-
-
         protected override void OnLoad(EventArgs e)
         {
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width + 2, this.Height+5, 10, 10));
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width + 2, this.Height + 5, 10, 10));
             //this.Font = new Font("Khmer OS System", this.Font.Size);
             this.ApplyResource();
             //this.InitForm();
@@ -307,22 +313,6 @@ namespace QTech.Component
             }
             return false;
         }
-
-
-        private const int CS_DROPSHADOW = 0x20000;
-        //protected override CreateParams CreateParams
-        //{
-        //    get
-        //    {
-        //        CreateParams cp = base.CreateParams;
-        //        cp.Style |= CS_DROPSHADOW;
-        //        cp.ClassStyle |= CS_DROPSHADOW;
-        //        return cp;
-        //    }
-        //}
-
-
-
         protected override void WndProc(ref Message m)
         {
             //const int RESIZE_HANDLE_SIZE = 10;
@@ -376,6 +366,8 @@ namespace QTech.Component
 
         private void btnMaximize_Click(object sender, EventArgs e)
         {
+            FF.updateOpacity((byte)0, false); // set the forms opacity to 0;
+
             if (WindowState != FormWindowState.Maximized)
             {
                 MaximizedBounds = new Rectangle(new Point(0, 0), Screen.FromControl(this).WorkingArea.Size);
@@ -385,11 +377,16 @@ namespace QTech.Component
             {
                 WindowState = FormWindowState.Normal;
             }
+            FF.seekTo((byte)255);
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
         {
+            FF.seekTo((byte)0);
+
             WindowState = FormWindowState.Minimized;
+            FF.seekTo((byte)255);
+
         }
 
         public override string Text
@@ -439,12 +436,12 @@ namespace QTech.Component
                 _bMaximize.Image = Properties.Resources.minimize;
                 var width = Screen.FromControl(this).Bounds.Width;
                 var heigth = Screen.FromControl(this).Bounds.Height;
-                Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, width, heigth+5, 10, 10));
+                Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, width, heigth + 5, 10, 10));
             }
             else
             {
                 _bMaximize.Image = Properties.Resources.maximize;
-                Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width+2, this.Height+5, 10, 10));
+                Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width + 2, this.Height + 5, 10, 10));
 
             }
             Invalidate();
@@ -635,7 +632,6 @@ namespace QTech.Component
                 WindowState = WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
             }
         }
-        
     }
 
     internal class CotrolDialogButton : Button
