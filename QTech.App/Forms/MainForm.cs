@@ -49,6 +49,7 @@ namespace QTech.Forms
             this.InitForm();
             this.OptimizeLoadUI();
             this.FormClosed += (s, e) => Application.Exit();
+            this.Load += MainForm_Load;
 
             try
             {
@@ -58,6 +59,11 @@ namespace QTech.Forms
             }
             catch (Exception) { }
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+        }
+
         private void MainForm_Shown(object sender, EventArgs e)
         {
             pSecondMenue1.ResumeLayout(false);
@@ -84,6 +90,8 @@ namespace QTech.Forms
             InitMenu();
             
         }
+
+     
         public void InitMenu()
         {
             //CAN CHECK THE WITH AUTHORIZE KEY IN HERE BEFORE READTOPMENUE

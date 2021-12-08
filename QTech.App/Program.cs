@@ -30,7 +30,7 @@ namespace QTech
             Application.Run(new LoginDialog());
             //Application.Run(new Form1());
 
-            ExWindow form = new ExWindow();
+            //ExWindow form = new ExWindow();
             //WindowInteropHelper wih = new WindowInteropHelper(this);
             //wih.Owner = form.Handle;
             //form.ShowDialog();

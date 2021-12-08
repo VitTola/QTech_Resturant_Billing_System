@@ -70,7 +70,27 @@ namespace QTech.Component
             ResourceHelper.Register(QTech.Base.Properties.Resources.ResourceManager);
 
             this.Move += ExDialog_Move;
-            this.Opacity = 0;
+            //this.Opacity = 0;
+            InitializeFormTransparency();
+
+        }
+
+        DDFormsExtentions.DDFormFader FF;
+        private void InitializeFormTransparency()
+        {
+            //pass the class constructor the handle to the form
+            FF = new DDFormsExtentions.DDFormFader(Handle);
+
+            //set the form to a Layered Window Form
+            FF.setTransparentLayeredWindow();
+
+            //sets the length of time between fade steps in Milliseconds 
+            FF.seekSpeed = 3;
+
+            // sets the amount of steps to take to reach target opacity    
+            FF.StepsToFade = 3;
+
+            FF.updateOpacity((byte)0, false); // set the forms opacity to 0;
 
         }
 
@@ -132,7 +152,8 @@ namespace QTech.Component
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width + 2, this.Height+5, 10, 10));
             //this.Font = new Font("Khmer OS System", this.Font.Size);
             this.ApplyResource();
-            this.InitForm();
+            //this.InitForm();
+            FF.seekTo((byte)255);
             this.OptimizeLoadUI();
             this.DefaultEnglishInputControls();
             this.Reload();
