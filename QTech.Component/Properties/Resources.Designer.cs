@@ -19,7 +19,7 @@ namespace QTech.Component.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -471,6 +471,36 @@ namespace QTech.Component.Properties {
         public static System.Drawing.Bitmap Forward {
             get {
                 object obj = ResourceManager.GetObject("Forward", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap GCenter {
+            get {
+                object obj = ResourceManager.GetObject("GCenter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap GLeft {
+            get {
+                object obj = ResourceManager.GetObject("GLeft", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap GRight {
+            get {
+                object obj = ResourceManager.GetObject("GRight", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1655,6 +1685,16 @@ namespace QTech.Component.Properties {
         public static System.Drawing.Bitmap waste_bin {
             get {
                 object obj = ResourceManager.GetObject("waste_bin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap WCenter {
+            get {
+                object obj = ResourceManager.GetObject("WCenter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

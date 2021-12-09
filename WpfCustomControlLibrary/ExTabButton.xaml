@@ -4,9 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfCustomControlLibrary"
-             mc:Ignorable="d" Height="32.896" Width="81.126">
+             mc:Ignorable="d" Height="32.896" Width="121.126">
     <Grid>
-        <Border x:Name="pnlLeft" BorderBrush="#FFFD4768" BorderThickness="1" CornerRadius="15,15,0,0" Background="#8FBC8B" UseLayoutRounding="True" RenderTransformOrigin="0.5,0.5"/>
+        <Border x:Name="pnlLeft" BorderBrush="#FFFD4768" BorderThickness="1" CornerRadius="15,15,0,0" Background="#8FBC8B" UseLayoutRounding="True" RenderTransformOrigin="0.5,0.5">
+            <Label Content="Label" Margin="37,3,9,2" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
 
     </Grid>
 </UserControl>

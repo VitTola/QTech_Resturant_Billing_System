@@ -17,6 +17,7 @@ using System.ComponentModel.Design;
 using System.ComponentModel.Design.Serialization;
 using System.Drawing.Design;
 using System.Drawing.Drawing2D;
+using System.Linq;
 
 namespace QTech.Component
 {
@@ -61,7 +62,25 @@ namespace QTech.Component
             Controls.Add(panel);
            
             panel.Paint += Panel_Paint;
+            MarkDefaultColor();
         }
+        public void MarkDefaultColor()
+        {
+            this.ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle
+            {
+                BackColor = Color.FromArgb(203, 219, 247),
+                SelectionBackColor = Color.LightSkyBlue
+            };
+            this.AlternatingRowsDefaultCellStyle = new DataGridViewCellStyle()
+            {
+                BackColor = Color.FromArgb(222, 222, 250)
+            };
+            this.RowsDefaultCellStyle = new DataGridViewCellStyle()
+            {
+                SelectionBackColor = Color.FromArgb(157, 185, 240)
+            };
+        }
+
         #endregion
 
         #region Keyboard F2 to begin edit support

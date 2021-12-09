@@ -48,12 +48,6 @@ namespace QTech.Component
 
         public ExDataGridView()
         {
-            this.ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle
-            {
-                BackColor = Color.LightCoral,
-                SelectionBackColor = Color.LightSkyBlue
-            };
-            
             this.ApplyDefaultStyle();
             ReadOnly = true;
             EnableHeadersVisualStyles = false;
@@ -199,6 +193,20 @@ namespace QTech.Component
                 cell.Style.ForeColor = Color.Red;
                 cell.Style.SelectionForeColor = Color.Red;
             }
+
+            this.ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle
+            {
+                BackColor = Color.FromArgb(203, 219, 247),
+                SelectionBackColor = Color.LightSkyBlue
+            };
+            this.AlternatingRowsDefaultCellStyle = new DataGridViewCellStyle()
+            {
+                BackColor = Color.FromArgb(222, 222, 250)
+            };
+            this.RowsDefaultCellStyle = new DataGridViewCellStyle()
+            {
+                SelectionBackColor = Color.FromArgb(157, 185, 240)
+            };
         }
 
         void ExDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

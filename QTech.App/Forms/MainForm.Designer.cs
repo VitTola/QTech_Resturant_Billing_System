@@ -301,12 +301,13 @@
             // 
             this.txtUserName.AutoSize = true;
             this.txtUserName.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtUserName.ForeColor = System.Drawing.Color.Blue;
+            this.txtUserName.ForeColor = System.Drawing.Color.White;
             this.txtUserName.Location = new System.Drawing.Point(29, 0);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(69, 19);
             this.txtUserName.TabIndex = 3;
             this.txtUserName.Text = "អ្នកប្រើប្រាស់";
+            this.txtUserName.Click += new System.EventHandler(this.txtUserName_Click);
             // 
             // lblUserDropDown_
             // 
@@ -347,7 +348,9 @@
             this._lblVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._lblVersion.AutoSize = true;
             this._lblVersion.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._lblVersion.ForeColor = System.Drawing.Color.White;
             this._lblVersion.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this._lblVersion.LinkColor = System.Drawing.Color.White;
             this._lblVersion.Location = new System.Drawing.Point(489, 0);
             this._lblVersion.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this._lblVersion.Name = "_lblVersion";
@@ -363,7 +366,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(446, 0);
             this.label5.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label5.Name = "label5";
@@ -396,12 +399,13 @@
             // txtLogin
             // 
             this.txtLogin.AutoSize = true;
-            this.txtLogin.ForeColor = System.Drawing.Color.Blue;
+            this.txtLogin.ForeColor = System.Drawing.Color.White;
             this.txtLogin.Location = new System.Drawing.Point(27, 4);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(110, 19);
             this.txtLogin.TabIndex = 1;
             this.txtLogin.Text = "01-01-2019 01:01:01";
+            this.txtLogin.Click += new System.EventHandler(this.txtLogin_Click);
             // 
             // label1
             // 

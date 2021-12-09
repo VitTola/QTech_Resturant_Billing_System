@@ -39,7 +39,7 @@ namespace QTech.Forms
         private void InitEvent()
         {
             this.FormClosing += (e, o) => DataBaseSetting.WriteSetting();
-            //ShareValue.permissions = PermissionLogic.Instance.SearchAsync(new PermissionSearch());
+            ShareValue.permissions = PermissionLogic.Instance.SearchAsync(new PermissionSearch());
 
             ReportHelper.Instance.RegisterPath(@"QTech\QTech.App\Reports");
             _lblComanyName.Text = QTech.Base.Properties.Resources.Company;
@@ -251,7 +251,7 @@ namespace QTech.Forms
                 {
                     ShowPage(menuBar.FormName, menuBar.ModuleLocation);
                 }
-                btn.BackColor = Color.FromArgb(250, 193, 196);
+                btn.BackColor = Color.FromArgb(30, 144, 255);
                 pSecondMenue2.Controls.OfType<ExTabItem2>().Where(x => x != btn).ToList()
                     .ForEach(y => y.BackColor = Color.Transparent);
             }
@@ -335,6 +335,16 @@ namespace QTech.Forms
         }
 
         private void pSecondMenue2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtLogin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUserName_Click(object sender, EventArgs e)
         {
 
         }

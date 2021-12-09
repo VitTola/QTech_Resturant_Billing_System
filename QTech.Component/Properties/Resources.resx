@@ -610,4 +610,16 @@
   <data name="WRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WRight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="GCenter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GCenter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GRight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WCenter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WCenter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
