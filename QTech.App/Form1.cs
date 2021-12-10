@@ -7,58 +7,39 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Forms;
 using WpfCustomControlLibrary;
 
 namespace QTech
 {
-
     public partial class Form1 : Form
     {
-        DDFormsExtentions.DDFormFader FF;
-
         public Form1()
         {
             InitializeComponent();
-            InitEvent();
-
-            
         }
-
-        private void InitEvent()
-        {
-            this.SizeChanged += Form1_Resize;
-            
-        }
-
-        private void Form1_Resize(object sender, EventArgs e)
-        {
-            //SetOpacity();
-            //FF.seekTo((byte)255);
-
-        }
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Table table = new Table()
+            WindowState = FormWindowState.Maximized;
+            for (int i = 1; i < 100; i++)
             {
-                TableName = "តុលេខ១",
-                TableColor = Color.Red,
-                Detail = "មិនទាន់មាន"
-            };
-            fl.AddChildren(table);
-
+                Table table = new Table()
+                {
+                    TableName = "តុលេខ " + i,
+                    TableColor = Color.LightGreen,
+                    Detail = "មិនទាន់មាន",
+                    Width = 400,
+                    Height = 300
+                };
+                table.TableClick += Table_TableClick;
+                wpfFlowLayout1.AddChildren(table);
+            }
         }
 
+        private void Table_TableClick(object sender, EventArgs e)
+        {
 
-
-
-
-            //System.Drawing.Color color=Color.Red;
-            //System.Windows.Media.Color newColor = System.Windows.Media.Color.FromArgb(color.A, color.R, color.G, color.B);
-        
-
+        }
     }
 }

@@ -1459,15 +1459,15 @@ namespace QTech.Component
     {
         public static void InitForm(this Form frm, int delay = 20)
         {
-            frm.Opacity = 0;
-            var timer = new System.Windows.Forms.Timer() { Interval = delay };
-            timer.Start();
-            timer.Tick += (object sender, EventArgs e) =>
-            {
-                frm.Opacity = 100;
-                timer.Stop();
-                timer.Dispose();
-            };
+            //frm.Opacity = 0;
+            //var timer = new System.Windows.Forms.Timer() { Interval = delay };
+            //timer.Start();
+            //timer.Tick += (object sender, EventArgs e) =>
+            //{
+            //    frm.Opacity = 100;
+            //    timer.Stop();
+            //    timer.Dispose();
+            //};
         }
 
         public static void OptimizeLoadUI(this Form frm, int delay = 20)

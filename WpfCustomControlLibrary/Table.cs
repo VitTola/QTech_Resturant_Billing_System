@@ -23,6 +23,12 @@ namespace WpfCustomControlLibrary
     /// </summary>
     public partial class Table : UserControl
     {
+        public event EventHandler TableClick;
+        public event EventHandler MouseHover;
+        public event EventHandler MouseLeave;
+
+        private System.Drawing.Color PrimaryColor;
+
         public Table()
         {
             InitializeComponent();
@@ -33,34 +39,47 @@ namespace WpfCustomControlLibrary
         {
             lblDetail.MouseEnter += LblDetail_MouseEnter;
             lblDetail.MouseLeftButtonDown += LblDetail_MouseLeftButtonDown;
+            lblDetail.MouseLeave += LblDetail_MouseLeave;
 
             btn.MouseEnter += Btn_MouseEnter;
             btn.Click += Btn_Click;
-            //btn.MouseLeave += Btn_MouseLeave;
+            btn.MouseLeave += Btn_MouseLeave;
         }
 
-        //private void Btn_MouseLeave(object sender, MouseEventArgs e) =>
-        //    btn.Background = ;
+        private void Btn_MouseLeave(object sender, MouseEventArgs e)
+        {
+            TableColor = PrimaryColor;
+            if (MouseLeave != null) MouseLeave(this, e);
+        }
 
+        private void LblDetail_MouseLeave(object sender, MouseEventArgs e)
+        {
+            TableColor = PrimaryColor;
+            if (MouseLeave != null) MouseLeave(this, e);
+        }
 
         private void LblDetail_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Btn_Click(sender, e);
+            if (TableClick != null) TableClick(this, e);
         }
 
         private void Btn_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Button has clicked....");
+            if (TableClick != null) TableClick(this,e);
         }
 
         private void Btn_MouseEnter(object sender, MouseEventArgs e)
         {
-            btn.Background = new SolidColorBrush();
+            PrimaryColor = TableColor;
+            TableColor = System.Drawing.Color.Transparent;
+            if (MouseHover != null) MouseHover(this, e);
         }
 
         private void LblDetail_MouseEnter(object sender, MouseEventArgs e)
         {
-            Btn_MouseEnter(sender, e);
+            PrimaryColor = TableColor;
+            TableColor = System.Drawing.Color.Transparent;
+            if(MouseHover != null) MouseHover(this, e);
         }
 
         [Browsable(true)]

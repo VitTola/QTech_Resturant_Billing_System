@@ -4,14 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfCustomControlLibrary"
-             mc:Ignorable="d" Width="245.833" Height="144.834">
-    <Grid Margin="0,0,0,0">
+             mc:Ignorable="d" Width="287.989" Height="202.999">
+    <Grid Margin="28,29">
         <Button x:Name="btn" Margin="0,0,0,0" HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Top"
                 Background="#FF12F326"
                 BorderThickness="10" FontFamily="Khmer Muol" 
                 ForceCursor="True"
-                FontSize="20" Content="Table ៖ Order"
+                FontSize="30" Content="Table ៖ Order"
+                BorderBrush="#1E90FF"
+                Foreground="Blue"
                 >
             <Button.Resources>
                 <Style TargetType="Border">
@@ -19,7 +21,8 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Label x:Name="lblDetail" Content="lblDetail" Margin="10,55,11,10" Width="225"
-               VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center" FontFamily="Kh Siemreap"/>
+        <Label x:Name="lblDetail" Content="lblDetail" Margin="10,45,-3,10" Width="225"
+               VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center" FontFamily="Kh Siemreap"
+               Foreground="Blue"/>
     </Grid>
 </UserControl>
