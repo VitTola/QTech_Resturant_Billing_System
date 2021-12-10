@@ -30,14 +30,14 @@ namespace QTech.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            QTech.Base.BaseModels.Paging paging1 = new QTech.Base.BaseModels.Paging();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            QTech.Base.BaseModels.Paging paging2 = new QTech.Base.BaseModels.Paging();
             this.dgv = new QTech.Component.ExDataGridView();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRow = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +64,8 @@ namespace QTech.Forms
             this.colorWithAlpha3 = new QTech.Component.ColorWithAlpha();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.pagination = new QTech.Component.ExPaging();
+            this.colorWithAlpha4 = new QTech.Component.ColorWithAlpha();
+            this.colorWithAlpha5 = new QTech.Component.ColorWithAlpha();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.graPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -79,19 +81,19 @@ namespace QTech.Forms
             this.dgv.AllowUserToAddRows = false;
             this.dgv.AllowUserToDeleteRows = false;
             this.dgv.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
-            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
+            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(219)))), ((int)(((byte)(247)))));
             this.dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(185)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Khmer OS System", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(185)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Khmer OS System", 8F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgv.ColumnHeadersHeight = 28;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -106,14 +108,14 @@ namespace QTech.Forms
             this.colTotal,
             this.colStatus,
             this.colIsPaid});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Khmer OS System", 8F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(205)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Khmer OS System", 8F);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(205)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv.DefaultCellStyle = dataGridViewCellStyle13;
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.EnableHeadersVisualStyles = false;
             this.dgv.Executing = false;
@@ -124,9 +126,9 @@ namespace QTech.Forms
             this.dgv.Paging = null;
             this.dgv.ReadOnly = true;
             this.dgv.RowHeadersVisible = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(185)))), ((int)(((byte)(240)))));
-            this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(185)))), ((int)(((byte)(240)))));
+            this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.dgv.RowTemplate.Height = 28;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv.Size = new System.Drawing.Size(1091, 505);
@@ -136,8 +138,8 @@ namespace QTech.Forms
             // colId
             // 
             this.colId.DataPropertyName = "Id";
-            dataGridViewCellStyle3.NullValue = null;
-            this.colId.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle10.NullValue = null;
+            this.colId.DefaultCellStyle = dataGridViewCellStyle10;
             this.colId.HeaderText = "Id";
             this.colId.Name = "colId";
             this.colId.ReadOnly = true;
@@ -145,8 +147,8 @@ namespace QTech.Forms
             // 
             // colRow
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colRow.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colRow.DefaultCellStyle = dataGridViewCellStyle11;
             this.colRow.HeaderText = "ល.រ";
             this.colRow.Name = "colRow";
             this.colRow.ReadOnly = true;
@@ -206,8 +208,8 @@ namespace QTech.Forms
             // 
             // colTotal
             // 
-            dataGridViewCellStyle5.NullValue = null;
-            this.colTotal.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle12.NullValue = null;
+            this.colTotal.DefaultCellStyle = dataGridViewCellStyle12;
             this.colTotal.HeaderText = "សរុបទឹកប្រាក់";
             this.colTotal.Name = "colTotal";
             this.colTotal.ReadOnly = true;
@@ -231,10 +233,12 @@ namespace QTech.Forms
             // 
             // graPanel1
             // 
-            this.graPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.graPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
             this.graPanel1.Border = false;
             this.graPanel1.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.graPanel1.Colors.Add(this.colorWithAlpha1);
+            this.graPanel1.Colors.Add(this.colorWithAlpha4);
+            this.graPanel1.Colors.Add(this.colorWithAlpha5);
             this.graPanel1.ContentPadding = new System.Windows.Forms.Padding(0);
             this.graPanel1.Controls.Add(this.flowLayoutPanel2);
             this.graPanel1.Controls.Add(this.flowLayoutPanel1);
@@ -264,7 +268,7 @@ namespace QTech.Forms
             // colorWithAlpha1
             // 
             this.colorWithAlpha1.Alpha = 255;
-            this.colorWithAlpha1.Color = System.Drawing.SystemColors.Control;
+            this.colorWithAlpha1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
             this.colorWithAlpha1.Parent = this.graPanel1;
             // 
             // flowLayoutPanel2
@@ -275,7 +279,7 @@ namespace QTech.Forms
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(810, 35);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(754, 35);
             this.flowLayoutPanel2.TabIndex = 0;
             this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
             // 
@@ -386,7 +390,7 @@ namespace QTech.Forms
             // 
             // flowLayoutPanel3
             // 
-            this.flowLayoutPanel3.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
             this.flowLayoutPanel3.Controls.Add(this.pagination);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 540);
@@ -406,13 +410,25 @@ namespace QTech.Forms
             this.pagination.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pagination.MinimumSize = new System.Drawing.Size(380, 33);
             this.pagination.Name = "pagination";
-            paging1.CurrentPage = 1;
-            paging1.IsPaging = true;
-            paging1.PageSize = 25;
-            this.pagination.Paging = paging1;
+            paging2.CurrentPage = 1;
+            paging2.IsPaging = true;
+            paging2.PageSize = 25;
+            this.pagination.Paging = paging2;
             this.pagination.ShowAllOption = false;
             this.pagination.Size = new System.Drawing.Size(485, 33);
             this.pagination.TabIndex = 0;
+            // 
+            // colorWithAlpha4
+            // 
+            this.colorWithAlpha4.Alpha = 255;
+            this.colorWithAlpha4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
+            this.colorWithAlpha4.Parent = this.graPanel1;
+            // 
+            // colorWithAlpha5
+            // 
+            this.colorWithAlpha5.Alpha = 255;
+            this.colorWithAlpha5.Color = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
+            this.colorWithAlpha5.Parent = this.graPanel1;
             // 
             // SalePage
             // 
@@ -463,5 +479,7 @@ namespace QTech.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colIsPaid;
+        private Component.ColorWithAlpha colorWithAlpha4;
+        private Component.ColorWithAlpha colorWithAlpha5;
     }
 }

@@ -12,10 +12,29 @@ namespace QTech.Component
     {
         public ExButtonLoading()
         {
-            //BackColor = Color.Ivory;
-            //FlatStyle = FlatStyle.Flat;
-            //FlatAppearance.BorderColor = Color.FromArgb(238, 127, 0);
-            //FlatAppearance.BorderColor = Color.Gray;
+            InitializeStyle();
+            this.MouseHover += ExButtonLoading_MouseHover;
+            this.MouseLeave += ExButtonLoading_MouseLeave;
+        }
+
+        private void ExButtonLoading_MouseLeave(object sender, EventArgs e)
+        {
+            ForeColor = Color.White;
+        }
+
+        private void ExButtonLoading_MouseHover(object sender, EventArgs e)
+        {
+            ForeColor = Color.Blue;
+        }
+
+        private void InitializeStyle()
+        {
+            BackColor = Color.DodgerBlue;
+            FlatStyle = FlatStyle.Flat;
+            FlatAppearance.BorderColor = Color.Gray;
+            FlatAppearance.BorderSize = 1;
+            FlatAppearance.MouseOverBackColor = Color.FromArgb(152, 203, 255);
+            ForeColor = Color.White;
         }
         public enum Aligment
         {

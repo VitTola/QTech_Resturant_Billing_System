@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="WpfCustomControlLibrary.WPFFlowLayout"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfCustomControlLibrary"
+             mc:Ignorable="d" Height="87" Width="135">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <WrapPanel x:Name="wrp" Orientation="Horizontal" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
+
+        </WrapPanel>
+    </ScrollViewer>
+    
+
+</UserControl>

@@ -9,11 +9,24 @@ using System.Linq;
 using System.Windows.Forms;
 using EasyServer.Domain.SearchModels;
 using EDomain = EasyServer.Domain;
+using System.Drawing;
 
 namespace QTech.Component
 {
     public partial class ExSearchListCombo : ComboBox
     {
+        public ExSearchListCombo()
+        {
+            InitializeComponent();
+            DropDownStyle = ComboBoxStyle.DropDownList;
+            DrawMode = DrawMode.Normal;
+            SetDefualStyle();
+        }
+        private void SetDefualStyle()
+        {
+            this.FlatStyle = FlatStyle.Popup;
+            BackColor = Color.FromArgb(222, 222, 250);
+        }
         private bool textSearching = false;
         private List<ItemAction> _itemActions = new List<ItemAction>();
         [Browsable(false)]
@@ -160,12 +173,6 @@ namespace QTech.Component
             }; 
         }
 
-        public ExSearchListCombo()
-        {
-            InitializeComponent();
-            DropDownStyle = ComboBoxStyle.DropDownList;
-            DrawMode = DrawMode.Normal;
-        }
          
         public void ShowDropDown()
         {

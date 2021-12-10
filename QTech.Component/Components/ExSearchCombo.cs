@@ -10,12 +10,16 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using EDomain = EasyServer.Domain;
+using System.Drawing;
 
 namespace QTech.Component
 {
     public class DropDownItemModel : ActiveBaseModel
     {
-        public DropDownItemModel() { }
+        public DropDownItemModel() {
+        }
+
+        
 
         public object Id { get; set; }
         public string DisplayText { get; set; }
@@ -25,6 +29,18 @@ namespace QTech.Component
     }
     public partial class ExSearchCombo : ComboBox
     {
+        public ExSearchCombo()
+        {
+            InitializeComponent();
+            DropDownStyle = ComboBoxStyle.DropDownList;
+            DrawMode = DrawMode.Normal;
+            SetDefualStyle();
+        }
+        private void SetDefualStyle()
+        {
+            this.FlatStyle = FlatStyle.Popup;
+            BackColor = Color.FromArgb(222, 222, 250);
+        }
         private bool textSearching = false;
         private List<ItemAction> _itemActions = new List<ItemAction>();
         [Browsable(false)]
@@ -154,13 +170,6 @@ namespace QTech.Component
             }; 
         }
 
-        public ExSearchCombo()
-        {
-            InitializeComponent();
-            DropDownStyle = ComboBoxStyle.DropDownList;
-            DrawMode = DrawMode.Normal;
-        }
-         
         public void ShowDropDown()
         {
             this.HideValidationOnLeave();

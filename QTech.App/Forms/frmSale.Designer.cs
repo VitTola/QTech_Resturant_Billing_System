@@ -53,6 +53,8 @@
             this.exPanel1 = new QTech.Component.Components.ExPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnPrint = new QTech.Component.ExButtonLoading();
+            this.exButtonLoading1 = new QTech.Component.ExButtonLoading();
+            this.exButtonLoading2 = new QTech.Component.ExButtonLoading();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnClose = new QTech.Component.ExButtonLoading();
             this.btnSave = new QTech.Component.ExButtonLoading();
@@ -330,7 +332,7 @@
             // 
             // exPanel1
             // 
-            this.exPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.exPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
             this.exPanel1.Controls.Add(this.flowLayoutPanel3);
             this.exPanel1.Controls.Add(this.flowLayoutPanel2);
             this.exPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -343,6 +345,8 @@
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.Controls.Add(this.btnPrint);
+            this.flowLayoutPanel3.Controls.Add(this.exButtonLoading1);
+            this.flowLayoutPanel3.Controls.Add(this.exButtonLoading2);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(2, 2);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
@@ -351,10 +355,12 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.BackColor = System.Drawing.Color.Ivory;
+            this.btnPrint.BackColor = System.Drawing.Color.Khaki;
             this.btnPrint.DefaultImage = null;
             this.btnPrint.Executing = false;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPrint.Font = new System.Drawing.Font("Khmer OS System", 8F);
+            this.btnPrint.ForeColor = System.Drawing.Color.White;
             this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
             this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPrint.Location = new System.Drawing.Point(2, 3);
@@ -365,8 +371,44 @@
             this.btnPrint.Size = new System.Drawing.Size(89, 27);
             this.btnPrint.TabIndex = 0;
             this.btnPrint.Text = "បោះពុម្ភ";
-            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.UseVisualStyleBackColor = false;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // exButtonLoading1
+            // 
+            this.exButtonLoading1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.exButtonLoading1.DefaultImage = null;
+            this.exButtonLoading1.Executing = false;
+            this.exButtonLoading1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.exButtonLoading1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.exButtonLoading1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exButtonLoading1.ForeColor = System.Drawing.Color.White;
+            this.exButtonLoading1.Location = new System.Drawing.Point(96, 3);
+            this.exButtonLoading1.Name = "exButtonLoading1";
+            this.exButtonLoading1.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
+            this.exButtonLoading1.ShortcutText = null;
+            this.exButtonLoading1.Size = new System.Drawing.Size(75, 23);
+            this.exButtonLoading1.TabIndex = 1;
+            this.exButtonLoading1.Text = "exButtonLoading1";
+            this.exButtonLoading1.UseVisualStyleBackColor = false;
+            // 
+            // exButtonLoading2
+            // 
+            this.exButtonLoading2.BackColor = System.Drawing.Color.DodgerBlue;
+            this.exButtonLoading2.DefaultImage = null;
+            this.exButtonLoading2.Executing = false;
+            this.exButtonLoading2.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.exButtonLoading2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.exButtonLoading2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exButtonLoading2.ForeColor = System.Drawing.Color.White;
+            this.exButtonLoading2.Location = new System.Drawing.Point(177, 3);
+            this.exButtonLoading2.Name = "exButtonLoading2";
+            this.exButtonLoading2.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
+            this.exButtonLoading2.ShortcutText = null;
+            this.exButtonLoading2.Size = new System.Drawing.Size(75, 23);
+            this.exButtonLoading2.TabIndex = 2;
+            this.exButtonLoading2.Text = "exButtonLoading2";
+            this.exButtonLoading2.UseVisualStyleBackColor = false;
             // 
             // flowLayoutPanel2
             // 
@@ -384,6 +426,8 @@
             this.btnClose.BackColor = System.Drawing.Color.Ivory;
             this.btnClose.DefaultImage = null;
             this.btnClose.Executing = false;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Location = new System.Drawing.Point(378, 3);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnClose.Name = "btnClose";
@@ -400,6 +444,8 @@
             this.btnSave.BackColor = System.Drawing.Color.Ivory;
             this.btnSave.DefaultImage = null;
             this.btnSave.Executing = false;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(299, 3);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnSave.Name = "btnSave";
@@ -462,10 +508,12 @@
             // 
             // cboCustomer
             // 
+            this.cboCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
             this.cboCustomer.Choose = "";
             this.cboCustomer.CustomSearchForm = null;
             this.cboCustomer.DataSourceFn = null;
             this.cboCustomer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboCustomer.FormattingEnabled = true;
             this.cboCustomer.IsGirdViewColumn = false;
             this.cboCustomer.LoadAll = true;
@@ -481,10 +529,12 @@
             // 
             // cboSite
             // 
+            this.cboSite.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
             this.cboSite.Choose = "";
             this.cboSite.CustomSearchForm = null;
             this.cboSite.DataSourceFn = null;
             this.cboSite.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSite.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboSite.FormattingEnabled = true;
             this.cboSite.IsGirdViewColumn = false;
             this.cboSite.LoadAll = true;
@@ -536,10 +586,12 @@
             // 
             // cboPurchaseOrderNo
             // 
+            this.cboPurchaseOrderNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
             this.cboPurchaseOrderNo.Choose = "";
             this.cboPurchaseOrderNo.CustomSearchForm = null;
             this.cboPurchaseOrderNo.DataSourceFn = null;
             this.cboPurchaseOrderNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPurchaseOrderNo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboPurchaseOrderNo.FormattingEnabled = true;
             this.cboPurchaseOrderNo.IsGirdViewColumn = false;
             this.cboPurchaseOrderNo.LoadAll = true;
@@ -832,5 +884,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colImportPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotalImportPrice;
         private System.Windows.Forms.CheckBox chkInsertImport;
+        private Component.ExButtonLoading exButtonLoading1;
+        private Component.ExButtonLoading exButtonLoading2;
     }
 }

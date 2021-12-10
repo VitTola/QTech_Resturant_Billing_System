@@ -4,14 +4,20 @@
     xmlns:local="clr-namespace:WpfCustomControlLibrary">
 
 
-    <Style TargetType="{x:Type local:TopBar}">
+
+    <Style TargetType="Button">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type local:TopBar}">
+                <ControlTemplate TargetType="Button">
                     <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="50"
+                            Height="50"
+                            Width="100"
+                            >
                     </Border>
+                    
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
