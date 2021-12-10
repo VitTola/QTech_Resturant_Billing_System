@@ -27,24 +27,18 @@ namespace QTech.Db
             Database.SetInitializer<QTechDbContext>(new MigrateDatabaseToLatestVersion<QTechDbContext, Configuration>());
         }
         public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Site> Sites { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Sale> Sales { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<SaleDetail> SaleDetails { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
-        public virtual DbSet<CustomerPrice> CustomerPrices { get; set; }
         public virtual DbSet<Invoice> Invoices { get; set; }
-        public virtual DbSet<InvoiceDetail> InvoiceDetails { get; set; }
-        public virtual DbSet<SupplierGeneralPaid> SupplierGeneralPaids { get; set; }
-        public virtual DbSet<EmployeeBill> EmployeeBills { get; set; }
         public virtual DbSet<QTech.Base.Models.User> Users { get; set; }
         public virtual DbSet<Permission> Permissions { get; set; }
         public virtual DbSet<UserPermission> UserPermissions { get; set; }
-        public virtual DbSet<POProductPrice> POProductPrices { get; set; }
-        public virtual DbSet<PurchaseOrder> PurchaseOrders { get; set; }
         public virtual DbSet<IncomeExpense> IncomeExpenses { get; set; }
-        public virtual DbSet<AuditTrail> AuditTrails { get; set; }
+        public virtual DbSet<Position> Positions { get; set; }
+        //public virtual DbSet<AuditTrail> AuditTrails { get; set; }
         public virtual DbSet<ApplicationSetting> ApplicationSettings { get; set; }
         
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -60,7 +54,7 @@ namespace QTech.Db
     {
         public static DbConfig config = new DbConfig() {
             DataSource = ".",
-            DataBase = "QTech_SaleDbX",
+            DataBase = "QTech_ResturantDb",
             
         };
 

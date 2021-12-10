@@ -164,29 +164,11 @@
     <Compile Include="Forms\UserPage.Designer.cs">
       <DependentUpon>UserPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmPurchaseOrder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmPurchaseOrder.Designer.cs">
-      <DependentUpon>frmPurchaseOrder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\PurchaseOrderPage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\PurchaseOrderPage.Designer.cs">
-      <DependentUpon>PurchaseOrderPage.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\CategoryPage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\CategoryPage.Designer.cs">
       <DependentUpon>CategoryPage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CreateInvoicePage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CreateInvoicePage.Designer.cs">
-      <DependentUpon>CreateInvoicePage.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmCategory.cs">
       <SubType>Form</SubType>
@@ -194,23 +176,11 @@
     <Compile Include="Forms\frmCategory.Designer.cs">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmCreateInvoice.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmCreateInvoice.Designer.cs">
-      <DependentUpon>frmCreateInvoice.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\ProductPage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ProductPage.Designer.cs">
       <DependentUpon>ProductPage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frmEmployeeBilling.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmEmployeeBilling.Designer.cs">
-      <DependentUpon>frmEmployeeBilling.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ReportViewPage.cs">
       <SubType>Form</SubType>
@@ -229,18 +199,6 @@
     </Compile>
     <Compile Include="Forms\SalePage.Designer.cs">
       <DependentUpon>SalePage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\EmployeeBillingPage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\EmployeeBillingPage.Designer.cs">
-      <DependentUpon>EmployeeBillingPage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\SupplierPage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\SupplierPage.Designer.cs">
-      <DependentUpon>SupplierPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\EmployeePage.cs">
       <SubType>Form</SubType>
@@ -266,12 +224,6 @@
     <Compile Include="Forms\frmProduct.Designer.cs">
       <DependentUpon>frmProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmEmployeePay.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmEmployeePay.Designer.cs">
-      <DependentUpon>frmEmployeePay.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\frmEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -284,12 +236,6 @@
     <Compile Include="Forms\frmCustomer.Designer.cs">
       <DependentUpon>frmCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmMain.designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\LoginDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -298,66 +244,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReportModels\DriverDeliveryDetail.cs" />
-    <Compile Include="ReportModels\EmployeePrepaid.cs" />
-    <Compile Include="ReportModels\QTech.cs">
-      <DependentUpon>QTech.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="ReportModels\QTech.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QTech.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="ReportModels\RepoInvoice.cs" />
-    <Compile Include="ReportModels\RepoInvoiceDetail.cs" />
-    <Compile Include="ReportModels\ReportExtensions.cs" />
-    <Compile Include="Reports\FormPage\ReportInvoiceStatus.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reports\FormPage\ReportInvoiceStatus.Designer.cs">
-      <DependentUpon>ReportInvoiceStatus.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\FormPage\ReportProfitPage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reports\FormPage\ReportProfitPage.Designer.cs">
-      <DependentUpon>ReportProfitPage.cs</DependentUpon>
-    </Compile>
     <Compile Include="Reports\ReportProfit.cs">
       <DependentUpon>ReportProfit.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\FormPage\ReportImcomePage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reports\FormPage\ReportImcomePage.Designer.cs">
-      <DependentUpon>ReportImcomePage.cs</DependentUpon>
-    </Compile>
     <Compile Include="Reports\ReportGeneralInOut.cs">
       <DependentUpon>ReportGeneralInOut.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Reports\FormPage\ReportExpensePage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reports\FormPage\ReportExpensePage.Designer.cs">
-      <DependentUpon>ReportExpensePage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\FormPage\ReportIncomeExpensePage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reports\FormPage\ReportIncomeExpensePage.Designer.cs">
-      <DependentUpon>ReportIncomeExpensePage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\FormPage\ReportDriverDeliveryPage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reports\FormPage\ReportDriverDeliveryPage.Designer.cs">
-      <DependentUpon>ReportDriverDeliveryPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\PrintReportEmployeePrepaid.cs">
       <DependentUpon>PrintReportEmployeePrepaid.rpt</DependentUpon>
@@ -408,9 +305,6 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmIncomeExpense.resx">
-      <DependentUpon>frmIncomeExpense.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\IncomeExpensePage.resx">
       <DependentUpon>IncomeExpensePage.cs</DependentUpon>
     </EmbeddedResource>
@@ -420,29 +314,14 @@
     <EmbeddedResource Include="Forms\UserPage.resx">
       <DependentUpon>UserPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmPurchaseOrder.resx">
-      <DependentUpon>frmPurchaseOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PurchaseOrderPage.resx">
-      <DependentUpon>PurchaseOrderPage.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CategoryPage.resx">
       <DependentUpon>CategoryPage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CreateInvoicePage.resx">
-      <DependentUpon>CreateInvoicePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmCategory.resx">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmCreateInvoice.resx">
-      <DependentUpon>frmCreateInvoice.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProductPage.resx">
       <DependentUpon>ProductPage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmEmployeeBilling.resx">
-      <DependentUpon>frmEmployeeBilling.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ReportViewPage.resx">
       <DependentUpon>ReportViewPage.cs</DependentUpon>
@@ -452,12 +331,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SalePage.resx">
       <DependentUpon>SalePage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EmployeeBillingPage.resx">
-      <DependentUpon>EmployeeBillingPage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SupplierPage.resx">
-      <DependentUpon>SupplierPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EmployeePage.resx">
       <DependentUpon>EmployeePage.cs</DependentUpon>
@@ -471,23 +344,11 @@
     <EmbeddedResource Include="Forms\frmProduct.resx">
       <DependentUpon>frmProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmEmployeePay.resx">
-      <DependentUpon>frmEmployeePay.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmEmployee.resx">
       <DependentUpon>frmEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmCustomer.resx">
       <DependentUpon>frmCustomer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmMain.aa-DJ.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmMain.aa.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginDialog.resx">
       <DependentUpon>LoginDialog.cs</DependentUpon>
@@ -502,31 +363,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reports\FormPage\ReportInvoiceStatus.resx">
-      <DependentUpon>ReportInvoiceStatus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\FormPage\ReportProfitPage.resx">
-      <DependentUpon>ReportProfitPage.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportProfit.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportProfit.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\FormPage\ReportImcomePage.resx">
-      <DependentUpon>ReportImcomePage.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportGeneralInOut.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportGeneralInOut.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\FormPage\ReportExpensePage.resx">
-      <DependentUpon>ReportExpensePage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\FormPage\ReportIncomeExpensePage.resx">
-      <DependentUpon>ReportIncomeExpensePage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\FormPage\ReportDriverDeliveryPage.resx">
-      <DependentUpon>ReportDriverDeliveryPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\PrintReportEmployeePrepaid.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -597,17 +440,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ReportModels\QTech.xsc">
-      <DependentUpon>QTech.xsd</DependentUpon>
-    </None>
-    <None Include="ReportModels\QTech.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QTech.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="ReportModels\QTech.xss">
-      <DependentUpon>QTech.xsd</DependentUpon>
-    </None>
     <None Include="Resources\calendar.png" />
   </ItemGroup>
   <ItemGroup>
@@ -680,7 +512,10 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ReportModels\" />
+    <Folder Include="Reports\FormPage\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

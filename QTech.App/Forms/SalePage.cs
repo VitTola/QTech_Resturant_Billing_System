@@ -144,8 +144,6 @@ namespace QTech.Forms
         {
             dgv.Rows.Clear();
             List<Customer> _Customers = null;
-            List<Site> _Sites = null;
-            List<PurchaseOrder> purchaseOrders = null;
             var _payStatus = (PayStatus)cboPayStatus.SelectedValue;
             var _importPrice = (ImportPrice)cboImport.SelectedValue;
             var search = new SaleSearch()
@@ -159,11 +157,6 @@ namespace QTech.Forms
             pagination.ListModel = await dgv.RunAsync(() =>
              {
                  var _result = SaleLogic.Instance.SearchAsync(search);
-                 var CusIds = _result.Select(x => x.CompanyId).ToList();
-                 var SitesIds = _result.Select(x => x.SiteId).ToList();
-                 _Customers = CustomerLogic.Instance.GetCustomersById(CusIds);
-                 _Sites = SiteLogic.Instance.GetSiteByIds(SitesIds);
-                 purchaseOrders = PurchaseOrderLogic.Instance.SearchAsync(new PurchaseOrderSearch());
 
                  return _result;
              });
@@ -176,10 +169,7 @@ namespace QTech.Forms
             {
                 var row = newRow(false);
                 row.Cells[colId.Name].Value = x.Id;
-                row.Cells[colPurchaseOrderNo.Name].Value = purchaseOrders.FirstOrDefault(p => p.Id == x.PurchaseOrderId)?.Name ?? "";
                 row.Cells[colInvoiceNo.Name].Value = x.InvoiceNo;
-                row.Cells[colToCompany.Name].Value = _Customers?.FirstOrDefault(cus => cus.Id == x.CompanyId)?.Name ?? x.CustomerName;
-                row.Cells[colToSite.Name].Value = _Sites?.FirstOrDefault(s => s.Id == x.SiteId)?.Name;
                 row.Cells[colTotal.Name].Value = x.Total;
                 row.Cells[colSaleDate.Name].Value = x.SaleDate.ToString("dd-MMM-yyyy hh:mm");
                 row.Cells[colIsPaid.Name].Value = x.PayStatus;

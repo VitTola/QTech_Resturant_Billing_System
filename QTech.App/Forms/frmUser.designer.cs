@@ -46,6 +46,7 @@
             this.txtNote = new System.Windows.Forms.TextBox();
             this.exLabel1 = new QTech.Component.ExLabel();
             this.txtConfirmPassword = new System.Windows.Forms.TextBox();
+            this.exLabel2 = new QTech.Component.ExLabel();
             this.container.SuspendLayout();
             this.grbPermission.SuspendLayout();
             this.exPanel.SuspendLayout();
@@ -54,7 +55,7 @@
             // 
             // container
             // 
-            this.container.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.container.Controls.Add(this.exLabel2);
             this.container.Controls.Add(this.txtConfirmPassword);
             this.container.Controls.Add(this.exLabel1);
             this.container.Controls.Add(this.lblNote);
@@ -67,15 +68,14 @@
             this.container.Controls.Add(this._lblPassword);
             this.container.Controls.Add(this.txtPassword);
             this.container.Controls.Add(this.txtAccount);
-            this.container.Dock = System.Windows.Forms.DockStyle.None;
             this.container.Margin = new System.Windows.Forms.Padding(2);
-            this.container.Size = new System.Drawing.Size(920, 600);
+            this.container.Size = new System.Drawing.Size(732, 600);
             this.container.Text = "container";
             // 
             // txtAccount
             // 
             this.txtAccount.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtAccount.Location = new System.Drawing.Point(129, 27);
+            this.txtAccount.Location = new System.Drawing.Point(154, 21);
             this.txtAccount.Margin = new System.Windows.Forms.Padding(2);
             this.txtAccount.MaxLength = 200;
             this.txtAccount.Name = "txtAccount";
@@ -85,7 +85,7 @@
             // _lblAccount
             // 
             this._lblAccount.AutoSize = true;
-            this._lblAccount.Location = new System.Drawing.Point(20, 31);
+            this._lblAccount.Location = new System.Drawing.Point(36, 25);
             this._lblAccount.Margin = new System.Windows.Forms.Padding(2);
             this._lblAccount.Name = "_lblAccount";
             this._lblAccount.Required = true;
@@ -96,8 +96,8 @@
             // _lblPassword
             // 
             this._lblPassword.AutoSize = true;
-            this._lblPassword.BackColor = System.Drawing.SystemColors.Control;
-            this._lblPassword.Location = new System.Drawing.Point(20, 61);
+            this._lblPassword.BackColor = System.Drawing.Color.Transparent;
+            this._lblPassword.Location = new System.Drawing.Point(36, 56);
             this._lblPassword.Margin = new System.Windows.Forms.Padding(2);
             this._lblPassword.Name = "_lblPassword";
             this._lblPassword.Required = true;
@@ -108,7 +108,7 @@
             // txtPassword
             // 
             this.txtPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPassword.Location = new System.Drawing.Point(129, 58);
+            this.txtPassword.Location = new System.Drawing.Point(154, 52);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.MaxLength = 1000;
             this.txtPassword.Multiline = true;
@@ -123,17 +123,17 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grbPermission.Controls.Add(this.trvPermission);
-            this.grbPermission.Location = new System.Drawing.Point(21, 120);
+            this.grbPermission.Location = new System.Drawing.Point(40, 126);
             this.grbPermission.Margin = new System.Windows.Forms.Padding(2);
             this.grbPermission.Name = "grbPermission";
-            this.grbPermission.Size = new System.Drawing.Size(878, 427);
+            this.grbPermission.Size = new System.Drawing.Size(655, 404);
             this.grbPermission.TabIndex = 7;
             this.grbPermission.TabStop = false;
             this.grbPermission.Text = "សិទ្ធិប្រើប្រាស់";
             // 
             // trvPermission
             // 
-            this.trvPermission.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(237)))));
+            this.trvPermission.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(219)))), ((int)(((byte)(247)))));
             this.trvPermission.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.trvPermission.CheckBoxes = true;
             this.trvPermission.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -141,7 +141,7 @@
             this.trvPermission.Margin = new System.Windows.Forms.Padding(2);
             this.trvPermission.Name = "trvPermission";
             this.trvPermission.PreventCheckEvent = false;
-            this.trvPermission.Size = new System.Drawing.Size(872, 401);
+            this.trvPermission.Size = new System.Drawing.Size(649, 378);
             this.trvPermission.TabIndex = 0;
             this.trvPermission.BeforeCheck += new System.Windows.Forms.TreeViewCancelEventHandler(this.trvPermission_BeforeCheck);
             // 
@@ -154,7 +154,7 @@
             this.exPanel.Location = new System.Drawing.Point(1, 563);
             this.exPanel.Name = "exPanel";
             this.exPanel.Padding = new System.Windows.Forms.Padding(2);
-            this.exPanel.Size = new System.Drawing.Size(918, 36);
+            this.exPanel.Size = new System.Drawing.Size(730, 36);
             this.exPanel.TabIndex = 41;
             // 
             // flowLayoutPanel3
@@ -165,16 +165,19 @@
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(138, 2);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(778, 32);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(590, 32);
             this.flowLayoutPanel3.TabIndex = 0;
             // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnClose.DefaultImage = null;
             this.btnClose.Executing = false;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Khmer OS System", 8F);
-            this.btnClose.Location = new System.Drawing.Point(701, 3);
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Location = new System.Drawing.Point(513, 3);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
@@ -188,10 +191,13 @@
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnSave.DefaultImage = null;
             this.btnSave.Executing = false;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Khmer OS System", 8F);
-            this.btnSave.Location = new System.Drawing.Point(622, 3);
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(434, 3);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
@@ -213,7 +219,7 @@
             // _lblUserName
             // 
             this._lblUserName.AutoSize = true;
-            this._lblUserName.Location = new System.Drawing.Point(584, 31);
+            this._lblUserName.Location = new System.Drawing.Point(388, 25);
             this._lblUserName.Margin = new System.Windows.Forms.Padding(2);
             this._lblUserName.Name = "_lblUserName";
             this._lblUserName.Required = true;
@@ -224,7 +230,7 @@
             // txtUserName
             // 
             this.txtUserName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtUserName.Location = new System.Drawing.Point(699, 27);
+            this.txtUserName.Location = new System.Drawing.Point(495, 21);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(2);
             this.txtUserName.MaxLength = 200;
             this.txtUserName.Name = "txtUserName";
@@ -234,7 +240,7 @@
             // lblNote
             // 
             this.lblNote.AutoSize = true;
-            this.lblNote.Location = new System.Drawing.Point(584, 61);
+            this.lblNote.Location = new System.Drawing.Point(388, 56);
             this.lblNote.Margin = new System.Windows.Forms.Padding(2);
             this.lblNote.Name = "lblNote";
             this.lblNote.Required = false;
@@ -245,7 +251,7 @@
             // txtNote
             // 
             this.txtNote.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNote.Location = new System.Drawing.Point(699, 57);
+            this.txtNote.Location = new System.Drawing.Point(495, 51);
             this.txtNote.Margin = new System.Windows.Forms.Padding(2);
             this.txtNote.MaxLength = 200;
             this.txtNote.Multiline = true;
@@ -256,8 +262,8 @@
             // exLabel1
             // 
             this.exLabel1.AutoSize = true;
-            this.exLabel1.BackColor = System.Drawing.SystemColors.Control;
-            this.exLabel1.Location = new System.Drawing.Point(20, 92);
+            this.exLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.exLabel1.Location = new System.Drawing.Point(158, 86);
             this.exLabel1.Margin = new System.Windows.Forms.Padding(2);
             this.exLabel1.Name = "exLabel1";
             this.exLabel1.Required = true;
@@ -268,7 +274,7 @@
             // txtConfirmPassword
             // 
             this.txtConfirmPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtConfirmPassword.Location = new System.Drawing.Point(129, 89);
+            this.txtConfirmPassword.Location = new System.Drawing.Point(154, 83);
             this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtConfirmPassword.MaxLength = 1000;
             this.txtConfirmPassword.Multiline = true;
@@ -277,11 +283,23 @@
             this.txtConfirmPassword.Size = new System.Drawing.Size(200, 27);
             this.txtConfirmPassword.TabIndex = 2;
             // 
+            // exLabel2
+            // 
+            this.exLabel2.AutoSize = true;
+            this.exLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.exLabel2.Location = new System.Drawing.Point(36, 86);
+            this.exLabel2.Margin = new System.Windows.Forms.Padding(2);
+            this.exLabel2.Name = "exLabel2";
+            this.exLabel2.Required = true;
+            this.exLabel2.Size = new System.Drawing.Size(101, 19);
+            this.exLabel2.TabIndex = 48;
+            this.exLabel2.Text = "បញ្ជាក់លេខសំងាត់";
+            // 
             // frmUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(920, 620);
+            this.ClientSize = new System.Drawing.Size(732, 620);
             this.Font = new System.Drawing.Font("Khmer OS System", 8.25F);
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "frmUser";
@@ -313,5 +331,6 @@
         private System.Windows.Forms.TextBox txtNote;
         private Component.ExLabel exLabel1;
         private System.Windows.Forms.TextBox txtConfirmPassword;
+        private Component.ExLabel exLabel2;
     }
 }

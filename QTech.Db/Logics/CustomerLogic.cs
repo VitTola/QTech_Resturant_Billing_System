@@ -20,15 +20,6 @@ namespace QTech.Db.Logics
         public override Customer AddAsync(Customer entity)
         {
             var Customer = base.AddAsync(entity);
-            var sites = entity.Sites;
-            if (sites.Any())
-            {
-                foreach (var s in sites)
-                {
-                    s.CustomerId = Customer.Id;
-                    SiteLogic.Instance.AddAsync(s);
-                }
-            }
             return entity;
         }
         public override Customer FindAsync(int id)
@@ -38,30 +29,11 @@ namespace QTech.Db.Logics
         }
         public override bool CanRemoveAsync(Customer entity)
         {
-            if (_db.Sales.Any(x=>x.Active && x.CompanyId == entity.Id))
-            {
-                return false;
-            }
-            else if (_db.CustomerPrices.Any(x=>x.Active && x.CustomerId ==entity.Id))
-            {
-                return false;
-            }
             return true;
         }
         public override List<Customer> SearchAsync(ISearchModel model)
         {
             var result = Search(model).ToList();
-            if (result.Any())
-            {
-                foreach (var cus in result)
-                {
-                    var sites = SiteLogic.Instance.SearchAsync(cus.Id);
-                    if (sites.Any())
-                    {
-                        cus.Sites = sites;
-                    }
-                }
-            }
             return result;
         }
         public override IQueryable<Customer> Search(ISearchModel model)
@@ -78,50 +50,10 @@ namespace QTech.Db.Logics
         }
         public override Customer UpdateAsync(Customer entity)
         {
-            var Customer = base.UpdateAsync(entity);
-            var sites = entity.Sites;
-            UpdateSite(sites, Customer);
-            AddOrUpdateCustomerPrice(entity.CustomerPrices);
+            base.UpdateAsync(entity);
             return entity;
         }
-        private void UpdateSite(List<Site> sites,Customer customer)
-        {
-            if (sites.Any())
-            {
-                foreach (var s in sites)
-                {
-                    var isExist = SiteLogic.Instance.IsExistsAsync(s);
-                    if (isExist)
-                    {
-                        SiteLogic.Instance.UpdateAsync(s);
-                    }
-                    else
-                    {
-                        s.CustomerId = customer.Id;
-                        SiteLogic.Instance.AddAsync(s);
-                    }
-                }
-            }
-        }
-        private void AddOrUpdateCustomerPrice(List<CustomerPrice> customerPrices)
-        {
-            if (!customerPrices.Any())
-            {
-                return;
-            }
-            customerPrices.ForEach(x =>
-            {
-                bool isExist = CustomerPriceLogic.Instance.IsExistsAsync(x);
-                if (isExist)
-                {
-                    CustomerPriceLogic.Instance.AddAsync(x);
-                }
-                else
-                {
-                    CustomerPriceLogic.Instance.AddAsync(x);
-                }
-            });
-        }
+       
         public List<Customer> GetCustomersById(List<int> Ids)
         {
             var customers = _db.Customers.Where(cus => cus.Active && Ids.Any(id => id == cus.Id));

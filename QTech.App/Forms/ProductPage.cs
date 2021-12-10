@@ -121,7 +121,6 @@ namespace QTech.Forms
                     row.Cells[colId.Name].Value = x.Id;
                     row.Cells[colName.Name].Value = x.Name;
                     row.Cells[colCategory_.Name].Value = categories?.FirstOrDefault(c=>c.Id == x.CategoryId)?.Name ??string.Empty;
-                    row.Cells[colImportPrice.Name].Value = x.ImportPrice;
                     row.Cells[colUnitPrice.Name].Value = x.UnitPrice;
                     row.Cells[colNote.Name].Value = x.Note;
                 });

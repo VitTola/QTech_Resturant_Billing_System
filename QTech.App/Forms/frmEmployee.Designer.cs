@@ -395,7 +395,6 @@
             this.lblRemove.TabIndex = 0;
             this.lblRemove.TabStop = true;
             this.lblRemove.Text = "លុប";
-            this.lblRemove.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblRemove_LinkClicked);
             // 
             // dgv
             // 

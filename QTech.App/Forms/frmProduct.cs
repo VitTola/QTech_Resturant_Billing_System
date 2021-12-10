@@ -70,7 +70,6 @@ namespace QTech.Forms
             txtName.Text = Model.Name;
             txtNote.Text = Model.Note;
             txtUnitPrice.Text = Model.UnitPrice.ToString();
-            txtImportPrice.Text = Model.ImportPrice.ToString();
 
             var _result = await this.RunAsync(() =>
             {
@@ -130,7 +129,6 @@ namespace QTech.Forms
             Model.Name = txtName.Text;
             Model.Note = txtNote.Text;
             Model.UnitPrice = decimal.Parse(txtUnitPrice.Text);
-            Model.ImportPrice = decimal.Parse(txtImportPrice.Text);
             var selectedCat = cboCategory.SelectedObject.ItemObject as Category;
             Model.CategoryId = selectedCat.Id;
         }

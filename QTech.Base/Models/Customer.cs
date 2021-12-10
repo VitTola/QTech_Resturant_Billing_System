@@ -14,16 +14,6 @@ namespace QTech.Base
         public string Name { get; set; }
         public string Phone { get; set; }
         public string Note { get; set; }
-        public List<Site> Sites{ get; set; }
-        public List<CustomerPrice> CustomerPrices { get; set; }
     }
 
-    public class Site : ActiveBaseModel
-    {
-        public string Code { get; set; }
-        public string Name { get; set; }
-        public string Phone { get; set; }
-        public string Note { get; set; }
-        public int CustomerId { get; set; }
-    }
 }

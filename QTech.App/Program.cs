@@ -27,8 +27,8 @@ namespace QTech
             DataBaseSetting.ReadSetting();
 
             //Application.Run(new MainForm());
-            //Application.Run(new LoginDialog());
-            Application.Run(new Form1());
+            Application.Run(new LoginDialog());
+            //Application.Run(new Form1());
 
             //ExWindow form = new ExWindow();
             //WindowInteropHelper wih = new WindowInteropHelper(this);

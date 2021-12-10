@@ -45,13 +45,9 @@ namespace QTech.Forms
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgv.ColumnHeadersHeight = 25;
             dgv.BackgroundColor = System.Drawing.Color.White;
-            dgv.ShowLines = false;
             dgv.AllowUserToResizeColumns = false;
             dgv.SetColumnHeaderDefaultStyle();
 
-            dgv.KeyDown += dgv_KeyDown;
-            dgv.NodeExpanded += Dgv_NodeExpanded;
-            dgv.NodeCollapsed += Dgv_NodeCollapsed;
             txtSearch.RegisterEnglishInput();
             txtSearch.RegisterKeyArrowDown(dgv);
             txtSearch.QuickSearch += txtSearch_QuickSearch;
@@ -73,42 +69,6 @@ namespace QTech.Forms
 
             }
             isNodeCollapsed = true;
-        }
-
-        private async void Dgv_NodeExpanded(object sender, ExpandedEventArgs e)
-        {
-            if (e.Node.Tag is Customer parent)
-            {
-                //In case top level node is expanded manually
-                if (parent.Id == int.Parse(BaseResource.TopLevelNodeId))
-                {
-                    return;
-                }
-
-                e.Node.Nodes.Clear();
-                var search = new SiteSearch() { CustomerId = parent.Id };
-                var sites = await dgv.RunAsync(() => SiteLogic.Instance.SearchAsync(search));
-
-                if (sites.Any())
-                {
-                    var dummy = e.Node.Nodes.Add();
-                    dummy.Visible = false;
-                    AddChildNode(e.Node, sites, parent);
-                    return;
-                }
-            }
-        }
-
-        private void dgv_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Right)
-            {
-                dgv.CurrentNode?.Expand();
-            }
-            else if (e.KeyCode == Keys.Left)
-            {
-                dgv.CurrentNode?.Collapse();
-            }
         }
 
         private void RefreshAfterOperation(Customer model)
@@ -209,71 +169,7 @@ namespace QTech.Forms
             var result = await dgv.RunAsync(() => CustomerLogic.Instance.SearchAsync(search));
             if (result != null)
             {
-                TreeGridFillData(result);
             }
-        }
-
-        int row = 1;
-        private void TreeGridFillData(List<Customer> customers)
-        {
-            row = 1;
-            if (customers == null)
-            {
-                return;
-            }
-
-            dgv.Nodes.Clear();
-            foreach (var parent in customers.OrderByDescending(x => x.RowDate))
-            {
-                var _treeGridNode = AddParentNode(dgv, parent);
-
-                if (parent.Sites != null && parent.Sites.Any())
-                {
-                    AddChildNode(_treeGridNode, parent.Sites, parent);
-                    dgv.NodeExpanded -= Dgv_NodeExpanded;
-                    dgv.NodeExpanded += Dgv_NodeExpanded;
-                }
-
-                var dummy = _treeGridNode.Nodes.Add();
-                dummy.Visible = false;
-            }
-        }
-        private void AddChildNode(TreeGridNode TreeGridNode, IEnumerable<Site> children, Customer parent)
-        {
-            foreach (var child in children)
-            {
-                var node = TreeGridNode.Nodes.Add();
-                var font = dgv.DefaultCellStyle.Font;
-                node.Height = dgv.RowTemplate.Height;
-                node.Tag = child;
-                node.Height = dgv.RowTemplate.Height;
-                node.Image = imageList1.Images[nameof(Properties.Resources.Site_img)];
-                node.Cells[dgv.Columns[colName.Name].Index].Value = child.Name;
-                node.Cells[dgv.Columns[colPhone.Name].Index].Value = child.Phone;
-                node.Cells[dgv.Columns[colNote.Name].Index].Value = child.Note;
-                node.Cells[dgv.Columns[colId.Name].Index].Value = child.Id;
-                node.Cells[dgv.Columns[colParentId.Name].Index].Value = child.CustomerId;
-            }
-        }
-
-        private TreeGridNode AddParentNode(dynamic parentNode, Customer customer)
-        {
-            //dgv.Columns[colName.Name].DisplayIndex = 0;
-            var node = parentNode.Nodes.Add();
-            //dgv.Columns[colName.Name].DisplayIndex = 1;
-            node.Height = dgv.RowTemplate.Height;
-            node.Tag = customer;
-
-            node.Image = imageList1.Images[nameof(Properties.Resources.Customer_img)];
-            node.Cells[dgv.Columns[colName.Name].Index].Value = customer?.Name;
-            node.Cells[dgv.Columns[colPhone.Name].Index].Value = customer?.Phone;
-            node.Cells[dgv.Columns[colNote.Name].Index].Value = customer.Note;
-            node.Cells[dgv.Columns[colId.Name].Index].Value = customer.Id;
-            node.Cells[dgv.Columns[colParentId.Name].Index].Value = customer.Id;
-            node.Cells[dgv.Columns[colRow.Name].Index].Value = row++;
-            var dummy = node.Nodes.Add();
-            dummy.Visible = false;
-            return node;
         }
 
         public async void View()

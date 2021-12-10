@@ -80,28 +80,7 @@ namespace QTech.Forms
 
         private async void TabMain_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabMain.SelectedTab.Equals(tabGeneralTotal))
-            {
-                dgv.Rows.Clear();
-                var search = new SupplierGeneralPaidSearch() { EmployeeId = Model.Id };
-                var SupplierGeneralPaids = await dgv.RunAsync(() =>
-                {
-                    var result = SupplierGeneralPaidLogic.Instance.SearchAsync(search);
-                    return result;
-                });
-                if (SupplierGeneralPaids == null)
-                {
-                    return;
-                }
-                SupplierGeneralPaids.ForEach(x=>
-                {
-                    var row = newRow(false);
-                    row.Cells[colId.Name].Value = x.Id;
-                    row.Cells[colDoDate.Name].Value = x.DoDate;
-                    row.Cells[colAmount.Name].Value = x.Amount;
-                    row.Cells[colNote.Name].Value = x.Note;
-                });
-            }
+            
         }
         private DataGridViewRow newRow(bool isFocus = false)
         {
@@ -133,7 +112,6 @@ namespace QTech.Forms
             txtName.Text = Model.Name;
             txtPhone.Text = Model.Phone;
             txtNote.Text = Model.Note;
-            cboPosition.SelectedIndex = cboPosition.FindString(Model.Position);
         }
         public async void Save()
         {
@@ -184,22 +162,7 @@ namespace QTech.Forms
             Model.Name = txtName.Text;
             Model.Note = txtNote.Text;
             Model.Phone = txtPhone.Text;
-            Model.Position = cboPosition.Text;
-
-            if (!string.IsNullOrEmpty(txtPayAmount.Text))
-            {
-                if (Model.SupplierGeneralPaids == null)
-                {
-                    Model.SupplierGeneralPaids = new List<SupplierGeneralPaid>();
-                }
-                Model.SupplierGeneralPaids.Add(
-                    new SupplierGeneralPaid()
-                    {
-                        DoDate = dtpDoDate.Value,
-                        Amount = decimal.Parse(txtPayAmount.Text),
-                        Note = txtPayNote.Text
-                    });
-            }
+            
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -210,36 +173,6 @@ namespace QTech.Forms
             this.Close();
         }
 
-        private void lblRemove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            var result = MsgBox.ShowQuestion(BaseResource.MsgConfirmingRemoveSupplierPaid,
-                GeneralProcess.Remove.GetTextDialog(""));
-            if (result == DialogResult.Yes)
-            {
-                if (dgv.SelectedRows.Count == 0 || dgv.SelectedRows[0] == null)
-                {
-                    return;
-                }
-                
-                var row = dgv.SelectedRows[0];
-                var idValue = row.Cells[colId.Name].Value;
-                if (idValue != null)
-                {
-                    if (Model.SupplierGeneralPaids == null)
-                    {
-                        Model.SupplierGeneralPaids = new List<SupplierGeneralPaid>();
-                    }
-                    Model.SupplierGeneralPaids.Add(new SupplierGeneralPaid() {
-                        Id = (int)idValue,
-                        DoDate = Convert.ToDateTime(row.Cells[colDoDate.Name].Value.ToString()),
-                        Amount = decimal.Parse(row.Cells[colAmount.Name].Value.ToString()),
-                        Note = row.Cells[colNote.Name].Value.ToString()
-                    });
-                    dgv.Rows.Remove(row);
-                    return;
-                }
-            }
-        }
         private void btnPrint_Click(object sender, EventArgs e)
         {
             if (Flag != GeneralProcess.Add)
@@ -247,7 +180,6 @@ namespace QTech.Forms
                 var empyeeId = Model.Id;
                 if (empyeeId != 0)
                 {
-                    btnPrint.PrintReportEmployeePrepaid(empyeeId, 0, true);
                 }
             }
         }

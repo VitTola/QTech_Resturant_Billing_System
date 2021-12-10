@@ -25,44 +25,16 @@ namespace QTech.Db.Logics
         }
         public override Employee UpdateAsync(Employee entity)
         {
-            var employee = base.UpdateAsync(entity);
-            if (entity.SupplierGeneralPaids?.Any() ?? false)
-            {
-                employee.SupplierGeneralPaids.ForEach(x=>
-                {
-                    if (x.Id == 0)
-                    {
-                        x.EmployeeId = employee.Id;
-                        SupplierGeneralPaidLogic.Instance.AddAsync(x);
-                    }
-                    else
-                    {
-                        SupplierGeneralPaidLogic.Instance.RemoveAsync(x);
-                    }
-                });
-            }
-
+            base.UpdateAsync(entity);
             return entity;
         }
         public override Employee RemoveAsync(Employee entity)
         {
             var employee = base.RemoveAsync(entity);
-            if (entity.SupplierGeneralPaids?.Any() ?? false)
-            {
-                entity.SupplierGeneralPaids.ForEach(x => SupplierGeneralPaidLogic.Instance.RemoveAsync(x));
-            }
             return employee;
         }
         public override bool CanRemoveAsync(Employee entity)
         {
-            if (!All().Any(x => x.Active && x.Id == entity.Id))
-            {
-                return false;
-            }
-            else if(_db.SaleDetails.Any(x=>x.EmployeeId == entity.Id))
-            {
-                return false;
-            }
             return true;
         }
         public override List<Employee> SearchAsync(ISearchModel model)
@@ -79,10 +51,6 @@ namespace QTech.Db.Logics
                 q = q.Where(x => x.Name.ToLower().Contains(param.Search.ToLower()));
             }
             return q;
-        }
-        public override bool CanRemoveAsync(int id)
-        {
-            return _db.EmployeeBills.Any(x=>x.Id == id && x.InvoiceStatus == InvoiceStatus.WaitPayment);
         }
         public List<Employee> GetEmployeesByIds(List<int>ids)
         {

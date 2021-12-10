@@ -161,18 +161,13 @@
     <Compile Include="Models\ApplicationSetting.cs" />
     <Compile Include="Models\AuditTrail.cs" />
     <Compile Include="Models\IncomeExpense.cs" />
-    <Compile Include="Models\PurchaseOrder.cs" />
-    <Compile Include="Models\EmployeeBill.cs" />
-    <Compile Include="Models\SupplierGeneralPaid.cs" />
     <Compile Include="Models\Invoice.cs" />
-    <Compile Include="Models\CustomerPrice.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DbConfig.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Sale.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserPermission.cs" />
     <Compile Include="Models\Version.cs" />
     <Compile Include="OutFaceModels\DriverDeliveryDetail.cs" />
@@ -212,23 +207,18 @@
     <Compile Include="SearchModels\ProfitSearch.cs" />
     <Compile Include="SearchModels\IncomExpenseSearch.cs" />
     <Compile Include="SearchModels\ReportExpenseSearch.cs" />
-    <Compile Include="SearchModels\ReportIncomeSearch.cs" />
-    <Compile Include="SearchModels\ReportIncomeExpenseSearch.cs" />
     <Compile Include="SearchModels\UserPermissionSearch.cs" />
     <Compile Include="SearchModels\UserSearch.cs" />
     <Compile Include="SearchModels\PermissionSearch.cs" />
-    <Compile Include="SearchModels\EmployeeBillSearch.cs" />
     <Compile Include="SearchModels\PurchaseOrderSearch.cs" />
     <Compile Include="SearchModels\SupplierGeneralPaidSearch.cs" />
     <Compile Include="SearchModels\ProductSearch.cs" />
     <Compile Include="SearchModels\CategorySearch.cs" />
     <Compile Include="SearchModels\CustomerSearch.cs" />
     <Compile Include="SearchModels\EmployeeSearch.cs" />
-    <Compile Include="SearchModels\ReportDriverDeliverySearch.cs" />
     <Compile Include="SearchModels\SaleDetailSearch.cs" />
     <Compile Include="SearchModels\InvoiceSearch.cs" />
     <Compile Include="SearchModels\SaleSearch.cs" />
-    <Compile Include="SearchModels\SiteSearch.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
