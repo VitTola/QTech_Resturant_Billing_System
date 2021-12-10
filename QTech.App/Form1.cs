@@ -23,8 +23,9 @@ namespace QTech
             InitializeComponent();
             InitEvent();
 
-
+            
         }
+
         private void InitEvent()
         {
             this.SizeChanged += Form1_Resize;
@@ -41,6 +42,14 @@ namespace QTech
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Table table = new Table()
+            {
+                TableName = "តុលេខ១",
+                TableColor = Color.Red,
+                Detail = "មិនទាន់មាន"
+            };
+            fl.AddChildren(table);
+
         }
 
 

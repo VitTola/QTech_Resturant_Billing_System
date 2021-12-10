@@ -23,16 +23,22 @@ namespace WpfCustomControlLibrary
         public WPFFlowLayout()
         {
             InitializeComponent();
-            this.Loaded += WPFFlowLayout_Loaded;
         }
 
         private void WPFFlowLayout_Loaded(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < 100; i++)
+        }
+        public void AddChildren(List<Table> tables)
+        {
+            foreach (Table table in tables)
             {
-                wrp.Children.Add(new Table() /*{Width =100, Height=70, Content = "Table "+i}*/);
-
+                wrp.Children.Add(table);
             }
+        }
+        public void AddChildren(Table table)
+        {
+            wrp.Children.Add(table);
+
         }
     }
 }

@@ -19,7 +19,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Label Content="lblDetail" Margin="10,55,11,10" Width="225"
+        <Label x:Name="lblDetail" Content="lblDetail" Margin="10,55,11,10" Width="225"
                VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center" FontFamily="Kh Siemreap"/>
     </Grid>
 </UserControl>

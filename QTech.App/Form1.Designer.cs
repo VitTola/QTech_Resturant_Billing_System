@@ -33,7 +33,7 @@ namespace QTech
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.wpfFlowLayout1 = new WpfCustomControlLibrary.WPFFlowLayout();
             this.elementHost2 = new System.Windows.Forms.Integration.ElementHost();
-            this.wpfFlowLayout2 = new WpfCustomControlLibrary.WPFFlowLayout();
+            this.fl = new WpfCustomControlLibrary.WPFFlowLayout();
             this.SuspendLayout();
             // 
             // elementHost1
@@ -54,7 +54,7 @@ namespace QTech
             this.elementHost2.Size = new System.Drawing.Size(922, 579);
             this.elementHost2.TabIndex = 1;
             this.elementHost2.Text = "elementHost2";
-            this.elementHost2.Child = this.wpfFlowLayout2;
+            this.elementHost2.Child = this.fl;
             // 
             // Form1
             // 
@@ -77,6 +77,6 @@ namespace QTech
         private System.Windows.Forms.Integration.ElementHost elementHost1;
         private WpfCustomControlLibrary.WPFFlowLayout wpfFlowLayout1;
         private System.Windows.Forms.Integration.ElementHost elementHost2;
-        private WpfCustomControlLibrary.WPFFlowLayout wpfFlowLayout2;
+        private WpfCustomControlLibrary.WPFFlowLayout fl;
     }
 }

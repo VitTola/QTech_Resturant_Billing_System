@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Drawing;
+
 
 namespace WpfCustomControlLibrary
 {
@@ -24,7 +26,43 @@ namespace WpfCustomControlLibrary
         public Table()
         {
             InitializeComponent();
+            InitEvent();
         }
+
+        private void InitEvent()
+        {
+            lblDetail.MouseEnter += LblDetail_MouseEnter;
+            lblDetail.MouseLeftButtonDown += LblDetail_MouseLeftButtonDown;
+
+            btn.MouseEnter += Btn_MouseEnter;
+            btn.Click += Btn_Click;
+            //btn.MouseLeave += Btn_MouseLeave;
+        }
+
+        //private void Btn_MouseLeave(object sender, MouseEventArgs e) =>
+        //    btn.Background = ;
+
+
+        private void LblDetail_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Btn_Click(sender, e);
+        }
+
+        private void Btn_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Button has clicked....");
+        }
+
+        private void Btn_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btn.Background = new SolidColorBrush();
+        }
+
+        private void LblDetail_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Btn_MouseEnter(sender, e);
+        }
+
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public string TableName
@@ -40,15 +78,32 @@ namespace WpfCustomControlLibrary
         }
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        public Color TableColor
+        public string Detail
         {
             get
             {
-                return ((SolidColorBrush)btn.Background).Color;
+                return lblDetail.Content.ToString();
             }
             set
             {
-                btn.Background = new SolidColorBrush(value);
+                lblDetail.Content = value;
+            }
+        }
+
+
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public System.Drawing.Color TableColor
+        {
+            get
+            {
+                var brush = ((SolidColorBrush)btn.Background).Color;
+                return System.Drawing.Color.FromArgb(brush.A,brush.R,brush.G,brush.B);
+            }
+            set
+            {
+                var bg = new SolidColorBrush(System.Windows.Media.Color.FromArgb(value.A,value.R,value.G,value.B));
+                btn.Background = bg;
             }
         }
         [Browsable(true)]
@@ -59,5 +114,7 @@ namespace WpfCustomControlLibrary
                 obj = value;
                  } 
         }
+       
+       
     }
 }
