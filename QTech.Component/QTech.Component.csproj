@@ -146,6 +146,12 @@
     <Compile Include="MyComponents\CurrencyTextbox.Designer.cs">
       <DependentUpon>CurrencyTextbox.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyComponents\ExRoundPictureBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyComponents\ExRoundPictureBox.Designer.cs">
+      <DependentUpon>ExRoundPictureBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyComponents\ExTabItem2.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -157,6 +163,12 @@
     </Compile>
     <Compile Include="MyComponents\RoundButton.Designer.cs">
       <DependentUpon>RoundButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyComponents\RoundPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyComponents\RoundPictureBox.Designer.cs">
+      <DependentUpon>RoundPictureBox.cs</DependentUpon>
     </Compile>
     <Compile Include="MyComponents\TransparentPanel.cs">
       <SubType>Component</SubType>
@@ -521,6 +533,9 @@
     <EmbeddedResource Include="MyComponents\CurrencyTextbox.resx">
       <DependentUpon>CurrencyTextbox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyComponents\ExRoundPictureBox.resx">
+      <DependentUpon>ExRoundPictureBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyComponents\ExTabItem2.resx">
       <DependentUpon>ExTabItem2.cs</DependentUpon>
     </EmbeddedResource>
@@ -802,6 +817,7 @@
     <None Include="Resources\GCenter.png" />
     <None Include="Resources\GLeft.png" />
     <None Include="Resources\GRight.png" />
+    <None Include="Resources\FoodPlacehoder.png" />
     <Content Include="Resources\map-point.png" />
     <None Include="Resources\maximize.png" />
     <Content Include="Resources\menu.png" />

@@ -21,25 +21,30 @@ namespace QTech
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            WindowState = FormWindowState.Maximized;
-            for (int i = 1; i < 100; i++)
-            {
-                Table table = new Table()
-                {
-                    TableName = "តុលេខ " + i,
-                    TableColor = Color.LightGreen,
-                    Detail = "មិនទាន់មាន",
-                    Width = 400,
-                    Height = 300
-                };
-                table.TableClick += Table_TableClick;
-                wpfFlowLayout1.AddChildren(table);
-            }
         }
 
         private void Table_TableClick(object sender, EventArgs e)
         {
 
+        }
+        string PicturePath;
+        private void btnAddPic__Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Image|*.jpg;*.jpeg;*.png;";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                PicturePath = dialog.FileName;
+            }
+        }
+
+        private void btnRemovePic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void elementHost1_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
+        {
         }
     }
 }

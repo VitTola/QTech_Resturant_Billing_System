@@ -26,14 +26,16 @@ namespace QTech
             Application.SetCompatibleTextRenderingDefault(false);
             DataBaseSetting.ReadSetting();
 
-            Application.Run(new MainForm());
+            //Application.Run(new MainForm());
             //Application.Run(new LoginDialog());
             //Application.Run(new Form1());
+            Application.Run(new frmProduct(new Base.Models.Product(),Base.Helpers.GeneralProcess.Add));
 
             //ExWindow form = new ExWindow();
             //WindowInteropHelper wih = new WindowInteropHelper(this);
             //wih.Owner = form.Handle;
             ////form.ShowDialog();
+
 
         }
     }

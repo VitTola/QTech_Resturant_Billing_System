@@ -46,15 +46,24 @@
             this.txtImportPrice = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.exLabel1 = new QTech.Component.ExLabel();
+            this.btnRemovePic = new System.Windows.Forms.PictureBox();
+            this.btnAddPic_ = new System.Windows.Forms.PictureBox();
+            this.picDish = new System.Windows.Forms.Integration.ElementHost();
+            this.picFood = new WpfCustomControlLibrary.RoundImageBox();
             this.container.SuspendLayout();
             this.exPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRemovePic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAddPic_)).BeginInit();
             this.SuspendLayout();
             // 
             // container
             // 
+            this.container.Controls.Add(this.btnRemovePic);
+            this.container.Controls.Add(this.btnAddPic_);
+            this.container.Controls.Add(this.picDish);
             this.container.Controls.Add(this.panel2);
             this.container.Controls.Add(this.exLabel1);
             this.container.Controls.Add(this.panel1);
@@ -66,54 +75,54 @@
             this.container.Controls.Add(this.lblUnitPrice_);
             this.container.Controls.Add(this.lblName);
             this.container.Controls.Add(this.txtName);
-            this.container.Size = new System.Drawing.Size(378, 272);
+            this.container.Size = new System.Drawing.Size(584, 282);
             this.container.TabIndex = 1;
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(24, 24);
+            this.lblName.Location = new System.Drawing.Point(28, 24);
             this.lblName.Name = "lblName";
             this.lblName.Required = true;
-            this.lblName.Size = new System.Drawing.Size(43, 19);
+            this.lblName.Size = new System.Drawing.Size(40, 19);
             this.lblName.TabIndex = 15;
             this.lblName.Text = "ឈ្មោះ";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(142, 21);
+            this.txtName.Location = new System.Drawing.Point(120, 21);
             this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(200, 27);
+            this.txtName.Size = new System.Drawing.Size(233, 28);
             this.txtName.TabIndex = 0;
             // 
             // lblUnitPrice_
             // 
             this.lblUnitPrice_.AutoSize = true;
-            this.lblUnitPrice_.Location = new System.Drawing.Point(24, 123);
+            this.lblUnitPrice_.Location = new System.Drawing.Point(28, 123);
             this.lblUnitPrice_.Name = "lblUnitPrice_";
             this.lblUnitPrice_.Required = true;
-            this.lblUnitPrice_.Size = new System.Drawing.Size(68, 19);
+            this.lblUnitPrice_.Size = new System.Drawing.Size(67, 19);
             this.lblUnitPrice_.TabIndex = 22;
             this.lblUnitPrice_.Text = "តម្លៃរាយ/m³";
             // 
             // lblNote
             // 
             this.lblNote.AutoSize = true;
-            this.lblNote.Location = new System.Drawing.Point(24, 156);
+            this.lblNote.Location = new System.Drawing.Point(28, 156);
             this.lblNote.Name = "lblNote";
             this.lblNote.Required = false;
-            this.lblNote.Size = new System.Drawing.Size(41, 19);
+            this.lblNote.Size = new System.Drawing.Size(39, 19);
             this.lblNote.TabIndex = 24;
             this.lblNote.Text = "ចំណាំ";
             // 
             // txtNote
             // 
-            this.txtNote.Location = new System.Drawing.Point(142, 153);
+            this.txtNote.Location = new System.Drawing.Point(120, 153);
             this.txtNote.Margin = new System.Windows.Forms.Padding(2);
             this.txtNote.Multiline = true;
             this.txtNote.Name = "txtNote";
-            this.txtNote.Size = new System.Drawing.Size(200, 58);
+            this.txtNote.Size = new System.Drawing.Size(233, 58);
             this.txtNote.TabIndex = 2;
             // 
             // exPanel1
@@ -121,10 +130,10 @@
             this.exPanel1.BackColor = System.Drawing.Color.Transparent;
             this.exPanel1.Controls.Add(this.flowLayoutPanel2);
             this.exPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.exPanel1.Location = new System.Drawing.Point(1, 235);
+            this.exPanel1.Location = new System.Drawing.Point(1, 245);
             this.exPanel1.Name = "exPanel1";
             this.exPanel1.Padding = new System.Windows.Forms.Padding(2);
-            this.exPanel1.Size = new System.Drawing.Size(376, 36);
+            this.exPanel1.Size = new System.Drawing.Size(582, 36);
             this.exPanel1.TabIndex = 25;
             // 
             // flowLayoutPanel2
@@ -135,7 +144,7 @@
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(2, 2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(372, 32);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(578, 32);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // btnClose
@@ -143,12 +152,14 @@
             this.btnClose.BackColor = System.Drawing.Color.Ivory;
             this.btnClose.DefaultImage = null;
             this.btnClose.Executing = false;
-            this.btnClose.Location = new System.Drawing.Point(295, 3);
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Location = new System.Drawing.Point(489, 3);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
             this.btnClose.ShortcutText = null;
-            this.btnClose.Size = new System.Drawing.Size(75, 27);
+            this.btnClose.Size = new System.Drawing.Size(87, 27);
             this.btnClose.TabIndex = 1;
             this.btnClose.Text = "បិទ";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -159,12 +170,14 @@
             this.btnSave.BackColor = System.Drawing.Color.Ivory;
             this.btnSave.DefaultImage = null;
             this.btnSave.Executing = false;
-            this.btnSave.Location = new System.Drawing.Point(216, 3);
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(398, 3);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnSave.Name = "btnSave";
             this.btnSave.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
             this.btnSave.ShortcutText = null;
-            this.btnSave.Size = new System.Drawing.Size(75, 27);
+            this.btnSave.Size = new System.Drawing.Size(87, 27);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "រក្សាទុក";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -173,29 +186,31 @@
             // lblCategorys
             // 
             this.lblCategorys.AutoSize = true;
-            this.lblCategorys.Location = new System.Drawing.Point(24, 57);
+            this.lblCategorys.Location = new System.Drawing.Point(28, 57);
             this.lblCategorys.Name = "lblCategorys";
             this.lblCategorys.Required = true;
-            this.lblCategorys.Size = new System.Drawing.Size(44, 19);
+            this.lblCategorys.Size = new System.Drawing.Size(43, 19);
             this.lblCategorys.TabIndex = 27;
             this.lblCategorys.Text = "ប្រភេទ";
             // 
             // cboCategory
             // 
+            this.cboCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(250)))));
             this.cboCategory.Choose = "";
             this.cboCategory.CustomSearchForm = null;
             this.cboCategory.DataSourceFn = null;
             this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCategory.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboCategory.FormattingEnabled = true;
             this.cboCategory.IsGirdViewColumn = false;
             this.cboCategory.LoadAll = true;
-            this.cboCategory.Location = new System.Drawing.Point(142, 54);
+            this.cboCategory.Location = new System.Drawing.Point(120, 54);
             this.cboCategory.Name = "cboCategory";
             this.cboCategory.SearchParamFn = null;
             this.cboCategory.SelectedItems = null;
             this.cboCategory.SelectedObject = null;
             this.cboCategory.ShowAll = false;
-            this.cboCategory.Size = new System.Drawing.Size(200, 27);
+            this.cboCategory.Size = new System.Drawing.Size(233, 27);
             this.cboCategory.TabIndex = 1;
             this.cboCategory.TextAll = "";
             // 
@@ -205,11 +220,11 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.txtUnitPrice);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(142, 120);
+            this.panel1.Location = new System.Drawing.Point(120, 120);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.panel1.Size = new System.Drawing.Size(200, 27);
+            this.panel1.Size = new System.Drawing.Size(233, 27);
             this.panel1.TabIndex = 29;
             // 
             // txtUnitPrice
@@ -221,7 +236,7 @@
             this.txtUnitPrice.Margin = new System.Windows.Forms.Padding(2);
             this.txtUnitPrice.Multiline = true;
             this.txtUnitPrice.Name = "txtUnitPrice";
-            this.txtUnitPrice.Size = new System.Drawing.Size(154, 23);
+            this.txtUnitPrice.Size = new System.Drawing.Size(180, 23);
             this.txtUnitPrice.TabIndex = 0;
             this.txtUnitPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -229,9 +244,9 @@
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
             this.label1.Font = new System.Drawing.Font("Khmer OS System", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(154, 2);
+            this.label1.Location = new System.Drawing.Point(180, 2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 23);
+            this.label1.Size = new System.Drawing.Size(51, 23);
             this.label1.TabIndex = 1;
             this.label1.Text = "USD";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -242,11 +257,11 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.txtImportPrice);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(142, 87);
+            this.panel2.Location = new System.Drawing.Point(120, 87);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.panel2.Size = new System.Drawing.Size(200, 27);
+            this.panel2.Size = new System.Drawing.Size(233, 27);
             this.panel2.TabIndex = 31;
             // 
             // txtImportPrice
@@ -258,7 +273,7 @@
             this.txtImportPrice.Margin = new System.Windows.Forms.Padding(2);
             this.txtImportPrice.Multiline = true;
             this.txtImportPrice.Name = "txtImportPrice";
-            this.txtImportPrice.Size = new System.Drawing.Size(154, 23);
+            this.txtImportPrice.Size = new System.Drawing.Size(180, 23);
             this.txtImportPrice.TabIndex = 0;
             this.txtImportPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -266,9 +281,9 @@
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Right;
             this.label2.Font = new System.Drawing.Font("Khmer OS System", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(154, 2);
+            this.label2.Location = new System.Drawing.Point(180, 2);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 23);
+            this.label2.Size = new System.Drawing.Size(51, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "USD";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -276,19 +291,50 @@
             // exLabel1
             // 
             this.exLabel1.AutoSize = true;
-            this.exLabel1.Location = new System.Drawing.Point(23, 90);
+            this.exLabel1.Location = new System.Drawing.Point(27, 90);
             this.exLabel1.Name = "exLabel1";
             this.exLabel1.Required = true;
-            this.exLabel1.Size = new System.Drawing.Size(80, 19);
+            this.exLabel1.Size = new System.Drawing.Size(78, 19);
             this.exLabel1.TabIndex = 30;
             this.exLabel1.Text = "តម្លៃនាំចូល/m³";
             // 
+            // btnRemovePic
+            // 
+            this.btnRemovePic.Image = global::QTech.Properties.Resources.delete;
+            this.btnRemovePic.Location = new System.Drawing.Point(471, 197);
+            this.btnRemovePic.Name = "btnRemovePic";
+            this.btnRemovePic.Size = new System.Drawing.Size(15, 15);
+            this.btnRemovePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnRemovePic.TabIndex = 34;
+            this.btnRemovePic.TabStop = false;
+            this.btnRemovePic.Click += new System.EventHandler(this.btnRemovePic_Click);
+            // 
+            // btnAddPic_
+            // 
+            this.btnAddPic_.Image = global::QTech.Properties.Resources.folder;
+            this.btnAddPic_.Location = new System.Drawing.Point(440, 197);
+            this.btnAddPic_.Name = "btnAddPic_";
+            this.btnAddPic_.Size = new System.Drawing.Size(15, 15);
+            this.btnAddPic_.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnAddPic_.TabIndex = 33;
+            this.btnAddPic_.TabStop = false;
+            this.btnAddPic_.Click += new System.EventHandler(this.btnAddPic__Click);
+            // 
+            // picDish
+            // 
+            this.picDish.Location = new System.Drawing.Point(377, 21);
+            this.picDish.Name = "picDish";
+            this.picDish.Size = new System.Drawing.Size(170, 170);
+            this.picDish.TabIndex = 32;
+            this.picDish.Text = "elementHost1";
+            this.picDish.Child = this.picFood;
+            // 
             // frmProduct
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(378, 292);
-            this.Font = new System.Drawing.Font("Khmer OS System", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClientSize = new System.Drawing.Size(584, 302);
+            this.Font = new System.Drawing.Font("Khmer OS Battambang", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "frmProduct";
             this.Text = "frmEmployee";
@@ -300,6 +346,8 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRemovePic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAddPic_)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -323,5 +371,9 @@
         private System.Windows.Forms.TextBox txtImportPrice;
         private System.Windows.Forms.Label label2;
         private Component.ExLabel exLabel1;
+        private System.Windows.Forms.Integration.ElementHost picDish;
+        private System.Windows.Forms.PictureBox btnRemovePic;
+        private System.Windows.Forms.PictureBox btnAddPic_;
+        private WpfCustomControlLibrary.RoundImageBox picFood;
     }
 }

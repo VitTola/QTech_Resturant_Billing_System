@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="WpfCustomControlLibrary.RoundImageBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfCustomControlLibrary"
+             mc:Ignorable="d" Height="150" Width="150">
+    <Grid Margin="0,0,0,0">
+        <Ellipse x:Name="el" Stroke="#1E90FF" StrokeThickness="2" Margin="0,0,0,0" MouseRightButtonDown="Ellipse_MouseRightButtonDown" MouseLeftButtonDown="Ellipse_MouseLeftButtonDown">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="dish (1).png" Stretch="UniformToFill"/>
+            </Ellipse.Fill>
+        </Ellipse>
+
+    </Grid>
+</UserControl>

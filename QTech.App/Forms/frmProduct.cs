@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace QTech.Forms
     public partial class frmProduct : ExDialog, IDialog
     {
         public Product Model { get; set; }
+        string PicturePath;
 
         public frmProduct(Product model, GeneralProcess flag)
         {
@@ -50,7 +52,10 @@ namespace QTech.Forms
             txtUnitPrice.KeyPress += (sender, e) => txtUnitPrice.validCurrency(sender, e);
             txtImportPrice.KeyPress += (sender, e) => txtImportPrice.validCurrency(sender,e);
             txtName.RegisterKeyEnterNextControlWith(cboCategory, txtImportPrice, txtUnitPrice, txtNote);
+            picFood.Click += btnAddPic__Click;
         }
+
+
         private void dgv_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             e.Control.RegisterEnglishInput();
@@ -140,6 +145,21 @@ namespace QTech.Forms
         private void btnSave_Click(object sender, EventArgs e)
         {
             Save();
+        }
+
+        private void btnAddPic__Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Image|*.jpg;*.jpeg;*.png;";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                picFood.ImagePath = dialog.FileName;
+            }
+        }
+
+        private void btnRemovePic_Click(object sender, EventArgs e)
+        {
+            picFood.SetPlaceHolder();
         }
     }
 }

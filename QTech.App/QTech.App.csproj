@@ -470,6 +470,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pheng-Ry.ico" />
+    <None Include="Resources\Placehoder.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\folder.png" />
+    <None Include="Resources\trashbin.png" />
+    <None Include="Resources\addfile.png" />
+    <None Include="Resources\add-file.png" />
+    <None Include="Resources\mark-zuckerberg-507402-1-402 - Copy.jpg" />
     <None Include="Resources\UpateIcon.png" />
     <None Include="Resources\UpdateIcon.png" />
     <None Include="Resources\Pcenter.png" />
