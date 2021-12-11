@@ -155,6 +155,7 @@
     <Compile Include="Helpers\MimeType.cs" />
     <Compile Include="BaseReport\ReportHelper.cs" />
     <Compile Include="Helpers\OtherHeperMethods.cs" />
+    <Compile Include="Helpers\ProjectDefautStyle.cs" />
     <Compile Include="Helpers\ShareValue.cs" />
     <Compile Include="Helpers\TempFile.cs" />
     <Compile Include="Helpers\UISetting.cs" />

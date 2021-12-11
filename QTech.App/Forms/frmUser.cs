@@ -25,6 +25,7 @@ namespace QTech.Forms
             Bind();
             Read();
             InitEvent();
+            this.QTechResturantDefaultStyle(this.Controls);
         }
 
         public GeneralProcess Flag { get; set; }

@@ -27,6 +27,7 @@ namespace QTech.Forms
             btnAdd.Visible = ShareValue.IsAuthorized(AuthKey.Employee_Employee_Add);
             btnRemove.Visible = ShareValue.IsAuthorized(AuthKey.Employee_Employee_Remove);
             btnUpdate.Visible = ShareValue.IsAuthorized(AuthKey.Employee_Employee_Update);
+            this.QTechResturantDefaultStyle(this.Controls);
         }
 
         public async void AddNew()

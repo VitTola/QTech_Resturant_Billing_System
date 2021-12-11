@@ -207,17 +207,7 @@ namespace QTech.Component
                         paging.Repaging();
                     }
                 }
-                //if (flag == GeneralProcess.View)
-                //{
-                //    if (btnOk != null)
-                //    {
-                //        btnOk.Select();
-                //    }
-                //    else if (btnSave != null)
-                //    {
-                //        btnSave.Select();
-                //    }
-                //}
+
                 if (flag == GeneralProcess.Remove | flag == GeneralProcess.View)
                 {
                     if (btnClose != null)
@@ -244,29 +234,6 @@ namespace QTech.Component
                     btnSave.Visible = (flag != GeneralProcess.View);
                     btnSave.ShortcutText = Conts.DialogKeyText[DialogProcess.Save];
                 }
-
-                //if (flag == GeneralProcess.View)
-                //{
-                //    foreach (Control c in container.Controls)
-                //    {
-                //        if (c.GetType() == typeof(TextBox))
-                //        {
-                //            ((TextBox)c).ReadOnly = true;
-                //        }
-                //        if (c is ComboBox com)
-                //        {
-                //            com.KeyPress += (o, ee) => {ee.Handled = true; };
-                //        }
-                //        if (c is ExSearchCombo exCom)
-                //        {
-                //            exCom.KeyPress += (o, ee) => { ee.Handled = true; };
-                //        }
-                //        if (c is DataGrid g)
-                //        {
-                //            g.ReadOnly = true;
-                //        }
-                //    }
-                //}
             }
 
             base.OnLoad(e);
@@ -421,12 +388,6 @@ namespace QTech.Component
             var rect = new Rectangle(container.ClientRectangle.X, container.ClientRectangle.Y - 1, container.ClientRectangle.Width, container.ClientRectangle.Height + 1);
             //rect = container.ClientRectangle;
             ControlPaint.DrawBorder(e.Graphics, rect, SystemColors.ActiveBorder, ButtonBorderStyle.Solid);
-        }
-
-        private void container_Resize(object sender, EventArgs e)
-        {
-            //Invalidate();
-            //this.Refresh();
         }
 
         private void HDialog_SizeChanged(object sender, EventArgs e)
@@ -612,25 +573,9 @@ namespace QTech.Component
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        private void ExDialog_MaximumSizeChanged(object sender, EventArgs e)
-        {
-            //var width = Screen.FromControl(this).Bounds.Width;
-            //var heigth = Screen.FromControl(this).Bounds.Height;
-            //Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, width, heigth + 5, 10, 10));
-
-        }
-
-        private void ExDialog_MinimumSizeChanged(object sender, EventArgs e)
-        {
-            //Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width + 2, this.Height + 5, 10, 10));
-        }
-
         private void _lblTITLE_DoubleClick(object sender, EventArgs e)
         {
-            if (MaximizeBox == true)
-            {
-                WindowState = WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
-            }
+            WindowState = WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
         }
     }
 

@@ -108,7 +108,7 @@ namespace QTech.Component
 
             //e.Graphics.DrawPath(new Pen(Color.White), path);
             //e.Graphics.DrawPath(new Pen(ColorTranslator.FromHtml(Properties.Resources.ColorPrimary)), path);
-            this.Font = new Font("Khmer OS System", 8);
+            this.Font = new Font("Khmer OS Battambang", 8);
 
             e.Graphics.DrawString(ShortcutText, drawFont, drawBrush, locationF, drawFormat);
         }

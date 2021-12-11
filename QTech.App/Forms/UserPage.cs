@@ -23,6 +23,7 @@ namespace QTech.Forms
             InitializeComponent();
             Bind();
             InitEvent();
+            this.QTechResturantDefaultStyle(this.Controls);
         }
         public User Model { get; set; }
         private void Bind()

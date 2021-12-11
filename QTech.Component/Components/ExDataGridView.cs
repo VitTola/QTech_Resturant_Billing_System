@@ -196,7 +196,7 @@ namespace QTech.Component
 
             this.ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle
             {
-                BackColor = Color.FromArgb(203, 219, 247),
+                BackColor = Color.FromArgb(157, 185, 240),
                 SelectionBackColor = Color.LightSkyBlue
             };
             this.AlternatingRowsDefaultCellStyle = new DataGridViewCellStyle()
@@ -207,6 +207,7 @@ namespace QTech.Component
             {
                 SelectionBackColor = Color.FromArgb(157, 185, 240)
             };
+            Font = new Font("Khmer OS Battambang", 8);
         }
 
         void ExDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

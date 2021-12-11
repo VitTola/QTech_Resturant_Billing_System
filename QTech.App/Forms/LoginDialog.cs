@@ -41,7 +41,7 @@ namespace QTech.Forms
         }
         private async void btnLogin_Click(object sender, EventArgs e)
         {
-            var _user = await btnLogin.RunAsync(() => {
+            var _user = await btnLogin_.RunAsync(() => {
                 var user = UserLogic.Instance.GetUserByNameAndPassword(txtUserName.Text, txtPassword.Text);
                 if (user == null)
                 {
@@ -109,12 +109,12 @@ namespace QTech.Forms
         private void DisableAuthorize()
         {
             this.txtPassword.KeyDown -= new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
-            btnLogin.Enabled = false;
+            btnLogin_.Enabled = false;
         }
         private void EnableAuthorize()
         {
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
-            btnLogin.Enabled = true;
+            btnLogin_.Enabled = true;
         }
         private async void LoginDialog_Load(object sender, EventArgs e)
         {

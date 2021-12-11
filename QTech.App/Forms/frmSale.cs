@@ -42,7 +42,7 @@ namespace QTech.Forms
             this.ApplyResource();
             Read();
             InitEvent();
-
+            this.QTechResturantDefaultStyle(this.Controls);
         }
 
         public void Read()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QTech.Base.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace QTech.Forms
         public ReportViewPage()
         {
             InitializeComponent();
+            this.QTechResturantDefaultStyle(this.Controls);
         }
 
         private void exLabel1_Click(object sender, EventArgs e)

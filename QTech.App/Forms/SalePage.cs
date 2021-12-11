@@ -30,6 +30,7 @@ namespace QTech.Forms
             InitializeComponent();
             BindData();
             InitEvent();
+            this.QTechResturantDefaultStyle(this.Controls);
         }
         private void BindData()
         {

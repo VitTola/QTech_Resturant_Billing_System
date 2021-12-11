@@ -192,10 +192,11 @@
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.txtSearch);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(498, 35);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(269, 35);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // txtSearch
@@ -218,12 +219,12 @@
             this.flowLayoutPanel1.Controls.Add(this.btnRemove);
             this.flowLayoutPanel1.Controls.Add(this.btnUpdate);
             this.flowLayoutPanel1.Controls.Add(this.btnAdd);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(656, 0);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(287, 35);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(943, 35);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // btnRemove
@@ -231,7 +232,9 @@
             this.btnRemove.BackColor = System.Drawing.Color.Ivory;
             this.btnRemove.DefaultImage = null;
             this.btnRemove.Executing = false;
-            this.btnRemove.Location = new System.Drawing.Point(193, 4);
+            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemove.ForeColor = System.Drawing.Color.White;
+            this.btnRemove.Location = new System.Drawing.Point(849, 4);
             this.btnRemove.Margin = new System.Windows.Forms.Padding(0, 4, 4, 2);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
@@ -247,7 +250,9 @@
             this.btnUpdate.BackColor = System.Drawing.Color.Ivory;
             this.btnUpdate.DefaultImage = null;
             this.btnUpdate.Executing = false;
-            this.btnUpdate.Location = new System.Drawing.Point(101, 4);
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.Location = new System.Drawing.Point(757, 4);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(0, 4, 2, 2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
@@ -263,7 +268,9 @@
             this.btnAdd.BackColor = System.Drawing.Color.Ivory;
             this.btnAdd.DefaultImage = null;
             this.btnAdd.Executing = false;
-            this.btnAdd.Location = new System.Drawing.Point(9, 4);
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(665, 4);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(0, 4, 2, 2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;

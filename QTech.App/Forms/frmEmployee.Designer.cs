@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEmployee));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEmployee));
             this.colUserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +48,8 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnClose = new QTech.Component.ExButtonLoading();
             this.btnSave = new QTech.Component.ExButtonLoading();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnPrint = new QTech.Component.ExButtonLoading();
             this.cboPosition = new System.Windows.Forms.ComboBox();
             this.lblPhone = new QTech.Component.ExLabel();
             this.txtPhone = new System.Windows.Forms.TextBox();
@@ -70,18 +72,16 @@
             this.exLabel3 = new QTech.Component.ExLabel();
             this.txtPayNote = new System.Windows.Forms.TextBox();
             this.exLabel2 = new QTech.Component.ExLabel();
-            this.btnPrint = new QTech.Component.ExButtonLoading();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.container.SuspendLayout();
             this.exPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tabGeneral.SuspendLayout();
             this.tabGeneralTotal.SuspendLayout();
             this.panel2.SuspendLayout();
             this.flowLayOutLabelRemoveAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
-            this.flowLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // container
@@ -209,6 +209,8 @@
             this.btnClose.BackColor = System.Drawing.Color.Ivory;
             this.btnClose.DefaultImage = null;
             this.btnClose.Executing = false;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Location = new System.Drawing.Point(154, 3);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnClose.Name = "btnClose";
@@ -225,6 +227,8 @@
             this.btnSave.BackColor = System.Drawing.Color.Ivory;
             this.btnSave.DefaultImage = null;
             this.btnSave.Executing = false;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(75, 3);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnSave.Name = "btnSave";
@@ -235,6 +239,36 @@
             this.btnSave.Text = "រក្សាទុក";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.btnPrint);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(2, 2);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(139, 32);
+            this.flowLayoutPanel3.TabIndex = 4;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.BackColor = System.Drawing.Color.Ivory;
+            this.btnPrint.DefaultImage = null;
+            this.btnPrint.Executing = false;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
+            this.btnPrint.ForeColor = System.Drawing.Color.White;
+            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
+            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrint.Location = new System.Drawing.Point(2, 3);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
+            this.btnPrint.ShortcutText = "P";
+            this.btnPrint.Size = new System.Drawing.Size(89, 27);
+            this.btnPrint.TabIndex = 3;
+            this.btnPrint.Text = "បោះពុម្ភ";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // cboPosition
             // 
@@ -276,7 +310,7 @@
             // 
             // tabGeneral
             // 
-            this.tabGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(237)))));
+            this.tabGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(219)))), ((int)(((byte)(247)))));
             this.tabGeneral.Controls.Add(this.txtPhone);
             this.tabGeneral.Controls.Add(this.lblPhone);
             this.tabGeneral.Controls.Add(this.txtName);
@@ -507,34 +541,6 @@
             this.exLabel2.TabIndex = 38;
             this.exLabel2.Text = "ចំណាំ";
             // 
-            // btnPrint
-            // 
-            this.btnPrint.BackColor = System.Drawing.Color.Ivory;
-            this.btnPrint.DefaultImage = null;
-            this.btnPrint.Executing = false;
-            this.btnPrint.Font = new System.Drawing.Font("Khmer OS System", 8F);
-            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
-            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrint.Location = new System.Drawing.Point(2, 3);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
-            this.btnPrint.ShortcutText = "P";
-            this.btnPrint.Size = new System.Drawing.Size(89, 27);
-            this.btnPrint.TabIndex = 3;
-            this.btnPrint.Text = "បោះពុម្ភ";
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Controls.Add(this.btnPrint);
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(2, 2);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(139, 32);
-            this.flowLayoutPanel3.TabIndex = 4;
-            // 
             // frmEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 19F);
@@ -548,6 +554,7 @@
             this.container.ResumeLayout(false);
             this.exPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel3.ResumeLayout(false);
             this.tabMain.ResumeLayout(false);
             this.tabGeneral.ResumeLayout(false);
             this.tabGeneral.PerformLayout();
@@ -558,7 +565,6 @@
             this.flowLayOutLabelRemoveAdd.ResumeLayout(false);
             this.flowLayOutLabelRemoveAdd.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
-            this.flowLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

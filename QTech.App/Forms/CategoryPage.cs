@@ -24,6 +24,8 @@ namespace QTech.Forms
             InitializeComponent();
             Bind();
             InitEvent();
+            this.QTechResturantDefaultStyle(this.Controls);
+            
         }
         public Category Model { get; set; }
 
@@ -32,8 +34,6 @@ namespace QTech.Forms
         }
         private void InitEvent()
         {
-            dgv.RowsDefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(173, 205, 239);
-            dgv.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             dgv.RowTemplate.Height = 28;
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgv.SetColumnHeaderDefaultStyle();
