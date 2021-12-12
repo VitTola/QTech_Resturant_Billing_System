@@ -158,6 +158,12 @@
     <Compile Include="MyComponents\ExTabItem2.Designer.cs">
       <DependentUpon>ExTabItem2.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyComponents\LineUpPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyComponents\LineUpPanel.designer.cs">
+      <DependentUpon>LineUpPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyComponents\RoundButton.cs">
       <SubType>Component</SubType>
     </Compile>

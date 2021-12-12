@@ -26,6 +26,7 @@ using BaseReource = QTech.Base.Properties.Resources;
 using EasyServer.Domain.Helpers;
 using EDomain = EasyServer.Domain;
 using WpfCustomControlLibrary;
+using System.Globalization;
 
 namespace QTech.Forms
 {
@@ -59,7 +60,7 @@ namespace QTech.Forms
                     Height = 300
                 };
                 table.TableClick += Table_TableClick;
-                flp.AddChildren(table);
+                pnl.AddChildren(table);
             }
         }
 
@@ -69,6 +70,13 @@ namespace QTech.Forms
 
         public void InitEvent()
         {
+            //var ci = new CultureInfo("km-kh");
+            timer.Start();
+            System.Globalization.CultureInfo cultureinfo = new System.Globalization.CultureInfo("km-kh");
+            DateTime dt = DateTime.Parse(DateTime.Now.ToString(), cultureinfo);
+
+            lblDate_.Text = dt.ToLongDateString();
+            //lblDate_.Text = KhmerLunar.getKhmerLunarString(DateTime.Now);
         }
 
         public void Write()
@@ -90,6 +98,12 @@ namespace QTech.Forms
 
         public void ViewChangeLog()
         {
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            lblTime.Text = DateTime.Now.ToLongTimeString();
+            timer.Start();
         }
     }
 }

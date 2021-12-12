@@ -9,15 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SaleInventory.Components
-
 {
-    public partial class PanelLineRight : Panel
+    public partial class LineUpPanel : Panel
     {
-        public PanelLineRight()
+        public LineUpPanel()
         {
             InitializeComponent();
         }
-
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public Color PenColor { get; set; } = Color.Gray;
