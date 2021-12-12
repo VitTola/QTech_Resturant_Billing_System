@@ -27,6 +27,7 @@ using EasyServer.Domain.Helpers;
 using EDomain = EasyServer.Domain;
 using WpfCustomControlLibrary;
 using System.Globalization;
+using Table = WpfCustomControlLibrary.Table;
 
 namespace QTech.Forms
 {
@@ -46,22 +47,26 @@ namespace QTech.Forms
             this.QTechResturantDefaultStyle(this.Controls);
         }
 
-        public void Read()
+        public async void Read()
         {
-            WindowState = FormWindowState.Maximized;
-            for (int i = 1; i < 100; i++)
+            var tables = await this.RunAsync(() => TableLogic.Instance.SearchAsync(new TableSearch()));
+            if (tables != null)
             {
-                Table table = new Table()
+                foreach (var t in tables)
                 {
-                    TableName = "តុលេខ " + i,
-                    TableColor = Color.LightGreen,
-                    Detail = "មិនទាន់មាន",
-                    Width = 400,
-                    Height = 300
-                };
-                table.TableClick += Table_TableClick;
-                pnl.AddChildren(table);
+                    Table table = new Table()
+                    {
+                        TableName = t.Name,
+                        TableColor = t.TableStus == TableStatus.Free ? Color.Green : Color.FromArgb(128, 128, 255),
+                        Detail = "មិនទាន់មាន",
+                        Width = 400,
+                        Height = 300
+                    };
+                    table.TableClick += Table_TableClick;
+                    pnl.AddChildren(table);
+                }
             }
+           
         }
 
         private void Table_TableClick(object sender, EventArgs e)
@@ -70,13 +75,9 @@ namespace QTech.Forms
 
         public void InitEvent()
         {
-            //var ci = new CultureInfo("km-kh");
             timer.Start();
-            System.Globalization.CultureInfo cultureinfo = new System.Globalization.CultureInfo("km-kh");
-            DateTime dt = DateTime.Parse(DateTime.Now.ToString(), cultureinfo);
+            //lblDate_.Text = KhmerDate.GetKhmerDate(DateTime.Now);
 
-            lblDate_.Text = dt.ToLongDateString();
-            //lblDate_.Text = KhmerLunar.getKhmerLunarString(DateTime.Now);
         }
 
         public void Write()
@@ -102,8 +103,8 @@ namespace QTech.Forms
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            lblTime.Text = DateTime.Now.ToLongTimeString();
             timer.Start();
+            lblTime.Text = DateTime.Now.ToLongTimeString();
         }
     }
 }

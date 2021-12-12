@@ -751,4 +751,16 @@
   <data name="invoice_status_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\invoice status_img.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Table" xml:space="preserve">
+    <value>តុ</value>
+  </data>
+  <data name="TableStatus_Free" xml:space="preserve">
+    <value>ទំនេរ</value>
+  </data>
+  <data name="TableStatus_Occupy" xml:space="preserve">
+    <value>មានភ្ញៀវ</value>
+  </data>
+  <data name="TableImg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TableImg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

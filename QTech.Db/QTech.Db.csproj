@@ -91,6 +91,7 @@
     <Compile Include="Configs\QTechDbConfigs.cs" />
     <Compile Include="Logics\AuditTrailLogic.cs" />
     <Compile Include="Logics\AppSettingLogic.cs" />
+    <Compile Include="Logics\TableLogic.cs" />
     <Compile Include="Logics\IncomeExpenseLogic.cs" />
     <Compile Include="Logics\PermissionLogic.cs" />
     <Compile Include="Logics\ReportLogic.cs" />
@@ -108,6 +109,10 @@
     <Compile Include="Migrations\202112101718473_InitDataBase.cs" />
     <Compile Include="Migrations\202112101718473_InitDataBase.designer.cs">
       <DependentUpon>202112101718473_InitDataBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112121544562_v1.0.cs" />
+    <Compile Include="Migrations\202112121544562_v1.0.designer.cs">
+      <DependentUpon>202112121544562_v1.0.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -140,6 +145,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202112101718473_InitDataBase.resx">
       <DependentUpon>202112101718473_InitDataBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112121544562_v1.0.resx">
+      <DependentUpon>202112121544562_v1.0.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

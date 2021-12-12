@@ -956,29 +956,43 @@ public class KhmerDate
         };
     Dictionary<string, string> MonthPairs = new Dictionary<string, string>()
     {
-            {"January",   "មករា"},
-            {"February",  "កុម្ភៈ"},
-            {"March",     "មីនា"},
-            {"April",     "មេសា"},
-            {"May",       "ឧសភា"},
-            {"June",      "មិថុនា"},
-            {"July",      "កក្កដា"},
-            {"August",    "សីហា"},
-            {"September", "កញ្ញា"},
-            {"October",   "តុលា"},
-            {"November",  "វិច្ឆិកា"},
-            {"December",  "ធ្នូ"}
+            //{"January",   "មករា"},
+            //{"February",  "កុម្ភៈ"},
+            //{"March",     "មីនា"},
+            //{"April",     "មេសា"},
+            //{"May",       "ឧសភា"},
+            //{"June",      "មិថុនា"},
+            //{"July",      "កក្កដា"},
+            //{"August",    "សីហា"},
+            //{"September", "កញ្ញា"},
+            //{"October",   "តុលា"},
+            //{"November",  "វិច្ឆិកា"},
+            //{"December",  "ធ្នូ"}
 
-
+            { "1" ,"មករា"},
+            { "2" ,"កុម្ភៈ"},
+            { "3" ,"មីនា"},
+            { "4" ,"មេសា"},
+            { "5" ,"ឧសភា"},
+            { "6" ,"មិថុនា"},
+            { "7" ,"កក្កដា"},
+            { "8" ,"សីហា"},
+            { "9" ,"កញ្ញា"},
+            { "10" ,"តុលា"},
+            { "11" ,"វិច្ឆិកា"},
+            { "12" ,"ធ្នូ"}
     };
     public static string GetKhmerDate(DateTime dateTime)
     {
         string fullDate = string.Empty;
+        System.Globalization.CultureInfo cultureinfo = new System.Globalization.CultureInfo("km-kh");
+        DateTime dt = DateTime.Parse(DateTime.Now.ToString(), cultureinfo);
+        var day = dt.ToString("dddd",cultureinfo);
+        var date = dt.ToString("dd",cultureinfo);
+        var month = dt.ToString("MMMM",cultureinfo);
+        var year = dt.ToString("yyyy",cultureinfo);
 
-
-
-
+        fullDate = $"{day} ទី {date} ខែ {month} ឆ្នាំ {year}";
         return fullDate;
-
     }
 }

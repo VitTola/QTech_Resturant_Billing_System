@@ -21,6 +21,7 @@ namespace QTech.Base
         public string CustomerName { get; set; }
         public string Phone { get; set; }
         public decimal Profit { get; set; }
+        public int TableId { get; set; }
 
     }
 

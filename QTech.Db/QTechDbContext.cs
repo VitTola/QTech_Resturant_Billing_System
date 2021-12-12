@@ -40,14 +40,13 @@ namespace QTech.Db
         public virtual DbSet<Position> Positions { get; set; }
         //public virtual DbSet<AuditTrail> AuditTrails { get; set; }
         public virtual DbSet<ApplicationSetting> ApplicationSettings { get; set; }
+        public virtual DbSet<Table> Tables { get; set; }
         
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             QTechDbConfigs.ConfigureDatabase(modelBuilder);
         }
-        
-
     }
 
     public static class DataBaseSetting

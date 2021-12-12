@@ -71,14 +71,14 @@ namespace WpfCustomControlLibrary
         private void Btn_MouseEnter(object sender, MouseEventArgs e)
         {
             PrimaryColor = TableColor;
-            TableColor = System.Drawing.Color.Transparent;
+            TableColor = System.Drawing.Color.FromArgb(190, 230, 253);
             if (MouseHover != null) MouseHover(this, e);
         }
 
         private void LblDetail_MouseEnter(object sender, MouseEventArgs e)
         {
             PrimaryColor = TableColor;
-            TableColor = System.Drawing.Color.Transparent;
+            TableColor = System.Drawing.Color.FromArgb(190, 230, 253);
             if(MouseHover != null) MouseHover(this, e);
         }
 

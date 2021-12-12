@@ -149,6 +149,7 @@
     <Compile Include="Enums\SaleSearchKey.cs" />
     <Compile Include="Enums\SaleType.cs" />
     <Compile Include="Enums\SupplierPayStatus.cs" />
+    <Compile Include="Enums\TableStatus.cs" />
     <Compile Include="Helpers\Constants.cs" />
     <Compile Include="Helpers\JsonNetSerializer.cs" />
     <Compile Include="Helpers\Enums.cs" />
@@ -170,6 +171,7 @@
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Sale.cs" />
+    <Compile Include="Models\Table.cs" />
     <Compile Include="Models\UserPermission.cs" />
     <Compile Include="Models\Version.cs" />
     <Compile Include="OutFaceModels\DriverDeliveryDetail.cs" />
@@ -206,6 +208,7 @@
     </Compile>
     <Compile Include="SearchModels\AuditTrailHistorySearch.cs" />
     <Compile Include="SearchModels\AuditTrailSearch.cs" />
+    <Compile Include="SearchModels\TableSearch.cs" />
     <Compile Include="SearchModels\ProfitSearch.cs" />
     <Compile Include="SearchModels\IncomExpenseSearch.cs" />
     <Compile Include="SearchModels\ReportExpenseSearch.cs" />
@@ -271,6 +274,8 @@
     <Content Include="Dll\esc-pos-usb-net.dll" />
     <Content Include="Dll\FastMember.dll" />
     <Content Include="Dll\QTech.Component.dll" />
+    <None Include="Resources\TableImg.png" />
+    <None Include="Resources\Table_Img.png" />
     <None Include="Resources\invoice status_img.png" />
     <None Include="Resources\invoice status.png" />
     <None Include="Resources\UpdateIcon.png" />

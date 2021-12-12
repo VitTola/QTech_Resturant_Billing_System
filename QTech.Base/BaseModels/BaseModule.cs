@@ -82,18 +82,7 @@ namespace QTech.Base.BaseModels
                 Children = new List<MenuBar>(),
                 FormName = "QTech.Forms.EmployeePage"
             },
-            new MenuBar()
-            {
-                Index = 2,
-                Level = 2,
-                Key = AuthKey.Employee_EmployeeBill,
-                ParentKey = AuthKey.Employee,
-                DisplayName = BaseResource.RuningBill,
-                Icon = BaseResource.RunningBill_img,
-                Children = new List<MenuBar>(),
-                FormName = "QTech.Forms.EmployeeBillingPage"
-            },
-         
+          
             new MenuBar()
             {
                 Index = 1,
@@ -129,30 +118,7 @@ namespace QTech.Base.BaseModels
                 FormName = "QTech.Forms.SalePage"
 
             },
-            new MenuBar()
-            {
-                Index = 2,
-                Level = 2,
-                Key = AuthKey.Sale_CreateInvoice,
-                ParentKey = AuthKey.Sale,
-                DisplayName = BaseResource.CreateInvoice,
-                Icon = BaseResource.Report_img32,
-                Children = new List<MenuBar>(),
-                FormName = "QTech.Forms.CreateInvoicePage"
-
-            },
-            new MenuBar()
-            {
-                Index = 3,
-                Level = 2,
-                Key = AuthKey.Sale_PurchaseOrder,
-                ParentKey = AuthKey.Sale,
-                DisplayName = BaseResource.PurchaseOrderNo,
-                Icon = BaseResource.PurchaseOrder_img,
-                Children = new List<MenuBar>(),
-                FormName = "QTech.Forms.PurchaseOrderPage"
-
-            },
+          
               new MenuBar()
             {
                 Index = 1,
@@ -189,76 +155,16 @@ namespace QTech.Base.BaseModels
                 FormName = "QTech.Forms.IncomeExpensePage"
 
             },
-              new MenuBar()
-            {
-                Index = 1,
-                Level = 2,
-                Key = AuthKey.Report_DriverDeliveryDetail,
-                ParentKey = AuthKey.Report,
-                DisplayName = BaseResource.ReportDriverDeliveryDetail,
-                Icon = BaseResource.delivery,
-                Children = new List<MenuBar>(),
-                FormName = "QTech.Reports.ReportDriverDeliveryPage"
-
-            },
-              new MenuBar()
-            {
-                Index = 3,
-                Level = 2,
-                Key = AuthKey.Report_IncomeExpense,
-                ParentKey = AuthKey.Report,
-                DisplayName = BaseResource.ReportIncomeExpense,
-                Icon = BaseResource.InOut,
-                Children = new List<MenuBar>(),
-                FormName = "QTech.Reports.ReportIncomeExpensePage"
-
-            },
-              new MenuBar()
-            {
-                Index = 4,
-                Level = 2,
-                Key = AuthKey.Report_Income,
-                ParentKey = AuthKey.Report,
-                DisplayName = BaseResource.ReportIncome,
-                Icon = BaseResource.Income_img,
-                Children = new List<MenuBar>(),
-                FormName = "QTech.Reports.ReportImcomePage"
-
-            },
              new MenuBar()
-            {
-                Index = 5,
-                Level = 2,
-                Key = AuthKey.Report_Expense,
-                ParentKey = AuthKey.Report,
-                DisplayName = BaseResource.ReportExpense,
-                Icon = BaseResource.expenses_img,
-                Children = new List<MenuBar>(),
-                FormName = "QTech.Reports.ReportExpensePage"
-
-            },
-            new MenuBar()
-            {
-                Index = 6,
-                Level = 2,
-                Key = AuthKey.Report_Profit,
-                ParentKey = AuthKey.Report,
-                DisplayName = BaseResource.ReportProfit,
-                Icon = BaseResource.ProfitImg,
-                Children = new List<MenuBar>(),
-                FormName = "QTech.Reports.ReportProfitPage"
-
-            },
-            new MenuBar()
             {
                 Index = 2,
                 Level = 2,
-                Key = AuthKey.Report_InvoiceStatus,
-                ParentKey = AuthKey.Report,
-                DisplayName = BaseResource.ReportInvoiceStatus,
-                Icon = BaseResource.invoice_status_img,
+                Key = AuthKey.Setting_Table,
+                ParentKey = AuthKey.Setting,
+                DisplayName = BaseResource.Table,
+                Icon = BaseResource.TableImg,
                 Children = new List<MenuBar>(),
-                FormName = "QTech.Reports.ReportInvoiceStatus"
+                FormName = "QTech.Forms.TablePage"
 
             },
 
@@ -340,6 +246,7 @@ namespace QTech.Base.BaseModels
                 Children = new List<MenuBar>(),
                 FormName = ""
             },
+
         };
 
 

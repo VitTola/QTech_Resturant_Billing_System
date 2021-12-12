@@ -142,6 +142,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\TablePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TablePage.Designer.cs">
+      <DependentUpon>TablePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTable.Designer.cs">
+      <DependentUpon>frmTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmIncomeExpense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -306,6 +318,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TablePage.resx">
+      <DependentUpon>TablePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTable.resx">
+      <DependentUpon>frmTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\IncomeExpensePage.resx">
       <DependentUpon>IncomeExpensePage.cs</DependentUpon>
