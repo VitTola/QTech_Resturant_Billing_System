@@ -30,10 +30,42 @@ namespace WpfCustomControlLibrary
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public string ImagePath { get; set; }
+        private bool isPlaceHoder;
         public RoundImageBox()
         {
             InitializeComponent();
+            el.MouseEnter += El_MouseEnter;
+            el.MouseLeave += El_MouseLeave;
 
+        }
+
+        private void El_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (isPlaceHoder)
+            {
+                el.Fill = new SolidColorBrush(Colors.Transparent);
+                SetPlaceHolder();
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(ImagePath))
+                {
+                    ImageBrush imageBrush = new ImageBrush();
+                    imageBrush.ImageSource = new BitmapImage(new Uri(ImagePath));
+                    el.Fill = imageBrush;
+                }
+                else
+                {
+                    el.Fill = new SolidColorBrush(Colors.Transparent);
+                    SetPlaceHolder();
+                }
+            }
+            
+        }
+
+        private void El_MouseEnter(object sender, MouseEventArgs e)
+        {
+            el.Fill = new SolidColorBrush(Colors.LightCyan);
         }
 
         private void Ellipse_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
@@ -48,8 +80,9 @@ namespace WpfCustomControlLibrary
                 ImageBrush imageBrush = new ImageBrush();
                 imageBrush.ImageSource = new BitmapImage(new Uri(ImagePath));
                 el.Fill = imageBrush;
-            }
 
+                isPlaceHoder = false;
+            }
         }
         public void SetPlaceHolder()
         {
@@ -58,6 +91,8 @@ namespace WpfCustomControlLibrary
                 ImageBrush imageBrush = new ImageBrush();
                 imageBrush.ImageSource = ToBitmapImage(Properties.Resources.dish__1_);
                 el.Fill = imageBrush;
+
+                isPlaceHoder = true;
             }
             catch (Exception)
             {
@@ -65,7 +100,6 @@ namespace WpfCustomControlLibrary
             }
             
         }
-
 
         public BitmapImage ToBitmapImage(Bitmap bitmap)
         {

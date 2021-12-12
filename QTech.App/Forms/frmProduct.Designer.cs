@@ -301,7 +301,7 @@
             // btnRemovePic
             // 
             this.btnRemovePic.Image = global::QTech.Properties.Resources.delete;
-            this.btnRemovePic.Location = new System.Drawing.Point(471, 197);
+            this.btnRemovePic.Location = new System.Drawing.Point(474, 196);
             this.btnRemovePic.Name = "btnRemovePic";
             this.btnRemovePic.Size = new System.Drawing.Size(15, 15);
             this.btnRemovePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
