@@ -32,6 +32,7 @@ namespace QTech.Base.Models
         public string PasswordHash { get; set; } = "";
         public string Note { get; set; }
         public List<UserPermission> UserPermissions { get; set; }
+        public Theme Theme { get; set; }
 
     }
 

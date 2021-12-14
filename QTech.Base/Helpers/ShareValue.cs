@@ -19,6 +19,7 @@ namespace QTech.Base.Helpers
         {
             return permissions.Any(x => (int)x.AuthKey == (int)authKey);
         }
+        public static Element CurrentTheme { get; set; } = Theme.Template1;
 
 
     }

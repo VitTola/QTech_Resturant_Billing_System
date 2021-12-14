@@ -1,4 +1,5 @@
-﻿using QTech.Component;
+﻿using QTech.Base.Helpers;
+using QTech.Component;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,8 @@ namespace QTech
         public Form1()
         {
             InitializeComponent();
+            this.SetTheme(this.Controls, null);
+
         }
 
         private void Form1_Load(object sender, EventArgs e)

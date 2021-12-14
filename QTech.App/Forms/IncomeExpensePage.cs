@@ -24,7 +24,8 @@ namespace QTech.Forms
             InitializeComponent();
             Bind();
             InitEvent();
-            this.QTechResturantDefaultStyle(this.Controls);
+            this.SetTheme(this.Controls, null);
+
         }
         public IncomeExpense Model { get; set; }
 

@@ -24,8 +24,7 @@ namespace QTech.Forms
             InitializeComponent();
             Bind();
             InitEvent();
-            this.QTechResturantDefaultStyle(this.Controls);
-            
+            this.SetTheme(this.Controls, null);
         }
         public Table Model { get; set; }
 
@@ -36,7 +35,6 @@ namespace QTech.Forms
         {
             dgv.RowTemplate.Height = 28;
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgv.SetColumnHeaderDefaultStyle();
             btnAdd.Visible = ShareValue.IsAuthorized(AuthKey.Setting_Table_Add);
             btnRemove.Visible = ShareValue.IsAuthorized(AuthKey.Setting_Table_Update);
             btnUpdate.Visible = ShareValue.IsAuthorized(AuthKey.Setting_Table_Remove);
@@ -44,8 +42,12 @@ namespace QTech.Forms
             txtSearch.RegisterEnglishInput();
             txtSearch.RegisterKeyArrowDown(dgv);
             txtSearch.QuickSearch += txtSearch_QuickSearch;
+            this.Load += TablePage_Load;
         }
 
+        private void TablePage_Load(object sender, EventArgs e)
+        {
+        }
 
         private async void txtSearch_QuickSearch(object sender, EventArgs e)
         {

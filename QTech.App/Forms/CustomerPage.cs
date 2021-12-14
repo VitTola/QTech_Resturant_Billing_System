@@ -23,7 +23,8 @@ namespace QTech.Forms
             InitializeComponent();
             Bind();
             InitEvent();
-            this.QTechResturantDefaultStyle(this.Controls);
+            this.SetTheme(this.Controls, null);
+
         }
         private bool isNodeCollapsed { get; set; } = false;
         private Customer selectedModel { get; set; } = null;

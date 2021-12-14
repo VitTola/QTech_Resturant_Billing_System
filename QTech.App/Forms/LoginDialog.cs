@@ -24,7 +24,9 @@ namespace QTech.Forms
             InitializeComponent();
             txtUserName.RegisterEnglishInputWith(txtPassword);
             txtUserName.RegisterKeyEnterNextControlWith(txtPassword);
-            
+            this.SetTheme(this.Controls, null);
+
+
             //Auto Complete with user logged in
             AutoCompleteStringCollection customAutoComplete = new AutoCompleteStringCollection();
             if (_userLoggedIn.Any())
@@ -50,6 +52,11 @@ namespace QTech.Forms
                 }
                 
                 ShareValue.User = user;
+                ShareValue.CurrentTheme = user.Theme == QTech.Base.Enums.Theme.Template1 ?
+                    Theme.Template1 :
+                    (user.Theme == QTech.Base.Enums.Theme.Template2 ?
+                    Theme.Template2 : Theme.Template3);
+
                 var userPermissions = UserPermissionLogic.Instance.GetUserPermissionsByUserId(user.Id);
                 if (userPermissions != null)
                 {
