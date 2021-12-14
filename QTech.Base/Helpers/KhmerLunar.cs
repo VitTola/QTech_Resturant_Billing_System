@@ -984,15 +984,22 @@ public class KhmerDate
     };
     public static string GetKhmerDate(DateTime dateTime)
     {
-        string fullDate = string.Empty;
-        System.Globalization.CultureInfo cultureinfo = new System.Globalization.CultureInfo("km-kh");
-        DateTime dt = DateTime.Parse(DateTime.Now.ToString(), cultureinfo);
-        var day = dt.ToString("dddd",cultureinfo);
-        var date = dt.ToString("dd",cultureinfo);
-        var month = dt.ToString("MMMM",cultureinfo);
-        var year = dt.ToString("yyyy",cultureinfo);
+        try
+        {
+            string fullDate = string.Empty;
+            System.Globalization.CultureInfo cultureinfo = new System.Globalization.CultureInfo("km-kh");
+            var day = dateTime.ToString("dddd", cultureinfo);
+            var date = dateTime.ToString("dd", cultureinfo);
+            var month = dateTime.ToString("MMMM", cultureinfo);
+            var year = dateTime.ToString("yyyy", cultureinfo);
 
-        fullDate = $"{day} ទី {date} ខែ {month} ឆ្នាំ {year}";
-        return fullDate;
+            fullDate = $"{day} ទី {date} ខែ {month} ឆ្នាំ {year}";
+            return fullDate;
+        }
+        catch (Exception)
+        {
+            return string.Empty;
+        }
+       
     }
 }

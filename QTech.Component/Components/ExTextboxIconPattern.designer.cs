@@ -32,8 +32,8 @@
             this.button = new System.Windows.Forms.Panel();
             this.imgPattern = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.menuPattern = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.txtSearch = new QTech.Component.PlaceholderTextBox();
+            this.menuPattern = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.imgPattern)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -41,7 +41,7 @@
             // button
             // 
             this.button.BackColor = System.Drawing.Color.White;
-            this.button.BackgroundImage = global::QTech.Component.Properties.Resources.icon_search;
+            this.button.BackgroundImage = global::QTech.Component.Properties.Resources.SearchImg;
             this.button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button.Dock = System.Windows.Forms.DockStyle.Right;
@@ -73,13 +73,6 @@
             this.panel1.Size = new System.Drawing.Size(173, 26);
             this.panel1.TabIndex = 3;
             // 
-            // menuPattern
-            // 
-            this.menuPattern.Font = new System.Drawing.Font("Khmer OS System", 8.25F);
-            this.menuPattern.ImageScalingSize = new System.Drawing.Size(15, 15);
-            this.menuPattern.Name = "menuPattern";
-            this.menuPattern.Size = new System.Drawing.Size(61, 4);
-            // 
             // txtSearch
             // 
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -94,6 +87,13 @@
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             this.txtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
+            // 
+            // menuPattern
+            // 
+            this.menuPattern.Font = new System.Drawing.Font("Khmer OS System", 8.25F);
+            this.menuPattern.ImageScalingSize = new System.Drawing.Size(15, 15);
+            this.menuPattern.Name = "menuPattern";
+            this.menuPattern.Size = new System.Drawing.Size(61, 4);
             // 
             // ExTextboxIconPattern
             // 

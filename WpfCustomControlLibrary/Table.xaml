@@ -7,13 +7,12 @@
              mc:Ignorable="d" Width="287.989" Height="202.999">
     <Grid Margin="28,29">
         <Button x:Name="btn" Margin="0,0,0,0" HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Top"
+                VerticalContentAlignment="Center"
                 Background="#FF12F326"
-                BorderThickness="10" FontFamily="Khmer Muol" 
+                BorderThickness="5" FontFamily="Khmer Muol" 
                 ForceCursor="True"
-                FontSize="30" Content="Table ៖ Order"
-                BorderBrush="#1E90FF"
-                Foreground="Blue"
+                FontSize="40" Content="Name"
+                BorderBrush="#1E90FF" Foreground="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}"
                 >
             <Button.Resources>
                 <Style TargetType="Border">
@@ -21,8 +20,17 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Label x:Name="lblDetail" Content="lblDetail" Margin="10,45,-3,10" Width="225"
+        <Label x:Name="lblDetail" Content="lblDetail" Margin="10,135,-3,8" Width="225"
                VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center" FontFamily="Kh Siemreap"
-               Foreground="Blue"/>
+               Foreground="Blue" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
     </Grid>
 </UserControl>

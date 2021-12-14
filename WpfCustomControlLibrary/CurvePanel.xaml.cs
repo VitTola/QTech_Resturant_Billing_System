@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.ComponentModel;
+using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace WpfCustomControlLibrary
@@ -21,11 +22,13 @@ namespace WpfCustomControlLibrary
 
         private void CurvePanel_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            SolidColorBrush brush = new SolidColorBrush(BackGroundColor);
+            var brush = new SolidColorBrush(System.Windows.Media.Color.FromArgb(BackGroundColor.A, BackGroundColor.R, BackGroundColor.G, BackGroundColor.B));
             pnlLeft.Background = brush;
             pnlRight.Background = brush;
         }
 
-        public Color BackGroundColor { get; set; } = System.Windows.Media.Color.FromRgb(100, 149, 237);
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public System.Drawing.Color BackGroundColor { get; set; } = System.Drawing.Color.FromArgb(23, 33, 43);
     }
 }

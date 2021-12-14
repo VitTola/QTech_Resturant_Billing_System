@@ -131,7 +131,7 @@
             // 
             this.topPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.topPanel.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.topPanel.Border = true;
             this.topPanel.BorderColor = System.Drawing.Color.Transparent;
             this.topPanel.Colors.Add(this.colorWithAlpha4);
@@ -181,7 +181,7 @@
             // _lblComanyName
             // 
             this._lblComanyName.AutoSize = true;
-            this._lblComanyName.BackColor = System.Drawing.Color.CornflowerBlue;
+            this._lblComanyName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this._lblComanyName.Cursor = System.Windows.Forms.Cursors.Hand;
             this._lblComanyName.Font = new System.Drawing.Font("Khmer Muol", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._lblComanyName.ForeColor = System.Drawing.Color.Blue;
@@ -194,7 +194,7 @@
             // 
             // pTopMenu
             // 
-            this.pTopMenu.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.pTopMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.pTopMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pTopMenu.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.pTopMenu.Location = new System.Drawing.Point(1, 1);
@@ -205,7 +205,7 @@
             // 
             // picLogo
             // 
-            this.picLogo.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.picLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.picLogo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picLogo.ErrorImage = global::QTech.Properties.Resources.QTech__2_;
             this.picLogo.Image = global::QTech.Properties.Resources.Pheng_Ry;
@@ -420,7 +420,7 @@
             this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.mainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(185)))), ((int)(((byte)(240)))));
+            this.mainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
             this.mainPanel.Border = true;
             this.mainPanel.BorderColor = System.Drawing.Color.Gray;
             this.mainPanel.ContentPadding = new System.Windows.Forms.Padding(0, -1, 0, -1);
@@ -566,7 +566,7 @@
             // 
             this.pSecondMenue1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pSecondMenue1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(185)))), ((int)(((byte)(240)))));
+            this.pSecondMenue1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(33)))));
             this.pSecondMenue1.Controls.Add(this.pSecondMenue2);
             this.pSecondMenue1.Location = new System.Drawing.Point(104, 31);
             this.pSecondMenue1.Name = "pSecondMenue1";
@@ -575,7 +575,7 @@
             // 
             // pSecondMenue2
             // 
-            this.pSecondMenue2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(185)))), ((int)(((byte)(240)))));
+            this.pSecondMenue2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(33)))));
             this.pSecondMenue2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pSecondMenue2.Location = new System.Drawing.Point(0, 0);
             this.pSecondMenue2.Name = "pSecondMenue2";
@@ -687,7 +687,7 @@
             // 
             // labelHideCurveBg_
             // 
-            this.labelHideCurveBg_.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.labelHideCurveBg_.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.labelHideCurveBg_.Location = new System.Drawing.Point(82, 1);
             this.labelHideCurveBg_.Name = "labelHideCurveBg_";
             this.labelHideCurveBg_.Size = new System.Drawing.Size(23, 30);
@@ -703,9 +703,10 @@
             // 
             // elementHost1
             // 
+            this.elementHost1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(33)))));
             this.elementHost1.Location = new System.Drawing.Point(1, 1);
             this.elementHost1.Name = "elementHost1";
-            this.elementHost1.Size = new System.Drawing.Size(100, 111);
+            this.elementHost1.Size = new System.Drawing.Size(104, 111);
             this.elementHost1.TabIndex = 9;
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = this.curvePanel;

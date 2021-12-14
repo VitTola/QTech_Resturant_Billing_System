@@ -42,7 +42,7 @@ namespace QTech.Component
         protected void OnSearch()
         {
             searched = true;
-            button.BackgroundImage = global::QTech.Component.Properties.Resources.icon_close; 
+            button.BackgroundImage = global::QTech.Component.Properties.Resources.SearchImg; 
             if (txtSearch.Text == "")
             {
                 button.BackgroundImage = getIconSearch();
@@ -147,7 +147,7 @@ namespace QTech.Component
             txtSearch.Text = "";
             button.BackgroundImage = getIconSearch();
             txtSearch.Focus();
-            button.BackgroundImage = global::QTech.Component.Properties.Resources.icon_search;
+            button.BackgroundImage = global::QTech.Component.Properties.Resources.SearchImg;
             if (QuickSearch != null  && SearchMode == SearchModes.OnKeyUp)
             {
                 QuickSearch(this, EventArgs.Empty);
@@ -160,7 +160,7 @@ namespace QTech.Component
 
         private Image getIconSearch()
         {
-            return SearchMode == SearchModes.OnKeyUp ? QTech.Component.Properties.Resources.icon_search : QTech.Component.Properties.Resources.icon_search;
+            return SearchMode == SearchModes.OnKeyUp ? QTech.Component.Properties.Resources.SearchImg : QTech.Component.Properties.Resources.SearchImg;
         }
 
         public new void Focus()

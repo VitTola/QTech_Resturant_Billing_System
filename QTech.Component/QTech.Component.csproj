@@ -688,9 +688,10 @@
     <None Include="Resources\down-arrow-in-small-circle.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\WRight.png" />
     <None Include="Resources\WLeft.png" />
     <None Include="Resources\WCenter.png" />
+    <None Include="Resources\WRight.png" />
+    <None Include="Resources\SearchImg.png" />
     <None Include="Resources\Right.png" />
     <None Include="Resources\rightCornerF.png" />
     <None Include="Resources\rightCornerW.png" />
@@ -820,10 +821,10 @@
     <None Include="Resources\leftcornerW.png" />
     <None Include="Resources\lefcornerF.png" />
     <None Include="Resources\Left.png" />
-    <None Include="Resources\GCenter.png" />
+    <None Include="Resources\FoodPlacehoder.png" />
     <None Include="Resources\GLeft.png" />
     <None Include="Resources\GRight.png" />
-    <None Include="Resources\FoodPlacehoder.png" />
+    <None Include="Resources\GCenter.png" />
     <Content Include="Resources\map-point.png" />
     <None Include="Resources\maximize.png" />
     <Content Include="Resources\menu.png" />

@@ -9,8 +9,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="27*"/>
         </Grid.RowDefinitions>
-        <Border x:Name="pnlLeft" BorderBrush="#FF2A75E2" BorderThickness="0" CornerRadius="0,0,500,0" Background="#FF6EACF7" UseLayoutRounding="True" RenderTransformOrigin="0.5,0.5" Width="68" HorizontalAlignment="Right"/>
-        <Border x:Name="pnlRight" BorderBrush="#FF2A75E2" BorderThickness="0" CornerRadius="0,0,0,0" Background="#FF6EACF7" UseLayoutRounding="True" RenderTransformOrigin="0.5,0.5" Margin="0,0,68,0"/>
+        <Border x:Name="pnlLeft" BorderBrush="#FF2A75E2" BorderThickness="0" CornerRadius="0,0,500,0" Background="#FF17212B" UseLayoutRounding="True" RenderTransformOrigin="0.5,0.5" Width="68" HorizontalAlignment="Right"/>
+        <Border x:Name="pnlRight" BorderBrush="#FF17212B" BorderThickness="0" CornerRadius="0,0,0,0" Background="#FF17212B" UseLayoutRounding="True" RenderTransformOrigin="0.5,0.5" Margin="0,0,68,0"/>
 
     </Grid>
 </UserControl>

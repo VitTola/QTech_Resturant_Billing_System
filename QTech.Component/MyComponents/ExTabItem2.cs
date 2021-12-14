@@ -30,12 +30,12 @@ namespace QTech.Component
         public override string Text { get => ExItem2Text; set => base.Text = ExItem2Text; }
         private void ExTabItem2_MouseLeave(object sender, EventArgs e)
         {
-            this.ForeColor = Color.Black;
+            this.ForeColor = Color.WhiteSmoke;
         }
 
         private void ExTabItem2_MouseEnter(object sender, EventArgs e)
         { 
-            this.ForeColor = Color.Firebrick;
+            this.ForeColor = Color.WhiteSmoke;
         }
 
     protected override void OnPaint(PaintEventArgs pevent)

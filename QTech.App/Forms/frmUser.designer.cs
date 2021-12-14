@@ -85,6 +85,7 @@
             // _lblAccount
             // 
             this._lblAccount.AutoSize = true;
+            this._lblAccount.ForeColor = System.Drawing.Color.WhiteSmoke;
             this._lblAccount.Location = new System.Drawing.Point(42, 25);
             this._lblAccount.Margin = new System.Windows.Forms.Padding(2);
             this._lblAccount.Name = "_lblAccount";
@@ -97,6 +98,7 @@
             // 
             this._lblPassword.AutoSize = true;
             this._lblPassword.BackColor = System.Drawing.Color.Transparent;
+            this._lblPassword.ForeColor = System.Drawing.Color.WhiteSmoke;
             this._lblPassword.Location = new System.Drawing.Point(42, 56);
             this._lblPassword.Margin = new System.Windows.Forms.Padding(2);
             this._lblPassword.Name = "_lblPassword";
@@ -123,6 +125,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grbPermission.Controls.Add(this.trvPermission);
+            this.grbPermission.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.grbPermission.Location = new System.Drawing.Point(47, 126);
             this.grbPermission.Margin = new System.Windows.Forms.Padding(2);
             this.grbPermission.Name = "grbPermission";
@@ -133,10 +136,11 @@
             // 
             // trvPermission
             // 
-            this.trvPermission.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(219)))), ((int)(((byte)(247)))));
+            this.trvPermission.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.trvPermission.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.trvPermission.CheckBoxes = true;
             this.trvPermission.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.trvPermission.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.trvPermission.Location = new System.Drawing.Point(3, 24);
             this.trvPermission.Margin = new System.Windows.Forms.Padding(2);
             this.trvPermission.Name = "trvPermission";
@@ -175,7 +179,7 @@
             this.btnClose.DefaultImage = null;
             this.btnClose.Executing = false;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Khmer OS System", 8F);
+            this.btnClose.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Location = new System.Drawing.Point(600, 3);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
@@ -195,7 +199,7 @@
             this.btnSave.DefaultImage = null;
             this.btnSave.Executing = false;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Khmer OS System", 8F);
+            this.btnSave.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(509, 3);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
@@ -219,6 +223,7 @@
             // _lblUserName
             // 
             this._lblUserName.AutoSize = true;
+            this._lblUserName.ForeColor = System.Drawing.Color.WhiteSmoke;
             this._lblUserName.Location = new System.Drawing.Point(453, 25);
             this._lblUserName.Margin = new System.Windows.Forms.Padding(2);
             this._lblUserName.Name = "_lblUserName";
@@ -240,6 +245,7 @@
             // lblNote
             // 
             this.lblNote.AutoSize = true;
+            this.lblNote.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblNote.Location = new System.Drawing.Point(453, 56);
             this.lblNote.Margin = new System.Windows.Forms.Padding(2);
             this.lblNote.Name = "lblNote";
@@ -287,6 +293,7 @@
             // 
             this.exLabel2.AutoSize = true;
             this.exLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.exLabel2.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.exLabel2.Location = new System.Drawing.Point(42, 86);
             this.exLabel2.Margin = new System.Windows.Forms.Padding(2);
             this.exLabel2.Name = "exLabel2";

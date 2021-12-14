@@ -64,7 +64,7 @@ namespace QTech.Component
                 _imageList = new ImageList();
                 _imageList.ColorDepth = ColorDepth.Depth32Bit;
                 _imageList.ImageSize = value;
-                _imageList.Images.Add(nameof(Properties.Resources.icon_search), Properties.Resources.icon_search);
+                _imageList.Images.Add(nameof(Properties.Resources.icon_search), Properties.Resources.SearchImg);
                 _imageList.Images.Add(nameof(Properties.Resources.icon_close), Properties.Resources.icon_close);
                 button.BackgroundImage = getIconSearch();
             }

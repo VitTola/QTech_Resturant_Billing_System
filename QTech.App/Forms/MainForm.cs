@@ -86,7 +86,7 @@ namespace QTech.Forms
             txtLogin.Text = DateTime.Now.ToLongDateString();
             var moduleManager = ModuleManager.Instance;
             _menuBars = moduleManager.GetMenubars();
-            //curvePanel.BackGroundColor = Color.FromArgb(100, 149, 237);
+            curvePanel.BackGroundColor = Color.FromArgb(23, 33, 43);
             InitMenu();
             
         }
@@ -268,6 +268,7 @@ namespace QTech.Forms
             btn.ExItem2Text = text;
             btn.Image = image;
             btn.Tag = obj;
+            ForeColor = Color.WhiteSmoke;
 
             return btn;
         }

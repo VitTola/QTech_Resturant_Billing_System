@@ -41,5 +41,9 @@ namespace QTech.Db.Logics
             }
             return q;
         }
+        public override bool IsExistsAsync(Table entity)
+        {
+            return All().Any(x=>x.Name.ToLower() == entity.Name.ToLower());
+        }
     }
 }

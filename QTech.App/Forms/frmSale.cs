@@ -52,13 +52,13 @@ namespace QTech.Forms
             var tables = await this.RunAsync(() => TableLogic.Instance.SearchAsync(new TableSearch()));
             if (tables != null)
             {
-                foreach (var t in tables)
+                foreach (var t in tables.Where(x=>x.IsUseable))
                 {
                     Table table = new Table()
                     {
                         TableName = t.Name,
-                        TableColor = t.TableStus == TableStatus.Free ? Color.Green : Color.FromArgb(128, 128, 255),
-                        Detail = "មិនទាន់មាន",
+                        TableColor = t.TableStus == TableStatus.Free ? Color.Transparent : Color.FromArgb(128, 128, 255),
+                        Detail = "",
                         Width = 400,
                         Height = 300
                     };
@@ -76,7 +76,7 @@ namespace QTech.Forms
         public void InitEvent()
         {
             timer.Start();
-            //lblDate_.Text = KhmerDate.GetKhmerDate(DateTime.Now);
+            lblDate_.Text = KhmerDate.GetKhmerDate(DateTime.Now);
 
         }
 

@@ -16,11 +16,11 @@ using System.Windows.Forms;
 
 namespace QTech.Forms
 {
-    public partial class frmTable : ExDialog, IDialog
+    public partial class frmFoodOrder : ExDialog, IDialog
     {
         public Table Model { get; set; }
 
-        public frmTable(Table model, GeneralProcess flag)
+        public frmFoodOrder(Table model, GeneralProcess flag)
         {
             InitializeComponent();
 
