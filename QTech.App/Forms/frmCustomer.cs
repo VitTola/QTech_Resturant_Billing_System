@@ -31,7 +31,8 @@ namespace QTech.Forms
 
             Bind();
             InitEvent();
-            this.QTechResturantDefaultStyle(this.Controls);
+            this.SetTheme(this.Controls, null);
+
         }
         public GeneralProcess Flag { get; set; }
         public void Bind()

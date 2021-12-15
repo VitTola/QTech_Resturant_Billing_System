@@ -188,26 +188,26 @@ namespace QTech.Component
                 .Where(x => x.ValueType == typeof(decimal)
                     && x.Value != null
                     && Parse.ToDecimal(x.Value.ToString()) < 0);
-            foreach (var cell in cells)
-            {
-                cell.Style.ForeColor = Color.Red;
-                cell.Style.SelectionForeColor = Color.Red;
-            }
+            //foreach (var cell in cells)
+            //{
+            //    cell.Style.ForeColor = Color.Red;
+            //    cell.Style.SelectionForeColor = Color.Red;
+            //}
 
-            this.ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle
-            {
-                BackColor = Color.FromArgb(157, 185, 240),
-                SelectionBackColor = Color.LightSkyBlue
-            };
-            this.AlternatingRowsDefaultCellStyle = new DataGridViewCellStyle()
-            {
-                BackColor = Color.FromArgb(222, 222, 250)
-            };
-            this.RowsDefaultCellStyle = new DataGridViewCellStyle()
-            {
-                SelectionBackColor = Color.FromArgb(157, 185, 240)
-            };
-            Font = new Font("Khmer OS Battambang", 8);
+            //this.ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle
+            //{
+            //    BackColor = Color.FromArgb(157, 185, 240),
+            //    SelectionBackColor = Color.LightSkyBlue
+            //};
+            //this.AlternatingRowsDefaultCellStyle = new DataGridViewCellStyle()
+            //{
+            //    BackColor = Color.FromArgb(222, 222, 250)
+            //};
+            //this.RowsDefaultCellStyle = new DataGridViewCellStyle()
+            //{
+            //    SelectionBackColor = Color.FromArgb(157, 185, 240)
+            //};
+            //Font = new Font("Khmer OS Battambang", 8);
         }
 
         void ExDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

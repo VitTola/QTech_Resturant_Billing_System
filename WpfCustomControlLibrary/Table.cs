@@ -133,7 +133,35 @@ namespace WpfCustomControlLibrary
                 obj = value;
                  } 
         }
-       
-       
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public System.Drawing.Color TextColor
+        {
+            get
+            {
+                var brush = ((SolidColorBrush)btn.Foreground).Color;
+                return System.Drawing.Color.FromArgb(brush.A, brush.R, brush.G, brush.B);
+            }
+            set 
+            {
+                var bg = new SolidColorBrush(System.Windows.Media.Color.FromArgb(value.A, value.R, value.G, value.B));
+                btn.Foreground = bg;
+            }
+        }
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public System.Drawing.Color BorderColor
+        {
+            get
+            {
+                var brush = ((SolidColorBrush)btn.BorderBrush).Color;
+                return System.Drawing.Color.FromArgb(brush.A, brush.R, brush.G, brush.B);
+            }
+            set
+            {
+                var bg = new SolidColorBrush(System.Windows.Media.Color.FromArgb(value.A, value.R, value.G, value.B));
+                btn.BorderBrush = bg;
+            }
+        }
     }
 }

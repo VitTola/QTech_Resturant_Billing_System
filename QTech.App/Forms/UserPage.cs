@@ -23,7 +23,8 @@ namespace QTech.Forms
             InitializeComponent();
             Bind();
             InitEvent();
-            this.QTechResturantDefaultStyle(this.Controls);
+            this.SetTheme(this.Controls, null);
+
         }
         public User Model { get; set; }
         private void Bind()
@@ -35,7 +36,6 @@ namespace QTech.Forms
             dgv.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             dgv.RowTemplate.Height = 28;
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgv.SetColumnHeaderDefaultStyle();
 
             txtSearch.RegisterEnglishInput();
             txtSearch.RegisterKeyArrowDown(dgv);

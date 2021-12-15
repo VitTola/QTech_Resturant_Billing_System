@@ -9,10 +9,8 @@
         <Button x:Name="btn" Margin="0,0,0,0" HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
                 Background="#FF12F326"
-                BorderThickness="5" FontFamily="Khmer Muol" 
-                ForceCursor="True"
-                FontSize="40" Content="Name"
-                BorderBrush="#1E90FF" Foreground="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}"
+                BorderThickness="5" FontFamily="Khmer Muol"
+                FontSize="40" Content="Name" Foreground="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" ForceCursor="True" BorderBrush="DodgerBlue"
                 >
             <Button.Resources>
                 <Style TargetType="Border">

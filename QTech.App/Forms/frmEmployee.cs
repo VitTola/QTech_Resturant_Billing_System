@@ -33,7 +33,8 @@ namespace QTech.Forms
 
             Bind();
             InitEvent();
-            this.QTechResturantDefaultStyle(this.Controls);
+            this.SetTheme(this.Controls, null);
+
         }
 
         public GeneralProcess Flag { get; set; }
@@ -53,7 +54,6 @@ namespace QTech.Forms
             txtName.RegisterPrimaryInputWith(cboPosition,txtNote,txtName, txtPayNote);
             this.SetEnabled(Flag != GeneralProcess.Remove && Flag != GeneralProcess.View);
             dgv.ReadOnly = true;
-            dgv.SetColumnHeaderDefaultStyle();
 
             if (Flag == GeneralProcess.Add)
             {

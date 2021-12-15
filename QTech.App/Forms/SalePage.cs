@@ -51,7 +51,6 @@ namespace QTech.Forms
             btnAdd.Visible = ShareValue.IsAuthorized(AuthKey.Sale_Sale_Add);
             btnRemove.Visible = ShareValue.IsAuthorized(AuthKey.Sale_Sale_Remove);
             btnUpdate.Visible = ShareValue.IsAuthorized(AuthKey.Sale_Sale_Update);
-            dgv.SetColumnHeaderDefaultStyle();
             cboImport.SelectedIndex = cboImport.FindStringExact(BaseResource.ImportPrice_All);
 
         }

@@ -1,31 +1,31 @@
-﻿using QTech.Base;
+﻿using QTech.Base.Enums;
+using QTech.Base.Helpers;
+using QTech.Base.Models;
+using QTech.Base.SearchModels;
 using QTech.Component;
 using QTech.Db.Logics;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BaseResource = QTech.Base.Properties.Resources;
-using QTech.Base.Helpers;
-using QTech.Base.SearchModels;
-using System.Collections.Generic;
-using System.Drawing;
-using QTech.Base.Models;
-using QTech.Base.Enums;
 
 namespace QTech.Forms
 {
     public partial class TablePage : ExPage, IPage
     {
-
         public TablePage()
         {
             InitializeComponent();
-            Bind();
-            InitEvent();
+            btnAdd.Visible = ShareValue.IsAuthorized(AuthKey.Product_Product_Add);
+            btnRemove.Visible = ShareValue.IsAuthorized(AuthKey.Product_Product_Remove);
+            btnUpdate.Visible = ShareValue.IsAuthorized(AuthKey.Product_Product_Update);
             this.SetTheme(this.Controls, null);
+
         }
+
         public Table Model { get; set; }
 
         private void Bind()
@@ -42,11 +42,13 @@ namespace QTech.Forms
             txtSearch.RegisterEnglishInput();
             txtSearch.RegisterKeyArrowDown(dgv);
             txtSearch.QuickSearch += txtSearch_QuickSearch;
-            this.Load += TablePage_Load;
+            dgv.DataSourceChanged += Dgv_DataSourceChanged;
         }
 
-        private void TablePage_Load(object sender, EventArgs e)
+        private void Dgv_DataSourceChanged(object sender, EventArgs e)
         {
+            this.SetTheme(this.Controls, null);
+
         }
 
         private async void txtSearch_QuickSearch(object sender, EventArgs e)
@@ -54,7 +56,7 @@ namespace QTech.Forms
             await Search();
         }
 
-      
+
         public async void AddNew()
         {
             Model = new Table();
@@ -93,7 +95,7 @@ namespace QTech.Forms
         {
             dgv.AllowRowNotFound = true;
             dgv.AllowRowNumber = true;
-            dgv.ColumnHeadersHeight= 28;
+            dgv.ColumnHeadersHeight = 28;
 
             await Search();
         }
@@ -140,7 +142,7 @@ namespace QTech.Forms
                 dgv.DataSource = result._ToDataTable();
             }
         }
-  
+
         public async void View()
         {
             if (dgv.SelectedRows.Count == 0)

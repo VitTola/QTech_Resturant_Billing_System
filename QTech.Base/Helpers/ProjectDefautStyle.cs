@@ -94,7 +94,7 @@ namespace QTech.Base.Helpers
                 if (c is DataGridView d)
                 {
                     form.Font = new Font("Khmer OS Battambang", 8);
-                      
+
                     d.BackgroundColor = ShareValue.CurrentTheme.DataGridBackGround;
                     d.ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle
                     {
@@ -103,12 +103,23 @@ namespace QTech.Base.Helpers
                     };
                     d.AlternatingRowsDefaultCellStyle = new DataGridViewCellStyle()
                     {
-                        BackColor = ShareValue.CurrentTheme.DataGridAlternateRowColor
+                        BackColor = ShareValue.CurrentTheme.DataGridHeader,
+                        ForeColor = ShareValue.CurrentTheme.DataGridHeaderForeColor
+
                     };
                     d.RowsDefaultCellStyle = new DataGridViewCellStyle()
                     {
-                        SelectionBackColor = ShareValue.CurrentTheme.DataGridBackGround
+                        BackColor = ShareValue.CurrentTheme.DataGridBackGround,
+                        ForeColor = ShareValue.CurrentTheme.DataGridHeaderForeColor
+
                     };
+                    d.DefaultCellStyle = new DataGridViewCellStyle()
+                    {
+                        SelectionBackColor = ShareValue.CurrentTheme.ButtonBackGround,
+                        ForeColor = ShareValue.CurrentTheme.DataGridHeaderForeColor
+
+                    };
+
                     d.Font = new Font("Khmer OS Battambang", 8);
                 }
                 if (c is Button b)
@@ -135,7 +146,7 @@ namespace QTech.Base.Helpers
                 {
                     cb.BackColor = ShareValue.CurrentTheme.ComboboxColor;
                     cb.ForeColor = ShareValue.CurrentTheme.ComboboxColor;
-                    cb.FlatStyle = FlatStyle.Popup;
+                    cb.FlatStyle = FlatStyle.Flat;
                 }
                 if (c is TabControl tc)
                 {
@@ -182,7 +193,7 @@ namespace QTech.Base.Helpers
             DataGridBackGround = Color.FromArgb(15, 31, 46),
             DataGridAlternateRowColor = Color.WhiteSmoke,
             DataGridHeaderForeColor = Color.WhiteSmoke,
-            ComboboxColor = Color.FromArgb(23, 33, 43),
+            ComboboxColor = Color.FromArgb(37, 48, 62),
             ComboboxForeColor = Color.WhiteSmoke
 
         };

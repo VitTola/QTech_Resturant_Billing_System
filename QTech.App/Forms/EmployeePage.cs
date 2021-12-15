@@ -22,12 +22,12 @@ namespace QTech.Forms
         {
             InitializeComponent();
             txtSearch.RegisterPrimaryInput();
-            dgv.SetColumnHeaderDefaultStyle();
             
             btnAdd.Visible = ShareValue.IsAuthorized(AuthKey.Employee_Employee_Add);
             btnRemove.Visible = ShareValue.IsAuthorized(AuthKey.Employee_Employee_Remove);
             btnUpdate.Visible = ShareValue.IsAuthorized(AuthKey.Employee_Employee_Update);
-            this.QTechResturantDefaultStyle(this.Controls);
+            this.SetTheme(this.Controls, null);
+
         }
 
         public async void AddNew()

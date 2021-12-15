@@ -47,7 +47,6 @@ namespace QTech.Forms
             dgv.ColumnHeadersHeight = 25;
             dgv.BackgroundColor = System.Drawing.Color.White;
             dgv.AllowUserToResizeColumns = false;
-            dgv.SetColumnHeaderDefaultStyle();
 
             txtSearch.RegisterEnglishInput();
             txtSearch.RegisterKeyArrowDown(dgv);

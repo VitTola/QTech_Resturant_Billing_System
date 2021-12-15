@@ -20,7 +20,6 @@ namespace QTech.Forms
         public ProductPage()
         {
             InitializeComponent();
-            dgv.SetColumnHeaderDefaultStyle();
 
             btnAdd.Visible = ShareValue.IsAuthorized(AuthKey.Product_Product_Add);
             btnRemove.Visible = ShareValue.IsAuthorized(AuthKey.Product_Product_Remove);

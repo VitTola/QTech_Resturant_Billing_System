@@ -44,7 +44,8 @@ namespace QTech.Forms
             this.ApplyResource();
             Read();
             InitEvent();
-            this.QTechResturantDefaultStyle(this.Controls);
+            this.SetTheme(this.Controls, null);
+
         }
 
         public async void Read()
@@ -58,6 +59,8 @@ namespace QTech.Forms
                     {
                         TableName = t.Name,
                         TableColor = t.TableStus == TableStatus.Free ? Color.Transparent : Color.FromArgb(128, 128, 255),
+                        TextColor = Color.WhiteSmoke,
+                        BorderColor = Color.Gray,
                         Detail = "",
                         Width = 400,
                         Height = 300
