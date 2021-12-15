@@ -20,9 +20,9 @@ namespace QTech.Component
         public ExTabItem()
         {
             InitializeComponent();
-           // this.BorderColor = Color.FromArgb(238, 127, 0);
-
+            // this.BorderColor = Color.FromArgb(238, 127, 0);
         }
+        public QTech.Base.Enums.Theme Theme { get; set; } = Base.Enums.Theme.Template1;
 
         bool selected = false;
 
@@ -108,12 +108,10 @@ namespace QTech.Component
                 }
                 else
                 {
-
                     panelLeft.BackgroundImage = global::QTech.Component.Properties.Resources.GRight;
                     panelMiddle.BackgroundImage = global::QTech.Component.Properties.Resources.GCenter;
                     panelRight.BackgroundImage = global::QTech.Component.Properties.Resources.GLeft;
                     lblCaption.ForeColor = Color.WhiteSmoke;
-
                 }
             }
             get
@@ -181,5 +179,17 @@ namespace QTech.Component
         {
             base.OnMouseMove(e);
         }
+
+        public void SetButtonTemplateByTheme()
+        {
+
+        }
+    }
+    public class ExTabItemComponent
+    {
+        public Bitmap PanelLeft { get; set; }
+        public Bitmap PanelRight { get; set; }
+        public Bitmap PanelCenter { get; set; }
+        public Color LabelColor { get; set; }
     }
 }

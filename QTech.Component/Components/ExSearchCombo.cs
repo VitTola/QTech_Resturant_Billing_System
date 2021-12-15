@@ -86,7 +86,6 @@ namespace QTech.Component
                     _choose = value;
                     bind(new List<DropDownItemModel>() { GetDropDownForAllText() });
                 }
-
             }
         }
         private string OptionalItemText
@@ -99,10 +98,6 @@ namespace QTech.Component
 
         public bool LoadAll { get; set; } = true;
 
-        /// <summary>
-        /// 2020-03-26 @LYHORNG.
-        /// for show all option on pagination.
-        /// </summary>
         public bool ShowAll { get; set; } = false;
 
         public void SetValue<T>(T entity) 

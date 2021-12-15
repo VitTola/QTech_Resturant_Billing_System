@@ -423,6 +423,7 @@ namespace QTech.Forms
             this.pagination.Action = null;
             this.pagination.Dock = System.Windows.Forms.DockStyle.Left;
             this.pagination.Font = new System.Drawing.Font("Khmer OS System", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pagination.ForeColor = System.Drawing.Color.Maroon;
             this.pagination.IsPaging = false;
             this.pagination.ListModel = null;
             this.pagination.Location = new System.Drawing.Point(3, 4);

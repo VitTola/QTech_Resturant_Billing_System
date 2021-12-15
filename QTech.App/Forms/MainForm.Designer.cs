@@ -40,9 +40,6 @@
             this.pTopMenu = new QTech.Component.ExTabBar();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.pBottom = new QTech.Component.GRAPanel();
-            this.colorWithAlpha7 = new QTech.Component.ColorWithAlpha();
-            this.colorWithAlpha8 = new QTech.Component.ColorWithAlpha();
-            this.colorWithAlpha12 = new QTech.Component.ColorWithAlpha();
             this.pBranch = new System.Windows.Forms.FlowLayoutPanel();
             this.lblUserProfile_ = new System.Windows.Forms.Label();
             this.txtUserName = new System.Windows.Forms.Label();
@@ -225,9 +222,6 @@
             this.pBottom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pBottom.Border = true;
             this.pBottom.BorderColor = System.Drawing.Color.Gray;
-            this.pBottom.Colors.Add(this.colorWithAlpha7);
-            this.pBottom.Colors.Add(this.colorWithAlpha8);
-            this.pBottom.Colors.Add(this.colorWithAlpha12);
             this.pBottom.ContentPadding = new System.Windows.Forms.Padding(-1, 0, -1, -1);
             this.pBottom.Controls.Add(this.pBranch);
             this.pBottom.Controls.Add(this.flowLayoutPanel2);
@@ -257,24 +251,6 @@
             this.pBottom.Size = new System.Drawing.Size(1276, 25);
             this.pBottom.TabIndex = 1;
             // 
-            // colorWithAlpha7
-            // 
-            this.colorWithAlpha7.Alpha = 255;
-            this.colorWithAlpha7.Color = System.Drawing.Color.CornflowerBlue;
-            this.colorWithAlpha7.Parent = this.pBottom;
-            // 
-            // colorWithAlpha8
-            // 
-            this.colorWithAlpha8.Alpha = 255;
-            this.colorWithAlpha8.Color = System.Drawing.Color.CornflowerBlue;
-            this.colorWithAlpha8.Parent = this.pBottom;
-            // 
-            // colorWithAlpha12
-            // 
-            this.colorWithAlpha12.Alpha = 255;
-            this.colorWithAlpha12.Color = System.Drawing.Color.CornflowerBlue;
-            this.colorWithAlpha12.Parent = this.pBottom;
-            // 
             // pBranch
             // 
             this.pBranch.AutoSize = true;
@@ -291,7 +267,7 @@
             // lblUserProfile_
             // 
             this.lblUserProfile_.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblUserProfile_.Image = global::QTech.Properties.Resources.picuser;
+            this.lblUserProfile_.Image = global::QTech.Properties.Resources.user;
             this.lblUserProfile_.Location = new System.Drawing.Point(3, 0);
             this.lblUserProfile_.Name = "lblUserProfile_";
             this.lblUserProfile_.Size = new System.Drawing.Size(20, 20);
@@ -313,12 +289,12 @@
             // 
             this.lblUserDropDown_.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblUserDropDown_.ForeColor = System.Drawing.Color.Black;
-            this.lblUserDropDown_.Image = global::QTech.Properties.Resources.down_arrow_12;
+            this.lblUserDropDown_.Image = global::QTech.Properties.Resources.down_chevron;
             this.lblUserDropDown_.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblUserDropDown_.Location = new System.Drawing.Point(101, 0);
             this.lblUserDropDown_.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.lblUserDropDown_.Name = "lblUserDropDown_";
-            this.lblUserDropDown_.Size = new System.Drawing.Size(19, 19);
+            this.lblUserDropDown_.Size = new System.Drawing.Size(31, 19);
             this.lblUserDropDown_.TabIndex = 7;
             this.lblUserDropDown_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblUserDropDown_.Click += new System.EventHandler(this.lblUserDropDown__Click);
@@ -326,7 +302,7 @@
             // lblBranchIcon_
             // 
             this.lblBranchIcon_.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblBranchIcon_.Location = new System.Drawing.Point(126, 0);
+            this.lblBranchIcon_.Location = new System.Drawing.Point(138, 0);
             this.lblBranchIcon_.Name = "lblBranchIcon_";
             this.lblBranchIcon_.Size = new System.Drawing.Size(20, 20);
             this.lblBranchIcon_.TabIndex = 4;
@@ -409,7 +385,7 @@
             // 
             // label1
             // 
-            this.label1.Image = global::QTech.Properties.Resources.calendar;
+            this.label1.Image = global::QTech.Properties.Resources.calendar1;
             this.label1.Location = new System.Drawing.Point(1, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(28, 19);
@@ -787,9 +763,6 @@
         private Component.ColorWithAlpha colorWithAlpha9;
         private Component.ColorWithAlpha colorWithAlpha10;
         private Component.ColorWithAlpha colorWithAlpha11;
-        private Component.ColorWithAlpha colorWithAlpha7;
-        private Component.ColorWithAlpha colorWithAlpha8;
-        private Component.ColorWithAlpha colorWithAlpha12;
         private Component.ColorWithAlpha colorWithAlpha4;
         private Component.ColorWithAlpha colorWithAlpha5;
         private Component.ColorWithAlpha colorWithAlpha6;

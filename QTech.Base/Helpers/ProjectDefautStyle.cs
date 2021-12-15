@@ -61,7 +61,7 @@ namespace QTech.Base.Helpers
                 if (c is ComboBox cb)
                 {
                     cb.BackColor = Color.FromArgb(222, 222, 250);
-                    cb.FlatStyle = FlatStyle.Popup;
+                    cb.FlatStyle = FlatStyle.Flat;
                 }
                 if (c is TabControl tc)
                 {
@@ -75,7 +75,11 @@ namespace QTech.Base.Helpers
                 }
                 if (c is Label l)
                 {
-                    l.ForeColor = Color.WhiteSmoke;
+                    l.ForeColor = ShareValue.CurrentTheme.LabelColor;
+                }
+                if (c is LinkLabel lk)
+                {
+                    lk.ForeColor = ShareValue.CurrentTheme.LabelColor;
                 }
             }
         }
@@ -144,9 +148,9 @@ namespace QTech.Base.Helpers
                 }
                 if (c is ComboBox cb)
                 {
-                    cb.BackColor = ShareValue.CurrentTheme.ComboboxColor;
-                    cb.ForeColor = ShareValue.CurrentTheme.ComboboxColor;
-                    cb.FlatStyle = FlatStyle.Flat;
+                    //cb.BackColor = ShareValue.CurrentTheme.ComboboxColor;
+                    //cb.ForeColor = ShareValue.CurrentTheme.ComboboxColor;
+                    cb.FlatStyle = FlatStyle.Standard;
                 }
                 if (c is TabControl tc)
                 {
@@ -166,6 +170,10 @@ namespace QTech.Base.Helpers
                 if (c is CheckBox chk)
                 {
                     chk.ForeColor = ShareValue.CurrentTheme.LabelColor;
+                }
+                if (c is LinkLabel lk)
+                {
+                    lk.ForeColor = ShareValue.CurrentTheme.LabelColor;
                 }
             }
         }
@@ -194,8 +202,11 @@ namespace QTech.Base.Helpers
             DataGridAlternateRowColor = Color.WhiteSmoke,
             DataGridHeaderForeColor = Color.WhiteSmoke,
             ComboboxColor = Color.FromArgb(37, 48, 62),
-            ComboboxForeColor = Color.WhiteSmoke
-
+            ComboboxForeColor = Color.WhiteSmoke,
+            MainFormBackColor = Color.FromArgb(15, 31, 46),
+            MainFormSecondMenuePanel = Color.FromArgb(14, 22, 33),
+            MainFormFirstMenuePanel = Color.FromArgb(23, 33, 43),
+            MainFormLabel = Color.WhiteSmoke
         };
 
         public static Element Template2 = new Element()
@@ -246,6 +257,13 @@ namespace QTech.Base.Helpers
         public Color DataGridAlternateRowColor { get; set; }
         public Color ComboboxColor { get; set; }
         public Color ComboboxForeColor { get; set; }
+
+
+        //MAIN FORM COMPONENT
+        public Color MainFormFirstMenuePanel { get; set; }
+        public Color MainFormSecondMenuePanel { get; set; }
+        public Color MainFormBackColor { get; set; }
+        public Color MainFormLabel { get; set; }
     }
 
 

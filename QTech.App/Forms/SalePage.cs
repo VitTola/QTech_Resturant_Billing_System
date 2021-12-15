@@ -52,7 +52,7 @@ namespace QTech.Forms
             btnRemove.Visible = ShareValue.IsAuthorized(AuthKey.Sale_Sale_Remove);
             btnUpdate.Visible = ShareValue.IsAuthorized(AuthKey.Sale_Sale_Update);
             cboImport.SelectedIndex = cboImport.FindStringExact(BaseResource.ImportPrice_All);
-
+            pagination.TextColor = ShareValue.CurrentTheme.LabelColor;
         }
         private async void CboPayStatus_SelectedIndexChanged(object sender, EventArgs e)
         {

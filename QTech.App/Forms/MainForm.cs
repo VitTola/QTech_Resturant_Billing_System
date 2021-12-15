@@ -34,6 +34,7 @@ namespace QTech.Forms
         public MainForm()
         {
             InitializeComponent();
+            ApplyMainFormTheme();
             InitEvent();
         }
         private void InitEvent()
@@ -328,6 +329,24 @@ namespace QTech.Forms
             {
                 MsgBox.ShowError(ex.Message, "Error");
             }
+        }
+        private void ApplyMainFormTheme()
+        {
+            var currentTheme = ShareValue.CurrentTheme;
+            pTopMenu.BackColor = currentTheme.MainFormFirstMenuePanel;
+            pSecondMenue2.BackColor = currentTheme.MainFormSecondMenuePanel;
+            BackColor = currentTheme.MainFormBackColor;
+            pBottom.Colors.Clear();
+            pBottom.Colors.Add(new ColorWithAlpha() { Color = 
+                currentTheme.MainFormFirstMenuePanel, Alpha = 255, Parent = pBottom });
+            pContainBottom.Colors.Clear();
+            pContainBottom.Colors.Add(new ColorWithAlpha() { Color = 
+                currentTheme.MainFormFirstMenuePanel, Alpha = 255, Parent = pContainBottom });
+
+            txtLogin.ForeColor = currentTheme.LabelColor;
+            txtUserName.ForeColor = currentTheme.LabelColor;
+            label5.ForeColor = currentTheme.LabelColor;
+            _lblVersion.ForeColor = currentTheme.LabelColor;
         }
 
         private void pContainForm_Paint(object sender, PaintEventArgs e)

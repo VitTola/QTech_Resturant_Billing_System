@@ -16,6 +16,7 @@ namespace QTech.Component
 {
     public partial class ExPaging : UserControl
     {
+        public string text1;
         public Paging Paging { get; set; } = new Paging() { IsPaging = true, CurrentPage = 1, PageSize = 25 };
         private dynamic _listModel;
         public dynamic ListModel
@@ -55,6 +56,16 @@ namespace QTech.Component
                     _lblCurrentPage.Text = "គ្រប់ទំព័រ";
                 }
                 _listModel = value;
+            }
+        }
+        [Browsable(true)]
+        public Color TextColor
+        {
+            get { return TextColor; }
+            set
+            {
+                _lblCurrentPage.ForeColor = lblShowAllPaging.ForeColor =
+                    lblNextPaging.LinkColor = lblPreviousPaging.LinkColor = value;
             }
         }
         public int CurrentPage { get; }

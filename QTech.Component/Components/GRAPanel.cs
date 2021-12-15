@@ -234,6 +234,8 @@
             {
                 return clGradient;
             }
+            set {
+            }
         }
 
         [Category("Content")]

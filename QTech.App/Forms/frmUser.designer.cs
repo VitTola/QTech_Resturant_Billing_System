@@ -136,7 +136,7 @@
             // 
             // trvPermission
             // 
-            this.trvPermission.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.trvPermission.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
             this.trvPermission.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.trvPermission.CheckBoxes = true;
             this.trvPermission.Dock = System.Windows.Forms.DockStyle.Fill;

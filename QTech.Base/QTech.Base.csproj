@@ -87,7 +87,7 @@
     </Reference>
     <Reference Include="QTech.Component, Version=2.8.4.25, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Easy Order\Easy Order.C#\EasyOrder\EasyOrder.Base\Dll\QTech.Component.dll</HintPath>
+      <HintPath>Dll\QTech.Component.dll</HintPath>
     </Reference>
     <Reference Include="Storm.Domain, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
