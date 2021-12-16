@@ -241,7 +241,7 @@ namespace QTech.Component
         }
 
         #endregion
-        private GRAPanel digheader;
+        public GRAPanel digheader;
         private System.Windows.Forms.PictureBox imgICON;
         private System.Windows.Forms.Label _lblTITLE;
         private CotrolDialogButton _bMinimize;

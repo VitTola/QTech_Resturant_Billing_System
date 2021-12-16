@@ -87,7 +87,6 @@ namespace QTech.Forms
             txtLogin.Text = DateTime.Now.ToLongDateString();
             var moduleManager = ModuleManager.Instance;
             _menuBars = moduleManager.GetMenubars();
-            curvePanel.BackGroundColor = Color.FromArgb(23, 33, 43);
             InitMenu();
             
         }
@@ -343,30 +342,41 @@ namespace QTech.Forms
             pContainBottom.Colors.Add(new ColorWithAlpha() { Color = 
                 currentTheme.MainFormFirstMenuePanel, Alpha = 255, Parent = pContainBottom });
 
+            curvePanel.BackGroundColor = currentTheme.MainFormFirstMenuePanel;
+            curvePanel.BackColor = currentTheme.MainFormSecondMenuePanel;
+            labelHideCurveBg_.BackColor = currentTheme.MainFormFirstMenuePanel;
+            picLogo.BackColor = currentTheme.MainFormFirstMenuePanel;
+
             txtLogin.ForeColor = currentTheme.LabelColor;
             txtUserName.ForeColor = currentTheme.LabelColor;
             label5.ForeColor = currentTheme.LabelColor;
             _lblVersion.ForeColor = currentTheme.LabelColor;
+            _lblComanyName.BackColor = currentTheme.MainFormFirstMenuePanel;
+
+
+            digheader.Colors.Clear();
+            digheader.Colors.Add(new ColorWithAlpha()
+            {
+                Color =
+                currentTheme.FormTopBar,
+                Alpha = 255,
+                Parent = digheader
+            });
+            digheader.Colors.Add(new ColorWithAlpha()
+            {
+                Color =
+                currentTheme.FormTopBar,
+                Alpha = 255,
+                Parent = digheader
+            });
+            digheader.Colors.Add(new ColorWithAlpha()
+            {
+                Color =
+                currentTheme.FormTopBar,
+                Alpha = 255,
+                Parent = digheader
+            });
         }
 
-        private void pContainForm_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pSecondMenue2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtLogin_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtUserName_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

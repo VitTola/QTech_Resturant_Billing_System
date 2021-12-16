@@ -123,7 +123,7 @@ namespace QTech.Forms
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             btnLogin_.Enabled = true;
         }
-        private async void LoginDialog_Load(object sender, EventArgs e)
+        private void LoginDialog_Load(object sender, EventArgs e)
         {
             CenterToScreen();
         }

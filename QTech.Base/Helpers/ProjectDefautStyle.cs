@@ -11,80 +11,6 @@ namespace QTech.Base.Helpers
 {
     public static class ProjectDefautStyle
     {
-        public static void QTechResturantDefaultStyle(this Form form, Control.ControlCollection controls = null)
-        {
-            if (controls == null)
-            {
-                return;
-            }
-            form.Font = new Font("Khmer OS Battambang", 8);
-            foreach (Control c in controls)
-            {
-                if (c is DataGridView d)
-                {
-                    d.BackgroundColor = Color.FromArgb(15, 31, 46);
-                    d.ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle
-                    {
-                        BackColor = Color.FromArgb(157, 185, 240),
-                        SelectionBackColor = Color.LightSkyBlue
-                    };
-                    d.AlternatingRowsDefaultCellStyle = new DataGridViewCellStyle()
-                    {
-                        BackColor = Color.FromArgb(222, 222, 250)
-                    };
-                    d.RowsDefaultCellStyle = new DataGridViewCellStyle()
-                    {
-                        SelectionBackColor = Color.FromArgb(157, 185, 240)
-                    };
-                    d.Font = new Font("Khmer OS Battambang", 8);
-                }
-                if (c is Button b)
-                {
-                    b.BackColor = Color.DodgerBlue;
-                    b.FlatStyle = FlatStyle.Flat;
-                    b.FlatAppearance.BorderColor = Color.Gray;
-                    b.FlatAppearance.BorderSize = 1;
-                    b.FlatAppearance.MouseOverBackColor = Color.FromArgb(152, 203, 255);
-                    b.ForeColor = Color.White;
-                }
-                if (c is Panel p)
-                {
-                    if (p.Name != "container")
-                    {
-                        p.BackColor = Color.FromArgb(222, 222, 250);
-                    }
-                    if (p.Name != "digheader")
-                    {
-                        QTechResturantDefaultStyle(form, p.Controls);
-                    }
-                }
-                if (c is ComboBox cb)
-                {
-                    cb.BackColor = Color.FromArgb(222, 222, 250);
-                    cb.FlatStyle = FlatStyle.Flat;
-                }
-                if (c is TabControl tc)
-                {
-                    tc.BackColor = Color.FromArgb(203, 219, 247);
-                    QTechResturantDefaultStyle(form, tc.Controls);
-                }
-                if (c is TabPage tp)
-                {
-                    tp.BackColor = Color.FromArgb(203, 219, 247);
-                    QTechResturantDefaultStyle(form, tp.Controls);
-                }
-                if (c is Label l)
-                {
-                    l.ForeColor = ShareValue.CurrentTheme.LabelColor;
-                }
-                if (c is LinkLabel lk)
-                {
-                    lk.ForeColor = ShareValue.CurrentTheme.LabelColor;
-                }
-            }
-        }
-
-
         public static void SetTheme(this Form form,
             Control.ControlCollection controls = null,
             Control.ControlCollection Ignores = null)
@@ -141,15 +67,47 @@ namespace QTech.Base.Helpers
                     {
                         p.BackColor = ShareValue.CurrentTheme.PanelColor;
                     }
-                    if (p.Name != "digheader")
+                    if (p.Name == "digheader")
+                    {
+                        p.BackColor = ShareValue.CurrentTheme.FormTopBar;
+                    }
+                    else
                     {
                         SetTheme(form, p.Controls, null);
                     }
+
+                }
+                if (c is GRAPanel gp)
+                {
+                    if (gp.Name == "digheader")
+                    {
+                        gp.Colors.Clear();
+                        gp.Colors.Add(new ColorWithAlpha()
+                        {
+                            Color =
+                            ShareValue.CurrentTheme.FormTopBar,
+                            Alpha = 255,
+                            Parent = gp
+                        });
+                        gp.Colors.Add(new ColorWithAlpha()
+                        {
+                            Color =
+                           ShareValue.CurrentTheme.FormTopBar,
+                            Alpha = 255,
+                            Parent = gp
+                        });
+                        gp.Colors.Add(new ColorWithAlpha()
+                        {
+                            Color =
+                           ShareValue.CurrentTheme.FormTopBar,
+                            Alpha = 255,
+                            Parent = gp
+                        });
+                    }
+                   
                 }
                 if (c is ComboBox cb)
                 {
-                    //cb.BackColor = ShareValue.CurrentTheme.ComboboxColor;
-                    //cb.ForeColor = ShareValue.CurrentTheme.ComboboxColor;
                     cb.FlatStyle = FlatStyle.Standard;
                 }
                 if (c is TabControl tc)
@@ -177,11 +135,6 @@ namespace QTech.Base.Helpers
                 }
             }
         }
-
-
-
-
-
 
     }
 
@@ -211,17 +164,24 @@ namespace QTech.Base.Helpers
 
         public static Element Template2 = new Element()
         {
-            FormTopBar = Color.FromArgb(36, 47, 61),
+            FormTopBar = Color.FromArgb(247, 42, 129),
             FormBackGround = Color.FromArgb(15, 31, 46),
             ButtonBackGround = Color.FromArgb(37, 48, 62),
             ButtonText = Color.WhiteSmoke,
             LabelColor = Color.WhiteSmoke,
-            PanelColor = Color.FromArgb(14, 22, 33),
+            PanelColor = Color.FromArgb(15, 31, 46),
             TabControl = Color.FromArgb(23, 33, 43),
             TabPage = Color.FromArgb(23, 33, 43),
             DataGridHeader = Color.FromArgb(23, 33, 43),
             DataGridBackGround = Color.FromArgb(15, 31, 46),
             DataGridAlternateRowColor = Color.WhiteSmoke,
+            DataGridHeaderForeColor = Color.WhiteSmoke,
+            ComboboxColor = Color.FromArgb(37, 48, 62),
+            ComboboxForeColor = Color.WhiteSmoke,
+            MainFormBackColor = Color.FromArgb(15, 31, 46),
+            MainFormSecondMenuePanel = Color.WhiteSmoke,
+            MainFormFirstMenuePanel = Color.FromArgb(229, 90, 49),
+            MainFormLabel = Color.WhiteSmoke
 
         };
 
@@ -232,12 +192,19 @@ namespace QTech.Base.Helpers
             ButtonBackGround = Color.FromArgb(37, 48, 62),
             ButtonText = Color.WhiteSmoke,
             LabelColor = Color.WhiteSmoke,
-            PanelColor = Color.FromArgb(14, 22, 33),
+            PanelColor = Color.FromArgb(15, 31, 46),
             TabControl = Color.FromArgb(23, 33, 43),
             TabPage = Color.FromArgb(23, 33, 43),
             DataGridHeader = Color.FromArgb(23, 33, 43),
             DataGridBackGround = Color.FromArgb(15, 31, 46),
             DataGridAlternateRowColor = Color.WhiteSmoke,
+            DataGridHeaderForeColor = Color.WhiteSmoke,
+            ComboboxColor = Color.FromArgb(37, 48, 62),
+            ComboboxForeColor = Color.WhiteSmoke,
+            MainFormBackColor = Color.FromArgb(15, 31, 46),
+            MainFormSecondMenuePanel = Color.FromArgb(14, 22, 33),
+            MainFormFirstMenuePanel = Color.FromArgb(23, 33, 43),
+            MainFormLabel = Color.WhiteSmoke
         };
 
     }

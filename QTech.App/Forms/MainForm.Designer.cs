@@ -90,6 +90,11 @@
             this.cnmStrip.SuspendLayout();
             this.SuspendLayout();
             // 
+            // digheader
+            // 
+            this.digheader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.digheader.Size = new System.Drawing.Size(1280, 20);
+            // 
             // container
             // 
             this.container.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(185)))), ((int)(((byte)(240)))));
@@ -202,7 +207,7 @@
             // 
             // picLogo
             // 
-            this.picLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.picLogo.BackColor = System.Drawing.Color.Gray;
             this.picLogo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picLogo.ErrorImage = global::QTech.Properties.Resources.QTech__2_;
             this.picLogo.Image = global::QTech.Properties.Resources.Pheng_Ry;
@@ -283,7 +288,6 @@
             this.txtUserName.Size = new System.Drawing.Size(69, 19);
             this.txtUserName.TabIndex = 3;
             this.txtUserName.Text = "អ្នកប្រើប្រាស់";
-            this.txtUserName.Click += new System.EventHandler(this.txtUserName_Click);
             // 
             // lblUserDropDown_
             // 
@@ -381,7 +385,6 @@
             this.txtLogin.Size = new System.Drawing.Size(110, 19);
             this.txtLogin.TabIndex = 1;
             this.txtLogin.Text = "01-01-2019 01:01:01";
-            this.txtLogin.Click += new System.EventHandler(this.txtLogin_Click);
             // 
             // label1
             // 
@@ -536,7 +539,6 @@
             this.pContainForm.Rounded = true;
             this.pContainForm.Size = new System.Drawing.Size(1268, 553);
             this.pContainForm.TabIndex = 1;
-            this.pContainForm.Paint += new System.Windows.Forms.PaintEventHandler(this.pContainForm_Paint);
             // 
             // pSecondMenue1
             // 
@@ -557,7 +559,6 @@
             this.pSecondMenue2.Name = "pSecondMenue2";
             this.pSecondMenue2.Size = new System.Drawing.Size(1172, 84);
             this.pSecondMenue2.TabIndex = 3;
-            this.pSecondMenue2.Paint += new System.Windows.Forms.PaintEventHandler(this.pSecondMenue2_Paint);
             // 
             // colorWithAlpha3
             // 
@@ -700,6 +701,7 @@
             this.Text = "Main";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+            this.Controls.SetChildIndex(this.digheader, 0);
             this.Controls.SetChildIndex(this.container, 0);
             this.container.ResumeLayout(false);
             this.topPanel.ResumeLayout(false);

@@ -688,9 +688,9 @@
     <None Include="Resources\down-arrow-in-small-circle.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\WRight.png" />
     <None Include="Resources\WLeft.png" />
     <None Include="Resources\WCenter.png" />
-    <None Include="Resources\WRight.png" />
     <None Include="Resources\SearchImg.png" />
     <None Include="Resources\Right.png" />
     <None Include="Resources\rightCornerF.png" />

@@ -16,7 +16,6 @@ namespace QTech.Forms
         public ReportViewPage()
         {
             InitializeComponent();
-            this.QTechResturantDefaultStyle(this.Controls);
         }
 
         private void exLabel1_Click(object sender, EventArgs e)

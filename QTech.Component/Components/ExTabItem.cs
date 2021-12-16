@@ -20,10 +20,49 @@ namespace QTech.Component
         public ExTabItem()
         {
             InitializeComponent();
-            // this.BorderColor = Color.FromArgb(238, 127, 0);
         }
         public QTech.Base.Enums.Theme Theme { get; set; } = Base.Enums.Theme.Template1;
+        public ExTabItemComponent CurrentThemeComponent
+        {
+            get
+            {
+                var temp = new ExTabItemComponent();
+                if (Theme == Base.Enums.Theme.Template1)
+                {
+                    temp.SPanelLeft = global::QTech.Component.Properties.Resources.WLeft;
+                    temp.SPanelRight = global::QTech.Component.Properties.Resources.WRight;
+                    temp.SPanelCenter = global::QTech.Component.Properties.Resources.WCenter;
+                    temp.SLabelColor = Color.WhiteSmoke;
 
+                    temp.PanelLeft = global::QTech.Component.Properties.Resources.GLeft;
+                    temp.PanelRight = global::QTech.Component.Properties.Resources.GRight;
+                    temp.PanelCenter = global::QTech.Component.Properties.Resources.GCenter;
+                    temp.LabelColor = Color.WhiteSmoke;
+                }
+                else if (Theme == Base.Enums.Theme.Template2)
+                {
+                    temp.SPanelLeft = global::QTech.Component.Properties.Resources.WLeft;
+                    temp.SPanelRight = global::QTech.Component.Properties.Resources.WRight;
+                    temp.SPanelCenter = global::QTech.Component.Properties.Resources.WCenter;
+
+                    temp.PanelLeft = global::QTech.Component.Properties.Resources.GLeft;
+                    temp.PanelRight = global::QTech.Component.Properties.Resources.GRight;
+                    temp.PanelCenter = global::QTech.Component.Properties.Resources.GCenter;
+                }
+                else if (Theme == Base.Enums.Theme.Template3)
+                {
+                    temp.SPanelLeft = global::QTech.Component.Properties.Resources.WLeft;
+                    temp.SPanelRight = global::QTech.Component.Properties.Resources.WRight;
+                    temp.SPanelCenter = global::QTech.Component.Properties.Resources.WCenter;
+
+                    temp.PanelLeft = global::QTech.Component.Properties.Resources.GLeft;
+                    temp.PanelRight = global::QTech.Component.Properties.Resources.GRight;
+                    temp.PanelCenter = global::QTech.Component.Properties.Resources.GCenter;
+                }
+
+                return temp;
+            }
+        }
         bool selected = false;
 
         bool isTitle = false;
@@ -87,10 +126,10 @@ namespace QTech.Component
 
                 if (selected)
                 {
-                    panelLeft.BackgroundImage = global::QTech.Component.Properties.Resources.WRight;
-                    panelMiddle.BackgroundImage = global::QTech.Component.Properties.Resources.WCenter;
-                    panelRight.BackgroundImage = global::QTech.Component.Properties.Resources.WLeft;
-                    lblCaption.ForeColor = Color.WhiteSmoke;
+                    panelLeft.BackgroundImage = CurrentThemeComponent.SPanelLeft;
+                    panelMiddle.BackgroundImage = CurrentThemeComponent.SPanelCenter;
+                    panelRight.BackgroundImage = CurrentThemeComponent.SPanelRight;
+                    lblCaption.ForeColor = CurrentThemeComponent.SLabelColor;
 
                     if (Parent!=null)
                     {
@@ -108,10 +147,10 @@ namespace QTech.Component
                 }
                 else
                 {
-                    panelLeft.BackgroundImage = global::QTech.Component.Properties.Resources.GRight;
-                    panelMiddle.BackgroundImage = global::QTech.Component.Properties.Resources.GCenter;
-                    panelRight.BackgroundImage = global::QTech.Component.Properties.Resources.GLeft;
-                    lblCaption.ForeColor = Color.WhiteSmoke;
+                    panelLeft.BackgroundImage = CurrentThemeComponent.PanelLeft;
+                    panelMiddle.BackgroundImage = CurrentThemeComponent.PanelCenter;
+                    panelRight.BackgroundImage = CurrentThemeComponent.PanelRight;
+                    lblCaption.ForeColor = CurrentThemeComponent.LabelColor;
                 }
             }
             get
@@ -179,17 +218,17 @@ namespace QTech.Component
         {
             base.OnMouseMove(e);
         }
-
-        public void SetButtonTemplateByTheme()
-        {
-
-        }
     }
     public class ExTabItemComponent
     {
-        public Bitmap PanelLeft { get; set; }
-        public Bitmap PanelRight { get; set; }
-        public Bitmap PanelCenter { get; set; }
-        public Color LabelColor { get; set; }
+        public  Bitmap PanelLeft { get; set; }
+        public  Bitmap PanelRight { get; set; }
+        public  Bitmap PanelCenter { get; set; }
+        public  Color LabelColor { get; set; }
+
+        public Bitmap SPanelLeft { get; set; }
+        public Bitmap SPanelRight { get; set; }
+        public Bitmap SPanelCenter { get; set; }
+        public Color SLabelColor { get; set; }
     }
 }
