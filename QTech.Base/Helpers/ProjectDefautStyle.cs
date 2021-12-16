@@ -45,7 +45,7 @@ namespace QTech.Base.Helpers
                     };
                     d.DefaultCellStyle = new DataGridViewCellStyle()
                     {
-                        SelectionBackColor = ShareValue.CurrentTheme.ButtonBackGround,
+                        SelectionBackColor = ShareValue.CurrentTheme.DataGridViewSelectionBackColor,
                         ForeColor = ShareValue.CurrentTheme.DataGridHeaderForeColor
 
                     };
@@ -58,7 +58,7 @@ namespace QTech.Base.Helpers
                     b.FlatStyle = FlatStyle.Flat;
                     b.FlatAppearance.BorderColor = Color.Gray;
                     b.FlatAppearance.BorderSize = 1;
-                    b.FlatAppearance.MouseOverBackColor = Color.FromArgb(152, 203, 255);
+                    //b.FlatAppearance.MouseOverBackColor = Color.FromArgb(152, 203, 255);
                     b.ForeColor = ShareValue.CurrentTheme.ButtonText;
                 }
                 if (c is Panel p)
@@ -104,7 +104,7 @@ namespace QTech.Base.Helpers
                             Parent = gp
                         });
                     }
-                   
+                    form.BackColor = ShareValue.CurrentTheme.FormBackGround;
                 }
                 if (c is ComboBox cb)
                 {
@@ -133,6 +133,17 @@ namespace QTech.Base.Helpers
                 {
                     lk.ForeColor = ShareValue.CurrentTheme.LabelColor;
                 }
+                if (c is GroupBox gb)
+                {
+                    gb.BackColor = ShareValue.CurrentTheme.FormBackGround;
+                    gb.ForeColor = ShareValue.CurrentTheme.LabelColor;
+                    SetTheme(form, gb.Controls, null);
+                }
+                if (c is TriStateTreeView t)
+                {
+                    t.BackColor = ShareValue.CurrentTheme.FormBackGround;
+                    t.ForeColor = ShareValue.CurrentTheme.LabelColor;
+                }
             }
         }
 
@@ -154,6 +165,7 @@ namespace QTech.Base.Helpers
             DataGridBackGround = Color.FromArgb(15, 31, 46),
             DataGridAlternateRowColor = Color.WhiteSmoke,
             DataGridHeaderForeColor = Color.WhiteSmoke,
+            DataGridViewSelectionBackColor = Color.FromArgb(37, 48, 62),
             ComboboxColor = Color.FromArgb(37, 48, 62),
             ComboboxForeColor = Color.WhiteSmoke,
             MainFormBackColor = Color.FromArgb(15, 31, 46),
@@ -164,23 +176,24 @@ namespace QTech.Base.Helpers
 
         public static Element Template2 = new Element()
         {
-            FormTopBar = Color.FromArgb(247, 42, 129),
-            FormBackGround = Color.FromArgb(15, 31, 46),
-            ButtonBackGround = Color.FromArgb(37, 48, 62),
-            ButtonText = Color.WhiteSmoke,
-            LabelColor = Color.WhiteSmoke,
-            PanelColor = Color.FromArgb(15, 31, 46),
-            TabControl = Color.FromArgb(23, 33, 43),
-            TabPage = Color.FromArgb(23, 33, 43),
-            DataGridHeader = Color.FromArgb(23, 33, 43),
-            DataGridBackGround = Color.FromArgb(15, 31, 46),
+            FormTopBar = Color.FromArgb(247, 188, 199),
+            FormBackGround = Color.FromArgb(243, 233, 232),
+            ButtonBackGround = Color.FromArgb(243, 233, 232),
+            ButtonText = Color.Black,
+            LabelColor = Color.Black,
+            PanelColor = Color.FromArgb(247, 188, 199),
+            TabControl = Color.FromArgb(243, 233, 232),
+            TabPage = Color.FromArgb(243, 233, 232),
+            DataGridHeader = Color.FromArgb(247, 188, 199),
+            DataGridBackGround = Color.FromArgb(243, 233, 232),
             DataGridAlternateRowColor = Color.WhiteSmoke,
-            DataGridHeaderForeColor = Color.WhiteSmoke,
+            DataGridHeaderForeColor = Color.Black,
+            DataGridViewSelectionBackColor = Color.FromArgb(178, 173, 178),
             ComboboxColor = Color.FromArgb(37, 48, 62),
             ComboboxForeColor = Color.WhiteSmoke,
             MainFormBackColor = Color.FromArgb(15, 31, 46),
-            MainFormSecondMenuePanel = Color.WhiteSmoke,
-            MainFormFirstMenuePanel = Color.FromArgb(229, 90, 49),
+            MainFormSecondMenuePanel = Color.FromArgb(242, 186, 203),
+            MainFormFirstMenuePanel = Color.FromArgb(247, 142, 167),
             MainFormLabel = Color.WhiteSmoke
 
         };
@@ -202,7 +215,7 @@ namespace QTech.Base.Helpers
             ComboboxColor = Color.FromArgb(37, 48, 62),
             ComboboxForeColor = Color.WhiteSmoke,
             MainFormBackColor = Color.FromArgb(15, 31, 46),
-            MainFormSecondMenuePanel = Color.FromArgb(14, 22, 33),
+            MainFormSecondMenuePanel = Color.FromArgb(247, 180, 223),
             MainFormFirstMenuePanel = Color.FromArgb(23, 33, 43),
             MainFormLabel = Color.WhiteSmoke
         };
@@ -222,6 +235,7 @@ namespace QTech.Base.Helpers
         public Color DataGridHeaderForeColor { get; set; }
         public Color DataGridBackGround { get; set; }
         public Color DataGridAlternateRowColor { get; set; }
+        public Color DataGridViewSelectionBackColor { get; set; }
         public Color ComboboxColor { get; set; }
         public Color ComboboxForeColor { get; set; }
 

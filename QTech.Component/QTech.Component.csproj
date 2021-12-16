@@ -688,6 +688,9 @@
     <None Include="Resources\down-arrow-in-small-circle.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\S2Left.png" />
+    <None Include="Resources\S2Right.png" />
+    <None Include="Resources\S2Center.png" />
     <None Include="Resources\WRight.png" />
     <None Include="Resources\WLeft.png" />
     <None Include="Resources\WCenter.png" />
@@ -754,6 +757,9 @@
     <None Include="Resources\center5.png" />
     <None Include="Resources\close.png" />
     <None Include="Resources\dgvloading.gif" />
+    <None Include="Resources\2Center.png" />
+    <None Include="Resources\2Right.png" />
+    <None Include="Resources\2Left.png" />
     <Content Include="Resources\edit.png" />
     <None Include="Resources\empty_avatar.png" />
     <None Include="Resources\jpg.png" />

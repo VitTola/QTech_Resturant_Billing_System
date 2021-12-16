@@ -45,6 +45,11 @@
             this.txtUserName = new System.Windows.Forms.Label();
             this.lblUserDropDown_ = new System.Windows.Forms.Label();
             this.lblBranchIcon_ = new System.Windows.Forms.Label();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this._lblTheme = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this._lblVersion = new System.Windows.Forms.LinkLabel();
             this.label5 = new System.Windows.Forms.Label();
@@ -74,11 +79,16 @@
             this.lblWhitbackG_ = new System.Windows.Forms.Label();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.curvePanel = new WpfCustomControlLibrary.CurvePanel();
+            this.cnmTheme = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.Template1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Template2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Template3 = new System.Windows.Forms.ToolStripMenuItem();
             this.container.SuspendLayout();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.pBottom.SuspendLayout();
             this.pBranch.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.graPanel2.SuspendLayout();
@@ -88,11 +98,12 @@
             this.pContainBottom.SuspendLayout();
             this.menuSwitchLinkServer.SuspendLayout();
             this.cnmStrip.SuspendLayout();
+            this.cnmTheme.SuspendLayout();
             this.SuspendLayout();
             // 
             // digheader
             // 
-            this.digheader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.digheader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(185)))), ((int)(((byte)(240)))));
             this.digheader.Size = new System.Drawing.Size(1280, 20);
             // 
             // container
@@ -263,9 +274,10 @@
             this.pBranch.Controls.Add(this.txtUserName);
             this.pBranch.Controls.Add(this.lblUserDropDown_);
             this.pBranch.Controls.Add(this.lblBranchIcon_);
+            this.pBranch.Controls.Add(this.flowLayoutPanel3);
             this.pBranch.Location = new System.Drawing.Point(205, 2);
             this.pBranch.Name = "pBranch";
-            this.pBranch.Size = new System.Drawing.Size(277, 23);
+            this.pBranch.Size = new System.Drawing.Size(345, 26);
             this.pBranch.TabIndex = 11;
             this.pBranch.WrapContents = false;
             // 
@@ -293,7 +305,7 @@
             // 
             this.lblUserDropDown_.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblUserDropDown_.ForeColor = System.Drawing.Color.Black;
-            this.lblUserDropDown_.Image = global::QTech.Properties.Resources.down_chevron;
+            this.lblUserDropDown_.Image = global::QTech.Properties.Resources.down1;
             this.lblUserDropDown_.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblUserDropDown_.Location = new System.Drawing.Point(101, 0);
             this.lblUserDropDown_.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
@@ -310,6 +322,61 @@
             this.lblBranchIcon_.Name = "lblBranchIcon_";
             this.lblBranchIcon_.Size = new System.Drawing.Size(20, 20);
             this.lblBranchIcon_.TabIndex = 4;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.AutoSize = true;
+            this.flowLayoutPanel3.Controls.Add(this.label3);
+            this.flowLayoutPanel3.Controls.Add(this.label4);
+            this.flowLayoutPanel3.Controls.Add(this._lblTheme);
+            this.flowLayoutPanel3.Controls.Add(this.label7);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(164, 3);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(158, 20);
+            this.flowLayoutPanel3.TabIndex = 12;
+            this.flowLayoutPanel3.WrapContents = false;
+            // 
+            // label3
+            // 
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label3.Image = global::QTech.Properties.Resources.Theme1;
+            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(20, 20);
+            this.label3.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(29, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 19);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "ប្តូរព័ណ៌ផ្ទាំង";
+            // 
+            // _lblTheme
+            // 
+            this._lblTheme.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._lblTheme.ForeColor = System.Drawing.Color.Black;
+            this._lblTheme.Image = global::QTech.Properties.Resources.down_chevron;
+            this._lblTheme.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this._lblTheme.Location = new System.Drawing.Point(98, 0);
+            this._lblTheme.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this._lblTheme.Name = "_lblTheme";
+            this._lblTheme.Size = new System.Drawing.Size(31, 19);
+            this._lblTheme.TabIndex = 7;
+            this._lblTheme.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this._lblTheme.Click += new System.EventHandler(this._lblTheme_Click);
+            // 
+            // label7
+            // 
+            this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label7.Location = new System.Drawing.Point(135, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(20, 20);
+            this.label7.TabIndex = 4;
             // 
             // flowLayoutPanel2
             // 
@@ -391,7 +458,7 @@
             this.label1.Image = global::QTech.Properties.Resources.calendar1;
             this.label1.Location = new System.Drawing.Point(1, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 19);
+            this.label1.Size = new System.Drawing.Size(20, 18);
             this.label1.TabIndex = 0;
             // 
             // mainPanel
@@ -688,6 +755,36 @@
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = this.curvePanel;
             // 
+            // cnmTheme
+            // 
+            this.cnmTheme.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Template1,
+            this.Template2,
+            this.Template3});
+            this.cnmTheme.Name = "cnmTheme";
+            this.cnmTheme.Size = new System.Drawing.Size(108, 70);
+            // 
+            // Template1
+            // 
+            this.Template1.Name = "Template1";
+            this.Template1.Size = new System.Drawing.Size(107, 22);
+            this.Template1.Text = "គំរូទី១";
+            this.Template1.Click += new System.EventHandler(this.Template1_Click);
+            // 
+            // Template2
+            // 
+            this.Template2.Name = "Template2";
+            this.Template2.Size = new System.Drawing.Size(107, 22);
+            this.Template2.Text = "គំរូទី២";
+            this.Template2.Click += new System.EventHandler(this.Template2_Click);
+            // 
+            // Template3
+            // 
+            this.Template3.Name = "Template3";
+            this.Template3.Size = new System.Drawing.Size(107, 22);
+            this.Template3.Text = "គំរូទី៣";
+            this.Template3.Click += new System.EventHandler(this.Template3_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 19F);
@@ -711,6 +808,8 @@
             this.pBottom.PerformLayout();
             this.pBranch.ResumeLayout(false);
             this.pBranch.PerformLayout();
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.mainPanel.ResumeLayout(false);
@@ -721,6 +820,7 @@
             this.pContainBottom.ResumeLayout(false);
             this.menuSwitchLinkServer.ResumeLayout(false);
             this.cnmStrip.ResumeLayout(false);
+            this.cnmTheme.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -772,5 +872,14 @@
         private System.Windows.Forms.Label labelHideCurveBg_;
         private System.Windows.Forms.Label lblWhitbackG_;
         private WpfCustomControlLibrary.CurvePanel curvePanel;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label _lblTheme;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ContextMenuStrip cnmTheme;
+        private System.Windows.Forms.ToolStripMenuItem Template1;
+        private System.Windows.Forms.ToolStripMenuItem Template2;
+        private System.Windows.Forms.ToolStripMenuItem Template3;
     }
 }

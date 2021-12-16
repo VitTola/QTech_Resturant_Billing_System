@@ -41,13 +41,16 @@ namespace QTech.Component
                 }
                 else if (Theme == Base.Enums.Theme.Template2)
                 {
-                    temp.SPanelLeft = global::QTech.Component.Properties.Resources.WLeft;
-                    temp.SPanelRight = global::QTech.Component.Properties.Resources.WRight;
-                    temp.SPanelCenter = global::QTech.Component.Properties.Resources.WCenter;
+                    temp.SPanelLeft = global::QTech.Component.Properties.Resources.S2Left;
+                    temp.SPanelRight = global::QTech.Component.Properties.Resources.S2Right;
+                    temp.SPanelCenter = global::QTech.Component.Properties.Resources.S2Center;
+                    temp.SLabelColor = Color.Black;
 
-                    temp.PanelLeft = global::QTech.Component.Properties.Resources.GLeft;
-                    temp.PanelRight = global::QTech.Component.Properties.Resources.GRight;
-                    temp.PanelCenter = global::QTech.Component.Properties.Resources.GCenter;
+                    temp.PanelLeft = global::QTech.Component.Properties.Resources._2Left;
+                    temp.PanelRight = global::QTech.Component.Properties.Resources._2Right;
+                    temp.PanelCenter = global::QTech.Component.Properties.Resources._2Center;
+                    temp.LabelColor = Color.Black;
+
                 }
                 else if (Theme == Base.Enums.Theme.Template3)
                 {
@@ -177,7 +180,7 @@ namespace QTech.Component
         {
             if (!selected && !isTitle)
             {
-                lblCaption.ForeColor = Color.Yellow;
+                lblCaption.ForeColor = Color.Red;
             }
         }
 
@@ -187,7 +190,7 @@ namespace QTech.Component
         {
             if (!selected && !isTitle)
             {
-                lblCaption.ForeColor = Color.White;
+                lblCaption.ForeColor = CurrentThemeComponent.LabelColor;
             }
         } 
         

@@ -53,6 +53,11 @@
             this.flowLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
+            // digheader
+            // 
+            this.digheader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(18)))), ((int)(((byte)(22)))));
+            this.digheader.Size = new System.Drawing.Size(854, 20);
+            // 
             // container
             // 
             this.container.Controls.Add(this.exLabel2);

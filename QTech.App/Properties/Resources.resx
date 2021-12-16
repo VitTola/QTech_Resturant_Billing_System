@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Theme1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Theme1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="up.img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\up.img.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -169,8 +172,8 @@
   <data name="login" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="trashbin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\trashbin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="calendar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calendar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Type.img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Type.img.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,11 +187,17 @@
   <data name="add-file" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add-file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Theme" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Theme.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pback" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pback.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trashbin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trashbin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pcenter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pcenter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,7 +223,7 @@
   <data name="Pheng Ry" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pheng Ry.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="calendar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\calendar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="down1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\down1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

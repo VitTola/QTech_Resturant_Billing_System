@@ -63,6 +63,36 @@ namespace QTech.Component.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap _2Center {
+            get {
+                object obj = ResourceManager.GetObject("_2Center", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap _2Left {
+            get {
+                object obj = ResourceManager.GetObject("_2Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap _2Right {
+            get {
+                object obj = ResourceManager.GetObject("_2Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap active {
             get {
                 object obj = ResourceManager.GetObject("active", resourceCulture);
@@ -1567,6 +1597,36 @@ namespace QTech.Component.Properties {
         public static System.Drawing.Bitmap running {
             get {
                 object obj = ResourceManager.GetObject("running", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap S2Center {
+            get {
+                object obj = ResourceManager.GetObject("S2Center", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap S2Left {
+            get {
+                object obj = ResourceManager.GetObject("S2Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap S2Right {
+            get {
+                object obj = ResourceManager.GetObject("S2Right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

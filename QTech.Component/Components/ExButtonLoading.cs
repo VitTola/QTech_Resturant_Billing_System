@@ -13,8 +13,8 @@ namespace QTech.Component
         public ExButtonLoading()
         {
             InitializeStyle();
-            this.MouseHover += ExButtonLoading_MouseHover;
-            this.MouseLeave += ExButtonLoading_MouseLeave;
+            //this.MouseHover += ExButtonLoading_MouseHover;
+            //this.MouseLeave += ExButtonLoading_MouseLeave;
         }
 
         private void ExButtonLoading_MouseLeave(object sender, EventArgs e)

@@ -140,6 +140,7 @@ namespace QTech.Component
 
         public virtual void Reload()
         {
+
         }
 
         public bool IsLoading { get; set; } = true;

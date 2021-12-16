@@ -20,6 +20,7 @@ using QTech.Base.SearchModels;
 using System.IO;
 using Newtonsoft.Json;
 using Updater;
+using Theme = QTech.Base.Helpers.Theme;
 
 namespace QTech.Forms
 {
@@ -34,7 +35,6 @@ namespace QTech.Forms
         public MainForm()
         {
             InitializeComponent();
-            ApplyMainFormTheme();
             InitEvent();
         }
         private void InitEvent()
@@ -63,6 +63,7 @@ namespace QTech.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            ApplyMainFormTheme();
         }
 
         private void MainForm_Shown(object sender, EventArgs e)
@@ -105,6 +106,7 @@ namespace QTech.Forms
                 {
                     var topMenue = new ExTabItem
                     {
+                        Theme = ShareValue.User.Theme,
                         Height = 60,
                         Name = x.FormName,
                         Tag = x.Key,
@@ -378,5 +380,38 @@ namespace QTech.Forms
             });
         }
 
+        private void _lblTheme_Click(object sender, EventArgs e)
+        {
+            var p = Point.Add(_lblTheme.PointToScreen(new Point(0, -50)), new Size(0, _lblTheme.Height));
+            cnmTheme.Show(p);
+        }
+
+        private void Template1_Click(object sender, EventArgs e)
+        {
+            //ShareValue.CurrentTheme = Theme.Template1;
+            //ShareValue.User.Theme = Base.Enums.Theme.Template1;
+            var tempUser = ShareValue.User;
+            tempUser.Theme = Base.Enums.Theme.Template1;
+            UserLogic.Instance.UpdateAsync(tempUser);
+            //Reload();
+        }
+
+        private void Template2_Click(object sender, EventArgs e)
+        {
+            //ShareValue.CurrentTheme = Theme.Template2;
+            //ShareValue.User.Theme = Base.Enums.Theme.Template2;
+            var tempUser = ShareValue.User;
+            tempUser.Theme = Base.Enums.Theme.Template2;
+            UserLogic.Instance.UpdateAsync(ShareValue.User);
+            //Reload();
+        }
+
+        private void Template3_Click(object sender, EventArgs e)
+        {
+            ShareValue.CurrentTheme = Theme.Template3;
+            ShareValue.User.Theme = Base.Enums.Theme.Template3;
+            UserLogic.Instance.UpdateAsync(ShareValue.User);
+            Reload();
+        }
     }
 }
