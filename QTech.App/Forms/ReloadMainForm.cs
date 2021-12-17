@@ -24,7 +24,9 @@ namespace QTech.Forms
         {
             MainForm.Close();
             this.Close();
-            new MainForm().Show();
+            var mainForm = new MainForm();
+            mainForm.isReload = false;
+            mainForm.Show();
         }
     }
 }

@@ -54,13 +54,15 @@ namespace QTech.Component
                 }
                 else if (Theme == Base.Enums.Theme.Template3)
                 {
-                    temp.SPanelLeft = global::QTech.Component.Properties.Resources.WLeft;
-                    temp.SPanelRight = global::QTech.Component.Properties.Resources.WRight;
-                    temp.SPanelCenter = global::QTech.Component.Properties.Resources.WCenter;
+                    temp.SPanelLeft = global::QTech.Component.Properties.Resources.S3Left;
+                    temp.SPanelRight = global::QTech.Component.Properties.Resources.S3Right;
+                    temp.SPanelCenter = global::QTech.Component.Properties.Resources.S3Center;
+                    temp.SLabelColor = Color.Black;
 
-                    temp.PanelLeft = global::QTech.Component.Properties.Resources.GLeft;
-                    temp.PanelRight = global::QTech.Component.Properties.Resources.GRight;
-                    temp.PanelCenter = global::QTech.Component.Properties.Resources.GCenter;
+                    temp.PanelLeft = global::QTech.Component.Properties.Resources._3Left;
+                    temp.PanelRight = global::QTech.Component.Properties.Resources._3Right;
+                    temp.PanelCenter = global::QTech.Component.Properties.Resources._3Center;
+                    temp.LabelColor = Color.Black;
                 }
 
                 return temp;

@@ -30,7 +30,7 @@ namespace QTech.Forms
         private Dictionary<string, Form> _pages = new Dictionary<string, Form>();
         private ExTabItem _lastExtabitem = null;
         private List<MenuBar> _menuBars = new List<MenuBar>();
-        private bool isReload = false;
+        public bool isReload = false;
         AuthKey currentKeyTab;
 
         public MainForm()
@@ -61,7 +61,6 @@ namespace QTech.Forms
             }
             catch (Exception) { }
         }
-
         private void MainForm_FormClosed1(object sender, FormClosedEventArgs e)
         {
             if (!isReload)
@@ -71,12 +70,10 @@ namespace QTech.Forms
                 Application.Exit();
             }
         }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
             ApplyMainFormTheme();
         }
-
         private void MainForm_Shown(object sender, EventArgs e)
         {
             pSecondMenue1.ResumeLayout(false);
@@ -102,8 +99,6 @@ namespace QTech.Forms
             InitMenu();
             
         }
-
-     
         public void InitMenu()
         {
             //CAN CHECK THE WITH AUTHORIZE KEY IN HERE BEFORE READTOPMENUE
@@ -240,6 +235,7 @@ namespace QTech.Forms
                             var secodMenue = MyTemplateButton(x.DisplayName, x.Icon, x);
                             pSecondMenue2.Controls.Add(secodMenue);
                             secodMenue.Click += SecodMenue_Click;
+                            secodMenue.Leave += SecodMenue_Leave;
                         }
                     });
                     if (pSecondMenue2.Controls.Count > 0)
@@ -256,6 +252,21 @@ namespace QTech.Forms
                 ClickedButton = menuBar;
             }
         }
+
+        private void SecodMenue_Leave(object sender, EventArgs e)
+        {
+            if (sender is ExTabItem2 btn)
+            {
+                if (ShareValue.User.Theme == Base.Enums.Theme.Template1)
+                {
+                    btn.BackColor = ShareValue.CurrentTheme.MainFormSecondMenuePanel;
+                    btn.ForeColor = ShareValue.CurrentTheme.LabelColor;
+                    pSecondMenue2.Controls.OfType<ExTabItem2>().Where(x => x != btn).ToList()
+                   .ForEach(y => { y.BackColor = Color.Transparent; y.ForeColor = ShareValue.CurrentTheme.LabelColor;});
+                }
+            }
+        }
+
         private void SecodMenue_Click(object sender, EventArgs e)
         {
             if (sender is ExTabItem2 btn)
@@ -264,9 +275,18 @@ namespace QTech.Forms
                 {
                     ShowPage(menuBar.FormName, menuBar.ModuleLocation);
                 }
-                btn.BackColor = Color.FromArgb(30, 144, 255);
-                pSecondMenue2.Controls.OfType<ExTabItem2>().Where(x => x != btn).ToList()
-                    .ForEach(y => y.BackColor = Color.Transparent);
+                if (ShareValue.User.Theme == Base.Enums.Theme.Template1)
+                {
+                    btn.BackColor = Color.FromArgb(37, 48, 62);
+                    btn.ForeColor = Color.FromArgb(59, 143, 250);
+                }
+                else
+                {
+                    btn.BackColor = Color.FromArgb(204, 232, 255);
+                    pSecondMenue2.Controls.OfType<ExTabItem2>().Where(x => x != btn).ToList()
+                    .ForEach(y => { y.BackColor = Color.Transparent; y.ForeColor = ShareValue.CurrentTheme.LabelColor; });
+                }
+                
             }
         }
         private ExTabItem2 MyTemplateButton(string text, Image image, Object obj)
@@ -281,7 +301,7 @@ namespace QTech.Forms
             btn.ExItem2Text = text;
             btn.Image = image;
             btn.Tag = obj;
-            ForeColor = Color.WhiteSmoke;
+            ForeColor = ShareValue.CurrentTheme.LabelColor;
 
             return btn;
         }
@@ -309,17 +329,14 @@ namespace QTech.Forms
             this.Close();
             System.Diagnostics.Process.Start(Path.Combine(Application.StartupPath, "QTech.exe"));
         }
-
         private void txtVersion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             StartUpdater();
         }
-
         private void _lblComanyName_Click(object sender, EventArgs e)
         {
             StartUpdater();
         }
-
         private void picLogo_Click(object sender, EventArgs e)
         {
             StartUpdater();
@@ -350,6 +367,7 @@ namespace QTech.Forms
             pContainBottom.Colors.Clear();
             pContainBottom.Colors.Add(new ColorWithAlpha() { Color = 
                 currentTheme.MainFormFirstMenuePanel, Alpha = 255, Parent = pContainBottom });
+            mainPanel.BackColor = currentTheme.FormBackGround;
 
             curvePanel.BackGroundColor = currentTheme.MainFormFirstMenuePanel;
             curvePanel.BackColor = currentTheme.MainFormSecondMenuePanel;
@@ -360,7 +378,10 @@ namespace QTech.Forms
             txtUserName.ForeColor = currentTheme.LabelColor;
             label5.ForeColor = currentTheme.LabelColor;
             _lblVersion.ForeColor = currentTheme.LabelColor;
+            _lblVersion.LinkColor = currentTheme.LabelColor;
             _lblComanyName.BackColor = currentTheme.MainFormFirstMenuePanel;
+            lblTheme_.ForeColor = currentTheme.LabelColor;
+
 
 
             digheader.Colors.Clear();

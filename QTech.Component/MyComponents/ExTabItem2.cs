@@ -30,12 +30,12 @@ namespace QTech.Component
         public override string Text { get => ExItem2Text; set => base.Text = ExItem2Text; }
         private void ExTabItem2_MouseLeave(object sender, EventArgs e)
         {
-            this.ForeColor = Color.WhiteSmoke;
+           // this.ForeColor = Color.WhiteSmoke;
         }
 
         private void ExTabItem2_MouseEnter(object sender, EventArgs e)
         { 
-            this.ForeColor = Color.WhiteSmoke;
+           // this.ForeColor = Color.WhiteSmoke;
         }
 
     protected override void OnPaint(PaintEventArgs pevent)
@@ -44,7 +44,7 @@ namespace QTech.Component
 
             base.OnPaint(pevent);
 
-            this.Font = new Font("Khmer OS Siemreap", 9);
+            this.Font = new Font("Khmer OS Battambang", 9);
 
             using (Graphics cg = this.CreateGraphics())
             {

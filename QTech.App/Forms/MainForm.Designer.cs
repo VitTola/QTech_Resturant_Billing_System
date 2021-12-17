@@ -47,7 +47,7 @@
             this.lblBranchIcon_ = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblTheme_ = new System.Windows.Forms.Label();
             this._lblTheme = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -327,7 +327,7 @@
             // 
             this.flowLayoutPanel3.AutoSize = true;
             this.flowLayoutPanel3.Controls.Add(this.label3);
-            this.flowLayoutPanel3.Controls.Add(this.label4);
+            this.flowLayoutPanel3.Controls.Add(this.lblTheme_);
             this.flowLayoutPanel3.Controls.Add(this._lblTheme);
             this.flowLayoutPanel3.Controls.Add(this.label7);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(164, 3);
@@ -345,22 +345,22 @@
             this.label3.Size = new System.Drawing.Size(20, 20);
             this.label3.TabIndex = 2;
             // 
-            // label4
+            // lblTheme_
             // 
-            this.label4.AutoSize = true;
-            this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(29, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 19);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "ប្តូរព័ណ៌ផ្ទាំង";
+            this.lblTheme_.AutoSize = true;
+            this.lblTheme_.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblTheme_.ForeColor = System.Drawing.Color.White;
+            this.lblTheme_.Location = new System.Drawing.Point(29, 0);
+            this.lblTheme_.Name = "lblTheme_";
+            this.lblTheme_.Size = new System.Drawing.Size(66, 19);
+            this.lblTheme_.TabIndex = 3;
+            this.lblTheme_.Text = "ប្តូរព័ណ៌ផ្ទាំង";
             // 
             // _lblTheme
             // 
             this._lblTheme.Cursor = System.Windows.Forms.Cursors.Hand;
             this._lblTheme.ForeColor = System.Drawing.Color.Black;
-            this._lblTheme.Image = global::QTech.Properties.Resources.down_chevron;
+            this._lblTheme.Image = global::QTech.Properties.Resources.down1;
             this._lblTheme.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this._lblTheme.Location = new System.Drawing.Point(98, 0);
             this._lblTheme.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
@@ -615,7 +615,7 @@
             this.pSecondMenue1.Controls.Add(this.pSecondMenue2);
             this.pSecondMenue1.Location = new System.Drawing.Point(104, 31);
             this.pSecondMenue1.Name = "pSecondMenue1";
-            this.pSecondMenue1.Size = new System.Drawing.Size(1172, 84);
+            this.pSecondMenue1.Size = new System.Drawing.Size(1176, 84);
             this.pSecondMenue1.TabIndex = 4;
             // 
             // pSecondMenue2
@@ -624,7 +624,7 @@
             this.pSecondMenue2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pSecondMenue2.Location = new System.Drawing.Point(0, 0);
             this.pSecondMenue2.Name = "pSecondMenue2";
-            this.pSecondMenue2.Size = new System.Drawing.Size(1172, 84);
+            this.pSecondMenue2.Size = new System.Drawing.Size(1176, 84);
             this.pSecondMenue2.TabIndex = 3;
             // 
             // colorWithAlpha3
@@ -750,7 +750,7 @@
             this.elementHost1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(33)))));
             this.elementHost1.Location = new System.Drawing.Point(1, 1);
             this.elementHost1.Name = "elementHost1";
-            this.elementHost1.Size = new System.Drawing.Size(104, 111);
+            this.elementHost1.Size = new System.Drawing.Size(104, 114);
             this.elementHost1.TabIndex = 9;
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = this.curvePanel;
@@ -770,7 +770,7 @@
             this.Template1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
             this.Template1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.Template1.Name = "Template1";
-            this.Template1.Size = new System.Drawing.Size(180, 26);
+            this.Template1.Size = new System.Drawing.Size(111, 26);
             this.Template1.Text = "គំរូទី១";
             this.Template1.Click += new System.EventHandler(this.Template1_Click);
             // 
@@ -878,7 +878,7 @@
         private WpfCustomControlLibrary.CurvePanel curvePanel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblTheme_;
         private System.Windows.Forms.Label _lblTheme;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ContextMenuStrip cnmTheme;

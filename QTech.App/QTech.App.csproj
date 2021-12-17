@@ -498,6 +498,8 @@
   <ItemGroup>
     <Content Include="Pheng-Ry.ico" />
     <Content Include="Resources\Calendar1.png" />
+    <None Include="Resources\DownArrow1.png" />
+    <None Include="Resources\DownArrow.png" />
     <None Include="Resources\down1.png" />
     <None Include="Resources\Theme1.png" />
     <None Include="Resources\Theme.png" />

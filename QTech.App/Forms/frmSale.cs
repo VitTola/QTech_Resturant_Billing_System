@@ -59,7 +59,7 @@ namespace QTech.Forms
                     {
                         TableName = t.Name,
                         TableColor = t.TableStus == TableStatus.Free ? Color.Transparent : Color.FromArgb(128, 128, 255),
-                        TextColor = Color.WhiteSmoke,
+                        TextColor = ShareValue.CurrentTheme.LabelColor,
                         BorderColor = Color.Gray,
                         Detail = "",
                         Width = 400,

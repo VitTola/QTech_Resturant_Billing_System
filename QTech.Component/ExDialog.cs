@@ -104,6 +104,8 @@ namespace QTech.Component
 
         }
 
+        public Color TittleColor { set { _lblTITLE.ForeColor = value; } }
+
         private void ExDialog_Move(object sender, EventArgs e)
         {
             AdaptBackGroundColor();

@@ -93,6 +93,36 @@ namespace QTech.Component.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap _3Center {
+            get {
+                object obj = ResourceManager.GetObject("_3Center", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap _3Left {
+            get {
+                object obj = ResourceManager.GetObject("_3Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap _3Right {
+            get {
+                object obj = ResourceManager.GetObject("_3Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap active {
             get {
                 object obj = ResourceManager.GetObject("active", resourceCulture);
@@ -1627,6 +1657,36 @@ namespace QTech.Component.Properties {
         public static System.Drawing.Bitmap S2Right {
             get {
                 object obj = ResourceManager.GetObject("S2Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap S3Center {
+            get {
+                object obj = ResourceManager.GetObject("S3Center", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap S3Left {
+            get {
+                object obj = ResourceManager.GetObject("S3Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap S3Right {
+            get {
+                object obj = ResourceManager.GetObject("S3Right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
