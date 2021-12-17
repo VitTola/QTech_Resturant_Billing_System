@@ -31,7 +31,7 @@ namespace QTech.Db.Logics
         public override User UpdateAsync(User entity)
         {
             var result = new User();
-            if (string.IsNullOrEmpty(entity.PasswordHash))
+            if (!string.IsNullOrEmpty(entity.PasswordHash))
             {
                 _db.Entry(entity).State = EntityState.Modified;
                 _db.Entry(entity).Property(x => x.PasswordHash).IsModified = false;

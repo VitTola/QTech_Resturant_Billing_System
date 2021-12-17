@@ -30,6 +30,7 @@ namespace QTech.Forms
         private Dictionary<string, Form> _pages = new Dictionary<string, Form>();
         private ExTabItem _lastExtabitem = null;
         private List<MenuBar> _menuBars = new List<MenuBar>();
+        private bool isReload = false;
         AuthKey currentKeyTab;
 
         public MainForm()
@@ -39,7 +40,7 @@ namespace QTech.Forms
         }
         private void InitEvent()
         {
-            this.FormClosing += (e, o) => DataBaseSetting.WriteSetting();
+            //this.FormClosing += (e, o) => DataBaseSetting.WriteSetting();
             ShareValue.permissions = PermissionLogic.Instance.SearchAsync(new PermissionSearch());
 
             ReportHelper.Instance.RegisterPath(@"QTech\QTech.App\Reports");
@@ -49,7 +50,7 @@ namespace QTech.Forms
             ResourceHelper.ApplyResource(this);
             this.InitForm();
             this.OptimizeLoadUI();
-            this.FormClosed += (s, e) => Application.Exit();
+            this.FormClosed += MainForm_FormClosed1;
             this.Load += MainForm_Load;
 
             try
@@ -59,6 +60,16 @@ namespace QTech.Forms
                 _lblVersion.Text = $"v{version?.AppVersion}";
             }
             catch (Exception) { }
+        }
+
+        private void MainForm_FormClosed1(object sender, FormClosedEventArgs e)
+        {
+            if (!isReload)
+            { 
+                InputLanguage.CurrentInputLanguage = UI.English;
+                DataBaseSetting.WriteSetting();
+                Application.Exit();
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -287,10 +298,6 @@ namespace QTech.Forms
                 pSecondMenue1.Hide();
             }
         }
-        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            InputLanguage.CurrentInputLanguage = UI.English;
-        }
         private void lblUserDropDown__Click(object sender, EventArgs e)
         {
             var p = Point.Add(lblUserProfile_.PointToScreen(new Point(0, -50)), new Size(0, lblUserProfile_.Height));
@@ -388,30 +395,49 @@ namespace QTech.Forms
 
         private void Template1_Click(object sender, EventArgs e)
         {
-            //ShareValue.CurrentTheme = Theme.Template1;
-            //ShareValue.User.Theme = Base.Enums.Theme.Template1;
-            var tempUser = ShareValue.User;
-            tempUser.Theme = Base.Enums.Theme.Template1;
-            UserLogic.Instance.UpdateAsync(tempUser);
-            //Reload();
+            isReload = false;
+            ShareValue.CurrentTheme = Theme.Template1;
+            var currentTheme = ShareValue.User.Theme;
+            ShareValue.User.Theme = Base.Enums.Theme.Template1;
+            UserLogic.Instance.UpdateAsync(ShareValue.User);
+            if (currentTheme != Base.Enums.Theme.Template1)
+            {
+                isReload = true;
+                var obj = this;
+                 this.Hide();
+                new ReloadMainForm(obj).Show();
+            }
         }
 
         private void Template2_Click(object sender, EventArgs e)
         {
-            //ShareValue.CurrentTheme = Theme.Template2;
-            //ShareValue.User.Theme = Base.Enums.Theme.Template2;
-            var tempUser = ShareValue.User;
-            tempUser.Theme = Base.Enums.Theme.Template2;
+            isReload = false;
+            ShareValue.CurrentTheme = Theme.Template2;
+            var currentTheme = ShareValue.User.Theme;
+            ShareValue.User.Theme = Base.Enums.Theme.Template2;
             UserLogic.Instance.UpdateAsync(ShareValue.User);
-            //Reload();
+            if (currentTheme != Base.Enums.Theme.Template2)
+            {
+                isReload = true;
+                var obj = this;
+                this.Hide();
+                new ReloadMainForm(obj).Show();
+            }
         }
 
         private void Template3_Click(object sender, EventArgs e)
         {
+            isReload = false;
             ShareValue.CurrentTheme = Theme.Template3;
+            var currentTheme = ShareValue.User.Theme;
             ShareValue.User.Theme = Base.Enums.Theme.Template3;
             UserLogic.Instance.UpdateAsync(ShareValue.User);
-            Reload();
+            if (currentTheme != Base.Enums.Theme.Template3)
+            {
+                isReload = true;
+                this.Hide();
+                new ReloadMainForm(this).Show();
+            }
         }
     }
 }

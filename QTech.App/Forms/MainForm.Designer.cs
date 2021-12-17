@@ -714,18 +714,18 @@
             // 
             // cnmStrip
             // 
-            this.cnmStrip.Font = new System.Drawing.Font("Khmer OS System", 8.25F);
+            this.cnmStrip.Font = new System.Drawing.Font("Khmer OS Battambang", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cnmStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.cnmStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnLogOut});
             this.cnmStrip.Name = "cnmStrip";
             this.cnmStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.cnmStrip.Size = new System.Drawing.Size(123, 28);
+            this.cnmStrip.Size = new System.Drawing.Size(121, 28);
             // 
             // btnLogOut
             // 
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(122, 24);
+            this.btnLogOut.Size = new System.Drawing.Size(120, 24);
             this.btnLogOut.Text = "ចាកចេញ";
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
@@ -757,31 +757,36 @@
             // 
             // cnmTheme
             // 
+            this.cnmTheme.Font = new System.Drawing.Font("Khmer OS Battambang", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cnmTheme.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Template1,
             this.Template2,
             this.Template3});
             this.cnmTheme.Name = "cnmTheme";
-            this.cnmTheme.Size = new System.Drawing.Size(108, 70);
+            this.cnmTheme.Size = new System.Drawing.Size(112, 82);
             // 
             // Template1
             // 
+            this.Template1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.Template1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.Template1.Name = "Template1";
-            this.Template1.Size = new System.Drawing.Size(107, 22);
+            this.Template1.Size = new System.Drawing.Size(180, 26);
             this.Template1.Text = "គំរូទី១";
             this.Template1.Click += new System.EventHandler(this.Template1_Click);
             // 
             // Template2
             // 
+            this.Template2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
             this.Template2.Name = "Template2";
-            this.Template2.Size = new System.Drawing.Size(107, 22);
+            this.Template2.Size = new System.Drawing.Size(111, 26);
             this.Template2.Text = "គំរូទី២";
             this.Template2.Click += new System.EventHandler(this.Template2_Click);
             // 
             // Template3
             // 
+            this.Template3.BackColor = System.Drawing.Color.LightGray;
             this.Template3.Name = "Template3";
-            this.Template3.Size = new System.Drawing.Size(107, 22);
+            this.Template3.Size = new System.Drawing.Size(111, 26);
             this.Template3.Text = "គំរូទី៣";
             this.Template3.Click += new System.EventHandler(this.Template3_Click);
             // 
@@ -797,7 +802,6 @@
             this.Name = "MainForm";
             this.Text = "Main";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Controls.SetChildIndex(this.digheader, 0);
             this.Controls.SetChildIndex(this.container, 0);
             this.container.ResumeLayout(false);
