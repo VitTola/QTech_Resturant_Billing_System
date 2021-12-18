@@ -275,9 +275,9 @@
             this.pBranch.Controls.Add(this.lblUserDropDown_);
             this.pBranch.Controls.Add(this.lblBranchIcon_);
             this.pBranch.Controls.Add(this.flowLayoutPanel3);
-            this.pBranch.Location = new System.Drawing.Point(205, 2);
+            this.pBranch.Location = new System.Drawing.Point(205, -1);
             this.pBranch.Name = "pBranch";
-            this.pBranch.Size = new System.Drawing.Size(345, 26);
+            this.pBranch.Size = new System.Drawing.Size(345, 28);
             this.pBranch.TabIndex = 11;
             this.pBranch.WrapContents = false;
             // 
@@ -287,19 +287,20 @@
             this.lblUserProfile_.Image = global::QTech.Properties.Resources.user;
             this.lblUserProfile_.Location = new System.Drawing.Point(3, 0);
             this.lblUserProfile_.Name = "lblUserProfile_";
-            this.lblUserProfile_.Size = new System.Drawing.Size(20, 20);
+            this.lblUserProfile_.Size = new System.Drawing.Size(20, 23);
             this.lblUserProfile_.TabIndex = 2;
             // 
             // txtUserName
             // 
-            this.txtUserName.AutoSize = true;
+            this.txtUserName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtUserName.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txtUserName.ForeColor = System.Drawing.Color.White;
-            this.txtUserName.Location = new System.Drawing.Point(29, 0);
+            this.txtUserName.Location = new System.Drawing.Point(29, 4);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(69, 19);
+            this.txtUserName.Size = new System.Drawing.Size(64, 19);
             this.txtUserName.TabIndex = 3;
             this.txtUserName.Text = "អ្នកប្រើប្រាស់";
+            this.txtUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblUserDropDown_
             // 
@@ -307,10 +308,10 @@
             this.lblUserDropDown_.ForeColor = System.Drawing.Color.Black;
             this.lblUserDropDown_.Image = global::QTech.Properties.Resources.down1;
             this.lblUserDropDown_.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblUserDropDown_.Location = new System.Drawing.Point(101, 0);
+            this.lblUserDropDown_.Location = new System.Drawing.Point(96, 0);
             this.lblUserDropDown_.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.lblUserDropDown_.Name = "lblUserDropDown_";
-            this.lblUserDropDown_.Size = new System.Drawing.Size(31, 19);
+            this.lblUserDropDown_.Size = new System.Drawing.Size(31, 28);
             this.lblUserDropDown_.TabIndex = 7;
             this.lblUserDropDown_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblUserDropDown_.Click += new System.EventHandler(this.lblUserDropDown__Click);
@@ -318,7 +319,7 @@
             // lblBranchIcon_
             // 
             this.lblBranchIcon_.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblBranchIcon_.Location = new System.Drawing.Point(138, 0);
+            this.lblBranchIcon_.Location = new System.Drawing.Point(133, 0);
             this.lblBranchIcon_.Name = "lblBranchIcon_";
             this.lblBranchIcon_.Size = new System.Drawing.Size(20, 20);
             this.lblBranchIcon_.TabIndex = 4;
@@ -330,9 +331,9 @@
             this.flowLayoutPanel3.Controls.Add(this.lblTheme_);
             this.flowLayoutPanel3.Controls.Add(this._lblTheme);
             this.flowLayoutPanel3.Controls.Add(this.label7);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(164, 3);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(159, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(158, 20);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(154, 20);
             this.flowLayoutPanel3.TabIndex = 12;
             this.flowLayoutPanel3.WrapContents = false;
             // 
@@ -342,17 +343,17 @@
             this.label3.Image = global::QTech.Properties.Resources.Theme1;
             this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(20, 20);
+            this.label3.Size = new System.Drawing.Size(20, 19);
             this.label3.TabIndex = 2;
             // 
             // lblTheme_
             // 
-            this.lblTheme_.AutoSize = true;
+            this.lblTheme_.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTheme_.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblTheme_.ForeColor = System.Drawing.Color.White;
             this.lblTheme_.Location = new System.Drawing.Point(29, 0);
             this.lblTheme_.Name = "lblTheme_";
-            this.lblTheme_.Size = new System.Drawing.Size(66, 19);
+            this.lblTheme_.Size = new System.Drawing.Size(62, 19);
             this.lblTheme_.TabIndex = 3;
             this.lblTheme_.Text = "ប្តូរព័ណ៌ផ្ទាំង";
             // 
@@ -362,7 +363,7 @@
             this._lblTheme.ForeColor = System.Drawing.Color.Black;
             this._lblTheme.Image = global::QTech.Properties.Resources.down1;
             this._lblTheme.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this._lblTheme.Location = new System.Drawing.Point(98, 0);
+            this._lblTheme.Location = new System.Drawing.Point(94, 0);
             this._lblTheme.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this._lblTheme.Name = "_lblTheme";
             this._lblTheme.Size = new System.Drawing.Size(31, 19);
@@ -373,7 +374,7 @@
             // label7
             // 
             this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label7.Location = new System.Drawing.Point(135, 0);
+            this.label7.Location = new System.Drawing.Point(131, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(20, 20);
             this.label7.TabIndex = 4;
@@ -813,7 +814,6 @@
             this.pBranch.ResumeLayout(false);
             this.pBranch.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
-            this.flowLayoutPanel3.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.mainPanel.ResumeLayout(false);

@@ -9,6 +9,7 @@ namespace QTech.Db
     using System.Linq;
     using Newtonsoft.Json;
     using QTech.Base;
+    using QTech.Base.Helpers;
     using QTech.Base.Models;
     using QTech.Db.Configs;
     using QTech.Db.Migrations;
@@ -54,6 +55,7 @@ namespace QTech.Db
         public static DbConfig config = new DbConfig() {
             DataSource = ".",
             DataBase = "QTech_ResturantDb",
+            Theme = ShareValue.User?.Theme ?? QTech.Base.Enums.Theme.Template1
             
         };
 
@@ -72,6 +74,12 @@ namespace QTech.Db
         
         public static void WriteSetting()
         {
+            config = new DbConfig()
+            {
+                DataSource = DataBaseSetting.config.DataSource,
+                DataBase = DataBaseSetting.config.DataBase,
+                Theme = ShareValue.User?.Theme ?? QTech.Base.Enums.Theme.Template1
+            };
             var jsonData = JsonConvert.SerializeObject(config, Formatting.Indented);
             File.WriteAllText("Setting.json", jsonData);
         }

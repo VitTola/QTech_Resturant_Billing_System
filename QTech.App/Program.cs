@@ -27,17 +27,17 @@ namespace QTech
             Application.SetCompatibleTextRenderingDefault(false);
             DataBaseSetting.ReadSetting();
 
+            //Read the last theme of user
+            var currentTheme = DataBaseSetting.config.Theme;
+            ShareValue.CurrentTheme = currentTheme == QTech.Base.Enums.Theme.Template1 ?
+                Theme.Template1 :
+                (currentTheme == QTech.Base.Enums.Theme.Template2 ?
+                Theme.Template2 : Theme.Template3);
+
             //Application.Run(new MainForm());
             Application.Run(new LoginDialog());
-            //Application.Run(new Form1());
-            //Application.Run(new frmSale(new Base.Sale(), Base.Helpers.GeneralProcess.Add));
-            //Application.Run(new frmProduct(new Base.Models.Product(),Base.Helpers.GeneralProcess.Add));
 
-            //ExWindow form = new ExWindow();
-            //WindowInteropHelper wih = new WindowInteropHelper(this);
-            //wih.Owner = form.Handle;
-            ////form.ShowDialog();
-
+            
         }
     }
 }
