@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Storm.Domain;
 using EasyServer.Domain.Exceptions;
 using EasyServer.Domain;
+using QTech.Base.Helpers;
 
 namespace QTech.Component
 {
@@ -21,6 +22,8 @@ namespace QTech.Component
             EventHandler eh = new EventHandler(tb_Changed);
             lblMessage.TextChanged += eh;
             lblMessage.ClientSizeChanged += eh;
+            this.SetTheme(this.Controls, null);
+            lblMessage.BackColor = pictureBox.BackColor = BackColor;
         }
         private bool busy = false;
         private Action<ExMessage> _action;

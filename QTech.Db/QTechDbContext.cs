@@ -39,7 +39,7 @@ namespace QTech.Db
         public virtual DbSet<UserPermission> UserPermissions { get; set; }
         public virtual DbSet<IncomeExpense> IncomeExpenses { get; set; }
         public virtual DbSet<Position> Positions { get; set; }
-        //public virtual DbSet<AuditTrail> AuditTrails { get; set; }
+        public virtual DbSet<AuditTrail> AuditTrails { get; set; }
         public virtual DbSet<ApplicationSetting> ApplicationSettings { get; set; }
         public virtual DbSet<Table> Tables { get; set; }
         

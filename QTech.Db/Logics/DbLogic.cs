@@ -2,7 +2,9 @@
 using EasyServer.Domain.Exceptions;
 using EasyServer.Domain.Models;
 using QTech.Base.BaseModels;
+using QTech.Base.Helpers;
 using QTech.Db;
+using QTech.Db.Logics;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -74,20 +76,26 @@ namespace QTech.Db
             SetActive(entity, true);
             _db.Entry(entity).State = EntityState.Added;
             _db.SaveChanges();
+            if (typeof(T) != typeof(QTech.Base.Models.AuditTrail))
+            {
+                AuditTrailLogic.Instance.AddManualAuditTrail<T, TKey>(entity, null, GeneralProcess.Add);
+            }
             return entity;
         }
         public virtual T UpdateAsync(T entity)
         {
             try
             {
-                //if (IsExistsAsync(entity))
-                //{
-                //    throw new UniqueException(model: entity);
-                //}
+                var oldEntity = FindAsync(entity.Id);
 
                 _db.Entry(entity).State = EntityState.Modified;
                 entity.RowDate = DateTime.Now;
                  _db.SaveChanges();
+
+                if (typeof(T) != typeof(QTech.Base.Models.AuditTrail))
+                {
+                    new AuditTrailLogic().AddManualAuditTrail<T, TKey>(entity, oldEntity, GeneralProcess.Update);
+                }
                 return entity;
             }
             catch (Exception ex)
@@ -136,7 +144,7 @@ namespace QTech.Db
             return await Task.FromResult<T>(oldEntity);
         }
 
-        private void SetActive(T obj, bool active)
+        public void SetActive(T obj, bool active)
         {
             var pi = typeof(T).GetProperties().FirstOrDefault(x => x.Name == "Active");
             if (pi == null) { return; } // no active field
@@ -157,6 +165,5 @@ namespace QTech.Db
         where T : QTech.Base.TBaseModel<long> 
         where TSelf : LongDbLogic<T,TSelf>, new()
     {
-       
     }
 }

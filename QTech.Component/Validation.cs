@@ -1,4 +1,5 @@
-﻿using QTech.Component.Helpers;
+﻿using QTech.Base.Helpers;
+using QTech.Component.Helpers;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -25,6 +26,7 @@ namespace QTech.Component
             parent.FindForm().FormClosed += new FormClosedEventHandler(Validation_FormClosed);
             _aligment = alignment;
             GetLocation(parent as Control,_aligment);
+            this.SetTheme(this.Controls, null);
         }
 
         void Validation_FormClosed(object sender, FormClosedEventArgs e)

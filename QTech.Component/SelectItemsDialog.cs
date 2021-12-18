@@ -1,5 +1,6 @@
 ﻿using EasyServer.Domain.Models;
 using EasyServer.Domain.SearchModels;
+using QTech.Base.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -26,7 +27,8 @@ namespace QTech.Component
             List<ItemAction> itemActions,
             DropDownItemModel itemForAll,
             bool loadAll = true,
-            bool showAll = false)
+            bool showAll = false
+            )
         {
             InitializeComponent();
             dgv.DataBindingComplete += dgv_DataBindingComplete;
@@ -41,6 +43,7 @@ namespace QTech.Component
             txtSearch.TextBox.SelectAll();
             txtSearch.RegisterKeyArrowDown(dgv);
             txtSearch.QuickSearch += TxtSearch_QuickSearch;
+            this.SetTheme(this.Controls, null);
 
         }
 

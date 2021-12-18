@@ -80,12 +80,16 @@ namespace QTech.Forms
             if (InValid()) { return; }
             Write();
 
-            var isExist = await btnSave.RunAsync(() => TableLogic.Instance.IsExistsAsync(Model));
-            if (isExist == true)
+            if (Flag == GeneralProcess.Add)
             {
-                txtName.IsExists(lblName.Text);
-                return;
+                var isExist = await btnSave.RunAsync(() => TableLogic.Instance.IsExistsAsync(Model));
+                if (isExist == true)
+                {
+                    txtName.IsExists(lblName.Text);
+                    return;
+                }
             }
+          
 
             var result = await btnSave.RunAsync(() =>
             {
@@ -112,7 +116,7 @@ namespace QTech.Forms
         }
         public void ViewChangeLog()
         {
-            new AuditTrailDialog().ShowDialog();
+            AuditTrailDialog.ShowChangeLog(Model);
         }
         public void Write()
         {
@@ -131,6 +135,11 @@ namespace QTech.Forms
         }
 
         private void btnChangeLog_Click(object sender, EventArgs e)
+        {
+            ViewChangeLog();
+        }
+
+        private void btnAuditTrail_Click(object sender, EventArgs e)
         {
             ViewChangeLog();
         }

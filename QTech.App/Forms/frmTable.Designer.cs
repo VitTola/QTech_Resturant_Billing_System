@@ -44,11 +44,19 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnClose = new QTech.Component.ExButtonLoading();
             this.btnSave = new QTech.Component.ExButtonLoading();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnAuditTrail = new QTech.Component.ExButtonLoading();
             this.chkUseable_ = new System.Windows.Forms.CheckBox();
             this.container.SuspendLayout();
             this.exPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // digheader
+            // 
+            this.digheader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.digheader.Size = new System.Drawing.Size(370, 20);
             // 
             // container
             // 
@@ -165,6 +173,7 @@
             // 
             this.exPanel1.BackColor = System.Drawing.Color.Transparent;
             this.exPanel1.Controls.Add(this.flowLayoutPanel2);
+            this.exPanel1.Controls.Add(this.flowLayoutPanel3);
             this.exPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.exPanel1.Location = new System.Drawing.Point(1, 205);
             this.exPanel1.Name = "exPanel1";
@@ -176,11 +185,11 @@
             // 
             this.flowLayoutPanel2.Controls.Add(this.btnClose);
             this.flowLayoutPanel2.Controls.Add(this.btnSave);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(2, 2);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(159, 2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(364, 32);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(207, 32);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // btnClose
@@ -191,7 +200,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(275, 3);
+            this.btnClose.Location = new System.Drawing.Point(118, 3);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
@@ -210,7 +219,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(184, 3);
+            this.btnSave.Location = new System.Drawing.Point(27, 3);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnSave.Name = "btnSave";
             this.btnSave.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
@@ -220,6 +229,37 @@
             this.btnSave.Text = "រក្សាទុក";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.btnAuditTrail);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(2, 2);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(140, 32);
+            this.flowLayoutPanel3.TabIndex = 2;
+            // 
+            // btnAuditTrail
+            // 
+            this.btnAuditTrail.BackColor = System.Drawing.Color.Ivory;
+            this.btnAuditTrail.DefaultImage = null;
+            this.btnAuditTrail.Executing = false;
+            this.btnAuditTrail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAuditTrail.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
+            this.btnAuditTrail.ForeColor = System.Drawing.Color.Black;
+            this.btnAuditTrail.Image = global::QTech.Properties.Resources.History;
+            this.btnAuditTrail.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAuditTrail.Location = new System.Drawing.Point(2, 3);
+            this.btnAuditTrail.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
+            this.btnAuditTrail.Name = "btnAuditTrail";
+            this.btnAuditTrail.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
+            this.btnAuditTrail.ShortcutText = "H";
+            this.btnAuditTrail.Size = new System.Drawing.Size(93, 27);
+            this.btnAuditTrail.TabIndex = 4;
+            this.btnAuditTrail.Text = "ប្រវត្តកែប្រែ";
+            this.btnAuditTrail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAuditTrail.UseVisualStyleBackColor = true;
+            this.btnAuditTrail.Click += new System.EventHandler(this.btnAuditTrail_Click);
             // 
             // chkUseable_
             // 
@@ -247,6 +287,7 @@
             this.container.PerformLayout();
             this.exPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -269,5 +310,7 @@
         private Component.ExButtonLoading btnClose;
         private Component.ExButtonLoading btnSave;
         private System.Windows.Forms.CheckBox chkUseable_;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private Component.ExButtonLoading btnAuditTrail;
     }
 }

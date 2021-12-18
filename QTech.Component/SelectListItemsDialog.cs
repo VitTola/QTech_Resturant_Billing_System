@@ -1,5 +1,6 @@
 ﻿using EasyServer.Domain.Models;
 using EasyServer.Domain.SearchModels;
+using QTech.Base.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -75,6 +76,7 @@ namespace QTech.Component
             }).ToList();
 
             initEvent();
+            this.SetTheme(this.Controls, null);
         }
 
         private void initEvent()

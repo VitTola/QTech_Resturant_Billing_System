@@ -151,6 +151,7 @@
     <Compile Include="Enums\SupplierPayStatus.cs" />
     <Compile Include="Enums\TableStatus.cs" />
     <Compile Include="Enums\Theme.cs" />
+    <Compile Include="Helpers\AuditDataAttribute.cs" />
     <Compile Include="Helpers\Constants.cs" />
     <Compile Include="Helpers\JsonNetSerializer.cs" />
     <Compile Include="Helpers\Enums.cs" />
