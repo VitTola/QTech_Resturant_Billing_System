@@ -39,7 +39,7 @@ namespace QTech.Db.Logics
         }
         public override List<Employee> SearchAsync(ISearchModel model)
         {
-            var result = Search(model).ToList();
+            var result = Search(model)?.ToList() ?? new List<Employee>();
             return result;
         }
         public override IQueryable<Employee> Search(ISearchModel model)

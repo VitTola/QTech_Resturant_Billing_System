@@ -87,14 +87,14 @@ namespace QTech.Forms
 
         public async void AddNew()
         {
-            var customer = new Customer();
-            var dig = new frmCustomer(customer, GeneralProcess.Add);
-            if (dig.ShowDialog() == DialogResult.OK)
-            {
-                await Search();
-                selectedModel = dig.Model;
-                RefreshAfterOperation(selectedModel);
-            }
+            //var customer = new Customer();
+            //var dig = new frmCustomer(customer, GeneralProcess.Add);
+            //if (dig.ShowDialog() == DialogResult.OK)
+            //{
+            //    await Search();
+            //    selectedModel = dig.Model;
+            //    RefreshAfterOperation(selectedModel);
+            //}
         }
 
         public async void EditAsync()
@@ -112,14 +112,14 @@ namespace QTech.Forms
                 return;
             }
 
-            var dig = new frmCustomer(Model, GeneralProcess.Update);
+            //var dig = new frmCustomer(Model, GeneralProcess.Update);
 
-            if (dig.ShowDialog() == DialogResult.OK)
-            {
-                await Search();
-                selectedModel = dig.Model;
-                RefreshAfterOperation(selectedModel);
-            }
+            //if (dig.ShowDialog() == DialogResult.OK)
+            //{
+            //    await Search();
+            //    selectedModel = dig.Model;
+            //    RefreshAfterOperation(selectedModel);
+            //}
         }
 
         public async void Reload()
@@ -151,11 +151,11 @@ namespace QTech.Forms
                 return;
             }
 
-            var dig = new frmCustomer(Model, GeneralProcess.Remove);
-            if (dig.ShowDialog() == DialogResult.OK)
-            {
-                await Search();
-            }
+            //var dig = new frmCustomer(Model, GeneralProcess.Remove);
+            //if (dig.ShowDialog() == DialogResult.OK)
+            //{
+            //    await Search();
+            //}
         }
 
         public async Task Search()
@@ -187,8 +187,8 @@ namespace QTech.Forms
                 return;
             }
 
-            var dig = new frmCustomer(Model, GeneralProcess.View);
-            dig.ShowDialog();
+            //var dig = new frmCustomer(Model, GeneralProcess.View);
+            //dig.ShowDialog();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

@@ -210,6 +210,7 @@
     </Compile>
     <Compile Include="SearchModels\AuditTrailHistorySearch.cs" />
     <Compile Include="SearchModels\AuditTrailSearch.cs" />
+    <Compile Include="SearchModels\PositionSearch.cs" />
     <Compile Include="SearchModels\TableSearch.cs" />
     <Compile Include="SearchModels\ProfitSearch.cs" />
     <Compile Include="SearchModels\IncomExpenseSearch.cs" />
@@ -276,6 +277,7 @@
     <Content Include="Dll\esc-pos-usb-net.dll" />
     <Content Include="Dll\FastMember.dll" />
     <Content Include="Dll\QTech.Component.dll" />
+    <None Include="Resources\Position.png" />
     <None Include="Resources\TableImg.png" />
     <None Include="Resources\Table_Img.png" />
     <None Include="Resources\invoice status_img.png" />

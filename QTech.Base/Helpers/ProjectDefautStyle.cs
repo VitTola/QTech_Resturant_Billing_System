@@ -261,6 +261,7 @@
 
 
 using QTech.Component;
+using QTech.Component.Components;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -285,7 +286,6 @@ namespace QTech.Base.Helpers
             {
                 if (c is DataGridView d)
                 {
-                    form.Font = new Font("Khmer OS Battambang", 8);
 
                     d.BackgroundColor = ShareValue.CurrentTheme.DataGridBackGround;
                     d.ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle
@@ -317,6 +317,39 @@ namespace QTech.Base.Helpers
                     d.Font = new Font("Khmer OS Battambang", 8);
 
                 }
+                if (c is TreeGridView tg)
+                {
+
+                    tg.BackgroundColor = ShareValue.CurrentTheme.DataGridBackGround;
+                    tg.ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle
+                    {
+                        BackColor = ShareValue.CurrentTheme.DataGridHeader,
+                        ForeColor = ShareValue.CurrentTheme.DataGridHeaderForeColor,
+                        SelectionBackColor = ShareValue.CurrentTheme.DataGridHeader
+
+                    };
+                    tg.AlternatingRowsDefaultCellStyle = new DataGridViewCellStyle()
+                    {
+                        BackColor = ShareValue.CurrentTheme.DataGridAlternateRowColor,
+                        ForeColor = ShareValue.CurrentTheme.DataGridHeaderForeColor
+
+                    };
+                    tg.RowsDefaultCellStyle = new DataGridViewCellStyle()
+                    {
+                        BackColor = ShareValue.CurrentTheme.DataGridBackGround,
+                        ForeColor = ShareValue.CurrentTheme.DataGridHeaderForeColor,
+                        SelectionForeColor = ShareValue.CurrentTheme.LabelColor
+
+                    };
+                    tg.DefaultCellStyle = new DataGridViewCellStyle()
+                    {
+                        SelectionBackColor = ShareValue.CurrentTheme.DataGridViewSelectionBackColor,
+                        ForeColor = ShareValue.CurrentTheme.DataGridHeaderForeColor
+                    };
+
+                    tg.Font = new Font("Khmer OS Battambang", 8);
+
+                }
                 if (c is Button b)
                 {
                     b.BackColor = ShareValue.CurrentTheme.ButtonBackGround;
@@ -339,6 +372,22 @@ namespace QTech.Base.Helpers
                     else
                     {
                         SetTheme(form, p.Controls, null);
+                    }
+
+                }
+                if (c is ExPanel ep)
+                {
+                    if (ep.Name != "container")
+                    {
+                        ep.BackColor = ShareValue.CurrentTheme.PanelColor;
+                    }
+                    if (ep.Name == "digheader")
+                    {
+                        ep.BackColor = ShareValue.CurrentTheme.FormTopBar;
+                    }
+                    else
+                    {
+                        SetTheme(form, ep.Controls, null);
                     }
 
                 }

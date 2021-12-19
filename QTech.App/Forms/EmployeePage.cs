@@ -12,6 +12,7 @@ using QTech.Db;
 using BaseResource = QTech.Base.Properties.Resources;
 using QTech.Base.BaseModels;
 using QTech.Base.Enums;
+using System.Collections.Generic;
 
 namespace QTech.Forms
 {
@@ -110,14 +111,38 @@ namespace QTech.Forms
                 Search = txtSearch.Text,
             };
 
-            var result = await dgv.RunAsync(() => EmployeeLogic.Instance.SearchAsync(search));
-            if (result == null)
+            List<Base.Position> positions = null;
+            var result = await dgv.RunAsync(() => 
             {
-                return;
-            }
-            dgv.DataSource = result._ToDataTable();
-        }
+              var res =  EmployeeLogic.Instance.SearchAsync(search);
+                positions = PositionLogic.Instance.SearchAsync(new PositionSearch());
 
+                return res;
+            });
+            if (result?.Any() ?? false)
+            {
+                dgv.Rows.Clear();
+                foreach (var e in result.OrderByDescending(x => x.RowDate))
+                {
+                    var row = _newRow(false);
+                    row.Cells[colId.Name].Value = e.Id;
+                    row.Cells[colName.Name].Value = e.Name;
+                    row.Cells[colPosition.Name].Value = positions.FirstOrDefault(x=>x.Id == e.PositionId)?.Name ?? string.Empty;
+                    row.Cells[colPhone.Name].Value = e.Phone;
+                    row.Cells[colNote.Name].Value = e.Note;
+                }
+            }
+        }
+        private DataGridViewRow _newRow(bool isFocus = false)
+        {
+            var row = dgv.Rows[dgv.Rows.Add()];
+            row.Cells[colId.Name].Value = 0;
+            if (isFocus)
+            {
+                dgv.Focus();
+            }
+            return row;
+        }
         public async void View()
         {
             if (dgv.SelectedRows.Count == 0)

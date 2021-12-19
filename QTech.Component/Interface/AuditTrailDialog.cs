@@ -25,30 +25,21 @@ namespace QTech.Component
             InitEvent();
             this.SetTheme(this.Controls, null);
         }
-
-        Color[] _alternative = new Color[] { Color.White, Color.WhiteSmoke };
+        
         public GeneralProcess Flag { get; set; } = GeneralProcess.View;
         public BaseModel Model { get; set; }
         public void InitEvent()
         {
-            dgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(173, 205, 239);
-            dgv.DefaultCellStyle.SelectionForeColor = Color.Black;
             dgv.RowTemplate.Height = 28;
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgv.ColumnHeadersHeight = 28;
-            dgv.BackgroundColor = Color.White;
             dtpDate.ValueChanged += dtpDate_ValueChanged;
             dtpDate.Value = ReportDatePicker.DateRanges.ThisMonth;
 
             // export list to excel
             btnExpand_.Click += btnExpand__Click;
             btnExportAsExcel_.Click += btnExportAsExcel__Click;
-
-            dgv.ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle
-            {
-                BackColor = Color.Ivory,
-                SelectionBackColor = Color.Ivory
-            };
+            
         }
 
         private void btnExpand__Click(object sender, EventArgs e)
@@ -193,6 +184,7 @@ namespace QTech.Component
 
         public string ItemName { get; set; }
 
+
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == (Keys.Control | Keys.Q))
@@ -252,6 +244,8 @@ namespace QTech.Component
 
         private async void AuditTrailDialog_Load(object sender, EventArgs e)
         {
+            container.BackColor = 
+            dgv.BackgroundColor = ShareValue.CurrentTheme.DataGridBackGround;
             pagination.Repaging();
             await Search();
         }
@@ -261,7 +255,6 @@ namespace QTech.Component
             var nodeChange = node.Nodes.Add();
             nodeChange.Height = dgv.RowTemplate.Height;
             nodeChange.Tag = changeLog;
-            nodeChange.DefaultCellStyle.BackColor = node.DefaultCellStyle.BackColor;
 
             nodeChange.Cells[dgv.Columns[colTransaction.Name].Index].Value = ResourceHelper.Translate(changeLog.DisplayName);
             var oldNode = nodeChange.Cells[dgv.Columns[colOldValue.Name].Index];
@@ -269,7 +262,9 @@ namespace QTech.Component
             oldNode.Value = changeLog.OldValue;
             newNode.Value = changeLog.NewValue;
             oldNode.Style.ForeColor = oldNode.Style.SelectionForeColor = Color.Red;
-            newNode.Style.ForeColor = newNode.Style.SelectionForeColor = Color.Blue;
+            newNode.Style.ForeColor = newNode.Style.SelectionForeColor =
+                ShareValue.User.Theme == Base.Enums.Theme.Template1 ?
+                Color.White : Color.Blue;
 
             if (changeLog.Details != null)
             {
@@ -348,9 +343,7 @@ namespace QTech.Component
                 var font = dgv.DefaultCellStyle.Font;
                 var node = dgv.Nodes.Add();
                 node.Height = dgv.RowTemplate.Height;
-                var backColor = _alternative[(node.Index % 2)];
                 node.Tag = audit;
-                node.DefaultCellStyle.BackColor = backColor;
                 node.Cells[colTransaction.Name].Style.Font = new Font(font, FontStyle.Bold);
                 node.Cells[colTransaction.Name].Value = $"{audit.OperatorName}";
                 node.Cells[colId.Name].Value = audit.Id;
@@ -381,5 +374,6 @@ namespace QTech.Component
         public void EditAsync()
         {
         }
+
     }
 }

@@ -56,6 +56,12 @@ namespace QTech.Base.Enums
             , Setting_Table_Add = 46
             , Setting_Table_Update = 47
             , Setting_Table_Remove = 48
+            , Employee_Postion = 49
+            , Employee_Postion_view = 50
+            , Employee_Postion_Add = 51
+            , Employee_Postion_Update = 52
+            , Employee_Postion_Remove = 53
+
 
     }
 }

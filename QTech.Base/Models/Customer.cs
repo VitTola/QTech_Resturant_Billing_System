@@ -15,5 +15,4 @@ namespace QTech.Base
         public string Phone { get; set; }
         public string Note { get; set; }
     }
-
 }

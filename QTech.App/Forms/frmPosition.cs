@@ -1,12 +1,9 @@
-﻿using EasyServer.Domain.Helpers;
-using QTech.Base;
+﻿using QTech.Base;
 using QTech.Base.Helpers;
 using QTech.Base.Models;
-using QTech.Base.SearchModels;
 using QTech.Component;
 using QTech.Component.Helpers;
 using QTech.Db.Logics;
-using QTech.ReportModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,15 +13,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BaseResource = QTech.Base.Properties.Resources;
 
 namespace QTech.Forms
 {
-    public partial class frmEmployee : ExDialog, IDialog
+    public partial class frmPosition : ExDialog, IDialog
     {
-        public Employee Model { get; set; }
+        public Position Model { get; set; }
 
-        public frmEmployee(Employee model, GeneralProcess flag)
+        public frmPosition(Position model, GeneralProcess flag)
         {
             InitializeComponent();
 
@@ -34,43 +30,43 @@ namespace QTech.Forms
             Bind();
             InitEvent();
             this.SetTheme(this.Controls, null);
-        }
 
+        }
         public GeneralProcess Flag { get; set; }
 
         public void Bind()
         {
-            Read();
+            colName.Visible = true;
+            colName.Width = 100;
 
-            cboPosition.DataSourceFn = p => PositionLogic.Instance.SearchAsync(p).ToDropDownItemModelList();
-            cboPosition.SearchParamFn = () => new PositionSearch();
+            Read();
         }
         public void InitEvent()
         {
-            this.MaximizeBox = false;
-            this.Text = Flag.GetTextDialog(Base.Properties.Resources.Employees);
             this.SetEnabled(Flag != GeneralProcess.Remove && Flag != GeneralProcess.View);
-        }
+            this.MaximizeBox = false;
+            this.Text = Flag.GetTextDialog(Base.Properties.Resources.Categorys);
+            txtNote.RegisterPrimaryInput();
 
+        }
+        private void dgv_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.RegisterEnglishInput();
+            
+        }
         public bool InValid()
         {
             if (!txtName.IsValidRequired(lblName.Text) 
-                | !cboPosition.IsSelected())
+              )
             {
                 return true;
             }
             return false;
         }
-        public async void Read()
+        public void Read()
         {
             txtName.Text = Model.Name;
-            txtPhone.Text = Model.Phone;
             txtNote.Text = Model.Note;
-            var position = await this.RunAsync(() => PositionLogic.Instance.FindAsync(Model.PositionId));
-            if (position != null)
-            {
-                cboPosition.SetValue(position);
-            }
         }
         public async void Save()
         {
@@ -82,7 +78,7 @@ namespace QTech.Forms
             if (InValid()) { return; }
             Write();
 
-            var isExist = await btnSave.RunAsync(() => EmployeeLogic.Instance.IsExistsAsync(Model));
+            var isExist = await btnSave.RunAsync(() => PositionLogic.Instance.IsExistsAsync(Model));
             if (isExist == true)
             {
                 txtName.IsExists(lblName.Text);
@@ -93,15 +89,15 @@ namespace QTech.Forms
             {
                 if (Flag == GeneralProcess.Add)
                 {
-                    return EmployeeLogic.Instance.AddAsync(Model);
+                    return PositionLogic.Instance.AddAsync(Model);
                 }
                 else if (Flag == GeneralProcess.Update)
                 {
-                    return  EmployeeLogic.Instance.UpdateAsync(Model);
+                    return PositionLogic.Instance.UpdateAsync(Model);
                 }
                 else if (Flag == GeneralProcess.Remove)
                 {
-                    return EmployeeLogic.Instance.RemoveAsync(Model);
+                    return PositionLogic.Instance.RemoveAsync(Model);
                 }
 
                 return null;
@@ -120,9 +116,7 @@ namespace QTech.Forms
         {
             Model.Name = txtName.Text;
             Model.Note = txtNote.Text;
-            Model.Phone = txtPhone.Text;
-            var posId = Parse.ToInt(cboPosition.SelectedValue.ToString());
-            Model.PositionId = posId;
+            
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -132,7 +126,10 @@ namespace QTech.Forms
         {
             this.Close();
         }
-
+        private void btnAuditTrail_Click(object sender, EventArgs e)
+        {
+            ViewChangeLog();
+        }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == (Keys.Control | Keys.E))
@@ -140,16 +137,6 @@ namespace QTech.Forms
                 btnChangeLog.PerformClick();
             }
             return base.ProcessCmdKey(ref msg, keyData);
-        }
-
-        private void btnChangeLog_Click(object sender, EventArgs e)
-        {
-            ViewChangeLog();
-        }
-
-        private void cboPosition_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
