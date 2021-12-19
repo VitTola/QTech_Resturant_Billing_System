@@ -167,6 +167,18 @@ namespace QTech.Base.BaseModels
                 FormName = "QTech.Forms.TablePage"
 
             },
+              new MenuBar()
+            {
+                Index = 2,
+                Level = 2,
+                Key = AuthKey.Employee_Postion,
+                ParentKey = AuthKey.Employee,
+                DisplayName = BaseResource.Position,
+                Icon = BaseResource.Position1,
+                Children = new List<MenuBar>(),
+                FormName = "QTech.Forms.PositionPage"
+
+            },
 
         };
 

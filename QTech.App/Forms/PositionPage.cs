@@ -1,33 +1,33 @@
-﻿using QTech.Base.Enums;
-using QTech.Base.Helpers;
-using QTech.Base.Models;
-using QTech.Base.SearchModels;
+﻿using QTech.Base;
 using QTech.Component;
 using QTech.Db.Logics;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BaseResource = QTech.Base.Properties.Resources;
+using QTech.Base.Helpers;
+using QTech.Base.SearchModels;
+using System.Collections.Generic;
+using System.Drawing;
+using QTech.Base.Models;
+using QTech.Base.Enums;
 
 namespace QTech.Forms
 {
-    public partial class TablePage : ExPage, IPage
+    public partial class PositionPage : ExPage, IPage
     {
-        public TablePage()
+
+        public PositionPage()
         {
             InitializeComponent();
-            btnAdd.Visible = ShareValue.IsAuthorized(AuthKey.Product_Product_Add);
-            btnRemove.Visible = ShareValue.IsAuthorized(AuthKey.Product_Product_Remove);
-            btnUpdate.Visible = ShareValue.IsAuthorized(AuthKey.Product_Product_Update);
-            this.SetTheme(this.Controls, null);
+            Bind();
             InitEvent();
+            this.SetTheme(this.Controls, null);
 
         }
-
-        public Table Model { get; set; }
+        public Base.Position Model { get; set; }
 
         private void Bind()
         {
@@ -36,19 +36,13 @@ namespace QTech.Forms
         {
             dgv.RowTemplate.Height = 28;
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            btnAdd.Visible = ShareValue.IsAuthorized(AuthKey.Setting_Table_Add);
-            btnRemove.Visible = ShareValue.IsAuthorized(AuthKey.Setting_Table_Update);
-            btnUpdate.Visible = ShareValue.IsAuthorized(AuthKey.Setting_Table_Remove);
+            btnAdd.Visible = ShareValue.IsAuthorized(AuthKey.Employee_Postion_Add);
+            btnRemove.Visible = ShareValue.IsAuthorized(AuthKey.Employee_Postion_Update);
+            btnUpdate.Visible = ShareValue.IsAuthorized(AuthKey.Employee_Postion_Remove);
 
             txtSearch.RegisterPrimaryInput();
             txtSearch.RegisterKeyArrowDown(dgv);
             txtSearch.QuickSearch += txtSearch_QuickSearch;
-            dgv.DataSourceChanged += Dgv_DataSourceChanged;
-        }
-
-        private void Dgv_DataSourceChanged(object sender, EventArgs e)
-        {
-
         }
 
         private async void txtSearch_QuickSearch(object sender, EventArgs e)
@@ -56,11 +50,11 @@ namespace QTech.Forms
             await Search();
         }
 
-
+      
         public async void AddNew()
         {
-            Model = new Table();
-            var dig = new frmTable(Model, GeneralProcess.Add);
+            Model = new Base.Position();
+            var dig = new frmPosition(Model, GeneralProcess.Add);
             if (dig.ShowDialog() == DialogResult.OK)
             {
                 await Search();
@@ -76,13 +70,13 @@ namespace QTech.Forms
 
             var id = (int)dgv.SelectedRows[0].Cells[colId.Name].Value;
 
-            Model = await btnUpdate.RunAsync(() => TableLogic.Instance.FindAsync(id));
+            Model = await btnUpdate.RunAsync(() => PositionLogic.Instance.FindAsync(id));
             if (Model == null)
             {
                 return;
             }
 
-            var dig = new frmTable(Model, GeneralProcess.Update);
+            var dig = new frmPosition(Model, GeneralProcess.Update);
 
             if (dig.ShowDialog() == DialogResult.OK)
             {
@@ -95,7 +89,7 @@ namespace QTech.Forms
         {
             dgv.AllowRowNotFound = true;
             dgv.AllowRowNumber = true;
-            dgv.ColumnHeadersHeight = 28;
+            dgv.ColumnHeadersHeight= 28;
 
             await Search();
         }
@@ -108,21 +102,21 @@ namespace QTech.Forms
             }
 
             var id = (int)dgv.CurrentRow.Cells[colId.Name].Value;
-            var canRemove = await btnRemove.RunAsync(() => TableLogic.Instance.CanRemoveAsync(id));
+            var canRemove = await btnRemove.RunAsync(() => PositionLogic.Instance.CanRemoveAsync(id));
             if (canRemove == false)
             {
                 MsgBox.ShowWarning(EasyServer.Domain.Resources.RowCannotBeRemoved,
-                    GeneralProcess.Remove.GetTextDialog(BaseResource.Table));
+                    GeneralProcess.Remove.GetTextDialog(BaseResource.Position));
                 return;
             }
 
-            Model = await btnRemove.RunAsync(() => TableLogic.Instance.FindAsync(id));
+            Model = await btnRemove.RunAsync(() => PositionLogic.Instance.FindAsync(id));
             if (Model == null)
             {
                 return;
             }
 
-            var dig = new frmTable(Model, GeneralProcess.Remove);
+            var dig = new frmPosition(Model, GeneralProcess.Remove);
             if (dig.ShowDialog() == DialogResult.OK)
             {
                 await Search();
@@ -131,18 +125,18 @@ namespace QTech.Forms
 
         public async Task Search()
         {
-            var search = new TableSearch()
+            var search = new PositionSearch()
             {
                 Search = txtSearch.Text,
             };
 
-            var result = await dgv.RunAsync(() => TableLogic.Instance.SearchAsync(search));
+            var result = await dgv.RunAsync(() => PositionLogic.Instance.SearchAsync(search));
             if (result != null)
             {
-                dgv.DataSource = result._ToDataTable();
+                dgv.DataSource = result.OrderByDescending(x=>x.RowDate)._ToDataTable();
             }
         }
-
+  
         public async void View()
         {
             if (dgv.SelectedRows.Count == 0)
@@ -151,14 +145,14 @@ namespace QTech.Forms
             }
 
             var id = (int)dgv.SelectedRows[0].Cells[colId.Name].Value;
-            Model = await btnUpdate.RunAsync(() => TableLogic.Instance.FindAsync(id));
+            Model = await btnUpdate.RunAsync(() => PositionLogic.Instance.FindAsync(id));
 
             if (Model == null)
             {
                 return;
             }
 
-            var dig = new frmTable(Model, GeneralProcess.View);
+            var dig = new frmPosition(Model, GeneralProcess.View);
             dig.ShowDialog();
         }
 

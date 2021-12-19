@@ -8,11 +8,10 @@ namespace QTech.Component
     [DefaultEvent("QuickSearch")]
     public partial class ExTextbox : UserControl
     {
-
         public event EventHandler QuickSearch;
         public event EventHandler CanceledSearch;
         private bool searched = false;
- 
+
         public enum SearchModes
         {
             OnKeyUp,
@@ -24,12 +23,13 @@ namespace QTech.Component
             InitializeComponent();
             button.BackgroundImage = getIconSearch();
         }
-         
+
         private SearchModes searchMode = SearchModes.OnKeyUp;
         public SearchModes SearchMode
         {
-            get { 
-                return searchMode; 
+            get
+            {
+                return searchMode;
             }
             set
             {
@@ -42,18 +42,18 @@ namespace QTech.Component
         protected void OnSearch()
         {
             searched = true;
-            button.BackgroundImage = global::QTech.Component.Properties.Resources.SearchImg; 
+            button.BackgroundImage = Properties.Resources.icon_close;
             if (txtSearch.Text == "")
             {
                 button.BackgroundImage = getIconSearch();
                 searched = false;
-            } 
+            }
             if (QuickSearch != null)
             {
                 debounceTimer.Debounce(300, p => QuickSearch(this, new EventArgs()));
-            } 
-        } 
-         
+            }
+        }
+
 
         private void button_Click(object sender, EventArgs e)
         {
@@ -81,7 +81,7 @@ namespace QTech.Component
                 }
             }
         }
- 
+
         public PlaceholderTextBox TextBox
         {
             get
@@ -116,7 +116,7 @@ namespace QTech.Component
             {
                 txtSearch.Text = value;
             }
-        } 
+        }
 
         public override Color BackColor
         {
@@ -132,9 +132,9 @@ namespace QTech.Component
         }
 
         public void AcceptSearch(bool raiseEvent)
-        { 
+        {
             searched = true;
-            button.BackgroundImage = global::QTech.Component.Properties.Resources.icon_close;
+            button.BackgroundImage = Properties.Resources.icon_close;
             if (raiseEvent)
             {
                 OnSearch();
@@ -147,8 +147,8 @@ namespace QTech.Component
             txtSearch.Text = "";
             button.BackgroundImage = getIconSearch();
             txtSearch.Focus();
-            button.BackgroundImage = global::QTech.Component.Properties.Resources.SearchImg;
-            if (QuickSearch != null  && SearchMode == SearchModes.OnKeyUp)
+            button.BackgroundImage = Properties.Resources.SearchImg;
+            if (QuickSearch != null && SearchMode == SearchModes.OnKeyUp)
             {
                 QuickSearch(this, EventArgs.Empty);
             }
@@ -160,7 +160,7 @@ namespace QTech.Component
 
         private Image getIconSearch()
         {
-            return SearchMode == SearchModes.OnKeyUp ? QTech.Component.Properties.Resources.SearchImg : QTech.Component.Properties.Resources.SearchImg;
+            return SearchMode == SearchModes.OnKeyUp ?Properties.Resources.SearchImg : Properties.Resources.SearchImg;
         }
 
         public new void Focus()
@@ -197,29 +197,13 @@ namespace QTech.Component
                     {
                         AcceptSearch(true);
                     }
-                    
+
                 }
             }
             else if (e.KeyCode == Keys.Escape)
             {
                 CancelSearch(true);
             }
-        } 
-
-        private void txtSearch_KeyUp(object sender, KeyEventArgs e)
-        {
-            //if (SearchMode == SearchModes.OnKeyUp)
-            //{
-            //    if (e.KeyCode == Keys.Escape)
-            //    {
-            //        this.CancelSearch(true);
-            //    }
-            //    else
-            //    {
-            //        this.searched = true;
-            //        this.OnSearch();
-            //    }
-            //} 
-        } 
+        }
     }
 }

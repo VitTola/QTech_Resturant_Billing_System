@@ -136,6 +136,18 @@
     <Compile Include="CustomeForms\SelectProductDialog.Designer.cs">
       <DependentUpon>SelectProductDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PositionPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PositionPage.Designer.cs">
+      <DependentUpon>PositionPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPosition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPosition.Designer.cs">
+      <DependentUpon>frmPosition.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmFoodOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -326,6 +338,12 @@
     <Compile Include="Settings.cs" />
     <EmbeddedResource Include="CustomeForms\SelectProductDialog.resx">
       <DependentUpon>SelectProductDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PositionPage.resx">
+      <DependentUpon>PositionPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPosition.resx">
+      <DependentUpon>frmPosition.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmFoodOrder.resx">
       <DependentUpon>frmFoodOrder.cs</DependentUpon>
