@@ -330,6 +330,9 @@
     <EmbeddedResource Include="Forms\frmFoodOrder.resx">
       <DependentUpon>frmFoodOrder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmIncomeExpense.resx">
+      <DependentUpon>frmIncomeExpense.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ReloadMainForm.resx">
       <DependentUpon>ReloadMainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -498,6 +501,7 @@
   <ItemGroup>
     <Content Include="Pheng-Ry.ico" />
     <Content Include="Resources\Calendar1.png" />
+    <None Include="Resources\DropDown.png" />
     <None Include="Resources\History.png" />
     <None Include="Resources\DownArrow1.png" />
     <None Include="Resources\DownArrow.png" />

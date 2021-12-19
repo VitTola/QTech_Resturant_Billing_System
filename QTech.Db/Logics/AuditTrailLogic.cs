@@ -34,11 +34,6 @@ namespace QTech.Db.Logics
         {
             var type = entity.GetType() as Type;
             var name = type.ToString().Split('.').LastOrDefault();
-            if (!string.IsNullOrEmpty(name))
-            {
-                //name = ResourceHelper.Translate($"{name}_op");
-            }
-            
             var auditTrail = new AuditTrail();
             auditTrail.ClientAddress = GetMacAddress();
             auditTrail.ClientName = Environment.MachineName;
@@ -56,16 +51,12 @@ namespace QTech.Db.Logics
             var changlogs = GetChangeLog<T,TKey>(entity,oldObject,flag);
 
             var changes = JsonConvert.SerializeObject(changlogs);
-            auditTrail.ChangeJson = changes;
+            if (changes != "[]" )
+            { 
+                auditTrail.ChangeJson = changes;
+                AuditTrailLogic.Instance.AddAsync(auditTrail);
+            }
 
-            AuditTrailLogic.Instance.AddAsync(auditTrail);
-
-
-            //_db.Entry(auditTrail).State = EntityState.Detached;
-            //entity.RowDate = DateTime.Now;
-            //base.SetActive(auditTrail, true);
-            //_db.Entry(auditTrail).State = EntityState.Added;
-            //_db.SaveChanges();
         }
         
         public override IQueryable<AuditTrail> Search(ISearchModel model)

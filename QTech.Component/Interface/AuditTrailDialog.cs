@@ -328,7 +328,8 @@ namespace QTech.Component
 
         public async Task Search()
         {
-            this.Text = string.Format(QTech.Base.Properties.Resources.UpdateHistory__, ResourceHelper.Translate(Model.GetType().Name), ((string.IsNullOrEmpty(ItemName)) ? Model.ToString() : ItemName));
+            this.Text = string.Format(QTech.Base.Properties.Resources.UpdateHistory__,
+                ResourceHelper.Translate(Model.GetType().Name), ((string.IsNullOrEmpty(ItemName)) ? Model.ToString() : ItemName));
             var TableName = Model.GetType().Namespace + "." + Model.GetType().Name + "s";
             var search = new AuditTrailHistorySearch()
             {

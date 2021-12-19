@@ -122,7 +122,7 @@ namespace QTech.Forms
         }
         public void ViewChangeLog()
         {
-            throw new NotImplementedException();
+            AuditTrailDialog.ShowChangeLog(Model);
         }
         public void Write()
         {
@@ -139,6 +139,18 @@ namespace QTech.Forms
         private void btnSave_Click(object sender, EventArgs e)
         {
             Save();
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.E))
+            {
+                btnChangeLog.PerformClick();
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+        private void btnChangeLog_Click(object sender, EventArgs e)
+        {
+            ViewChangeLog();
         }
     }
 }

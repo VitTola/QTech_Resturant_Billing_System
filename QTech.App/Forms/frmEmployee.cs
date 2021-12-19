@@ -187,11 +187,16 @@ namespace QTech.Forms
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (keyData == (Keys.Control | Keys.P))
+            if (keyData == (Keys.Control | Keys.E))
             {
-                btnPrint.PerformClick();
+                btnChangeLog.PerformClick();
             }
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void btnChangeLog_Click(object sender, EventArgs e)
+        {
+            ViewChangeLog();
         }
     }
 }

@@ -79,7 +79,6 @@ namespace QTech.Forms
             Write();
 
             var isExist = await btnSave.RunAsync(() => CategoryLogic.Instance.IsExistsAsync(Model));
-            if (isExist == null) { return; }
             if (isExist == true)
             {
                 txtName.IsExists(lblName.Text);
@@ -111,7 +110,7 @@ namespace QTech.Forms
         }
         public void ViewChangeLog()
         {
-            new AuditTrailDialog().ShowDialog();
+            AuditTrailDialog.ShowChangeLog(Model);
         }
         public void Write()
         {
@@ -127,10 +126,17 @@ namespace QTech.Forms
         {
             this.Close();
         }
-
-        private void btnChangeLog_Click(object sender, EventArgs e)
+        private void btnAuditTrail_Click(object sender, EventArgs e)
         {
             ViewChangeLog();
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.E))
+            {
+                btnChangeLog.PerformClick();
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

@@ -138,8 +138,15 @@ namespace QTech.Forms
         {
             ViewChangeLog();
         }
-
-        private void btnAuditTrail_Click(object sender, EventArgs e)
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.E))
+            {
+                btnChangeLog.PerformClick();
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+        private void btnChangeLog_Click_1(object sender, EventArgs e)
         {
             ViewChangeLog();
         }

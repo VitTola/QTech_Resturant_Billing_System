@@ -52,6 +52,11 @@
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
+            // digheader
+            // 
+            this.digheader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.digheader.Size = new System.Drawing.Size(440, 20);
+            // 
             // container
             // 
             this.container.Controls.Add(this.exPanel1);
@@ -188,17 +193,20 @@
             this.btnChangeLog.BackColor = System.Drawing.Color.Ivory;
             this.btnChangeLog.DefaultImage = null;
             this.btnChangeLog.Executing = false;
-            this.btnChangeLog.Font = new System.Drawing.Font("Khmer OS System", 8F);
+            this.btnChangeLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangeLog.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
+            this.btnChangeLog.ForeColor = System.Drawing.Color.Black;
+            this.btnChangeLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnChangeLog.Location = new System.Drawing.Point(2, 3);
             this.btnChangeLog.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnChangeLog.Name = "btnChangeLog";
             this.btnChangeLog.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
             this.btnChangeLog.ShortcutText = "E";
             this.btnChangeLog.Size = new System.Drawing.Size(75, 27);
-            this.btnChangeLog.TabIndex = 1;
-            this.btnChangeLog.Text = "ប្រវត្តិកែប្រែ";
+            this.btnChangeLog.TabIndex = 5;
+            this.btnChangeLog.Text = "ប្រវត្តកែប្រែ";
             this.btnChangeLog.UseVisualStyleBackColor = true;
-            this.btnChangeLog.Click += new System.EventHandler(this.btnChangeLog_Click);
+            this.btnChangeLog.Click += new System.EventHandler(this.btnAuditTrail_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -216,7 +224,9 @@
             this.btnClose.BackColor = System.Drawing.Color.Ivory;
             this.btnClose.DefaultImage = null;
             this.btnClose.Executing = false;
-            this.btnClose.Font = new System.Drawing.Font("Khmer OS System", 8F);
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
+            this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Location = new System.Drawing.Point(193, 3);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnClose.Name = "btnClose";
@@ -233,7 +243,9 @@
             this.btnSave.BackColor = System.Drawing.Color.Ivory;
             this.btnSave.DefaultImage = null;
             this.btnSave.Executing = false;
-            this.btnSave.Font = new System.Drawing.Font("Khmer OS System", 8F);
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
+            this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(114, 3);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnSave.Name = "btnSave";

@@ -45,8 +45,8 @@
             this.btnClose = new QTech.Component.ExButtonLoading();
             this.btnSave = new QTech.Component.ExButtonLoading();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnAuditTrail = new QTech.Component.ExButtonLoading();
             this.chkUseable_ = new System.Windows.Forms.CheckBox();
+            this.btnChangeLog = new QTech.Component.ExButtonLoading();
             this.container.SuspendLayout();
             this.exPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -232,34 +232,12 @@
             // 
             // flowLayoutPanel3
             // 
-            this.flowLayoutPanel3.Controls.Add(this.btnAuditTrail);
+            this.flowLayoutPanel3.Controls.Add(this.btnChangeLog);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(2, 2);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(140, 32);
             this.flowLayoutPanel3.TabIndex = 2;
-            // 
-            // btnAuditTrail
-            // 
-            this.btnAuditTrail.BackColor = System.Drawing.Color.Ivory;
-            this.btnAuditTrail.DefaultImage = null;
-            this.btnAuditTrail.Executing = false;
-            this.btnAuditTrail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAuditTrail.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
-            this.btnAuditTrail.ForeColor = System.Drawing.Color.Black;
-            this.btnAuditTrail.Image = global::QTech.Properties.Resources.History;
-            this.btnAuditTrail.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAuditTrail.Location = new System.Drawing.Point(2, 3);
-            this.btnAuditTrail.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
-            this.btnAuditTrail.Name = "btnAuditTrail";
-            this.btnAuditTrail.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
-            this.btnAuditTrail.ShortcutText = "H";
-            this.btnAuditTrail.Size = new System.Drawing.Size(93, 27);
-            this.btnAuditTrail.TabIndex = 4;
-            this.btnAuditTrail.Text = "ប្រវត្តកែប្រែ";
-            this.btnAuditTrail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAuditTrail.UseVisualStyleBackColor = true;
-            this.btnAuditTrail.Click += new System.EventHandler(this.btnAuditTrail_Click);
             // 
             // chkUseable_
             // 
@@ -272,6 +250,26 @@
             this.chkUseable_.TabIndex = 18;
             this.chkUseable_.Text = "ប្រើការបាន";
             this.chkUseable_.UseVisualStyleBackColor = true;
+            // 
+            // btnChangeLog
+            // 
+            this.btnChangeLog.BackColor = System.Drawing.Color.Ivory;
+            this.btnChangeLog.DefaultImage = null;
+            this.btnChangeLog.Executing = false;
+            this.btnChangeLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangeLog.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
+            this.btnChangeLog.ForeColor = System.Drawing.Color.Black;
+            this.btnChangeLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnChangeLog.Location = new System.Drawing.Point(2, 3);
+            this.btnChangeLog.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
+            this.btnChangeLog.Name = "btnChangeLog";
+            this.btnChangeLog.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
+            this.btnChangeLog.ShortcutText = "E";
+            this.btnChangeLog.Size = new System.Drawing.Size(75, 27);
+            this.btnChangeLog.TabIndex = 9;
+            this.btnChangeLog.Text = "ប្រវត្តកែប្រែ";
+            this.btnChangeLog.UseVisualStyleBackColor = true;
+            this.btnChangeLog.Click += new System.EventHandler(this.btnChangeLog_Click_1);
             // 
             // frmTable
             // 
@@ -311,6 +309,6 @@
         private Component.ExButtonLoading btnSave;
         private System.Windows.Forms.CheckBox chkUseable_;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private Component.ExButtonLoading btnAuditTrail;
+        private Component.ExButtonLoading btnChangeLog;
     }
 }

@@ -31,6 +31,7 @@
             this._lblMiscNo = new QTech.Component.ExLabel();
             this.txtMiscNo = new System.Windows.Forms.TextBox();
             this.exPanel1 = new QTech.Component.Components.ExPanel();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnClose = new QTech.Component.ExButtonLoading();
             this.btnSave = new QTech.Component.ExButtonLoading();
@@ -42,11 +43,18 @@
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this._lblAmount = new QTech.Component.ExLabel();
+            this.btnChangeLog = new QTech.Component.ExButtonLoading();
             this.container.SuspendLayout();
             this.exPanel1.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // digheader
+            // 
+            this.digheader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.digheader.Size = new System.Drawing.Size(378, 20);
             // 
             // container
             // 
@@ -83,6 +91,7 @@
             // exPanel1
             // 
             this.exPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.exPanel1.Controls.Add(this.flowLayoutPanel3);
             this.exPanel1.Controls.Add(this.flowLayoutPanel2);
             this.exPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.exPanel1.Location = new System.Drawing.Point(1, 235);
@@ -91,15 +100,24 @@
             this.exPanel1.Size = new System.Drawing.Size(376, 36);
             this.exPanel1.TabIndex = 25;
             // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.btnChangeLog);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(2, 2);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(132, 32);
+            this.flowLayoutPanel3.TabIndex = 1;
+            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.btnClose);
             this.flowLayoutPanel2.Controls.Add(this.btnSave);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(2, 2);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(197, 2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(372, 32);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(177, 32);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // btnClose
@@ -107,7 +125,9 @@
             this.btnClose.BackColor = System.Drawing.Color.Ivory;
             this.btnClose.DefaultImage = null;
             this.btnClose.Executing = false;
-            this.btnClose.Location = new System.Drawing.Point(295, 3);
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Location = new System.Drawing.Point(100, 3);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
@@ -123,7 +143,9 @@
             this.btnSave.BackColor = System.Drawing.Color.Ivory;
             this.btnSave.DefaultImage = null;
             this.btnSave.Executing = false;
-            this.btnSave.Location = new System.Drawing.Point(216, 3);
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(21, 3);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnSave.Name = "btnSave";
             this.btnSave.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
@@ -219,6 +241,26 @@
             this._lblAmount.TabIndex = 30;
             this._lblAmount.Text = "ចំនួនទឹកប្រាក់";
             // 
+            // btnChangeLog
+            // 
+            this.btnChangeLog.BackColor = System.Drawing.Color.Ivory;
+            this.btnChangeLog.DefaultImage = null;
+            this.btnChangeLog.Executing = false;
+            this.btnChangeLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangeLog.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
+            this.btnChangeLog.ForeColor = System.Drawing.Color.Black;
+            this.btnChangeLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnChangeLog.Location = new System.Drawing.Point(2, 3);
+            this.btnChangeLog.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
+            this.btnChangeLog.Name = "btnChangeLog";
+            this.btnChangeLog.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
+            this.btnChangeLog.ShortcutText = "E";
+            this.btnChangeLog.Size = new System.Drawing.Size(75, 27);
+            this.btnChangeLog.TabIndex = 7;
+            this.btnChangeLog.Text = "ប្រវត្តកែប្រែ";
+            this.btnChangeLog.UseVisualStyleBackColor = true;
+            this.btnChangeLog.Click += new System.EventHandler(this.btnChangeLog_Click);
+            // 
             // frmIncomeExpense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 19F);
@@ -231,6 +273,7 @@
             this.container.ResumeLayout(false);
             this.container.PerformLayout();
             this.exPanel1.ResumeLayout(false);
+            this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -253,5 +296,7 @@
         private System.Windows.Forms.Label label1;
         private Component.ExLabel _lblAmount;
         private System.Windows.Forms.TextBox txtAmount;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private Component.ExButtonLoading btnChangeLog;
     }
 }

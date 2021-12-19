@@ -766,6 +766,7 @@
     <None Include="Resources\3Left.png" />
     <None Include="Resources\3Right.png" />
     <None Include="Resources\3Center.png" />
+    <None Include="Resources\dgvloading %282%29.gif" />
     <Content Include="Resources\edit.png" />
     <None Include="Resources\empty_avatar.png" />
     <None Include="Resources\jpg.png" />
