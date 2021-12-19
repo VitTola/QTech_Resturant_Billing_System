@@ -18,14 +18,12 @@ namespace QTech.Forms
 {
     public partial class CategoryPage : ExPage, IPage
     {
-
         public CategoryPage()
         {
             InitializeComponent();
             Bind();
             InitEvent();
             this.SetTheme(this.Controls, null);
-
         }
         public Category Model { get; set; }
 
@@ -40,18 +38,16 @@ namespace QTech.Forms
             btnRemove.Visible = ShareValue.IsAuthorized(AuthKey.Product_Category_Remove);
             btnUpdate.Visible = ShareValue.IsAuthorized(AuthKey.Product_Category_Update);
 
-            txtSearch.RegisterEnglishInput();
+            txtSearch.RegisterPrimaryInput();
             txtSearch.RegisterKeyArrowDown(dgv);
             txtSearch.QuickSearch += txtSearch_QuickSearch;
         }
 
-
         private async void txtSearch_QuickSearch(object sender, EventArgs e)
         {
             await Search();
-        }
+        }  
 
-      
         public async void AddNew()
         {
             Model = new Category();
@@ -107,7 +103,7 @@ namespace QTech.Forms
             if (canRemove == false)
             {
                 MsgBox.ShowWarning(EasyServer.Domain.Resources.RowCannotBeRemoved,
-                    GeneralProcess.Remove.GetTextDialog(BaseResource.Categorys));
+                    GeneralProcess.Remove.GetTextDialog(BaseResource.Category));
                 return;
             }
 
@@ -126,7 +122,7 @@ namespace QTech.Forms
 
         public async Task Search()
         {
-            var search = new CustomerSearch()
+            var search = new CategorySearch()
             {
                 Search = txtSearch.Text,
             };
@@ -134,7 +130,7 @@ namespace QTech.Forms
             var result = await dgv.RunAsync(() => CategoryLogic.Instance.SearchAsync(search));
             if (result != null)
             {
-                dgv.DataSource = result._ToDataTable();
+                dgv.DataSource = result.OrderByDescending(x=>x.RowDate)._ToDataTable();
             }
         }
   

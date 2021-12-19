@@ -148,47 +148,14 @@
   <data name="report" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\report.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="category" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\category.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="employee" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\employee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="import" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\import.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="product" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\product.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="RyLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RyLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sale" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sale.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="salereport" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\salereport.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="supplier" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\supplier.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="supplier1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\supplier1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Christmas-Big-Sale-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Christmas-Big-Sale-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="customer1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\customer1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logout1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logout1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="logout11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logout11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="report1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\report1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="setting1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\setting1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -198,12 +165,6 @@
   </data>
   <data name="Hide" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Hide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="minimize" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minimize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="setting" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\setting.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Site" xml:space="preserve">
     <value>គំរោង</value>
@@ -223,7 +184,7 @@
   <data name="Customer" xml:space="preserve">
     <value>អតិថិជន</value>
   </data>
-  <data name="Employees" xml:space="preserve">
+  <data name="Employee" xml:space="preserve">
     <value>បុគ្គលិក</value>
   </data>
   <data name="PaidAmount" xml:space="preserve">
@@ -289,7 +250,7 @@
   <data name="Sale_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sale.img.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Products" xml:space="preserve">
+  <data name="Product" xml:space="preserve">
     <value>ទំនិញ</value>
   </data>
   <data name="imgCollapse" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -331,7 +292,7 @@
   <data name="empty_file" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\empty_file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Categorys" xml:space="preserve">
+  <data name="Category" xml:space="preserve">
     <value>ប្រភេទទំនិញ</value>
   </data>
   <data name="Product32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -460,12 +421,6 @@
   <data name="TotalAmount" xml:space="preserve">
     <value>សរុបទឹកប្រាក់</value>
   </data>
-  <data name="CornerLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CornerLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CornerRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CornerRight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Printer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Printer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -556,9 +511,6 @@
   <data name="MsgCannotChangeCustomerAndPO" xml:space="preserve">
     <value>អតិថិជន និងលេខ PO មិនអាចកែបានទេ!​ អ្នកអាចធ្វើការលុបការលក់នេះហើយបង្កើតថ្មី​ ។</value>
   </data>
-  <data name="Qauntity_3" xml:space="preserve">
-    <value />
-  </data>
   <data name="All_" xml:space="preserve">
     <value>ទាំងអស់</value>
   </data>
@@ -585,9 +537,6 @@
   </data>
   <data name="MsgConfirmPasswordNotMatch" xml:space="preserve">
     <value>បញ្ចាក់លេខសំងាត់មិនត្រឹមត្រូវ!</value>
-  </data>
-  <data name="Must" xml:space="preserve">
-    <value />
   </data>
   <data name="Login" xml:space="preserve">
     <value>ចូលប្រើប្រាស់</value>
@@ -654,9 +603,6 @@
   </data>
   <data name="Yes" xml:space="preserve">
     <value>យល់ព្រម</value>
-  </data>
-  <data name="Row" xml:space="preserve">
-    <value />
   </data>
   <data name="MsgSaleCanEdit" xml:space="preserve">
     <value>ការលក់នេះបានបញ្ចូលក្នុងវិក័យប័ត្ររួចរាល់មិនអាចកែបានទេ!</value>
@@ -766,10 +712,16 @@
   <data name="IsUseable" xml:space="preserve">
     <value>អាចប្រើបាន</value>
   </data>
-  <data name="str" xml:space="preserve">
-    <value />
-  </data>
   <data name="Position1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Position.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MiscellaneousType" xml:space="preserve">
+    <value>ប្រភេទជា</value>
+  </data>
+  <data name="MisNo" xml:space="preserve">
+    <value>លេខរៀងវិក្ក័យប័ត្រទូទៅ</value>
+  </data>
+  <data name="PhotoPath" xml:space="preserve">
+    <value>ឈ្មោះរូប</value>
   </data>
 </root>

@@ -38,21 +38,20 @@ namespace QTech.Forms
         {
             colName.Visible = true;
             colName.Width = 100;
-
             Read();
         }
         public void InitEvent()
         {
             this.SetEnabled(Flag != GeneralProcess.Remove && Flag != GeneralProcess.View);
             this.MaximizeBox = false;
-            this.Text = Flag.GetTextDialog(Base.Properties.Resources.Categorys);
+            this.Text = Flag.GetTextDialog(Base.Properties.Resources.Category);
             txtNote.RegisterPrimaryInput();
+            txtName.RegisterPrimaryInput();
 
         }
         private void dgv_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             e.Control.RegisterEnglishInput();
-            
         }
         public bool InValid()
         {
@@ -116,7 +115,6 @@ namespace QTech.Forms
         {
             Model.Name = txtName.Text;
             Model.Note = txtNote.Text;
-            
         }
         private void btnSave_Click(object sender, EventArgs e)
         {

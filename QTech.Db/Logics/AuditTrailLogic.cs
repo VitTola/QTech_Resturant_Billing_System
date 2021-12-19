@@ -129,7 +129,11 @@ namespace QTech.Db.Logics
             (typeof(QTech.Base.Helpers.AuditDataAttribute), true).Cast<QTech.Base.Helpers.AuditDataAttribute>().SingleOrDefault())?.Index ?? 0);
             foreach (var property in properties) 
             {
-                if (property.Name.EndsWith("Id")) continue;
+                if (property.Name.EndsWith("Id"))
+                {
+                    //property.Attributes
+                    
+                };
                 dynamic newValue = property.GetValue(entity)?.ToString() ?? "";
                 dynamic oldValue = null;
                 if (flag != GeneralProcess.Add)

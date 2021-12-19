@@ -48,7 +48,7 @@ namespace QTech.Forms
         public void InitEvent()
         {
             this.MaximizeBox = false;
-            this.Text = Flag.GetTextDialog(Base.Properties.Resources.Employees);
+            this.Text = Flag.GetTextDialog(Base.Properties.Resources.Employee);
             this.SetEnabled(Flag != GeneralProcess.Remove && Flag != GeneralProcess.View);
         }
 

@@ -77,7 +77,7 @@ namespace QTech.Base.BaseModels
                 Level = 2,
                 Key = AuthKey.Employee_Employee,
                 ParentKey = AuthKey.Employee,
-                DisplayName = BaseResource.Employees,
+                DisplayName = BaseResource.Employee,
                 Icon = BaseResource.GeneralEmployee,
                 Children = new List<MenuBar>(),
                 FormName = "QTech.Forms.EmployeePage"
@@ -89,7 +89,7 @@ namespace QTech.Base.BaseModels
                 Level = 2,
                 Key = AuthKey.Product_Product,
                 ParentKey = AuthKey.Product,
-                DisplayName = BaseResource.Products,
+                DisplayName = BaseResource.Product,
                 Icon = BaseResource.Product32x32,
                 Children = new List<MenuBar>(),
                 FormName = "QTech.Forms.ProductPage"
@@ -100,7 +100,7 @@ namespace QTech.Base.BaseModels
                 Level = 2,
                 Key = AuthKey.Product_Category,
                 ParentKey = AuthKey.Product,
-                DisplayName = BaseResource.Categorys,
+                DisplayName = BaseResource.Category,
                 Icon = BaseResource.categorie_ing,
                 Children = new List<MenuBar>(),
                 FormName = "QTech.Forms.CategoryPage"
@@ -189,7 +189,7 @@ namespace QTech.Base.BaseModels
                 Index = 2,
                 Level = 1,
                 Key = AuthKey.Employee,
-                DisplayName = BaseResource.Employees,
+                DisplayName = BaseResource.Employee,
                 Icon = BaseResource.Employee_img,
                 Children = new List<MenuBar>(),
                 FormName = ""
@@ -210,7 +210,7 @@ namespace QTech.Base.BaseModels
                 Index = 3,
                 Level = 1,
                 Key = AuthKey.Product,
-                DisplayName = BaseResource.Products,
+                DisplayName = BaseResource.Product,
                 Icon = BaseResource.Product_img,
                 Children = new List<MenuBar>(),
                 FormName = ""

@@ -30,6 +30,48 @@ namespace WpfCustomControlLibrary
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public string ImagePath { get; set; }
+
+        private byte[] ImageSourceInByte;
+        public byte[] ImageSource
+        {
+            get
+            {
+                return ImageSourceInByte;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    ImageSourceInByte = value;
+                    using (MemoryStream stream = new MemoryStream(value, 0, value.Length))
+                    {
+                        var bitmap = new BitmapImage();
+                        bitmap.BeginInit();
+                        bitmap.StreamSource = stream;
+                        bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                        bitmap.EndInit();
+                        bitmap.Freeze();
+                        ImageBrush imageBrush = new ImageBrush();
+                        imageBrush.ImageSource = bitmap;
+                        el.Fill = imageBrush;
+                    }
+                }
+
+            }
+
+        }
+        private byte[] BitmapSourceToByteArray(BitmapSource bmpSrc)
+        {
+            var encoder = new JpegBitmapEncoder();
+            encoder.QualityLevel = 100;
+            encoder.Frames.Add(BitmapFrame.Create(bmpSrc));
+
+            using (var stream = new MemoryStream())
+            {
+                encoder.Save(stream);
+                return stream.ToArray();
+            }
+        }
         private bool isPlaceHoder;
         public RoundImageBox()
         {
@@ -60,7 +102,7 @@ namespace WpfCustomControlLibrary
                     SetPlaceHolder();
                 }
             }
-            
+
         }
 
         private void El_MouseEnter(object sender, MouseEventArgs e)
@@ -98,7 +140,7 @@ namespace WpfCustomControlLibrary
             {
                 throw;
             }
-            
+
         }
 
         public BitmapImage ToBitmapImage(Bitmap bitmap)

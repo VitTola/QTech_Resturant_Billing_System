@@ -38,7 +38,7 @@ namespace QTech.Db.Logics
         public override IQueryable<Category> Search(ISearchModel model)
         {
             var param = model as CategorySearch;
-            var q = All().Where(x=>x.Active);
+            var q = All();
             if (!string.IsNullOrEmpty(param?.Search))
             {
                 q = q.Where(x => x.Name.ToLower().Contains(param.Search.ToLower()));

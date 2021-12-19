@@ -20,7 +20,7 @@ namespace QTech.Forms
     public partial class frmProduct : ExDialog, IDialog
     {
         public Product Model { get; set; }
-        string PicturePath;
+        string PictureName;
 
         public frmProduct(Product model, GeneralProcess flag)
         {
@@ -33,7 +33,6 @@ namespace QTech.Forms
             Bind();
             InitEvent();
             this.SetTheme(this.Controls, null);
-
         }
         public GeneralProcess Flag { get; set; }
 
@@ -41,18 +40,15 @@ namespace QTech.Forms
         {
             cboCategory.DataSourceFn = p => CategoryLogic.Instance.SearchAsync(p).ToDropDownItemModelList();
             cboCategory.SearchParamFn = () => new CategorySearch();
-
         }
         public void InitEvent()
         {
             this.MaximizeBox = false;
-            this.Text =Flag.GetTextDialog(Base.Properties.Resources.Products);
-            txtUnitPrice.RegisterEnglishInputWith(txtImportPrice);
+            this.Text =Flag.GetTextDialog(Base.Properties.Resources.Product);
             txtName.RegisterPrimaryInputWith(txtNote, txtName);
             this.SetEnabled(Flag != GeneralProcess.Remove && Flag != GeneralProcess.View);
             txtUnitPrice.KeyPress += (sender, e) => txtUnitPrice.validCurrency(sender, e);
-            txtImportPrice.KeyPress += (sender, e) => txtImportPrice.validCurrency(sender,e);
-            txtName.RegisterKeyEnterNextControlWith(cboCategory, txtImportPrice, txtUnitPrice, txtNote);
+            txtName.RegisterKeyEnterNextControlWith(cboCategory, txtUnitPrice, txtNote);
             picFood.Click += btnAddPic__Click;
         }
 
@@ -66,7 +62,7 @@ namespace QTech.Forms
             if (!txtName.IsValidRequired(lblName.Text)
                 |!cboCategory.IsValidRequired(lblCategorys.Text)
                 |!txtUnitPrice.IsValidNumberic()
-                |!txtImportPrice.IsValidNumberic())
+               )
             {
                 return true;
             }
@@ -74,6 +70,10 @@ namespace QTech.Forms
         }
         public async void Read()
         {
+            if (Flag == GeneralProcess.Add)
+            {
+                return;
+            }
             txtName.Text = Model.Name;
             txtNote.Text = Model.Note;
             txtUnitPrice.Text = Model.UnitPrice.ToString();
@@ -85,6 +85,7 @@ namespace QTech.Forms
             }
             );
             cboCategory.SetValue(_result);
+            picFood.ImageSource = Model?.Photo;
 
         }
         public async void Save()
@@ -138,6 +139,16 @@ namespace QTech.Forms
             Model.UnitPrice = decimal.Parse(txtUnitPrice.Text);
             var selectedCat = cboCategory.SelectedObject.ItemObject as Category;
             Model.CategoryId = selectedCat.Id;
+            try
+            {
+                Model.PhotoPath = picFood.ImagePath?.ToString()?.Split('.')?.LastOrDefault() ?? string.Empty;
+                Model.Photo = picFood.ImageSource;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -154,7 +165,8 @@ namespace QTech.Forms
             dialog.Filter = "Image|*.jpg;*.jpeg;*.png;";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                picFood.ImagePath = dialog.FileName;
+                var ByteSource = File.ReadAllBytes(dialog.FileName);
+                picFood.ImageSource = ByteSource;
             }
         }
 

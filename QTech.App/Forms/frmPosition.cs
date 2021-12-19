@@ -45,7 +45,7 @@ namespace QTech.Forms
         {
             this.SetEnabled(Flag != GeneralProcess.Remove && Flag != GeneralProcess.View);
             this.MaximizeBox = false;
-            this.Text = Flag.GetTextDialog(Base.Properties.Resources.Categorys);
+            this.Text = Flag.GetTextDialog(Base.Properties.Resources.Category);
             txtNote.RegisterPrimaryInput();
 
         }

@@ -87,7 +87,7 @@ namespace QTech.Forms
             if (canRemove == false)
             {
                 MsgBox.ShowWarning(EasyServer.Domain.Resources.RowCannotBeRemoved,
-                    GeneralProcess.Remove.GetTextDialog(BaseResource.Employees));
+                    GeneralProcess.Remove.GetTextDialog(BaseResource.Employee));
                 return;
             }
 

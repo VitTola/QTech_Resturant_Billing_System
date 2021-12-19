@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QTech.Base.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,19 @@ namespace QTech.Base.Models
 {
     public class Product : ActiveBaseModel
     {
+        [AuditData(Ignored:true)]
         public string Code { get; set; }
+        [AuditData(resourceName:"Name",index:1)]
         public string Name { get; set; }
+        [AuditData(resourceName:"UnitPrice",index:2)]
         public decimal UnitPrice { get; set; }
+        [AuditData(resourceName:"Note",index:3)]
         public string Note { get; set; }
+        [AuditData(resourceName:"Category",index:4)]
         public int CategoryId { get; set; }
+        [AuditData(Ignored: true)]
+        public byte [] Photo { get; set; }
+        [AuditData(resourceName:"PhotoPath",index:5)]
+        public string PhotoPath { get; set; }
     }
 }

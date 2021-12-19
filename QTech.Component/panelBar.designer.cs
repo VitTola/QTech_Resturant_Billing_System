@@ -73,7 +73,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::QTech.Base.Properties.Resources.minimize;
+            //this.pictureBox1.Image = global::QTech.Base.Properties.Resources.minimize;
             this.pictureBox1.Location = new System.Drawing.Point(1186, 8);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(17, 17);

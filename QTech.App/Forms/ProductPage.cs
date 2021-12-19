@@ -25,7 +25,18 @@ namespace QTech.Forms
             btnRemove.Visible = ShareValue.IsAuthorized(AuthKey.Product_Product_Remove);
             btnUpdate.Visible = ShareValue.IsAuthorized(AuthKey.Product_Product_Update);
             this.SetTheme(this.Controls, null);
+            InitEvent();
+        }
 
+        private void InitEvent()
+        {
+            txtSearch.RegisterPrimaryInput();
+            txtSearch.QuickSearch += TxtSearch_QuickSearch;
+        }
+
+        private async void TxtSearch_QuickSearch(object sender, EventArgs e)
+        {
+           await Search();
         }
 
         public async void AddNew()
@@ -81,7 +92,7 @@ namespace QTech.Forms
             if (canRemove == false)
             {
                 MsgBox.ShowWarning(EasyServer.Domain.Resources.RowCannotBeRemoved,
-                    GeneralProcess.Remove.GetTextDialog(BaseResource.Products));
+                    GeneralProcess.Remove.GetTextDialog(BaseResource.Product));
                 return;
             }
 

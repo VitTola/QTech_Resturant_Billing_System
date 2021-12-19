@@ -154,12 +154,11 @@ namespace QTech.Base.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to ប្រភេទទំនិញ.
         /// </summary>
-        public static System.Drawing.Bitmap category {
+        public static string Category {
             get {
-                object obj = ResourceManager.GetObject("category", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("Category", resourceCulture);
             }
         }
         
@@ -174,30 +173,11 @@ namespace QTech.Base.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ប្រភេទទំនិញ.
-        /// </summary>
-        public static string Categorys {
-            get {
-                return ResourceManager.GetString("Categorys", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to ប្រវត្តិកែប្រែ.
         /// </summary>
         public static string ChangeLog {
             get {
                 return ResourceManager.GetString("ChangeLog", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap Christmas_Big_Sale_icon {
-            get {
-                object obj = ResourceManager.GetObject("Christmas-Big-Sale-icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -235,26 +215,6 @@ namespace QTech.Base.Properties {
         public static string Company {
             get {
                 return ResourceManager.GetString("Company", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap CornerLeft {
-            get {
-                object obj = ResourceManager.GetObject("CornerLeft", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap CornerRight {
-            get {
-                object obj = ResourceManager.GetObject("CornerRight", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -309,16 +269,6 @@ namespace QTech.Base.Properties {
         public static System.Drawing.Bitmap Customer_img32 {
             get {
                 object obj = ResourceManager.GetObject("Customer_img32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap customer1 {
-            get {
-                object obj = ResourceManager.GetObject("customer1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -408,12 +358,11 @@ namespace QTech.Base.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to បុគ្គលិក.
         /// </summary>
-        public static System.Drawing.Bitmap employee {
+        public static string Employee {
             get {
-                object obj = ResourceManager.GetObject("employee", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("Employee", resourceCulture);
             }
         }
         
@@ -442,15 +391,6 @@ namespace QTech.Base.Properties {
         public static string EmployeeId {
             get {
                 return ResourceManager.GetString("EmployeeId", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to បុគ្គលិក.
-        /// </summary>
-        public static string Employees {
-            get {
-                return ResourceManager.GetString("Employees", resourceCulture);
             }
         }
         
@@ -621,16 +561,6 @@ namespace QTech.Base.Properties {
         public static System.Drawing.Bitmap imgPayment {
             get {
                 object obj = ResourceManager.GetObject("imgPayment", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap import {
-            get {
-                object obj = ResourceManager.GetObject("import", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -860,16 +790,6 @@ namespace QTech.Base.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap logout1 {
-            get {
-                object obj = ResourceManager.GetObject("logout1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         public static System.Drawing.Bitmap logout11 {
             get {
                 object obj = ResourceManager.GetObject("logout11", resourceCulture);
@@ -888,12 +808,11 @@ namespace QTech.Base.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to ប្រភេទជា.
         /// </summary>
-        public static System.Drawing.Bitmap minimize {
+        public static string MiscellaneousType {
             get {
-                object obj = ResourceManager.GetObject("minimize", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("MiscellaneousType", resourceCulture);
             }
         }
         
@@ -930,6 +849,15 @@ namespace QTech.Base.Properties {
         public static string MiscNo {
             get {
                 return ResourceManager.GetString("MiscNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to លេខរៀងវិក្ក័យប័ត្រទូទៅ.
+        /// </summary>
+        public static string MisNo {
+            get {
+                return ResourceManager.GetString("MisNo", resourceCulture);
             }
         }
         
@@ -1084,15 +1012,6 @@ namespace QTech.Base.Properties {
         public static string MsgSaleCanEdit {
             get {
                 return ResourceManager.GetString("MsgSaleCanEdit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string Must {
-            get {
-                return ResourceManager.GetString("Must", resourceCulture);
             }
         }
         
@@ -1259,6 +1178,15 @@ namespace QTech.Base.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ឈ្មោះរូប.
+        /// </summary>
+        public static string PhotoPath {
+            get {
+                return ResourceManager.GetString("PhotoPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to តួនាទី.
         /// </summary>
         public static string Position {
@@ -1353,12 +1281,11 @@ namespace QTech.Base.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to ទំនិញ.
         /// </summary>
-        public static System.Drawing.Bitmap product {
+        public static string Product {
             get {
-                object obj = ResourceManager.GetObject("product", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("Product", resourceCulture);
             }
         }
         
@@ -1397,15 +1324,6 @@ namespace QTech.Base.Properties {
         public static string ProductId {
             get {
                 return ResourceManager.GetString("ProductId", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ទំនិញ.
-        /// </summary>
-        public static string Products {
-            get {
-                return ResourceManager.GetString("Products", resourceCulture);
             }
         }
         
@@ -1458,15 +1376,6 @@ namespace QTech.Base.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string Qauntity_3 {
-            get {
-                return ResourceManager.GetString("Qauntity_3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to លុប.
         /// </summary>
         public static string Remove {
@@ -1510,16 +1419,6 @@ namespace QTech.Base.Properties {
         public static System.Drawing.Bitmap Report_img32 {
             get {
                 object obj = ResourceManager.GetObject("Report_img32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap report1 {
-            get {
-                object obj = ResourceManager.GetObject("report1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1575,15 +1474,6 @@ namespace QTech.Base.Properties {
         public static string ReportProfit {
             get {
                 return ResourceManager.GetString("ReportProfit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string Row {
-            get {
-                return ResourceManager.GetString("Row", resourceCulture);
             }
         }
         
@@ -1692,16 +1582,6 @@ namespace QTech.Base.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap salereport {
-            get {
-                object obj = ResourceManager.GetObject("salereport", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to ការលក់.
         /// </summary>
         public static string Sales {
@@ -1734,16 +1614,6 @@ namespace QTech.Base.Properties {
         public static string SetPrice {
             get {
                 return ResourceManager.GetString("SetPrice", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap setting {
-            get {
-                object obj = ResourceManager.GetObject("setting", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -1820,35 +1690,6 @@ namespace QTech.Base.Properties {
         public static string Status {
             get {
                 return ResourceManager.GetString("Status", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string str {
-            get {
-                return ResourceManager.GetString("str", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap supplier {
-            get {
-                object obj = ResourceManager.GetObject("supplier", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap supplier1 {
-            get {
-                object obj = ResourceManager.GetObject("supplier1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

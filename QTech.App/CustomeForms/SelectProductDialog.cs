@@ -138,7 +138,7 @@ namespace QTech.Component
                     {
                         Id = 0,
                         CategoryId = 0,
-                        Name = $"{BaseResource.Products} {BaseResource.All_}"
+                        Name = $"{BaseResource.Product} {BaseResource.All_}"
                     }
                         );
                 }

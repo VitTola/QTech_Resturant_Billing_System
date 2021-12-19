@@ -55,7 +55,7 @@
             // digheader
             // 
             this.digheader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.digheader.Size = new System.Drawing.Size(440, 20);
+            this.digheader.Size = new System.Drawing.Size(360, 20);
             // 
             // container
             // 
@@ -64,7 +64,7 @@
             this.container.Controls.Add(this.txtNote);
             this.container.Controls.Add(this.lblName);
             this.container.Controls.Add(this.txtName);
-            this.container.Size = new System.Drawing.Size(440, 220);
+            this.container.Size = new System.Drawing.Size(360, 220);
             // 
             // colId
             // 
@@ -132,10 +132,10 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(167, 25);
+            this.txtName.Location = new System.Drawing.Point(115, 25);
             this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(233, 27);
+            this.txtName.Size = new System.Drawing.Size(200, 27);
             this.txtName.TabIndex = 0;
             // 
             // lblName
@@ -160,11 +160,11 @@
             // 
             // txtNote
             // 
-            this.txtNote.Location = new System.Drawing.Point(167, 57);
+            this.txtNote.Location = new System.Drawing.Point(115, 57);
             this.txtNote.Margin = new System.Windows.Forms.Padding(2);
             this.txtNote.Multiline = true;
             this.txtNote.Name = "txtNote";
-            this.txtNote.Size = new System.Drawing.Size(233, 90);
+            this.txtNote.Size = new System.Drawing.Size(200, 90);
             this.txtNote.TabIndex = 1;
             // 
             // exPanel1
@@ -176,7 +176,7 @@
             this.exPanel1.Location = new System.Drawing.Point(1, 183);
             this.exPanel1.Name = "exPanel1";
             this.exPanel1.Padding = new System.Windows.Forms.Padding(2);
-            this.exPanel1.Size = new System.Drawing.Size(438, 36);
+            this.exPanel1.Size = new System.Drawing.Size(358, 36);
             this.exPanel1.TabIndex = 17;
             // 
             // flowLayoutPanel3
@@ -214,7 +214,7 @@
             this.flowLayoutPanel2.Controls.Add(this.btnSave);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(166, 2);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(86, 2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(270, 32);
             this.flowLayoutPanel2.TabIndex = 0;
@@ -261,7 +261,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(440, 240);
+            this.ClientSize = new System.Drawing.Size(360, 240);
             this.Font = new System.Drawing.Font("Khmer OS System", 8.25F);
             this.Location = new System.Drawing.Point(0, 0);
             this.MaximizeBox = false;
