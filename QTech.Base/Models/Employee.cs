@@ -20,6 +20,7 @@ namespace QTech.Base
         [AuditData(Ignored: true)]
         public int PositionId { get; set; }
         [AuditData(resourceName: "Name", index: 1)]
+        [AuditData(resourceName: "Name", index: 1)]
         public string Note { get; set; }
     }
 

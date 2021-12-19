@@ -203,7 +203,6 @@
             this.btnChangeLog.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
             this.btnChangeLog.ShortcutText = "E";
             this.btnChangeLog.Size = new System.Drawing.Size(75, 27);
-            this.btnChangeLog.TabIndex = 0;
             this.btnChangeLog.Text = "ប្រវត្តកែប្រែ";
             this.btnChangeLog.UseVisualStyleBackColor = true;
             this.btnChangeLog.Click += new System.EventHandler(this.btnAuditTrail_Click);
@@ -257,7 +256,6 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // frmPosition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -265,7 +263,6 @@
             this.Font = new System.Drawing.Font("Khmer OS System", 8.25F);
             this.Location = new System.Drawing.Point(0, 0);
             this.MaximizeBox = false;
-            this.Name = "frmPosition";
             this.Text = "frmCategory";
             this.container.ResumeLayout(false);
             this.container.PerformLayout();

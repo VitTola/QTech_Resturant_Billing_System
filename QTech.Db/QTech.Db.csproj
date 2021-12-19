@@ -172,12 +172,6 @@
     <EmbeddedResource Include="Migrations\202112181607545_v1.3.resx">
       <DependentUpon>202112181607545_v1.3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112190459408_v1.4.resx">
-      <DependentUpon>202112190459408_v1.4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112191006205_v1.5.resx">
-      <DependentUpon>202112191006205_v1.5.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
