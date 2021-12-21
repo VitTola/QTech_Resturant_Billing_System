@@ -59,7 +59,7 @@ namespace QTech.Forms
         public bool InValid()
         {
             if (!txtName.IsValidRequired(lblName.Text)
-                |!cboCategory.IsValidRequired(lblCategorys.Text)
+                |!cboCategory.IsValidRequired(lblCategory.Text)
                 |!txtUnitPrice.IsValidNumberic()
                )
             {
@@ -76,6 +76,7 @@ namespace QTech.Forms
             txtName.Text = Model.Name;
             txtNote.Text = Model.Note;
             txtUnitPrice.Text = Model.UnitPrice.ToString();
+
 
             var _result = await this.RunAsync(() =>
             {

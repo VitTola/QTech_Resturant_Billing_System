@@ -179,6 +179,18 @@ namespace QTech.Base.BaseModels
                 FormName = "QTech.Forms.PositionPage"
 
             },
+                    new MenuBar()
+            {
+                Index = 3,
+                Level = 2,
+                Key = AuthKey.Sale,
+                ParentKey = AuthKey.Product,
+                DisplayName = BaseResource.Scale,
+                Icon = BaseResource.scale_img,
+                Children = new List<MenuBar>(),
+                FormName = "QTech.Forms.ScalePage"
+
+            },
 
         };
 

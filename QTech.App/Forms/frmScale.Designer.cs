@@ -1,6 +1,6 @@
 ﻿namespace QTech.Forms
 {
-    partial class frmPosition
+    partial class frmScale
     {
         /// <summary>
         /// Required designer variable.
@@ -55,7 +55,7 @@
             // digheader
             // 
             this.digheader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.digheader.Size = new System.Drawing.Size(340, 20);
+            this.digheader.Size = new System.Drawing.Size(360, 20);
             // 
             // container
             // 
@@ -64,7 +64,7 @@
             this.container.Controls.Add(this.txtNote);
             this.container.Controls.Add(this.lblName);
             this.container.Controls.Add(this.txtName);
-            this.container.Size = new System.Drawing.Size(340, 206);
+            this.container.Size = new System.Drawing.Size(360, 220);
             // 
             // colId
             // 
@@ -132,7 +132,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(106, 25);
+            this.txtName.Location = new System.Drawing.Point(115, 25);
             this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(200, 27);
@@ -160,7 +160,7 @@
             // 
             // txtNote
             // 
-            this.txtNote.Location = new System.Drawing.Point(106, 57);
+            this.txtNote.Location = new System.Drawing.Point(115, 57);
             this.txtNote.Margin = new System.Windows.Forms.Padding(2);
             this.txtNote.Multiline = true;
             this.txtNote.Name = "txtNote";
@@ -173,10 +173,10 @@
             this.exPanel1.Controls.Add(this.flowLayoutPanel3);
             this.exPanel1.Controls.Add(this.flowLayoutPanel2);
             this.exPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.exPanel1.Location = new System.Drawing.Point(1, 169);
+            this.exPanel1.Location = new System.Drawing.Point(1, 183);
             this.exPanel1.Name = "exPanel1";
             this.exPanel1.Padding = new System.Windows.Forms.Padding(2);
-            this.exPanel1.Size = new System.Drawing.Size(338, 36);
+            this.exPanel1.Size = new System.Drawing.Size(358, 36);
             this.exPanel1.TabIndex = 17;
             // 
             // flowLayoutPanel3
@@ -185,7 +185,7 @@
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(2, 2);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(200, 32);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(160, 32);
             this.flowLayoutPanel3.TabIndex = 1;
             // 
             // btnChangeLog
@@ -203,7 +203,7 @@
             this.btnChangeLog.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
             this.btnChangeLog.ShortcutText = "E";
             this.btnChangeLog.Size = new System.Drawing.Size(75, 27);
-            this.btnChangeLog.TabIndex = 0;
+            this.btnChangeLog.TabIndex = 5;
             this.btnChangeLog.Text = "ប្រវត្តកែប្រែ";
             this.btnChangeLog.UseVisualStyleBackColor = true;
             this.btnChangeLog.Click += new System.EventHandler(this.btnAuditTrail_Click);
@@ -214,9 +214,9 @@
             this.flowLayoutPanel2.Controls.Add(this.btnSave);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(66, 2);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(168, 2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(270, 32);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(188, 32);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // btnClose
@@ -227,7 +227,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(193, 3);
+            this.btnClose.Location = new System.Drawing.Point(111, 3);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
@@ -246,7 +246,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(114, 3);
+            this.btnSave.Location = new System.Drawing.Point(32, 3);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnSave.Name = "btnSave";
             this.btnSave.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
@@ -257,16 +257,16 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // frmPosition
+            // frmScale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 226);
+            this.ClientSize = new System.Drawing.Size(360, 240);
             this.Font = new System.Drawing.Font("Khmer OS System", 8.25F);
             this.Location = new System.Drawing.Point(0, 0);
             this.MaximizeBox = false;
-            this.Name = "frmPosition";
-            this.Text = "frmCategory";
+            this.Name = "frmScale";
+            this.Text = "frmScale";
             this.container.ResumeLayout(false);
             this.container.PerformLayout();
             this.exPanel1.ResumeLayout(false);

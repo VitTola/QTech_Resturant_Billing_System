@@ -61,7 +61,11 @@ namespace QTech.Base.Enums
             , Employee_Postion_Add = 51
             , Employee_Postion_Update = 52
             , Employee_Postion_Remove = 53
-
+            ,Product_Scale = 54
+            ,Product_Scale_View    = 55
+            ,Product_Scale_Add     = 56
+            ,Product_Scale_Update  = 57
+            ,Product_Scale_Remove  = 58
 
     }
 }

@@ -42,6 +42,7 @@ namespace QTech.Db
         public virtual DbSet<AuditTrail> AuditTrails { get; set; }
         public virtual DbSet<ApplicationSetting> ApplicationSettings { get; set; }
         public virtual DbSet<Table> Tables { get; set; }
+        public virtual DbSet<Scale> Scales { get; set; }
         
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
