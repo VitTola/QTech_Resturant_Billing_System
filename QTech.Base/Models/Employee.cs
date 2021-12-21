@@ -15,12 +15,11 @@ namespace QTech.Base
         public string Code { get; set; }
         [AuditData(resourceName: "Name", index: 1)]
         public string Name { get; set; }
-        [AuditData(resourceName: "Name", index: 1)]
+        [AuditData(resourceName: "Phone", index: 1)]
         public string Phone { get; set; }
         [AuditData(Ignored: true)]
         public int PositionId { get; set; }
-        [AuditData(resourceName: "Name", index: 1)]
-        [AuditData(resourceName: "Name", index: 1)]
+        [AuditData(resourceName: "Note", index: 1)]
         public string Note { get; set; }
     }
 

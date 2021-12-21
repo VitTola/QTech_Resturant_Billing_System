@@ -309,7 +309,7 @@
             this.picDish.Location = new System.Drawing.Point(377, 21);
             this.picDish.Name = "picDish";
             this.picDish.Size = new System.Drawing.Size(170, 170);
-            this.picDish.TabIndex = 32;
+            this.picDish.TabIndex = 3;
             this.picDish.Text = "elementHost1";
             this.picDish.Child = this.picFood;
             // 

@@ -52,11 +52,10 @@ namespace QTech.Db.Logics
 
             var changes = JsonConvert.SerializeObject(changlogs);
             if (changes != "[]" )
-            { 
+            {
                 auditTrail.ChangeJson = changes;
                 AuditTrailLogic.Instance.AddAsync(auditTrail);
             }
-
         }
         
         public override IQueryable<AuditTrail> Search(ISearchModel model)
@@ -66,10 +65,10 @@ namespace QTech.Db.Logics
             q = q.Where(x =>
                    x.TableName == param.TableName &&
                    x.TablePK == param.Pk && x.TransactionDate >= param.FromDate && x.TransactionDate <= param.ToDate);
-            var test = q.ToList();
+            //var test = q.ToList();
             //if (param.Paging?.IsPaging == true)
             //{
-            //    q = q.GetPaged(param.Paging.CurrentPage, param.Paging.PageSize,true,true).Results;
+            //    q = q.GetPaged(param.Paging.CurrentPage, param.Paging.PageSize, true, true).Results;
             //}
 
             return q;
@@ -127,26 +126,47 @@ namespace QTech.Db.Logics
             (typeof(QTech.Base.Helpers.AuditDataAttribute), true).Cast<QTech.Base.Helpers.AuditDataAttribute>().SingleOrDefault())?.Ignored == false)
                 .OrderBy(x => ((QTech.Base.Helpers.AuditDataAttribute)x.GetCustomAttributes
             (typeof(QTech.Base.Helpers.AuditDataAttribute), true).Cast<QTech.Base.Helpers.AuditDataAttribute>().SingleOrDefault())?.Index ?? 0);
+
             foreach (var property in properties) 
             {
+                dynamic newValue = null;
+                dynamic oldValue = null;
+
                 if (property.Name.EndsWith("Id"))
                 {
-                    //property.Attributes
-                    
-                };
-                dynamic newValue = property.GetValue(entity)?.ToString() ?? "";
-                dynamic oldValue = null;
-                if (flag != GeneralProcess.Add)
-                {
-                    if (oldObject != null)
+                    var _entityName = property.Name?.Replace("Id", string.Empty);
+                    int _id = Parse.ToInt(property.GetValue(entity)?.ToString() ?? "0");
+                    newValue = GetEntityNameById(_entityName, _id);
+                    if (flag != GeneralProcess.Add)
                     {
-                        oldValue = property.GetValue(oldObject)?.ToString() ?? "";
+                        if (oldObject != null)
+                        {
+                            int _oId = Parse.ToInt(property.GetValue(oldObject)?.ToString() ?? "0");
+                            oldValue = GetEntityNameById(_entityName, _oId);
+                        }
+                    }
+                    else if (flag == GeneralProcess.Remove)
+                    {
+                        newValue = null;
+                    }
+
+                }
+                else
+                {
+                    newValue = property.GetValue(entity)?.ToString() ?? "";
+                    if (flag != GeneralProcess.Add)
+                    {
+                        if (oldObject != null)
+                        {
+                            oldValue = property.GetValue(oldObject)?.ToString() ?? "";
+                        }
+                    }
+                    else if (flag == GeneralProcess.Remove)
+                    {
+                        newValue = null;
                     }
                 }
-                else if (flag == GeneralProcess.Remove)
-                {
-                    newValue = null;
-                }
+
                 var propertyType = (property.GetValue(entity) == null)
                     ? typeof(object)
                     : property.GetValue(entity).GetType();
@@ -199,7 +219,9 @@ namespace QTech.Db.Logics
                         }
                     }
                     DisplayNameAttribute dp = property.GetCustomAttributes(typeof(DisplayNameAttribute), true).Cast<DisplayNameAttribute>().SingleOrDefault();
-                    var displayname = (!string.IsNullOrEmpty(dp?.DisplayName ?? "")) ? dp.DisplayName : property.Name;
+                    var displayname = (!string.IsNullOrEmpty(dp?.DisplayName ?? "")) 
+                        ? dp.DisplayName 
+                        : property.Name;
                     changeLogs.Add(new ChangeLog()
                     {
                         DisplayName = $"{displayname}",
@@ -211,16 +233,28 @@ namespace QTech.Db.Logics
             }
             return changeLogs;
         }
-        public class AuditTrailIsNullReturnValueAllField
+
+        private string GetEntityNameById(string modelName, int entityId)
         {
-            /// <summary>
-            /// ZoroValueAllFields = if field type is object and value = null and flag not remove for newValue and flag not add for oldValue =>  return value ALl + Type.Name ; eg AllCompany,AllBranch.....
-            /// </summary>
-            public static List<string> IsNullReturnValueAllFields = new List<string>()
+            switch (modelName)
             {
-              
-            };
+                case nameof(Category):
+                   return CategoryLogic.Instance.FindAsync(entityId)?.Name ?? string.Empty;
+                case nameof(Product):
+                    return ProductLogic.Instance.FindAsync(entityId)?.Name ?? string.Empty;
+                case nameof(Customer):
+                    return CustomerLogic.Instance.FindAsync(entityId)?.Name ?? string.Empty;
+                case nameof(Employee):
+                    return EmployeeLogic.Instance.FindAsync(entityId)?.Name ?? string.Empty;
+                case nameof(Table):
+                    return TableLogic.Instance.FindAsync(entityId)?.Name ?? string.Empty;
+                case nameof(Position):
+                    return PositionLogic.Instance.FindAsync(entityId)?.Name ?? string.Empty;
+            }
+
+            return string.Empty;
         }
+
     }
 
 }

@@ -89,6 +89,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Dll\QTech.Component.dll</HintPath>
     </Reference>
+    <Reference Include="QTech.Db, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\QTech.Db.dll</HintPath>
+    </Reference>
     <Reference Include="Storm.Domain, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Dll\Storm.Domain.dll</HintPath>
@@ -277,6 +281,7 @@
     <Content Include="Dll\esc-pos-usb-net.dll" />
     <Content Include="Dll\FastMember.dll" />
     <Content Include="Dll\QTech.Component.dll" />
+    <Content Include="Dll\QTech.Db.dll" />
     <None Include="Resources\Position.png" />
     <None Include="Resources\TableImg.png" />
     <None Include="Resources\Table_Img.png" />

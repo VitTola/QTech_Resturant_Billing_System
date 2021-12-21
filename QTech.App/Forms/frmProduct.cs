@@ -20,8 +20,6 @@ namespace QTech.Forms
     public partial class frmProduct : ExDialog, IDialog
     {
         public Product Model { get; set; }
-        string PictureName;
-
         public frmProduct(Product model, GeneralProcess flag)
         {
             InitializeComponent();
@@ -50,6 +48,7 @@ namespace QTech.Forms
             txtUnitPrice.KeyPress += (sender, e) => txtUnitPrice.validCurrency(sender, e);
             txtName.RegisterKeyEnterNextControlWith(cboCategory, txtUnitPrice, txtNote);
             picFood.Click += btnAddPic__Click;
+            txtName.RegisterKeyEnterNextControlWith(cboCategory,txtUnitPrice,txtNote);
         }
 
 
@@ -141,7 +140,7 @@ namespace QTech.Forms
             Model.CategoryId = selectedCat.Id;
             try
             {
-                Model.PhotoPath = picFood.ImagePath?.ToString()?.Split('.')?.LastOrDefault() ?? string.Empty;
+                Model.PhotoPath = Path.GetFileName(picFood?.ImagePath ?? "");
                 Model.Photo = picFood.ImageSource;
             }
             catch (Exception)
@@ -167,6 +166,7 @@ namespace QTech.Forms
             {
                 var ByteSource = File.ReadAllBytes(dialog.FileName);
                 picFood.ImageSource = ByteSource;
+                picFood.ImagePath = dialog.FileName;
             }
         }
 

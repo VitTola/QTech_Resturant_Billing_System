@@ -55,6 +55,7 @@ namespace WpfCustomControlLibrary
                         imageBrush.ImageSource = bitmap;
                         el.Fill = imageBrush;
                     }
+                    isPlaceHoder = false;
                 }
 
             }
@@ -90,24 +91,27 @@ namespace WpfCustomControlLibrary
             }
             else
             {
-                if (!string.IsNullOrEmpty(ImagePath))
-                {
-                    ImageBrush imageBrush = new ImageBrush();
-                    imageBrush.ImageSource = new BitmapImage(new Uri(ImagePath));
-                    el.Fill = imageBrush;
-                }
-                else
-                {
-                    el.Fill = new SolidColorBrush(Colors.Transparent);
-                    SetPlaceHolder();
-                }
+                //ImageBrush imageBrush = new ImageBrush();
+                //imageBrush.ImageSource = new BitmapImage(new Uri(ImagePath));
+                //el.Fill = imageBrush;
+                //if (!string.IsNullOrEmpty(ImagePath))
+                //{
+                //    ImageBrush imageBrush = new ImageBrush();
+                //    imageBrush.ImageSource = new BitmapImage(new Uri(ImagePath));
+                //    el.Fill = imageBrush;a
+                //}
+                //else
+                //{
+                //    el.Fill = new SolidColorBrush(Colors.Transparent);
+                //    SetPlaceHolder();
+                //}
             }
 
         }
 
         private void El_MouseEnter(object sender, MouseEventArgs e)
         {
-            el.Fill = new SolidColorBrush(Colors.LightCyan);
+            //el.Fill = new SolidColorBrush(Colors.LightCyan);
         }
 
         private void Ellipse_MouseRightButtonDown(object sender, MouseButtonEventArgs e)

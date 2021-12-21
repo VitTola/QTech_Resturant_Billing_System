@@ -1,6 +1,8 @@
 ﻿using QTech.Base.Helpers;
+using QTech.Db.Logics;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,11 +19,14 @@ namespace QTech.Base.Models
         public decimal UnitPrice { get; set; }
         [AuditData(resourceName:"Note",index:3)]
         public string Note { get; set; }
-        [AuditData(resourceName:"Category",index:4)]
+        [AuditData(index: 4)]
+        [DisplayName("Category")]
         public int CategoryId { get; set; }
         [AuditData(Ignored: true)]
         public byte [] Photo { get; set; }
         [AuditData(resourceName:"PhotoPath",index:5)]
         public string PhotoPath { get; set; }
+
+
     }
 }

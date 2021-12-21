@@ -128,7 +128,7 @@ namespace QTech.Forms
             }
             if (result?.Any() ?? false)
             {
-                result.ForEach(x => {
+                result.OrderByDescending(x=>x.RowDate).ToList().ForEach(x => {
                     var row = newRow();
                     row.Cells[colId.Name].Value = x.Id;
                     row.Cells[colName.Name].Value = x.Name;
