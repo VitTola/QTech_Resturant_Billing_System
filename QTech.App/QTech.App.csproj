@@ -136,6 +136,18 @@
     <Compile Include="CustomeForms\SelectProductDialog.Designer.cs">
       <DependentUpon>SelectProductDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CurrencyPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CurrencyPage.Designer.cs">
+      <DependentUpon>CurrencyPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCurrency.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCurrency.Designer.cs">
+      <DependentUpon>frmCurrency.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ScalePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -344,6 +356,12 @@
     <Compile Include="Settings.cs" />
     <EmbeddedResource Include="CustomeForms\SelectProductDialog.resx">
       <DependentUpon>SelectProductDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CurrencyPage.resx">
+      <DependentUpon>CurrencyPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCurrency.resx">
+      <DependentUpon>frmCurrency.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ScalePage.resx">
       <DependentUpon>ScalePage.cs</DependentUpon>

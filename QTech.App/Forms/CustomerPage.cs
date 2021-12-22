@@ -160,16 +160,16 @@ namespace QTech.Forms
 
         public async Task Search()
         {
-            dgv.Columns[colName.Name].DisplayIndex = 1;
-            var search = new CustomerSearch()
-            {
-                Search = txtSearch.Text,
-            };
+            //dgv.Columns[colName.Name].DisplayIndex = 1;
+            //var search = new CustomerSearch()
+            //{
+            //    Search = txtSearch.Text,
+            //};
 
-            var result = await dgv.RunAsync(() => CustomerLogic.Instance.SearchAsync(search));
-            if (result != null)
-            {
-            }
+            //var result = await dgv.RunAsync(() => CustomerLogic.Instance.SearchAsync(search));
+            //if (result != null)
+            //{
+            //}
         }
 
         public async void View()

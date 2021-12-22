@@ -92,6 +92,8 @@
     <Compile Include="Configs\QTechDbConfigs.cs" />
     <Compile Include="Logics\AuditTrailLogic.cs" />
     <Compile Include="Logics\AppSettingLogic.cs" />
+    <Compile Include="Logics\CurrencyLogic.cs" />
+    <Compile Include="Logics\ProductPriceLogic.cs" />
     <Compile Include="Logics\ScaleLogic.cs" />
     <Compile Include="Logics\PostionLogic.cs" />
     <Compile Include="Logics\TableLogic.cs" />
@@ -137,6 +139,10 @@
     <Compile Include="Migrations\202112211709431_v1.6.designer.cs">
       <DependentUpon>202112211709431_v1.6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112220615428_v1.7.cs" />
+    <Compile Include="Migrations\202112220615428_v1.7.designer.cs">
+      <DependentUpon>202112220615428_v1.7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QTechDbContext.cs" />
@@ -180,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112211709431_v1.6.resx">
       <DependentUpon>202112211709431_v1.6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112220615428_v1.7.resx">
+      <DependentUpon>202112220615428_v1.7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

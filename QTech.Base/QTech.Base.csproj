@@ -169,6 +169,7 @@
     <Compile Include="Helpers\UISetting.cs" />
     <Compile Include="Models\ApplicationSetting.cs" />
     <Compile Include="Models\AuditTrail.cs" />
+    <Compile Include="Models\Currency.cs" />
     <Compile Include="Models\Scale.cs" />
     <Compile Include="Models\IncomeExpense.cs" />
     <Compile Include="Models\Invoice.cs" />
@@ -215,6 +216,8 @@
     </Compile>
     <Compile Include="SearchModels\AuditTrailHistorySearch.cs" />
     <Compile Include="SearchModels\AuditTrailSearch.cs" />
+    <Compile Include="SearchModels\CurrencySearch.cs" />
+    <Compile Include="SearchModels\ProductPriceSearch.cs" />
     <Compile Include="SearchModels\ScaleSearch.cs" />
     <Compile Include="SearchModels\PositionSearch.cs" />
     <Compile Include="SearchModels\TableSearch.cs" />
@@ -284,6 +287,7 @@
     <Content Include="Dll\FastMember.dll" />
     <Content Include="Dll\QTech.Component.dll" />
     <Content Include="Dll\QTech.Db.dll" />
+    <None Include="Resources\Currency_img.png" />
     <None Include="Resources\scale_img.png" />
     <None Include="Resources\Position.png" />
     <None Include="Resources\TableImg.png" />

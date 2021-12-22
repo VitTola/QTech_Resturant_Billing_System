@@ -45,5 +45,9 @@ namespace QTech.Db.Logics
             }
             return q;
         }
+        public override Category AddAsync(Category entity)
+        {
+            return base.AddAsync(entity);
+        }
     }
 }

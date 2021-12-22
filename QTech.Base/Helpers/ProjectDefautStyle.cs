@@ -462,9 +462,18 @@ namespace QTech.Base.Helpers
                 {
                     ed.TittleColor = ShareValue.CurrentTheme.LabelColor;
                 }
+                if (c is FlowLayoutPanel fp)
+                {
+                    fp.BackColor = ShareValue.CurrentTheme.FormBackGround;
+                    SetTheme(form, fp.Controls, null);
+                }
+                if (c is LinkLabel lb)
+                {
+                    lb.ForeColor = ShareValue.CurrentTheme.LabelColor;
+                    lb.LinkColor = ShareValue.CurrentTheme.LabelColor;
+                }
             }
         }
-
     }
 
     public class Theme

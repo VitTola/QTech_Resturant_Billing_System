@@ -145,10 +145,10 @@ namespace QTech.Base.BaseModels
             },
              new MenuBar()
             {
-                Index = 1,
+                Index = 2,
                 Level = 2,
-                Key = AuthKey.General_IncomeOutcome,
-                ParentKey = AuthKey.General,
+                Key = AuthKey.Sale_IncomeOutcome,
+                ParentKey = AuthKey.Sale,
                 DisplayName = BaseResource.IncomeOutcome,
                 Icon = BaseResource.IncomeOutcome_img,
                 Children = new List<MenuBar>(),
@@ -157,10 +157,10 @@ namespace QTech.Base.BaseModels
             },
              new MenuBar()
             {
-                Index = 2,
+                Index = 1,
                 Level = 2,
-                Key = AuthKey.Setting_Table,
-                ParentKey = AuthKey.Setting,
+                Key = AuthKey.General_Table,
+                ParentKey = AuthKey.General,
                 DisplayName = BaseResource.Table,
                 Icon = BaseResource.TableImg,
                 Children = new List<MenuBar>(),
@@ -179,7 +179,7 @@ namespace QTech.Base.BaseModels
                 FormName = "QTech.Forms.PositionPage"
 
             },
-                    new MenuBar()
+             new MenuBar()
             {
                 Index = 3,
                 Level = 2,
@@ -189,6 +189,18 @@ namespace QTech.Base.BaseModels
                 Icon = BaseResource.scale_img,
                 Children = new List<MenuBar>(),
                 FormName = "QTech.Forms.ScalePage"
+
+            },
+             new MenuBar()
+            {
+                Index = 2,
+                Level = 2,
+                Key = AuthKey.General_Currency,
+                ParentKey = AuthKey.General,
+                DisplayName = BaseResource.Currency,
+                Icon = BaseResource.Currency_img,
+                Children = new List<MenuBar>(),
+                FormName = "QTech.Forms.CurrencyPage"
 
             },
 
@@ -244,7 +256,6 @@ namespace QTech.Base.BaseModels
                 Index = 6,
                 Level = 1,
                 Key = AuthKey.Report,
-                //DisplayName = BaseResource.Report_,
                 DisplayName = "របាយការណ៍   ",
                 Icon = BaseResource.CloseDateEntery_img,
                 Children = new List<MenuBar>(),
@@ -252,7 +263,7 @@ namespace QTech.Base.BaseModels
             },
              new MenuBar()
             {
-                Index = 4,
+                Index = 7,
                 Level = 1,
                 Key = AuthKey.Setting,
                 DisplayName = BaseResource.Setting_Text,
@@ -262,7 +273,7 @@ namespace QTech.Base.BaseModels
             },
           new MenuBar()
             {
-                Index = 7,
+                Index = 4,
                 Level = 1,
                 Key = AuthKey.General,
                 DisplayName = BaseResource.General_,

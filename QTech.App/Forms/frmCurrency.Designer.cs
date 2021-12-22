@@ -1,6 +1,6 @@
 ﻿namespace QTech.Forms
 {
-    partial class frmCategory
+    partial class frmCurrency
     {
         /// <summary>
         /// Required designer variable.
@@ -257,7 +257,7 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // frmCategory
+            // frmCurrency
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -265,7 +265,7 @@
             this.Font = new System.Drawing.Font("Khmer OS System", 8.25F);
             this.Location = new System.Drawing.Point(0, 0);
             this.MaximizeBox = false;
-            this.Name = "frmCategory";
+            this.Name = "frmCurrency";
             this.Text = "frmCategory";
             this.container.ResumeLayout(false);
             this.container.PerformLayout();

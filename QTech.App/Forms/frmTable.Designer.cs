@@ -45,8 +45,8 @@
             this.btnClose = new QTech.Component.ExButtonLoading();
             this.btnSave = new QTech.Component.ExButtonLoading();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.chkUseable_ = new System.Windows.Forms.CheckBox();
             this.btnChangeLog = new QTech.Component.ExButtonLoading();
+            this.chkUseable_ = new System.Windows.Forms.CheckBox();
             this.container.SuspendLayout();
             this.exPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -185,11 +185,11 @@
             // 
             this.flowLayoutPanel2.Controls.Add(this.btnClose);
             this.flowLayoutPanel2.Controls.Add(this.btnSave);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(159, 2);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(142, 2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(207, 32);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(224, 32);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // btnClose
@@ -200,7 +200,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(118, 3);
+            this.btnClose.Location = new System.Drawing.Point(135, 3);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
@@ -219,7 +219,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(27, 3);
+            this.btnSave.Location = new System.Drawing.Point(44, 3);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnSave.Name = "btnSave";
             this.btnSave.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
@@ -238,18 +238,6 @@
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(140, 32);
             this.flowLayoutPanel3.TabIndex = 2;
-            // 
-            // chkUseable_
-            // 
-            this.chkUseable_.AutoSize = true;
-            this.chkUseable_.Checked = true;
-            this.chkUseable_.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkUseable_.Location = new System.Drawing.Point(123, 161);
-            this.chkUseable_.Name = "chkUseable_";
-            this.chkUseable_.Size = new System.Drawing.Size(78, 23);
-            this.chkUseable_.TabIndex = 18;
-            this.chkUseable_.Text = "ប្រើការបាន";
-            this.chkUseable_.UseVisualStyleBackColor = true;
             // 
             // btnChangeLog
             // 
@@ -270,6 +258,18 @@
             this.btnChangeLog.Text = "ប្រវត្តកែប្រែ";
             this.btnChangeLog.UseVisualStyleBackColor = true;
             this.btnChangeLog.Click += new System.EventHandler(this.btnChangeLog_Click_1);
+            // 
+            // chkUseable_
+            // 
+            this.chkUseable_.AutoSize = true;
+            this.chkUseable_.Checked = true;
+            this.chkUseable_.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkUseable_.Location = new System.Drawing.Point(123, 161);
+            this.chkUseable_.Name = "chkUseable_";
+            this.chkUseable_.Size = new System.Drawing.Size(78, 23);
+            this.chkUseable_.TabIndex = 18;
+            this.chkUseable_.Text = "ប្រើការបាន";
+            this.chkUseable_.UseVisualStyleBackColor = true;
             // 
             // frmTable
             // 

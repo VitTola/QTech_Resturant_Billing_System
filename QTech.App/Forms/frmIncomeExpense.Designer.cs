@@ -32,6 +32,7 @@
             this.txtMiscNo = new System.Windows.Forms.TextBox();
             this.exPanel1 = new QTech.Component.Components.ExPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnChangeLog = new QTech.Component.ExButtonLoading();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnClose = new QTech.Component.ExButtonLoading();
             this.btnSave = new QTech.Component.ExButtonLoading();
@@ -43,7 +44,6 @@
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this._lblAmount = new QTech.Component.ExLabel();
-            this.btnChangeLog = new QTech.Component.ExButtonLoading();
             this.container.SuspendLayout();
             this.exPanel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -109,15 +109,35 @@
             this.flowLayoutPanel3.Size = new System.Drawing.Size(132, 32);
             this.flowLayoutPanel3.TabIndex = 1;
             // 
+            // btnChangeLog
+            // 
+            this.btnChangeLog.BackColor = System.Drawing.Color.Ivory;
+            this.btnChangeLog.DefaultImage = null;
+            this.btnChangeLog.Executing = false;
+            this.btnChangeLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangeLog.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
+            this.btnChangeLog.ForeColor = System.Drawing.Color.Black;
+            this.btnChangeLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnChangeLog.Location = new System.Drawing.Point(2, 3);
+            this.btnChangeLog.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
+            this.btnChangeLog.Name = "btnChangeLog";
+            this.btnChangeLog.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
+            this.btnChangeLog.ShortcutText = "E";
+            this.btnChangeLog.Size = new System.Drawing.Size(75, 27);
+            this.btnChangeLog.TabIndex = 7;
+            this.btnChangeLog.Text = "ប្រវត្តកែប្រែ";
+            this.btnChangeLog.UseVisualStyleBackColor = true;
+            this.btnChangeLog.Click += new System.EventHandler(this.btnChangeLog_Click);
+            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.btnClose);
             this.flowLayoutPanel2.Controls.Add(this.btnSave);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(197, 2);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(2, 2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(177, 32);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(372, 32);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // btnClose
@@ -127,7 +147,7 @@
             this.btnClose.Executing = false;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(100, 3);
+            this.btnClose.Location = new System.Drawing.Point(295, 3);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
@@ -145,7 +165,7 @@
             this.btnSave.Executing = false;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(21, 3);
+            this.btnSave.Location = new System.Drawing.Point(216, 3);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnSave.Name = "btnSave";
             this.btnSave.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
@@ -240,26 +260,6 @@
             this._lblAmount.Size = new System.Drawing.Size(76, 19);
             this._lblAmount.TabIndex = 30;
             this._lblAmount.Text = "ចំនួនទឹកប្រាក់";
-            // 
-            // btnChangeLog
-            // 
-            this.btnChangeLog.BackColor = System.Drawing.Color.Ivory;
-            this.btnChangeLog.DefaultImage = null;
-            this.btnChangeLog.Executing = false;
-            this.btnChangeLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChangeLog.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
-            this.btnChangeLog.ForeColor = System.Drawing.Color.Black;
-            this.btnChangeLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnChangeLog.Location = new System.Drawing.Point(2, 3);
-            this.btnChangeLog.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
-            this.btnChangeLog.Name = "btnChangeLog";
-            this.btnChangeLog.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
-            this.btnChangeLog.ShortcutText = "E";
-            this.btnChangeLog.Size = new System.Drawing.Size(75, 27);
-            this.btnChangeLog.TabIndex = 7;
-            this.btnChangeLog.Text = "ប្រវត្តកែប្រែ";
-            this.btnChangeLog.UseVisualStyleBackColor = true;
-            this.btnChangeLog.Click += new System.EventHandler(this.btnChangeLog_Click);
             // 
             // frmIncomeExpense
             // 

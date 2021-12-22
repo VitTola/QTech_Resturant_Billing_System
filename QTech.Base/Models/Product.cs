@@ -26,7 +26,19 @@ namespace QTech.Base.Models
         public byte [] Photo { get; set; }
         [AuditData(resourceName:"PhotoPath",index:5)]
         public string PhotoPath { get; set; }
+        public List<ProductPrice> ProductPrices { get; set; }
+    }
 
-
+    public class ProductPrice : ActiveBaseModel
+    {
+        [AuditData(Ignored: true)]
+        public int ProductId { get; set; }
+        [AuditData(index: 1)]
+        [DisplayName("Scale")]
+        public int ScaleId { get; set; }
+        [AuditData(resourceName:"SalePrice",index: 2)]
+        public decimal SalePrice { get; set; }
+        [AuditData(resourceName: "Currency", index: 3)]
+        public int CurrencyId { get; set; }
     }
 }

@@ -51,5 +51,41 @@ namespace QTech.Db.Logics
         {
             return All().Any(x => x.Name == entity.Name);
         }
+
+        public override Product AddAsync(Product entity)
+        {
+            var result = base.AddAsync(entity);
+            entity.ProductPrices?.ForEach(x =>
+            {
+                x.ProductId = result.Id;
+                ProductPriceLogic.Instance.AddAsync(x);
+            });
+
+            return result;
+        }
+
+        public override Product UpdateAsync(Product entity)
+        {
+            var result = base.UpdateAsync(entity);
+            if (entity.ProductPrices?.Any() ?? false)
+            {
+                foreach (var s in entity.ProductPrices)
+                {
+                    var isExist = ProductPriceLogic.Instance.IsExistsAsync(s);
+                    if (isExist)
+                    {
+                        ProductPriceLogic.Instance.UpdateAsync(s);
+                    }
+                    else
+                    {
+                        s.ProductId = result.Id;
+                        ProductPriceLogic.Instance.AddAsync(s);
+                    }
+                }
+            }
+
+            return result;
+        }
+      
     }
 }

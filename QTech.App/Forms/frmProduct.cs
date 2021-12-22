@@ -1,4 +1,5 @@
-﻿using QTech.Base.Helpers;
+﻿using EasyServer.Domain.Helpers;
+using QTech.Base.Helpers;
 using QTech.Base.Models;
 using QTech.Base.SearchModels;
 using QTech.Component;
@@ -14,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BaseReource = QTech.Base.Properties.Resources;
 
 namespace QTech.Forms
 {
@@ -38,6 +40,9 @@ namespace QTech.Forms
         {
             cboCategory.DataSourceFn = p => CategoryLogic.Instance.SearchAsync(p).ToDropDownItemModelList();
             cboCategory.SearchParamFn = () => new CategorySearch();
+
+            colScale.SearchParamFn = () => new ScaleSearch() { };
+            colScale.DataSourceFn = p => ScaleLogic.Instance.SearchAsync(p).OrderByDescending(x => x.RowDate).ToDropDownItemModelList();
         }
         public void InitEvent()
         {
@@ -45,13 +50,21 @@ namespace QTech.Forms
             this.Text =Flag.GetTextDialog(Base.Properties.Resources.Product);
             txtName.RegisterPrimaryInputWith(txtNote, txtName);
             this.SetEnabled(Flag != GeneralProcess.Remove && Flag != GeneralProcess.View);
-            txtUnitPrice.KeyPress += (sender, e) => txtUnitPrice.validCurrency(sender, e);
-            txtName.RegisterKeyEnterNextControlWith(cboCategory, txtUnitPrice, txtNote);
+            txtName.RegisterKeyEnterNextControlWith(cboCategory, txtNote);
             picFood.Click += btnAddPic__Click;
-            txtName.RegisterKeyEnterNextControlWith(cboCategory,txtUnitPrice,txtNote);
+            txtName.RegisterKeyEnterNextControlWith(cboCategory,txtNote);
+
+            this.Text = Flag.GetTextDialog(Base.Properties.Resources.Sales);
+            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv.RegisterEnglishInputColumns(colSalePrice);
+            dgv.AllowRowNotFound = false;
+            dgv.AllowUserToAddRows = dgv.AllowUserToDeleteRows = true;
+            dgv.EditMode = DataGridViewEditMode.EditOnEnter;
+            dgv.EditingControlShowing += dgv_EditingControlShowing;
+            this.SetEnabled(Flag != GeneralProcess.Remove && Flag != GeneralProcess.View);
+            dgv.EditColumnIcon(colScale,colSalePrice);
+
         }
-
-
         private void dgv_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             e.Control.RegisterEnglishInput();
@@ -60,8 +73,11 @@ namespace QTech.Forms
         {
             if (!txtName.IsValidRequired(lblName.Text)
                 |!cboCategory.IsValidRequired(lblCategory.Text)
-                |!txtUnitPrice.IsValidNumberic()
                )
+            {
+                return true;
+            }
+            if (!validProductPrice())
             {
                 return true;
             }
@@ -75,11 +91,13 @@ namespace QTech.Forms
             }
             txtName.Text = Model.Name;
             txtNote.Text = Model.Note;
-            txtUnitPrice.Text = Model.UnitPrice.ToString();
 
-
+            List<ProductPrice> ProductPrices = null;
+            List<Scale> Scales = null;
             var _result = await this.RunAsync(() =>
             {
+                ProductPrices = ProductPriceLogic.Instance.SearchAsync(new ProductPriceSearch { ProductId = Model.Id });
+                Scales = ScaleLogic.Instance.SearchAsync(new ScaleSearch());
                 var result = CategoryLogic.Instance.FindAsync(Model.CategoryId);
                 return result;
             }
@@ -87,6 +105,29 @@ namespace QTech.Forms
             cboCategory.SetValue(_result);
             picFood.ImageSource = Model?.Photo;
 
+            dgv.BeginEdit(true);
+            if (ProductPrices?.Any() ?? false)
+            {
+                Model.ProductPrices = ProductPrices;
+                ProductPrices.ForEach(x =>
+                {
+                    var row = newRow(false);
+                    row.Cells[colId.Name].Value = x.Id;
+                    row.Cells[colScale.Name].Value = Scales?.FirstOrDefault(y=>y.Id == x.ScaleId)?.Name ?? "";
+                    row.Cells[colId.Name].Value = x.SalePrice;
+                   
+                });
+            }
+    }
+        private DataGridViewRow newRow(bool isFocus = false)
+        {
+            var row = dgv.Rows[dgv.Rows.Add()];
+            row.Cells[colId.Name].Value = 0;
+            if (isFocus)
+            {
+                dgv.Focus();
+            }
+            return row;
         }
         public async void Save()
         {
@@ -136,7 +177,6 @@ namespace QTech.Forms
         {
             Model.Name = txtName.Text;
             Model.Note = txtNote.Text;
-            Model.UnitPrice = decimal.Parse(txtUnitPrice.Text);
             var selectedCat = cboCategory.SelectedObject.ItemObject as Category;
             Model.CategoryId = selectedCat.Id;
             try
@@ -148,7 +188,26 @@ namespace QTech.Forms
             {
                 throw;
             }
-            
+
+            if (Model.ProductPrices == null)
+            {
+                Model.ProductPrices = new List<ProductPrice>();
+            }
+
+            dgv.EndEdit();
+            foreach (DataGridViewRow row in dgv.Rows.OfType<DataGridViewRow>().Where(x => !x.IsNewRow))
+            {
+                var pp = new ProductPrice();
+
+                pp.Active = true;
+                pp.Id = Parse.ToInt(row?.Cells[colId.Name]?.Value?.ToString() ?? "0");
+                pp.ProductId = Model.Id;
+                pp.ScaleId = Parse.ToInt(row?.Cells[colScale.Name]?.Value?.ToString() ?? "0");
+                pp.SalePrice = Parse.ToDecimal(row?.Cells[colSalePrice.Name]?.Value?.ToString() ?? "0");
+                Model.ProductPrices.Add(pp);
+               
+            }
+
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -158,7 +217,6 @@ namespace QTech.Forms
         {
             Save();
         }
-
         private void btnAddPic__Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
@@ -170,7 +228,6 @@ namespace QTech.Forms
                 picFood.ImagePath = dialog.FileName;
             }
         }
-
         private void btnRemovePic_Click(object sender, EventArgs e)
         {
             picFood.SetPlaceHolder();
@@ -186,6 +243,41 @@ namespace QTech.Forms
         private void btnChangeLog_Click(object sender, EventArgs e)
         {
             ViewChangeLog();
+        }
+        private bool validProductPrice()
+        {
+            var invalidCell = false;
+            var rows = dgv.Rows.OfType<DataGridViewRow>().Where(x => x.Index != dgv.RowCount - 1);
+            if (rows?.Any() != true)
+            {
+                MsgBox.ShowInformation(string.Format(BaseReource.MsgPleaseInputDataInTable_, BaseReource.SalePrice));
+                return false;
+            }
+
+            foreach (DataGridViewRow row in rows)
+            {
+                var cells = row.Cells.OfType<DataGridViewCell>().Where(x =>
+                x.ColumnIndex == row.Cells[colScale.Name].ColumnIndex || x.ColumnIndex == row.Cells[colSalePrice.Name].ColumnIndex
+                || x.ColumnIndex == row.Cells[colCurrency.Name].ColumnIndex).ToList();
+                cells.ForEach(x =>
+                {
+                    if (x.Value == null)
+                    {
+                        x.ErrorText = BaseReource.MsgPleaseInputValue;
+                        invalidCell = true;
+                    }
+                    else
+                    {
+                        x.ErrorText = string.Empty;
+                    }
+                });
+            }
+            if (invalidCell)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

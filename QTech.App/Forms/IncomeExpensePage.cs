@@ -45,9 +45,9 @@ namespace QTech.Forms
             txtSearch.QuickSearch += txtSearch_QuickSearch;
             cboMiscellaneousType.SelectedIndexChanged += CboMiscellaneousType_SelectedIndexChanged;
 
-            btnAdd.Visible = ShareValue.IsAuthorized(AuthKey.General_IncomeOutcome_Add);
-            btnRemove.Visible = ShareValue.IsAuthorized(AuthKey.General_IncomeOutcome_Remove);
-            btnUpdate.Visible = ShareValue.IsAuthorized(AuthKey.General_IncomeOutcome_Update);
+            btnAdd.Visible = ShareValue.IsAuthorized(AuthKey.Sale_IncomeOutcome_Add);
+            btnRemove.Visible = ShareValue.IsAuthorized(AuthKey.Sale_IncomeOutcome_Remove);
+            btnUpdate.Visible = ShareValue.IsAuthorized(AuthKey.Sale_IncomeOutcome_Update);
         }
         private async void CboMiscellaneousType_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -246,6 +246,16 @@ namespace QTech.Base.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Currency_img {
+            get {
+                object obj = ResourceManager.GetObject("Currency_img", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to រៀល.
         /// </summary>
         public static string Currency_Khmer {
