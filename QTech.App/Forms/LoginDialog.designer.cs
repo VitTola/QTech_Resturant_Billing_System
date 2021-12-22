@@ -51,6 +51,11 @@ namespace QTech.Forms
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
+            // digheader
+            // 
+            this.digheader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(18)))), ((int)(((byte)(22)))));
+            this.digheader.Size = new System.Drawing.Size(338, 20);
+            // 
             // container
             // 
             this.container.Controls.Add(this.exPanel);
@@ -141,14 +146,13 @@ namespace QTech.Forms
             // 
             // flowLayoutPanel3
             // 
-            this.flowLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel3.Controls.Add(this.btnClose);
             this.flowLayoutPanel3.Controls.Add(this.btnLogin_);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(53, 2);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(47, 2);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(281, 32);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(287, 32);
             this.flowLayoutPanel3.TabIndex = 0;
             // 
             // btnClose
@@ -159,7 +163,7 @@ namespace QTech.Forms
             this.btnClose.Executing = false;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(205, 3);
+            this.btnClose.Location = new System.Drawing.Point(211, 3);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
@@ -178,7 +182,7 @@ namespace QTech.Forms
             this.btnLogin_.Executing = false;
             this.btnLogin_.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin_.ForeColor = System.Drawing.Color.White;
-            this.btnLogin_.Location = new System.Drawing.Point(127, 3);
+            this.btnLogin_.Location = new System.Drawing.Point(133, 3);
             this.btnLogin_.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin_.Name = "btnLogin_";
             this.btnLogin_.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;

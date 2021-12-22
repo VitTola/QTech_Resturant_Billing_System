@@ -40,7 +40,6 @@
             this.btnClose = new QTech.Component.ExButtonLoading();
             this.btnSave = new QTech.Component.ExButtonLoading();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnChangeLog = new QTech.Component.ExButtonLoading();
             this._lblUserName = new QTech.Component.ExLabel();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.lblNote = new QTech.Component.ExLabel();
@@ -52,7 +51,6 @@
             this.grbPermission.SuspendLayout();
             this.exPanel.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // digheader
@@ -221,32 +219,11 @@
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.btnChangeLog);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(2, 2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(455, 32);
             this.flowLayoutPanel2.TabIndex = 0;
-            // 
-            // btnChangeLog
-            // 
-            this.btnChangeLog.BackColor = System.Drawing.Color.Ivory;
-            this.btnChangeLog.DefaultImage = null;
-            this.btnChangeLog.Executing = false;
-            this.btnChangeLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChangeLog.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
-            this.btnChangeLog.ForeColor = System.Drawing.Color.Black;
-            this.btnChangeLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnChangeLog.Location = new System.Drawing.Point(2, 3);
-            this.btnChangeLog.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
-            this.btnChangeLog.Name = "btnChangeLog";
-            this.btnChangeLog.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
-            this.btnChangeLog.ShortcutText = "E";
-            this.btnChangeLog.Size = new System.Drawing.Size(75, 27);
-            this.btnChangeLog.TabIndex = 9;
-            this.btnChangeLog.Text = "ប្រវត្តកែប្រែ";
-            this.btnChangeLog.UseVisualStyleBackColor = true;
-            this.btnChangeLog.Click += new System.EventHandler(this.btnChangeLog_Click_1);
             // 
             // _lblUserName
             // 
@@ -344,7 +321,6 @@
             this.grbPermission.ResumeLayout(false);
             this.exPanel.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
-            this.flowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -368,6 +344,5 @@
         private Component.ExLabel exLabel1;
         private System.Windows.Forms.TextBox txtConfirmPassword;
         private Component.ExLabel exLabel2;
-        private Component.ExButtonLoading btnChangeLog;
     }
 }

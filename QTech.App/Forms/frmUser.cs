@@ -115,11 +115,6 @@ namespace QTech.Forms
             Write();
 
             var isExists = await btnSave.RunAsync(() => UserLogic.Instance.IsExistsAsync(Model));
-            if (isExists == null)
-            {
-                return;
-
-            }
             if (isExists == true)
             {
                 txtAccount.IsExists(txtAccount.Text);
@@ -251,14 +246,7 @@ namespace QTech.Forms
                 CheckNodeAfterAddedNode(treeNode);
             }
         }
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (keyData == (Keys.Control | Keys.E))
-            {
-                btnChangeLog.PerformClick();
-            }
-            return base.ProcessCmdKey(ref msg, keyData);
-        }
+      
         private void btnChangeLog_Click_1(object sender, EventArgs e)
         {
             ViewChangeLog();

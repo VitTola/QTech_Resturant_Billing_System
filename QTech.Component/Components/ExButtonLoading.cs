@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using EDomain = EasyServer.Domain;
 
 namespace QTech.Component
@@ -29,12 +30,12 @@ namespace QTech.Component
 
         private void InitializeStyle()
         {
-            BackColor = Color.DodgerBlue;
-            FlatStyle = FlatStyle.Flat;
-            FlatAppearance.BorderColor = Color.Gray;
-            FlatAppearance.BorderSize = 1;
-            FlatAppearance.MouseOverBackColor = Color.FromArgb(152, 203, 255);
-            ForeColor = Color.White;
+            //BackColor = Color.DodgerBlue;
+            //FlatStyle = FlatStyle.Flat;
+            //FlatAppearance.BorderColor = Color.Gray;
+            //FlatAppearance.BorderSize = 1;
+            //FlatAppearance.MouseOverBackColor = Color.FromArgb(152, 203, 255);
+            //ForeColor = Color.White;
         }
         public enum Aligment
         {
@@ -68,49 +69,15 @@ namespace QTech.Component
             };
             var locationF = new PointF(Width - 2, 1);
             var textSize = e.Graphics.MeasureString(ShortcutText, drawFont);
-            ////int diameter = 1 * 2;
-            ////var size = new SizeF(diameter, diameter);
-            ////var bounds = new RectangleF(locationF, new SizeF(textSize.Width + 2, textSize.Height + 2));
-            //// Padding
-            //bounds.X -= bounds.Width - 1;
-            //bounds.Y -= 2;
             if (ShortcutAligment == Aligment.Vertical)
             {
                 locationF = new PointF(locationF.X - textSize.Height, locationF.Y);
-                //bounds = new RectangleF(locationF, new SizeF(bounds.Height, bounds.Width));
-                //bounds.X -= 1;
-                //bounds.Y -= 2;
                 drawFormat.FormatFlags = StringFormatFlags.DirectionVertical;
                 drawFormat.Alignment = StringAlignment.Near;
             }
-
-            //var arc = new RectangleF(bounds.Location, size);
-            //GraphicsPath path = new GraphicsPath();
-
-            //// top left arc  
-            //path.AddArc(arc, 180, 90);
-
-            //// top right arc  
-            //arc.X = bounds.Right - diameter;
-            //path.AddArc(arc, 270, 90);
-
-            //// bottom right arc  
-            //arc.Y = bounds.Bottom - diameter;
-            //path.AddArc(arc, 0, 90);
-
-            //// bottom left arc 
-            //arc.X = bounds.Left;
-            //path.AddArc(arc, 90, 90);
-            //path.CloseFigure();
-
-
-            //e.Graphics.FillPath(new SolidBrush(ColorTranslator.FromHtml(Properties.Resources.ColorPrimary)), path);
-
-            //e.Graphics.DrawPath(new Pen(Color.White), path);
-            //e.Graphics.DrawPath(new Pen(ColorTranslator.FromHtml(Properties.Resources.ColorPrimary)), path);
             this.Font = new Font("Khmer OS Battambang", 8);
 
-            e.Graphics.DrawString(ShortcutText, drawFont, drawBrush, locationF, drawFormat);
+             e.Graphics.DrawString(ShortcutText, drawFont, drawBrush, locationF, drawFormat);
         }
 
 
@@ -122,7 +89,9 @@ namespace QTech.Component
             { 
                 Enabled = true;
             }
-            Image = DefaultImage; 
+            Image = DefaultImage;
+            FlatAppearance.BorderColor = Color.Gray;
+
         }
 
         public void PreExecute(bool block = false)
@@ -137,6 +106,7 @@ namespace QTech.Component
             }
             Image = Properties.Resources.spin;
             ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            FlatAppearance.BorderColor = Color.FromArgb(0, 122, 204);
         }
 
         protected override void OnClick(EventArgs e)
@@ -146,6 +116,14 @@ namespace QTech.Component
                 return;
             }
             base.OnClick(e);
+        }
+
+        protected override bool ShowFocusCues
+        {
+            get
+            {
+                return false;
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using QTech.Base.Models;
+﻿using QTech.Base.Enums;
+using QTech.Base.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -31,7 +32,7 @@ namespace QTech.Db.Logics
         public override User UpdateAsync(User entity)
         {
             var result = new User();
-            if (!string.IsNullOrEmpty(entity.PasswordHash))
+            if (string.IsNullOrEmpty(entity.PasswordHash))
             {
                 _db.Entry(entity).State = EntityState.Modified;
                 _db.Entry(entity).Property(x => x.PasswordHash).IsModified = false;
@@ -62,6 +63,7 @@ namespace QTech.Db.Logics
             }
             return result;
         }
+
         public override User RemoveAsync(User entity)
         {
             var result =  base.RemoveAsync(entity);
@@ -86,6 +88,14 @@ namespace QTech.Db.Logics
                 var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(tmp));
                 return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
             }
+        }
+
+        public void ChangeTheme(int userId, Theme theme)
+        {
+            var user = new User() { Id = userId, Theme = theme };
+                _db.Users.Attach(user);
+                _db.Entry(user).Property(x => x.Theme).IsModified = true;
+                _db.SaveChanges();
         }
     }
 }

@@ -40,7 +40,7 @@ namespace QTech.Forms
         }
         private void InitEvent()
         {
-            ShareValue.permissions = PermissionLogic.Instance.SearchAsync(new PermissionSearch());
+            //ShareValue.permissions = PermissionLogic.Instance.SearchAsync(new PermissionSearch());
 
             ReportHelper.Instance.RegisterPath(@"QTech\QTech.App\Reports");
             _lblComanyName.Text = QTech.Base.Properties.Resources.Company;
@@ -419,7 +419,7 @@ namespace QTech.Forms
             ShareValue.CurrentTheme = Theme.Template1;
             var currentTheme = ShareValue.User.Theme;
             ShareValue.User.Theme = Base.Enums.Theme.Template1;
-            UserLogic.Instance.UpdateAsync(ShareValue.User);
+            UserLogic.Instance.ChangeTheme(ShareValue.User.Id, ShareValue.User.Theme);
             if (currentTheme != Base.Enums.Theme.Template1)
             {
                 isReload = true;
@@ -435,7 +435,7 @@ namespace QTech.Forms
             ShareValue.CurrentTheme = Theme.Template2;
             var currentTheme = ShareValue.User.Theme;
             ShareValue.User.Theme = Base.Enums.Theme.Template2;
-            UserLogic.Instance.UpdateAsync(ShareValue.User);
+            UserLogic.Instance.ChangeTheme(ShareValue.User.Id, ShareValue.User.Theme);
             if (currentTheme != Base.Enums.Theme.Template2)
             {
                 isReload = true;
@@ -451,7 +451,7 @@ namespace QTech.Forms
             ShareValue.CurrentTheme = Theme.Template3;
             var currentTheme = ShareValue.User.Theme;
             ShareValue.User.Theme = Base.Enums.Theme.Template3;
-            UserLogic.Instance.UpdateAsync(ShareValue.User);
+            UserLogic.Instance.ChangeTheme(ShareValue.User.Id, ShareValue.User.Theme);
             if (currentTheme != Base.Enums.Theme.Template3)
             {
                 isReload = true;

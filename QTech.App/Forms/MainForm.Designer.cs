@@ -45,6 +45,7 @@
             this.txtUserName = new System.Windows.Forms.Label();
             this.lblUserDropDown_ = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblTheme_ = new System.Windows.Forms.Label();
             this._lblTheme = new System.Windows.Forms.Label();
@@ -82,13 +83,13 @@
             this.Template1 = new System.Windows.Forms.ToolStripMenuItem();
             this.Template2 = new System.Windows.Forms.ToolStripMenuItem();
             this.Template3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.container.SuspendLayout();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.pBottom.SuspendLayout();
             this.pBranch.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.graPanel2.SuspendLayout();
@@ -99,12 +100,11 @@
             this.menuSwitchLinkServer.SuspendLayout();
             this.cnmStrip.SuspendLayout();
             this.cnmTheme.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // digheader
             // 
-            this.digheader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.digheader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.digheader.Size = new System.Drawing.Size(1280, 20);
             // 
             // container
@@ -326,9 +326,17 @@
             this.flowLayoutPanel3.Controls.Add(this.label7);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(162, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(179, 25);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(190, 25);
             this.flowLayoutPanel3.TabIndex = 12;
             this.flowLayoutPanel3.WrapContents = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 19);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // label3
             // 
@@ -346,7 +354,7 @@
             this.lblTheme_.ForeColor = System.Drawing.Color.White;
             this.lblTheme_.Location = new System.Drawing.Point(65, 3);
             this.lblTheme_.Name = "lblTheme_";
-            this.lblTheme_.Size = new System.Drawing.Size(62, 19);
+            this.lblTheme_.Size = new System.Drawing.Size(72, 19);
             this.lblTheme_.TabIndex = 3;
             this.lblTheme_.Text = "ប្តូរព័ណ៌ផ្ទាំង";
             // 
@@ -356,10 +364,10 @@
             this._lblTheme.ForeColor = System.Drawing.Color.Black;
             this._lblTheme.Image = global::QTech.Properties.Resources.DropDown;
             this._lblTheme.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this._lblTheme.Location = new System.Drawing.Point(130, 0);
+            this._lblTheme.Location = new System.Drawing.Point(140, 0);
             this._lblTheme.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this._lblTheme.Name = "_lblTheme";
-            this._lblTheme.Size = new System.Drawing.Size(20, 23);
+            this._lblTheme.Size = new System.Drawing.Size(21, 23);
             this._lblTheme.TabIndex = 7;
             this._lblTheme.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this._lblTheme.Click += new System.EventHandler(this._lblTheme_Click);
@@ -367,7 +375,7 @@
             // label7
             // 
             this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label7.Location = new System.Drawing.Point(156, 0);
+            this.label7.Location = new System.Drawing.Point(167, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(20, 20);
             this.label7.TabIndex = 4;
@@ -784,14 +792,6 @@
             this.Template3.Text = "គំរូទី៣";
             this.Template3.Click += new System.EventHandler(this.Template3_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 19);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 19F);
@@ -815,6 +815,7 @@
             this.pBranch.ResumeLayout(false);
             this.pBranch.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.mainPanel.ResumeLayout(false);
@@ -826,7 +827,6 @@
             this.menuSwitchLinkServer.ResumeLayout(false);
             this.cnmStrip.ResumeLayout(false);
             this.cnmTheme.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

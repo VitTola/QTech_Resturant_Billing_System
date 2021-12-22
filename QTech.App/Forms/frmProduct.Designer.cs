@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProduct));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblName = new QTech.Component.ExLabel();
             this.txtName = new System.Windows.Forms.TextBox();
             this.exPanel1 = new QTech.Component.Components.ExPanel();
@@ -50,7 +49,7 @@
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colScale = new QTech.Component.ExSearchComboColumn();
             this.colSalePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCurrency = new QTech.Component.DropDownComboBoxColumn();
+            this.colCurrency = new QTech.Component.ExSearchComboColumn();
             this.exLabel1 = new QTech.Component.ExLabel();
             this.txtNote = new System.Windows.Forms.TextBox();
             this.lblNote = new QTech.Component.ExLabel();
@@ -266,8 +265,8 @@
             this.dgv.AllowUserToAddRows = false;
             this.dgv.AllowUserToDeleteRows = false;
             this.dgv.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv.BackgroundColor = System.Drawing.Color.White;
             this.dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -277,17 +276,17 @@
             this.colScale,
             this.colSalePrice,
             this.colCurrency});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Khmer OS Battambang", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(205)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Khmer OS Battambang", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(205)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgv.EnableHeadersVisualStyles = false;
             this.dgv.Executing = false;
-            this.dgv.Location = new System.Drawing.Point(351, 34);
+            this.dgv.Location = new System.Drawing.Point(352, 43);
             this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
             this.dgv.Paging = null;
@@ -295,7 +294,7 @@
             this.dgv.RowHeadersVisible = false;
             this.dgv.RowTemplate.Height = 28;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(293, 285);
+            this.dgv.Size = new System.Drawing.Size(293, 276);
             this.dgv.TabIndex = 35;
             // 
             // colId
@@ -323,27 +322,32 @@
             // colSalePrice
             // 
             this.colSalePrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.colSalePrice.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.colSalePrice.DefaultCellStyle = dataGridViewCellStyle5;
             this.colSalePrice.HeaderText = "តម្លៃ";
             this.colSalePrice.Name = "colSalePrice";
             this.colSalePrice.ReadOnly = true;
             // 
             // colCurrency
             // 
-            this.colCurrency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.colCurrency.Choose = null;
+            this.colCurrency.CustomSearchForm = null;
+            this.colCurrency.DataSourceFn = null;
             this.colCurrency.HeaderText = "រូបីប័ណ្ណ";
-            this.colCurrency.Items = ((System.Collections.Generic.List<object>)(resources.GetObject("colCurrency.Items")));
             this.colCurrency.Name = "colCurrency";
             this.colCurrency.ReadOnly = true;
+            this.colCurrency.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colCurrency.SearchParamFn = null;
+            this.colCurrency.ShowAll = false;
+            this.colCurrency.TextAll = null;
             this.colCurrency.Width = 70;
             // 
             // exLabel1
             // 
             this.exLabel1.AutoSize = true;
-            this.exLabel1.Location = new System.Drawing.Point(352, 12);
+            this.exLabel1.Location = new System.Drawing.Point(353, 21);
             this.exLabel1.Name = "exLabel1";
             this.exLabel1.Required = false;
             this.exLabel1.Size = new System.Drawing.Size(87, 19);
@@ -374,7 +378,7 @@
             this.flowLayOutLabelRemoveAdd.Controls.Add(this.lblRemove);
             this.flowLayOutLabelRemoveAdd.Controls.Add(this.lblAdd);
             this.flowLayOutLabelRemoveAdd.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayOutLabelRemoveAdd.Location = new System.Drawing.Point(545, 12);
+            this.flowLayOutLabelRemoveAdd.Location = new System.Drawing.Point(546, 21);
             this.flowLayOutLabelRemoveAdd.Name = "flowLayOutLabelRemoveAdd";
             this.flowLayOutLabelRemoveAdd.Size = new System.Drawing.Size(99, 19);
             this.flowLayOutLabelRemoveAdd.TabIndex = 37;
@@ -402,6 +406,7 @@
             this.lblAdd.TabIndex = 0;
             this.lblAdd.TabStop = true;
             this.lblAdd.Text = "បន្ថែម";
+            this.lblAdd.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblAdd_LinkClicked);
             // 
             // frmProduct
             // 
@@ -451,6 +456,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
         private Component.ExSearchComboColumn colScale;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSalePrice;
-        private Component.DropDownComboBoxColumn colCurrency;
+        private Component.ExSearchComboColumn colCurrency;
     }
 }

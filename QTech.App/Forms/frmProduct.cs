@@ -43,18 +43,20 @@ namespace QTech.Forms
 
             colScale.SearchParamFn = () => new ScaleSearch() { };
             colScale.DataSourceFn = p => ScaleLogic.Instance.SearchAsync(p).OrderByDescending(x => x.RowDate).ToDropDownItemModelList();
+
+            colCurrency.SearchParamFn = () => new CurrencySearch() { };
+            colCurrency.DataSourceFn = p => CurrencyLogic.Instance.SearchAsync(p).OrderByDescending(x => x.RowDate).ToDropDownItemModelList();
         }
         public void InitEvent()
         {
             this.MaximizeBox = false;
-            this.Text =Flag.GetTextDialog(Base.Properties.Resources.Product);
+            this.Text = Flag.GetTextDialog(Base.Properties.Resources.Product);
             txtName.RegisterPrimaryInputWith(txtNote, txtName);
             this.SetEnabled(Flag != GeneralProcess.Remove && Flag != GeneralProcess.View);
             txtName.RegisterKeyEnterNextControlWith(cboCategory, txtNote);
             picFood.Click += btnAddPic__Click;
-            txtName.RegisterKeyEnterNextControlWith(cboCategory,txtNote);
+            txtName.RegisterKeyEnterNextControlWith(cboCategory, txtNote);
 
-            this.Text = Flag.GetTextDialog(Base.Properties.Resources.Sales);
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv.RegisterEnglishInputColumns(colSalePrice);
             dgv.AllowRowNotFound = false;
@@ -62,7 +64,7 @@ namespace QTech.Forms
             dgv.EditMode = DataGridViewEditMode.EditOnEnter;
             dgv.EditingControlShowing += dgv_EditingControlShowing;
             this.SetEnabled(Flag != GeneralProcess.Remove && Flag != GeneralProcess.View);
-            dgv.EditColumnIcon(colScale,colSalePrice);
+            dgv.EditColumnIcon(colScale, colSalePrice, colCurrency);
 
         }
         private void dgv_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -72,7 +74,7 @@ namespace QTech.Forms
         public bool InValid()
         {
             if (!txtName.IsValidRequired(lblName.Text)
-                |!cboCategory.IsValidRequired(lblCategory.Text)
+                | !cboCategory.IsValidRequired(lblCategory.Text)
                )
             {
                 return true;
@@ -94,10 +96,12 @@ namespace QTech.Forms
 
             List<ProductPrice> ProductPrices = null;
             List<Scale> Scales = null;
+            List<Currency> Currencies = null;
             var _result = await this.RunAsync(() =>
             {
                 ProductPrices = ProductPriceLogic.Instance.SearchAsync(new ProductPriceSearch { ProductId = Model.Id });
                 Scales = ScaleLogic.Instance.SearchAsync(new ScaleSearch());
+                Currencies = CurrencyLogic.Instance.SearchAsync(new CurrencySearch());
                 var result = CategoryLogic.Instance.FindAsync(Model.CategoryId);
                 return result;
             }
@@ -105,7 +109,7 @@ namespace QTech.Forms
             cboCategory.SetValue(_result);
             picFood.ImageSource = Model?.Photo;
 
-            dgv.BeginEdit(true);
+            //dgv.BeginEdit(true);
             if (ProductPrices?.Any() ?? false)
             {
                 Model.ProductPrices = ProductPrices;
@@ -113,12 +117,43 @@ namespace QTech.Forms
                 {
                     var row = newRow(false);
                     row.Cells[colId.Name].Value = x.Id;
-                    row.Cells[colScale.Name].Value = Scales?.FirstOrDefault(y=>y.Id == x.ScaleId)?.Name ?? "";
-                    row.Cells[colId.Name].Value = x.SalePrice;
-                   
+                    row.Cells[colSalePrice.Name].Value = x.SalePrice;
+
+                    if (Scales?.Any() ?? false)
+                    {
+                        var scale = Scales.FirstOrDefault(f => f.Id == x.ScaleId);
+                        var _scale = new List<DropDownItemModel>()
+                    {
+                                new DropDownItemModel
+                                {
+                                    Id = scale.Id,
+                                    Code = scale.Name,
+                                    Name = scale.Name,
+                                    DisplayText = scale.Name,
+                                    ItemObject = scale,
+                                }
+                    };
+                        row.Cells[colScale.Name].Value = _scale;
+                    }
+                    if (Currencies?.Any() ?? false)
+                    {
+                        var cur = Currencies.FirstOrDefault(f => f.Id == x.CurrencyId);
+                        var _currency = new List<DropDownItemModel>()
+                    {
+                                new DropDownItemModel
+                                {
+                                    Id = cur.Id,
+                                    Code = cur.Name,
+                                    Name = cur.Name,
+                                    DisplayText = cur.Name,
+                                    ItemObject = cur,
+                                }
+                    };
+                        row.Cells[colCurrency.Name].Value = _currency;
+                    }
                 });
             }
-    }
+        }
         private DataGridViewRow newRow(bool isFocus = false)
         {
             var row = dgv.Rows[dgv.Rows.Add()];
@@ -139,7 +174,7 @@ namespace QTech.Forms
             if (InValid()) { return; }
             Write();
 
-            var isExist = await btnSave.RunAsync(() =>ProductLogic.Instance.IsExistsAsync(Model));
+            var isExist = await btnSave.RunAsync(() => ProductLogic.Instance.IsExistsAsync(Model));
             if (isExist == true)
             {
                 txtName.IsExists(lblName.Text);
@@ -204,8 +239,9 @@ namespace QTech.Forms
                 pp.ProductId = Model.Id;
                 pp.ScaleId = Parse.ToInt(row?.Cells[colScale.Name]?.Value?.ToString() ?? "0");
                 pp.SalePrice = Parse.ToDecimal(row?.Cells[colSalePrice.Name]?.Value?.ToString() ?? "0");
+                pp.CurrencyId = Parse.ToInt(row?.Cells[colCurrency.Name]?.Value?.ToString() ?? "0");
                 Model.ProductPrices.Add(pp);
-               
+
             }
 
         }
@@ -257,7 +293,8 @@ namespace QTech.Forms
             foreach (DataGridViewRow row in rows)
             {
                 var cells = row.Cells.OfType<DataGridViewCell>().Where(x =>
-                x.ColumnIndex == row.Cells[colScale.Name].ColumnIndex || x.ColumnIndex == row.Cells[colSalePrice.Name].ColumnIndex
+                x.ColumnIndex == row.Cells[colScale.Name].ColumnIndex
+                || x.ColumnIndex == row.Cells[colSalePrice.Name].ColumnIndex
                 || x.ColumnIndex == row.Cells[colCurrency.Name].ColumnIndex).ToList();
                 cells.ForEach(x =>
                 {
@@ -278,6 +315,67 @@ namespace QTech.Forms
             }
 
             return true;
+        }
+
+        private void lblAdd_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (!dgv.CurrentCell?.IsInEditMode ?? true)
+            {
+                if (dgv.Rows.OfType<DataGridViewRow>().Where(x => x.IsNewRow).Count() == 1 && dgv.CurrentCell == null)
+                {
+                    dgv.Rows.Clear();
+                }
+                var index = dgv.Rows[dgv.NewRowIndex].Cells[colScale.Name];
+                dgv.CurrentCell = index;
+                dgv.BeginEdit(true);
+            }
+        }
+
+        private async Task lblRemove_LinkClickedAsync(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var row = dgv.SelectedRows[0];
+            var idValue = row.Cells[colId.Name].Value;
+            int ppId = int.Parse(idValue.ToString());
+            if (ppId != 0)
+            {
+                //var canRemove = await dgv.RunAsync(() => ProductPriceLogic.Instance.CanRemoveAsync(ppId));
+                //if (!canRemove)
+                //{
+                //    MsgBox.ShowWarning(BaseReource.Scale + BaseReource.MsgDataCurrentlyInUsed,
+                //   GeneralProcess.Remove.GetTextDialog(BaseReource.Site));
+                //    return;
+                //}
+            }
+
+            if (dgv?.SelectedRows?.Count > 0)
+            {
+                if (row.Cells[colScale.Name].Value == null &&
+                 row.Cells[colSalePrice.Name].Value == null &&
+                 row.Cells[colCurrency.Name].Value == null)
+                {
+                    return;
+                }
+
+                if (idValue == null)
+                {
+                    dgv.Rows.Remove(dgv.CurrentRow);
+                    return;
+                }
+
+                Model.ProductPrices.ForEach(x =>
+                {
+                    if (x.Id == int.Parse(idValue.ToString()))
+                    {
+                        x.Active = false;
+                    }
+                }
+                );
+                if (!row.IsNewRow)
+                {
+                    dgv.Rows.Remove(row);
+                    dgv.EndEdit();
+                }
+            }
         }
     }
 }

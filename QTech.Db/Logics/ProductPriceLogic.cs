@@ -15,7 +15,7 @@ namespace QTech.Db.Logics
     {
         public override List<ProductPrice> SearchAsync(ISearchModel model)
         {
-            return base.SearchAsync(model);
+            return Search(model).ToList();
         }
         public override IQueryable<ProductPrice> Search(ISearchModel model)
         {

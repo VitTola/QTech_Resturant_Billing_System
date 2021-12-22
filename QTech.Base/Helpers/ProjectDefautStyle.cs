@@ -464,7 +464,7 @@ namespace QTech.Base.Helpers
                 }
                 if (c is FlowLayoutPanel fp)
                 {
-                    fp.BackColor = ShareValue.CurrentTheme.FormBackGround;
+                    fp.BackColor = ShareValue.CurrentTheme.PanelColor;
                     SetTheme(form, fp.Controls, null);
                 }
                 if (c is LinkLabel lb)
