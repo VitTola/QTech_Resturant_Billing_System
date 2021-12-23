@@ -15,11 +15,12 @@ namespace QTech.Base
         }
     }
 
-    public class TBaseModel<TKey> : ICloneable where TKey : struct
+    public class TBaseModel<TKey> : ICloneable where TKey : struct 
     {
         public TBaseModel() { }
 
         public TKey Id { get; set; }
+        
         public DateTime RowDate { get; set; }
         public string CreatedBy { get; set; }
 

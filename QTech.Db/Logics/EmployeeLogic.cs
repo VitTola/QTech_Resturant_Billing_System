@@ -1,6 +1,7 @@
 ﻿using QTech.Base;
 using QTech.Base.BaseModels;
 using QTech.Base.Enums;
+using QTech.Base.Helpers;
 using QTech.Base.SearchModels;
 using System;
 using System.Collections.Generic;
@@ -20,13 +21,22 @@ namespace QTech.Db.Logics
         }
         public override Employee AddAsync(Employee entity)
         {
-            var employee = base.AddAsync(entity);
-            return employee;
+            var result = base.AddAsync(entity);
+            if (result != null)
+            {
+                AuditTrailLogic.Instance.AddManualAuditTrail<Employee, int, Employee>(entity, null, GeneralProcess.Add);
+            }
+            return result;
         }
         public override Employee UpdateAsync(Employee entity)
         {
-            base.UpdateAsync(entity);
-            return entity;
+            var oldEntity = base.GetOldEntityAsync(entity).Result;
+            var result = base.UpdateAsync(entity);
+            if (result != null)
+            {
+                AuditTrailLogic.Instance.AddManualAuditTrail<Employee, int, Employee>(entity, oldEntity, GeneralProcess.Update);
+            }
+            return result;
         }
         public override Employee RemoveAsync(Employee entity)
         {

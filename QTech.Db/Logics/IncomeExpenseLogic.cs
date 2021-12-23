@@ -1,5 +1,6 @@
 ﻿using QTech.Base.BaseModels;
 using QTech.Base.Enums;
+using QTech.Base.Helpers;
 using QTech.Base.Models;
 using QTech.Base.SearchModels;
 using System;
@@ -46,6 +47,10 @@ namespace QTech.Db.Logics
         {
             entity.MiscNo = NewInvoiceNumber();
             var result = base.AddAsync(entity);
+            if (result != null)
+            {
+                AuditTrailLogic.Instance.AddManualAuditTrail<IncomeExpense, int, IncomeExpense>(entity, null, GeneralProcess.Add);
+            }
             return result;
         }
         private string NewInvoiceNumber()
@@ -71,6 +76,16 @@ namespace QTech.Db.Logics
             {
                 throw;
             }
+        }
+        public override IncomeExpense UpdateAsync(IncomeExpense entity)
+        {
+            var oldEntity = base.GetOldEntityAsync(entity).Result;
+            var result = base.UpdateAsync(entity);
+            if (result != null)
+            {
+                AuditTrailLogic.Instance.AddManualAuditTrail<IncomeExpense, int, IncomeExpense>(entity, oldEntity, GeneralProcess.Update);
+            }
+            return result;
         }
     }
 }

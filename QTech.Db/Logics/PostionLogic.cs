@@ -1,5 +1,6 @@
 ﻿using QTech.Base;
 using QTech.Base.BaseModels;
+using QTech.Base.Helpers;
 using QTech.Base.Models;
 using QTech.Base.SearchModels;
 using System;
@@ -28,6 +29,25 @@ namespace QTech.Db.Logics
             }
             return q;
 
+        }
+        public override Position AddAsync(Position entity)
+        {
+            var result = base.AddAsync(entity);
+            if (result != null)
+            {
+                AuditTrailLogic.Instance.AddManualAuditTrail<Position, int, Position>(entity, null, GeneralProcess.Add);
+            }
+            return result;
+        }
+        public override Position UpdateAsync(Position entity)
+        {
+            var oldEntity = base.GetOldEntityAsync(entity).Result;
+            var result = base.UpdateAsync(entity);
+            if (result != null)
+            {
+                AuditTrailLogic.Instance.AddManualAuditTrail<Position, int, Position>(entity, oldEntity, GeneralProcess.Update);
+            }
+            return result;
         }
     }
 }

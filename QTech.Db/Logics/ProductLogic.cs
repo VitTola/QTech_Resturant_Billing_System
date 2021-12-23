@@ -1,4 +1,5 @@
 ﻿using QTech.Base.BaseModels;
+using QTech.Base.Helpers;
 using QTech.Base.Models;
 using QTech.Base.SearchModels;
 using System;
@@ -49,12 +50,17 @@ namespace QTech.Db.Logics
         }
         public override bool IsExistsAsync(Product entity)
         {
-            return All().Any(x => x.Name == entity.Name);
+            return All().Any(x => x.Name == entity.Name​ && x.Id != entity.Id);
         }
 
         public override Product AddAsync(Product entity)
         {
             var result = base.AddAsync(entity);
+            if (result != null)
+            {
+                AuditTrailLogic.Instance.AddManualAuditTrail<Product, int,ProductPrice>(entity, null, GeneralProcess.Add);
+            }
+
             entity.ProductPrices?.ForEach(x =>
             {
                 x.ProductId = result.Id;
@@ -66,7 +72,13 @@ namespace QTech.Db.Logics
 
         public override Product UpdateAsync(Product entity)
         {
+            var oldObject = ProductLogic.Instance.FindAsync(entity.Id);
+            oldObject.ProductPrices = ProductPriceLogic.Instance.SearchAsync(new ProductPriceSearch { ProductId = entity.Id });
             var result = base.UpdateAsync(entity);
+            if (result != null)
+            {
+                AuditTrailLogic.Instance.AddManualAuditTrail<Product, int,ProductPrice>(entity, oldObject, GeneralProcess.Update);
+            }
             if (entity.ProductPrices?.Any() ?? false)
             {
                 foreach (var s in entity.ProductPrices)

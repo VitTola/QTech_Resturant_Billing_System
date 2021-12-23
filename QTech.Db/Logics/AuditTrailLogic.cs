@@ -30,7 +30,8 @@ namespace QTech.Db.Logics
         {
 
         }
-        public void AddManualAuditTrail<T, TKey>(T entity, T oldObject, GeneralProcess flag) where T : TBaseModel<TKey> where TKey : struct
+        public void AddManualAuditTrail<T, TKey, TChild>(T entity, T oldObject, GeneralProcess flag) where T : 
+            TBaseModel<TKey> where TKey : struct where TChild : TBaseModel<TKey>
         {
             var type = entity.GetType() as Type;
             var name = type.ToString().Split('.').LastOrDefault();
@@ -48,16 +49,16 @@ namespace QTech.Db.Logics
                flag == GeneralProcess.Update ? BaseResource.Update : BaseResource.Remove;
             auditTrail.OperatorName = $"{opName} {ResourceHelper.Translate(name)}";
 
-            var changlogs = GetChangeLog<T,TKey>(entity,oldObject,flag);
+            var changlogs = GetChangeLog<T, TKey,TChild>(entity, oldObject, flag);
 
             var changes = JsonConvert.SerializeObject(changlogs);
-            if (changes != "[]" )
+            if (changes != "[]")
             {
                 auditTrail.ChangeJson = changes;
                 AuditTrailLogic.Instance.AddAsync(auditTrail);
             }
         }
-        
+
         public override IQueryable<AuditTrail> Search(ISearchModel model)
         {
             var param = model as AuditTrailHistorySearch;
@@ -100,25 +101,25 @@ namespace QTech.Db.Logics
             }
             return _macAddress;
         }
-      
-        //public List<ChangeLog> GetChangeLogs<T, TKey>(T entity, T oldEntity, GeneralProcess flag, List<string> ignoredFields) where T : TBaseModel<TKey> where TKey : struct
-        //{
-        //    var changeLogs = new List<ChangeLog>();
-        //    var properties = entity.GetType().GetProperties().OrderBy(x => ((QTech.Base.Helpers.AuditDataAttribute)x.GetCustomAttributes
-        //    (typeof(QTech.Base.Helpers.AuditDataAttribute), true).Cast<QTech.Base.Helpers.AuditDataAttribute>().SingleOrDefault())?.Index ?? 0);
-        //    foreach (var propertyInfo in properties)
-        //    {
-        //        if (propertyInfo.Name.EndsWith("Id") || ignoredFields.Contains(propertyInfo.Name)) continue;
-        //        var changelog = GetChangeLog<T, TKey>(entity, oldEntity, propertyInfo, flag);
-        //        if (changelog != null)
-        //        {
-        //            changeLogs.Add(changelog);
-        //        }
-        //    }
-        //    return changeLogs;
-        //}
 
-        private List<ChangeLog> GetChangeLog<T, TKey>(T entity, T oldObject, GeneralProcess flag) where T : TBaseModel<TKey> where TKey : struct
+        public virtual List<ChangeLog> GetLevel2ChangeLogs<TChild,TKey>(List<TChild> listObjects, List<TChild> oldObjects,GeneralProcess flag) 
+            where TChild : TBaseModel<TKey> where TKey : struct
+        {
+            var changeLogs = new List<ChangeLog>();
+            foreach (var c in listObjects)
+            {
+                var changeLog = new ChangeLog();
+                var oldO = listObjects.FirstOrDefault(x => x.Id.ToString() == c.Id.ToString());
+                changeLog.Details = GetChangeLog<TChild,TKey,TChild>(c, oldO, flag);
+                changeLogs.Add(changeLog);
+            }
+
+            return changeLogs;
+        }
+
+
+        public virtual List<ChangeLog> GetChangeLog<T, TKey,TChild>(T entity, T oldObject, GeneralProcess flag) where T 
+            : TBaseModel<TKey> where TKey : struct where TChild : TBaseModel<TKey>
         {
             var changeLogs = new List<ChangeLog>();
             var properties = entity.GetType().GetProperties()
@@ -127,11 +128,32 @@ namespace QTech.Db.Logics
                 .OrderBy(x => ((QTech.Base.Helpers.AuditDataAttribute)x.GetCustomAttributes
             (typeof(QTech.Base.Helpers.AuditDataAttribute), true).Cast<QTech.Base.Helpers.AuditDataAttribute>().SingleOrDefault())?.Index ?? 0);
 
-            foreach (var property in properties) 
+            foreach (var property in properties)
             {
                 dynamic newValue = null;
                 dynamic oldValue = null;
+                var changeLog = new ChangeLog();
 
+                //IN CASE PROPERTY IS LIST OF OBJECT
+                if (property.PropertyType.IsGenericType)
+                {
+                    DisplayNameAttribute dp = property.GetCustomAttributes(typeof(DisplayNameAttribute), true).Cast<DisplayNameAttribute>().SingleOrDefault();
+                    changeLog.DisplayName = (!string.IsNullOrEmpty(dp?.DisplayName ?? ""))
+                        ? dp.DisplayName
+                        : property.Name;
+
+                    
+                    List<TChild> oldChildValue = null;
+                    if (oldObject != null)
+                    {
+                        oldChildValue = (List < TChild >) property.GetValue(oldObject);
+                    }
+                    var childValue = (List<TChild>)property.GetValue(entity);
+                    changeLog.Details = GetLevel2ChangeLogs<TChild,TKey>(childValue, oldChildValue, flag);
+                }
+
+
+                //IN CASE PROPERTY IS ID
                 if (property.Name.EndsWith("Id"))
                 {
                     var _entityName = property.Name?.Replace("Id", string.Empty);
@@ -151,28 +173,27 @@ namespace QTech.Db.Logics
                     }
 
                 }
+                //IN CASE PROPERTY IS NONE OF ABOVE
                 else
                 {
-                    newValue = property.GetValue(entity)?.ToString() ?? "";
-                    if (flag != GeneralProcess.Add)
-                    {
-                        if (oldObject != null)
+                        newValue = property.GetValue(entity)?.ToString() ?? "";
+                        if (flag != GeneralProcess.Add)
                         {
-                            oldValue = property.GetValue(oldObject)?.ToString() ?? "";
+                            if (oldObject != null)
+                            {
+                                oldValue =  property.GetValue(oldObject)?.ToString() ?? "";
+                            }
                         }
-                    }
-                    else if (flag == GeneralProcess.Remove)
-                    {
-                        newValue = null;
-                    }
+                        else if (flag == GeneralProcess.Remove)
+                        {
+                            newValue = null;
+                        }
+                    
                 }
 
                 var propertyType = (property.GetValue(entity) == null)
                     ? typeof(object)
                     : property.GetValue(entity).GetType();
-
-                if (propertyType.IsGenericType &&
-                        (propertyType.GetGenericTypeDefinition() == typeof(List<>) || propertyType.GetGenericTypeDefinition() == typeof(IQueryable<>))) { return null; }
 
                 if (typeof(decimal) == propertyType)
                 {
@@ -219,16 +240,15 @@ namespace QTech.Db.Logics
                         }
                     }
                     DisplayNameAttribute dp = property.GetCustomAttributes(typeof(DisplayNameAttribute), true).Cast<DisplayNameAttribute>().SingleOrDefault();
-                    var displayname = (!string.IsNullOrEmpty(dp?.DisplayName ?? "")) 
-                        ? dp.DisplayName 
+                    var displayname = (!string.IsNullOrEmpty(dp?.DisplayName ?? ""))
+                        ? dp.DisplayName
                         : property.Name;
-                    changeLogs.Add(new ChangeLog()
-                    {
-                        DisplayName = $"{displayname}",
-                        NewValue = newValue,
-                        OldValue = oldValue,
-                        Index = ((QTech.Base.Helpers.AuditDataAttribute)property.GetCustomAttribute(typeof(QTech.Base.Helpers.AuditDataAttribute), true))?.Index ?? 0
-                    });
+                    changeLog.DisplayName = $"{displayname}";
+                    changeLog.NewValue = newValue;
+                    changeLog.OldValue = oldValue;
+                    changeLog.Index = ((QTech.Base.Helpers.AuditDataAttribute)property.GetCustomAttribute(typeof(QTech.Base.Helpers.AuditDataAttribute), true))?.Index ?? 0;
+
+                    changeLogs.Add(changeLog);
                 }
             }
             return changeLogs;
@@ -239,7 +259,7 @@ namespace QTech.Db.Logics
             switch (modelName)
             {
                 case nameof(Category):
-                   return CategoryLogic.Instance.FindAsync(entityId)?.Name ?? string.Empty;
+                    return CategoryLogic.Instance.FindAsync(entityId)?.Name ?? string.Empty;
                 case nameof(Product):
                     return ProductLogic.Instance.FindAsync(entityId)?.Name ?? string.Empty;
                 case nameof(Customer):
@@ -250,6 +270,10 @@ namespace QTech.Db.Logics
                     return TableLogic.Instance.FindAsync(entityId)?.Name ?? string.Empty;
                 case nameof(Position):
                     return PositionLogic.Instance.FindAsync(entityId)?.Name ?? string.Empty;
+                case nameof(Scale):
+                    return ScaleLogic.Instance.FindAsync(entityId)?.Name ?? string.Empty;
+                case nameof(Currency):
+                    return CurrencyLogic.Instance.FindAsync(entityId)?.Name ?? string.Empty;
             }
 
             return string.Empty;
