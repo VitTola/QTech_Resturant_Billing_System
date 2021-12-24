@@ -43,12 +43,6 @@ namespace QTech.Forms
             txtSearch.RegisterPrimaryInput();
             txtSearch.RegisterKeyArrowDown(dgv);
             txtSearch.QuickSearch += txtSearch_QuickSearch;
-            dgv.DataSourceChanged += Dgv_DataSourceChanged;
-        }
-
-        private void Dgv_DataSourceChanged(object sender, EventArgs e)
-        {
-
         }
 
         private async void txtSearch_QuickSearch(object sender, EventArgs e)

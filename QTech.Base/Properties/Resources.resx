@@ -736,4 +736,7 @@
   <data name="ProductPrice" xml:space="preserve">
     <value>តម្លៃទំនិញតាមខ្នាត</value>
   </data>
+  <data name="Row" xml:space="preserve">
+    <value>ល.រ</value>
+  </data>
 </root>

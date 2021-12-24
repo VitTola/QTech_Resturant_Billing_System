@@ -30,7 +30,7 @@ namespace QTech.Db.Logics
         {
 
         }
-        public void AddManualAuditTrail<T, TKey, TChild>(T entity, T oldObject, GeneralProcess flag) where T : 
+        public void AddManualAuditTrail<T, TKey, TChild>(T entity, T oldObject, GeneralProcess flag) where T :
             TBaseModel<TKey> where TKey : struct where TChild : TBaseModel<TKey>
         {
             var type = entity.GetType() as Type;
@@ -49,7 +49,7 @@ namespace QTech.Db.Logics
                flag == GeneralProcess.Update ? BaseResource.Update : BaseResource.Remove;
             auditTrail.OperatorName = $"{opName} {ResourceHelper.Translate(name)}";
 
-            var changlogs = GetChangeLog<T, TKey,TChild>(entity, oldObject, flag);
+            var changlogs = GetChangeLog<T, TKey, TChild>(entity, oldObject, flag);
 
             var changes = JsonConvert.SerializeObject(changlogs);
             if (changes != "[]")
@@ -102,23 +102,30 @@ namespace QTech.Db.Logics
             return _macAddress;
         }
 
-        public virtual List<ChangeLog> GetLevel2ChangeLogs<TChild,TKey>(List<TChild> listObjects, List<TChild> oldObjects,GeneralProcess flag) 
+        public List<ChangeLog> GetLevel2ChangeLogs<TChild, TKey>(List<TChild> listObjects, List<TChild> oldObjects, GeneralProcess flag)
             where TChild : TBaseModel<TKey> where TKey : struct
         {
             var changeLogs = new List<ChangeLog>();
             foreach (var c in listObjects)
             {
                 var changeLog = new ChangeLog();
-                var oldO = listObjects.FirstOrDefault(x => x.Id.ToString() == c.Id.ToString());
-                changeLog.Details = GetChangeLog<TChild,TKey,TChild>(c, oldO, flag);
-                changeLogs.Add(changeLog);
+                var oldO = oldObjects.FirstOrDefault(x => x.Id.ToString() == c.Id.ToString());
+                c.RowDate = new DateTime(2015, 12, 31);
+                if(oldO != null) oldO.RowDate = new DateTime(2015, 12, 31);
+                var jObj = JsonConvert.SerializeObject(c);
+                var jOldObj = JsonConvert.SerializeObject(oldO);
+                if (jObj != jOldObj)
+                {
+                    changeLog.Details = GetChangeLog<TChild, TKey, TChild>(c, oldO, flag);
+                    changeLogs.Add(changeLog);
+                }
             }
 
             return changeLogs;
         }
 
 
-        public virtual List<ChangeLog> GetChangeLog<T, TKey,TChild>(T entity, T oldObject, GeneralProcess flag) where T 
+        public List<ChangeLog> GetChangeLog<T, TKey, TChild>(T entity, T oldObject, GeneralProcess flag) where T
             : TBaseModel<TKey> where TKey : struct where TChild : TBaseModel<TKey>
         {
             var changeLogs = new List<ChangeLog>();
@@ -142,14 +149,18 @@ namespace QTech.Db.Logics
                         ? dp.DisplayName
                         : property.Name;
 
-                    
                     List<TChild> oldChildValue = null;
                     if (oldObject != null)
                     {
-                        oldChildValue = (List < TChild >) property.GetValue(oldObject);
+                        oldChildValue = (List<TChild>)property.GetValue(oldObject);
                     }
                     var childValue = (List<TChild>)property.GetValue(entity);
-                    changeLog.Details = GetLevel2ChangeLogs<TChild,TKey>(childValue, oldChildValue, flag);
+                    var logs = GetLevel2ChangeLogs<TChild, TKey>(childValue, oldChildValue, flag);
+                    changeLog.Details = new List<ChangeLog>();
+                    if (logs.Any())
+                    {
+                        changeLog.Details​ = logs;
+                    }
                 }
 
 
@@ -171,24 +182,25 @@ namespace QTech.Db.Logics
                     {
                         newValue = null;
                     }
-
                 }
                 //IN CASE PROPERTY IS NONE OF ABOVE
                 else
                 {
+                    if (!property.PropertyType.IsGenericType)
+                    {
                         newValue = property.GetValue(entity)?.ToString() ?? "";
                         if (flag != GeneralProcess.Add)
                         {
                             if (oldObject != null)
                             {
-                                oldValue =  property.GetValue(oldObject)?.ToString() ?? "";
+                                oldValue = property.GetValue(oldObject)?.ToString() ?? "";
                             }
                         }
                         else if (flag == GeneralProcess.Remove)
                         {
                             newValue = null;
                         }
-                    
+                    }
                 }
 
                 var propertyType = (property.GetValue(entity) == null)
@@ -200,7 +212,7 @@ namespace QTech.Db.Logics
                     oldValue = Parse.ToDecimal(oldValue);
                     newValue = Parse.ToDecimal(newValue);
                 }
-                if (oldValue != newValue)
+                if (oldValue != newValue || (property.PropertyType.IsGenericType && changeLog.Details.Any()))
                 {
                     if (propertyType.BaseType == typeof(Enum))
                     {

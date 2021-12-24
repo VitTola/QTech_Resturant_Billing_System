@@ -33,6 +33,7 @@ namespace QTech.Forms
             Bind();
             InitEvent();
             this.SetTheme(this.Controls, null);
+            pnlbackground.BackColor = Color.Gray;
         }
         public GeneralProcess Flag { get; set; }
 
@@ -65,6 +66,7 @@ namespace QTech.Forms
             dgv.EditingControlShowing += dgv_EditingControlShowing;
             this.SetEnabled(Flag != GeneralProcess.Remove && Flag != GeneralProcess.View);
             dgv.EditColumnIcon(colScale, colSalePrice, colCurrency);
+            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
         }
         private void dgv_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -224,11 +226,8 @@ namespace QTech.Forms
                 throw;
             }
 
-            if (Model.ProductPrices == null)
-            {
-                Model.ProductPrices = new List<ProductPrice>();
-            }
-
+            Model.ProductPrices = new List<ProductPrice>();
+            
             dgv.EndEdit();
             foreach (DataGridViewRow row in dgv.Rows.OfType<DataGridViewRow>().Where(x => !x.IsNewRow))
             {
@@ -243,7 +242,6 @@ namespace QTech.Forms
                 Model.ProductPrices.Add(pp);
 
             }
-
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -331,7 +329,7 @@ namespace QTech.Forms
             }
         }
 
-        private async Task lblRemove_LinkClickedAsync(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lblRemove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             var row = dgv.SelectedRows[0];
             var idValue = row.Cells[colId.Name].Value;
