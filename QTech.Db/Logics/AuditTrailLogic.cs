@@ -103,20 +103,52 @@ namespace QTech.Db.Logics
         }
 
         public List<ChangeLog> GetLevel2ChangeLogs<TChild, TKey>(List<TChild> listObjects, List<TChild> oldObjects, GeneralProcess flag)
-            where TChild : TBaseModel<TKey> where TKey : struct
+            where TChild : TBaseModel<TKey> where TKey : struct 
         {
             var changeLogs = new List<ChangeLog>();
             foreach (var c in listObjects)
             {
                 var changeLog = new ChangeLog();
-                var oldO = oldObjects.FirstOrDefault(x => x.Id.ToString() == c.Id.ToString());
-                c.RowDate = new DateTime(2015, 12, 31);
-                if(oldO != null) oldO.RowDate = new DateTime(2015, 12, 31);
-                var jObj = JsonConvert.SerializeObject(c);
-                var jOldObj = JsonConvert.SerializeObject(oldO);
-                if (jObj != jOldObj)
+               
+                if (flag == GeneralProcess.Add)
                 {
-                    changeLog.Details = GetChangeLog<TChild, TKey, TChild>(c, oldO, flag);
+                    changeLog.Details = GetChangeLog<TChild, TKey, TChild>(c, null, flag);
+                    changeLogs.Add(changeLog);
+                }
+                else
+                {
+                    var oldO = oldObjects?.FirstOrDefault(x => x.Id.ToString() == c.Id.ToString());
+                    c.RowDate = new DateTime(1900, 01, 01);
+                    if(oldO != null) oldO.RowDate = new DateTime(1900, 01, 01);
+                    var jObj = JsonConvert.SerializeObject(c);
+                    var jOldObj = JsonConvert.SerializeObject(oldO);
+                    if (jObj != jOldObj)
+                    {
+                        changeLog.Details = GetChangeLog<TChild, TKey, TChild>(c, oldO, flag);
+                        changeLogs.Add(changeLog);
+                    }
+                    int idex = oldObjects.FindIndex(x => x.Id.ToString() == c.Id.ToString());
+                    if (idex >= 0 && oldObjects.Count >= idex)oldObjects.RemoveAt(idex); 
+                }
+            }
+            if (oldObjects?.Any() ?? false)
+            {
+                foreach (var old in oldObjects)
+                {
+                    var changeLog = new ChangeLog();
+
+                    changeLog.Details = GetChangeLog<TChild, TKey, TChild>(old, null, flag);
+                    //Reverse old to new 
+                    if (changeLog.Details?.Any() ?? false)
+                    {
+                        for (int i = 0; i < changeLog.Details.Count; i++)
+                        {
+                            var ol = changeLog.Details[i].NewValue;
+                            changeLog.Details[i].NewValue = changeLog.Details[i].OldValue;
+                            changeLog.Details[i].OldValue = ol; 
+                        }
+                    }
+
                     changeLogs.Add(changeLog);
                 }
             }
@@ -144,10 +176,12 @@ namespace QTech.Db.Logics
                 //IN CASE PROPERTY IS LIST OF OBJECT
                 if (property.PropertyType.IsGenericType)
                 {
+                    var opName = flag == GeneralProcess.Add ? BaseResource.Add :
+                        flag == GeneralProcess.Update ? BaseResource.Update : BaseResource.Remove;
                     DisplayNameAttribute dp = property.GetCustomAttributes(typeof(DisplayNameAttribute), true).Cast<DisplayNameAttribute>().SingleOrDefault();
                     changeLog.DisplayName = (!string.IsNullOrEmpty(dp?.DisplayName ?? ""))
-                        ? dp.DisplayName
-                        : property.Name;
+                        ? $"{opName} {ResourceHelper.Translate(dp.DisplayName)}"
+                        : $"{opName} {ResourceHelper.Translate(property.Name)}";
 
                     List<TChild> oldChildValue = null;
                     if (oldObject != null)
@@ -209,8 +243,10 @@ namespace QTech.Db.Logics
 
                 if (typeof(decimal) == propertyType)
                 {
-                    oldValue = Parse.ToDecimal(oldValue);
-                    newValue = Parse.ToDecimal(newValue);
+                    var decOldVaue = Parse.ToDecimal(oldValue);
+                    var decNewValue = Parse.ToDecimal(newValue);
+                    oldValue = decOldVaue == 0 ? "" : decOldVaue.ToString();
+                    newValue = decNewValue == 0 ? "" : decNewValue.ToString();
                 }
                 if (oldValue != newValue || (property.PropertyType.IsGenericType && changeLog.Details.Any()))
                 {
@@ -255,7 +291,7 @@ namespace QTech.Db.Logics
                     var displayname = (!string.IsNullOrEmpty(dp?.DisplayName ?? ""))
                         ? dp.DisplayName
                         : property.Name;
-                    changeLog.DisplayName = $"{displayname}";
+                    changeLog.DisplayName = string.IsNullOrEmpty(changeLog.DisplayName) ? $"{displayname}" : changeLog.DisplayName;
                     changeLog.NewValue = newValue;
                     changeLog.OldValue = oldValue;
                     changeLog.Index = ((QTech.Base.Helpers.AuditDataAttribute)property.GetCustomAttribute(typeof(QTech.Base.Helpers.AuditDataAttribute), true))?.Index ?? 0;

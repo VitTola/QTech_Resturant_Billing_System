@@ -226,8 +226,16 @@ namespace QTech.Forms
                 throw;
             }
 
-            Model.ProductPrices = new List<ProductPrice>();
+            if (Flag == GeneralProcess.Add)
+            {
+                Model.ProductPrices = new List<ProductPrice>();
+            }
+            else
+            {
+                Model.ProductPrices.ForEach(x => x.Active = false);
+            }
             
+
             dgv.EndEdit();
             foreach (DataGridViewRow row in dgv.Rows.OfType<DataGridViewRow>().Where(x => !x.IsNewRow))
             {
@@ -239,9 +247,18 @@ namespace QTech.Forms
                 pp.ScaleId = Parse.ToInt(row?.Cells[colScale.Name]?.Value?.ToString() ?? "0");
                 pp.SalePrice = Parse.ToDecimal(row?.Cells[colSalePrice.Name]?.Value?.ToString() ?? "0");
                 pp.CurrencyId = Parse.ToInt(row?.Cells[colCurrency.Name]?.Value?.ToString() ?? "0");
-                Model.ProductPrices.Add(pp);
+                var temp = Model.ProductPrices.FirstOrDefault(x => x.Id == pp.Id);
+                if (temp !=null && temp.Id != 0)
+                {
+                    Model.ProductPrices[Model.ProductPrices.IndexOf(temp)] = pp;
+                }
+                else
+                {
+                    Model.ProductPrices.Add(pp);
+                }
 
             }
+          
         }
         private void btnClose_Click(object sender, EventArgs e)
         {

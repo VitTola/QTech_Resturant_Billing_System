@@ -39,7 +39,7 @@ namespace QTech.Component
             // export list to excel
             btnExpand_.Click += btnExpand__Click;
             btnExportAsExcel_.Click += btnExportAsExcel__Click;
-            
+            pagination.TextColor = ShareValue.CurrentTheme.LabelColor;
         }
 
         private void btnExpand__Click(object sender, EventArgs e)
@@ -180,6 +180,8 @@ namespace QTech.Component
                 System.Diagnostics.Process.Start(savePath);
                 return true;
             });
+            container.BackColor =
+           dgv.BackgroundColor = ShareValue.CurrentTheme.DataGridBackGround;
         }
 
         public string ItemName { get; set; }
@@ -244,8 +246,6 @@ namespace QTech.Component
 
         private async void AuditTrailDialog_Load(object sender, EventArgs e)
         {
-            container.BackColor = 
-            dgv.BackgroundColor = ShareValue.CurrentTheme.DataGridBackGround;
             pagination.Repaging();
             await Search();
         }
@@ -369,6 +369,8 @@ namespace QTech.Component
                     dgv.Nodes[0].Expand();
                 }
             }
+            container.BackColor =
+            dgv.BackgroundColor = ShareValue.CurrentTheme.DataGridBackGround;
         }
 
         public void EditAsync()
