@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static QTech.Db.MasterLogic;
+using System.Runtime;
+using Storm.Domain.Helpers;
 
 namespace QTech.Db.Logics
 {
@@ -77,7 +79,11 @@ namespace QTech.Db.Logics
             var result = base.UpdateAsync(entity);
             if (result != null)
             {
-                AuditTrailLogic.Instance.AddManualAuditTrail<Product, int,ProductPrice>(entity, oldObject, GeneralProcess.Update);
+
+                var newEntity = new Product();
+                    entity.CopyTo<Product>(newEntity);
+                newEntity.ProductPrices = newEntity.ProductPrices.Where(x => x.Active).ToList();
+                AuditTrailLogic.Instance.AddManualAuditTrail<Product, int,ProductPrice>(newEntity, oldObject, GeneralProcess.Update);
             }
             if (entity.ProductPrices?.Any() ?? false)
             {

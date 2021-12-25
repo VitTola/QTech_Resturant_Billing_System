@@ -109,15 +109,17 @@ namespace QTech.Db.Logics
             foreach (var c in listObjects)
             {
                 var changeLog = new ChangeLog();
-               
+
                 if (flag == GeneralProcess.Add)
                 {
+                    changeLog.DisplayName = BaseResource.Add;
                     changeLog.Details = GetChangeLog<TChild, TKey, TChild>(c, null, flag);
                     changeLogs.Add(changeLog);
                 }
                 else
                 {
                     var oldO = oldObjects?.FirstOrDefault(x => x.Id.ToString() == c.Id.ToString());
+                    changeLog.DisplayName = oldO == null ? BaseResource.Add : BaseResource.Update;
                     c.RowDate = new DateTime(1900, 01, 01);
                     if(oldO != null) oldO.RowDate = new DateTime(1900, 01, 01);
                     var jObj = JsonConvert.SerializeObject(c);
@@ -129,6 +131,7 @@ namespace QTech.Db.Logics
                     }
                     int idex = oldObjects.FindIndex(x => x.Id.ToString() == c.Id.ToString());
                     if (idex >= 0 && oldObjects.Count >= idex)oldObjects.RemoveAt(idex); 
+
                 }
             }
             if (oldObjects?.Any() ?? false)
@@ -136,6 +139,7 @@ namespace QTech.Db.Logics
                 foreach (var old in oldObjects)
                 {
                     var changeLog = new ChangeLog();
+                    changeLog.DisplayName = BaseResource.Remove;
 
                     changeLog.Details = GetChangeLog<TChild, TKey, TChild>(old, null, flag);
                     //Reverse old to new 
@@ -172,6 +176,7 @@ namespace QTech.Db.Logics
                 dynamic newValue = null;
                 dynamic oldValue = null;
                 var changeLog = new ChangeLog();
+                changeLog.DisplayName = null;
 
                 //IN CASE PROPERTY IS LIST OF OBJECT
                 if (property.PropertyType.IsGenericType)

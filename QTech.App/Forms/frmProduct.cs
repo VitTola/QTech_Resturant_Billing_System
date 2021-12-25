@@ -226,13 +226,13 @@ namespace QTech.Forms
                 throw;
             }
 
-            if (Flag == GeneralProcess.Add)
+            if (Model.ProductPrices == null)
             {
                 Model.ProductPrices = new List<ProductPrice>();
             }
             else
             {
-                Model.ProductPrices.ForEach(x => x.Active = false);
+                Model.ProductPrices?.ForEach(x => x.Active = false);
             }
             
 
