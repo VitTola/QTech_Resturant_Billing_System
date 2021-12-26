@@ -148,6 +148,12 @@
     <Compile Include="Forms\frmCurrency.Designer.cs">
       <DependentUpon>frmCurrency.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmCalculate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCalculate.Designer.cs">
+      <DependentUpon>frmCalculate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ScalePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -362,6 +368,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmCurrency.resx">
       <DependentUpon>frmCurrency.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCalculate.resx">
+      <DependentUpon>frmCalculate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ScalePage.resx">
       <DependentUpon>ScalePage.cs</DependentUpon>

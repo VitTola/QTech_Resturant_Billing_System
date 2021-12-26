@@ -24,6 +24,9 @@ namespace WpfCustomControlLibrary
         {
             InitializeComponent();
         }
+        public UIElementCollection Children { 
+            get { return wrp.Children; }
+        }
 
         private void WPFFlowLayout_Loaded(object sender, RoutedEventArgs e)
         {

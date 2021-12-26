@@ -19,10 +19,14 @@ namespace SaleInventory.Components
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public Color PenColor { get; set; } = Color.Gray;
+
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public int PenThickness { get; set; } = 5;
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            Pen redPen = new Pen(PenColor, 5);
+            Pen redPen = new Pen(PenColor, PenThickness);
             redPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             PointF point1 = new PointF(0f, Height);
             PointF point2 = new PointF(Width, Height);

@@ -43,10 +43,23 @@ namespace QTech.Forms
             cboCategory.SearchParamFn = () => new CategorySearch();
 
             colScale.SearchParamFn = () => new ScaleSearch() { };
-            colScale.DataSourceFn = p => ScaleLogic.Instance.SearchAsync(p).OrderByDescending(x => x.RowDate).ToDropDownItemModelList();
+            colScale.DataSourceFn = p => ScaleLogic.Instance.SearchAsync(p).OrderByDescending(x => x.RowDate)
+            .Where(x=>!AddedScaleIds().Contains(x.Id)).ToDropDownItemModelList();
 
             colCurrency.SearchParamFn = () => new CurrencySearch() { };
             colCurrency.DataSourceFn = p => CurrencyLogic.Instance.SearchAsync(p).OrderByDescending(x => x.RowDate).ToDropDownItemModelList();
+        }
+        private List<int> AddedScaleIds()
+        {
+            var scaleIds = new List<int>();
+            dgv.EndEdit();
+            foreach (DataGridViewRow row in dgv.Rows.OfType<DataGridViewRow>().Where(x => !x.IsNewRow))
+            {
+                var scaleId = Parse.ToInt(row?.Cells[colScale.Name]?.Value?.ToString() ?? "0");
+                scaleIds.Add(scaleId);
+            }
+
+            return scaleIds;
         }
         public void InitEvent()
         {

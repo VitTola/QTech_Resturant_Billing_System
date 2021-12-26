@@ -10,7 +10,7 @@
                 VerticalContentAlignment="Center"
                 Background="#FF12F326"
                 BorderThickness="5" FontFamily="Khmer Muol"
-                FontSize="40" Content="Name" Foreground="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" ForceCursor="True" BorderBrush="DodgerBlue"
+                FontSize="40" Content="Name" Foreground="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" ForceCursor="True" BorderBrush="DodgerBlue" MouseDoubleClick="btn_MouseDoubleClick"
                 >
             <Button.Resources>
                 <Style TargetType="Border">

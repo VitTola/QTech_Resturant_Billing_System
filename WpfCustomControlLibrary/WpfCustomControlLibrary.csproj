@@ -126,5 +126,11 @@
   <ItemGroup>
     <Resource Include="dish %281%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QTech.Base\QTech.Base.csproj">
+      <Project>{209A6926-2491-4480-9CCE-5B6A0C65E5C1}</Project>
+      <Name>QTech.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

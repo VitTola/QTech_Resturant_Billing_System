@@ -337,7 +337,6 @@ namespace QTech.Component
             };
 
             var auditTrail = await dgv.RunAsync(() => {
-                Thread.Sleep(100000);
                return AuditTrailLogic.Instance.SearchAsync(search); 
             });
             pagination.ListModel = auditTrail;

@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Drawing;
-
+using QTech.Base.Enums;
 
 namespace WpfCustomControlLibrary
 {
@@ -26,8 +26,19 @@ namespace WpfCustomControlLibrary
         public event EventHandler TableClick;
         public event EventHandler MouseHover;
         public event EventHandler MouseLeave;
+        public event EventHandler DoubleClick;
+        public TableStatus TableStatus { get; set; } = TableStatus.Free;
 
-        private System.Drawing.Color PrimaryColor;
+        private bool _isClick;
+        public bool IsClicked
+        {
+            get { return _isClick; }
+            set
+            {
+                _isClick = value;
+            }
+        }
+
 
         public Table()
         {
@@ -48,13 +59,19 @@ namespace WpfCustomControlLibrary
 
         private void Btn_MouseLeave(object sender, MouseEventArgs e)
         {
-            TableColor = PrimaryColor;
+            if (!IsClicked)
+            {
+                TableColor = PrimaryColor;
+            }
             if (MouseLeave != null) MouseLeave(this, e);
         }
 
         private void LblDetail_MouseLeave(object sender, MouseEventArgs e)
         {
-            TableColor = PrimaryColor;
+            if (!IsClicked)
+            {
+                TableColor = PrimaryColor;
+            }
             if (MouseLeave != null) MouseLeave(this, e);
         }
 
@@ -65,21 +82,27 @@ namespace WpfCustomControlLibrary
 
         private void Btn_Click(object sender, RoutedEventArgs e)
         {
-            if (TableClick != null) TableClick(this,e);
+            if (TableClick != null) TableClick(this, e);
         }
 
         private void Btn_MouseEnter(object sender, MouseEventArgs e)
         {
-            PrimaryColor = TableColor;
+            if (!IsClicked)
+            {
+                PrimaryColor = TableColor;
+            }
             TableColor = System.Drawing.Color.FromArgb(190, 230, 253);
             if (MouseHover != null) MouseHover(this, e);
         }
 
         private void LblDetail_MouseEnter(object sender, MouseEventArgs e)
         {
-            PrimaryColor = TableColor;
+            if (!IsClicked)
+            {
+                PrimaryColor = TableColor;
+            }
             TableColor = System.Drawing.Color.FromArgb(190, 230, 253);
-            if(MouseHover != null) MouseHover(this, e);
+            if (MouseHover != null) MouseHover(this, e);
         }
 
         [Browsable(true)]
@@ -117,21 +140,27 @@ namespace WpfCustomControlLibrary
             get
             {
                 var brush = ((SolidColorBrush)btn.Background).Color;
-                return System.Drawing.Color.FromArgb(brush.A,brush.R,brush.G,brush.B);
+                return System.Drawing.Color.FromArgb(brush.A, brush.R, brush.G, brush.B);
             }
             set
             {
-                var bg = new SolidColorBrush(System.Windows.Media.Color.FromArgb(value.A,value.R,value.G,value.B));
+                var bg = new SolidColorBrush(System.Windows.Media.Color.FromArgb(value.A, value.R, value.G, value.B));
                 btn.Background = bg;
             }
         }
+
+        public System.Drawing.Color PrimaryColor;
+        public System.Drawing.Color PrimaryBorderColor;
+
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        public int Radius { 
-            set {
-                 var obj = btn.Resources.FindName("btn");
+        public int Radius
+        {
+            set
+            {
+                var obj = btn.Resources.FindName("btn");
                 obj = value;
-                 } 
+            }
         }
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
@@ -142,7 +171,7 @@ namespace WpfCustomControlLibrary
                 var brush = ((SolidColorBrush)btn.Foreground).Color;
                 return System.Drawing.Color.FromArgb(brush.A, brush.R, brush.G, brush.B);
             }
-            set 
+            set
             {
                 var bg = new SolidColorBrush(System.Windows.Media.Color.FromArgb(value.A, value.R, value.G, value.B));
                 btn.Foreground = bg;
@@ -162,6 +191,11 @@ namespace WpfCustomControlLibrary
                 var bg = new SolidColorBrush(System.Windows.Media.Color.FromArgb(value.A, value.R, value.G, value.B));
                 btn.BorderBrush = bg;
             }
+        }
+
+        private void btn_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (DoubleClick != null) DoubleClick(sender, e);
         }
     }
 }
