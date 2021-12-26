@@ -18,6 +18,7 @@ using System.ComponentModel.Design.Serialization;
 using System.Drawing.Design;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using QTech.Base.Helpers;
 
 namespace QTech.Component
 {
@@ -612,20 +613,19 @@ namespace QTech.Component
 
         Panel panel = new Panel()
         {
-            BorderStyle = BorderStyle.None,
+            BackColor = Color.Transparent,
             Size = new Size(110, 110),
-            BackColor = Color.FromArgb(245, 245, 237),
-            Visible = false
+            Padding = new Padding(5),
+            Visible = false,
         };
+
         PictureBox picLoading = new PictureBox()
         {
             Enabled = true,
             Image = Properties.Resources.dgvloading,
             SizeMode = PictureBoxSizeMode.StretchImage,
             Visible = true,
-            Dock = DockStyle.Fill,
-            BorderStyle = BorderStyle.None,
-            BackColor = Color.FromArgb(245, 245, 237),
+            Dock = DockStyle.Fill
         };
         public void PreExecute(bool block = false)
         {
@@ -663,10 +663,8 @@ namespace QTech.Component
             {
                 // Draw the shadow.
                 e.Graphics.TranslateTransform(2, 2);
-                //Color color = Color.FromArgb(64, 0, 0, 0);
-                var color = Color.FromArgb(234, 234, 234);
-                BackgroundColor = Color.FromArgb(245, 245, 237);
-                using (Pen thick_pen = new Pen(color, 4))
+                var color = ShareValue.CurrentTheme.DataGridBackGround;
+                using (Pen thick_pen = new Pen(color, 0))
                 {
                     e.Graphics.DrawPath(thick_pen, path);
                 }

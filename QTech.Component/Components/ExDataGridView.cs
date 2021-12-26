@@ -9,6 +9,7 @@ using QTech.Component.Properties;
 using EDomain = EasyServer.Domain;
 using QTech.Base.BaseModels;
 using BaseResource = EasyServer.Domain.Resources;
+using QTech.Base.Helpers;
 
 namespace QTech.Component
 {
@@ -102,9 +103,8 @@ namespace QTech.Component
             {
                 // Draw the shadow.
                 e.Graphics.TranslateTransform(2, 2);
-                //Color color = Color.FromArgb(64, 0, 0, 0);
-                var color = Color.FromArgb(234, 234, 234);
-                using (Pen thick_pen = new Pen(color, 4))
+                var color = ShareValue.CurrentTheme.DataGridBackGround;
+                using (Pen thick_pen = new Pen(color, 0))
                 {
                     e.Graphics.DrawPath(thick_pen, path);
                 }

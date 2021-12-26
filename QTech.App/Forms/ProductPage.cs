@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.AccessControl;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BaseResource = QTech.Base.Properties.Resources;
@@ -118,6 +119,7 @@ namespace QTech.Forms
             dgv.Rows.Clear();
             List<Category> categories = null;
             var result = await dgv.RunAsync(() => {
+                Thread.Sleep(100000);
                 var products = ProductLogic.Instance.SearchAsync(search);
                 categories = CategoryLogic.Instance.SearchAsync(new CategorySearch());
                 return products;
