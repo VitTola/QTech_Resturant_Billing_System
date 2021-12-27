@@ -3,6 +3,7 @@ using QTech.Base.Helpers;
 using QTech.Base.Models;
 using QTech.Component;
 using QTech.Component.Helpers;
+using QTech.Component.MyComponents;
 using QTech.Db.Logics;
 using System;
 using System.Collections.Generic;
@@ -46,29 +47,41 @@ namespace QTech.Forms
             this.SetEnabled(Flag != GeneralProcess.Remove && Flag != GeneralProcess.View);
             this.MaximizeBox = false;
             this.Text = Flag.GetTextDialog(Base.Properties.Resources.Table);
-            txtNote.RegisterPrimaryInput();
-            chkUseable_.Checked = true;
+
+            chooseFoodPanel1.TextBoxBackColor = ShareValue.CurrentTheme.FormBackGround;
+            chooseFoodPanel1.OrderQuantity = 2;
+            chooseFoodPanel1.FoodName = "ឆាខ្ញីសាច់មាន់លាយសាច់ទា";
+            chooseFoodPanel1.Height = 260;
+            chooseFoodPanel1.Width = 219;
+            chooseFoodPanel1.ImagePath = @"C:\Users\vitto\Downloads\DOG (2).jpg";
+            btnSave.Click += BtnSave_Click;
+
+
 
         }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            chooseFoodPanel1.HideImage = !chooseFoodPanel1.HideImage;
+        }
+
         private void dgv_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             e.Control.RegisterEnglishInput();
             
         }
-        public bool InValid()
-        {
-            if (!txtName.IsValidRequired(lblName.Text) 
-              )
-            {
-                return true;
-            }
-            return false;
-        }
+   
         public void Read()
         {
-            txtName.Text = Model.Name;
-            txtNote.Text = Model.Note;
-            chkUseable_.Checked = Model.IsUseable;
+            for (int i = 0; i < 20; i++)
+            {
+                //var p = new List<ChooseFoodPanel>() {
+                //    {new ChooseFoodPanel() }
+                
+                //};
+                //flp.AddFoodPanel(p);
+            }
+            
         }
         public async void Save()
         {
@@ -77,13 +90,12 @@ namespace QTech.Forms
                 Close();
             }
 
-            if (InValid()) { return; }
-            Write();
+           
 
             var isExist = await btnSave.RunAsync(() => TableLogic.Instance.IsExistsAsync(Model));
             if (isExist == true)
             {
-                txtName.IsExists(lblName.Text);
+              
                 return;
             }
 
@@ -116,9 +128,7 @@ namespace QTech.Forms
         }
         public void Write()
         {
-            Model.Name = txtName.Text;
-            Model.Note = txtNote.Text;
-            Model.IsUseable = chkUseable_.Checked;
+           
             
         }
         private void btnSave_Click(object sender, EventArgs e)
@@ -133,6 +143,11 @@ namespace QTech.Forms
         private void btnChangeLog_Click(object sender, EventArgs e)
         {
             ViewChangeLog();
+        }
+
+        public bool InValid()
+        {
+            throw new NotImplementedException();
         }
     }
 }

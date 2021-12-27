@@ -12,7 +12,7 @@ using QTech.Base.Helpers;
 using QTech.Base;
 using QTech.Base.Models;
 using QTech.Base.SearchModels;
-using QTech.Db.Logics;
+//using QTech.Db.Logics;
 using System.Threading;
 //using QTech.Db.Logics;
 
@@ -337,7 +337,7 @@ namespace QTech.Component
             };
 
             var auditTrail = await dgv.RunAsync(() => {
-               return AuditTrailLogic.Instance.SearchAsync(search); 
+                return QTech.Db.Logics.AuditTrailLogic.Instance.SearchAsync(search); 
             });
             pagination.ListModel = auditTrail;
             dgv.Nodes.Clear();

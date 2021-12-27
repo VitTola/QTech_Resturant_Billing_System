@@ -32,6 +32,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="QTech.Component, Version=2.8.4.25, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\QTech.Base\Dll\QTech.Component.dll</HintPath>
+    </Reference>
+    <Reference Include="QTech.Db">
+      <HintPath>..\QTech.Base\Dll\QTech.Db.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />

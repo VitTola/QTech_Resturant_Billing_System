@@ -43,5 +43,13 @@ namespace WpfCustomControlLibrary
             wrp.Children.Add(table);
 
         }
+
+        //public void AddFoodPanel(List<QTech.Component.MyComponents> controls)
+        //{
+        //    foreach (var c in controls)
+        //    {
+        //        wrp.Children.Add(c);
+        //    }
+        //}
     }
 }

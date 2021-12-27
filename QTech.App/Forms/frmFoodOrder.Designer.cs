@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFoodOrder));
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -36,34 +37,34 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.lblName = new QTech.Component.ExLabel();
-            this.lblNote = new QTech.Component.ExLabel();
-            this.txtNote = new System.Windows.Forms.TextBox();
             this.exPanel1 = new QTech.Component.Components.ExPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnClose = new QTech.Component.ExButtonLoading();
             this.btnSave = new QTech.Component.ExButtonLoading();
-            this.chkUseable_ = new System.Windows.Forms.CheckBox();
             this.panelBorderLine1 = new SaleInventory.Components.PanelBorderLine();
             this.lblTime = new System.Windows.Forms.Label();
+            this.flpo = new System.Windows.Forms.Integration.ElementHost();
+            this.flp = new WpfCustomControlLibrary.WPFFlowLayout();
+            this.chooseFoodPanel1 = new QTech.Component.MyComponents.ChooseFoodPanel();
             this.container.SuspendLayout();
             this.exPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.panelBorderLine1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // digheader
+            // 
+            this.digheader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.digheader.Size = new System.Drawing.Size(846, 20);
+            // 
             // container
             // 
+            this.container.Controls.Add(this.chooseFoodPanel1);
+            this.container.Controls.Add(this.flpo);
             this.container.Controls.Add(this.panelBorderLine1);
-            this.container.Controls.Add(this.chkUseable_);
             this.container.Controls.Add(this.exPanel1);
-            this.container.Controls.Add(this.lblNote);
-            this.container.Controls.Add(this.txtNote);
-            this.container.Controls.Add(this.lblName);
-            this.container.Controls.Add(this.txtName);
             this.container.Padding = new System.Windows.Forms.Padding(5);
-            this.container.Size = new System.Drawing.Size(509, 677);
+            this.container.Size = new System.Drawing.Size(846, 819);
             // 
             // colId
             // 
@@ -129,52 +130,15 @@
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(140, 154);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(200, 28);
-            this.txtName.TabIndex = 0;
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(54, 161);
-            this.lblName.Name = "lblName";
-            this.lblName.Required = true;
-            this.lblName.Size = new System.Drawing.Size(40, 19);
-            this.lblName.TabIndex = 5;
-            this.lblName.Text = "ឈ្មោះ";
-            // 
-            // lblNote
-            // 
-            this.lblNote.AutoSize = true;
-            this.lblNote.Location = new System.Drawing.Point(54, 193);
-            this.lblNote.Name = "lblNote";
-            this.lblNote.Required = false;
-            this.lblNote.Size = new System.Drawing.Size(39, 19);
-            this.lblNote.TabIndex = 13;
-            this.lblNote.Text = "ចំណាំ";
-            // 
-            // txtNote
-            // 
-            this.txtNote.Location = new System.Drawing.Point(140, 186);
-            this.txtNote.Margin = new System.Windows.Forms.Padding(2);
-            this.txtNote.Multiline = true;
-            this.txtNote.Name = "txtNote";
-            this.txtNote.Size = new System.Drawing.Size(200, 90);
-            this.txtNote.TabIndex = 1;
-            // 
             // exPanel1
             // 
             this.exPanel1.BackColor = System.Drawing.Color.Transparent;
             this.exPanel1.Controls.Add(this.flowLayoutPanel2);
             this.exPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.exPanel1.Location = new System.Drawing.Point(5, 636);
+            this.exPanel1.Location = new System.Drawing.Point(5, 778);
             this.exPanel1.Name = "exPanel1";
             this.exPanel1.Padding = new System.Windows.Forms.Padding(2);
-            this.exPanel1.Size = new System.Drawing.Size(499, 36);
+            this.exPanel1.Size = new System.Drawing.Size(836, 36);
             this.exPanel1.TabIndex = 17;
             // 
             // flowLayoutPanel2
@@ -185,7 +149,7 @@
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(2, 2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(495, 32);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(832, 32);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // btnClose
@@ -196,7 +160,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(406, 3);
+            this.btnClose.Location = new System.Drawing.Point(743, 3);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
@@ -215,7 +179,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(315, 3);
+            this.btnSave.Location = new System.Drawing.Point(652, 3);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnSave.Name = "btnSave";
             this.btnSave.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
@@ -226,18 +190,6 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // chkUseable_
-            // 
-            this.chkUseable_.AutoSize = true;
-            this.chkUseable_.Checked = true;
-            this.chkUseable_.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkUseable_.Location = new System.Drawing.Point(144, 294);
-            this.chkUseable_.Name = "chkUseable_";
-            this.chkUseable_.Size = new System.Drawing.Size(78, 23);
-            this.chkUseable_.TabIndex = 18;
-            this.chkUseable_.Text = "ប្រើការបាន";
-            this.chkUseable_.UseVisualStyleBackColor = true;
-            // 
             // panelBorderLine1
             // 
             this.panelBorderLine1.Controls.Add(this.lblTime);
@@ -246,7 +198,8 @@
             this.panelBorderLine1.Name = "panelBorderLine1";
             this.panelBorderLine1.Padding = new System.Windows.Forms.Padding(5);
             this.panelBorderLine1.PenColor = System.Drawing.Color.CornflowerBlue;
-            this.panelBorderLine1.Size = new System.Drawing.Size(499, 75);
+            this.panelBorderLine1.PenThickness = 5;
+            this.panelBorderLine1.Size = new System.Drawing.Size(836, 75);
             this.panelBorderLine1.TabIndex = 19;
             // 
             // lblTime
@@ -257,23 +210,41 @@
             this.lblTime.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblTime.Location = new System.Drawing.Point(5, 5);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(489, 65);
+            this.lblTime.Size = new System.Drawing.Size(826, 65);
             this.lblTime.TabIndex = 20;
             this.lblTime.Text = ".";
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flpo
+            // 
+            this.flpo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpo.Location = new System.Drawing.Point(5, 80);
+            this.flpo.Name = "flpo";
+            this.flpo.Size = new System.Drawing.Size(836, 698);
+            this.flpo.TabIndex = 20;
+            this.flpo.Text = "elementHost1";
+            this.flpo.Child = this.flp;
+            // 
+            // chooseFoodPanel1
+            // 
+            this.chooseFoodPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.chooseFoodPanel1.Location = new System.Drawing.Point(296, 128);
+            this.chooseFoodPanel1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.chooseFoodPanel1.Name = "chooseFoodPanel1";
+            this.chooseFoodPanel1.Size = new System.Drawing.Size(162, 219);
+            this.chooseFoodPanel1.TabIndex = 21;
             // 
             // frmFoodOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(509, 697);
+            this.ClientSize = new System.Drawing.Size(846, 839);
             this.Font = new System.Drawing.Font("Khmer OS Battambang", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(0, 0);
-            this.MaximizeBox = false;
             this.Name = "frmFoodOrder";
             this.Text = "frmTable";
             this.container.ResumeLayout(false);
-            this.container.PerformLayout();
             this.exPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.panelBorderLine1.ResumeLayout(false);
@@ -290,16 +261,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.TextBox txtName;
-        private Component.ExLabel lblName;
-        private Component.ExLabel lblNote;
-        private System.Windows.Forms.TextBox txtNote;
         private Component.Components.ExPanel exPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private Component.ExButtonLoading btnClose;
         private Component.ExButtonLoading btnSave;
-        private System.Windows.Forms.CheckBox chkUseable_;
         private SaleInventory.Components.PanelBorderLine panelBorderLine1;
         private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Integration.ElementHost flpo;
+        private WpfCustomControlLibrary.WPFFlowLayout flp;
+        private Component.MyComponents.ChooseFoodPanel chooseFoodPanel1;
     }
 }
