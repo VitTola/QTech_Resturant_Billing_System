@@ -36,6 +36,9 @@
             this.flpo = new System.Windows.Forms.Integration.ElementHost();
             this.flp = new WpfCustomControlLibrary.WPFFlowLayout();
             this.panelBorderLine1 = new SaleInventory.Components.PanelBorderLine();
+            this.btnShowImage = new System.Windows.Forms.PictureBox();
+            this.cboCategory = new System.Windows.Forms.ComboBox();
+            this.txtSearch = new QTech.Component.ExTextbox();
             this.lblTime = new System.Windows.Forms.Label();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +52,7 @@
             this.exPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.panelBorderLine1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnShowImage)).BeginInit();
             this.SuspendLayout();
             // 
             // digheader
@@ -126,15 +130,18 @@
             // flpo
             // 
             this.flpo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpo.Location = new System.Drawing.Point(1, 76);
+            this.flpo.Location = new System.Drawing.Point(1, 40);
             this.flpo.Name = "flpo";
-            this.flpo.Size = new System.Drawing.Size(966, 505);
+            this.flpo.Size = new System.Drawing.Size(966, 541);
             this.flpo.TabIndex = 20;
             this.flpo.Text = "elementHost1";
             this.flpo.Child = this.flp;
             // 
             // panelBorderLine1
             // 
+            this.panelBorderLine1.Controls.Add(this.btnShowImage);
+            this.panelBorderLine1.Controls.Add(this.cboCategory);
+            this.panelBorderLine1.Controls.Add(this.txtSearch);
             this.panelBorderLine1.Controls.Add(this.lblTime);
             this.panelBorderLine1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBorderLine1.Location = new System.Drawing.Point(1, 1);
@@ -142,18 +149,55 @@
             this.panelBorderLine1.Padding = new System.Windows.Forms.Padding(5);
             this.panelBorderLine1.PenColor = System.Drawing.Color.CornflowerBlue;
             this.panelBorderLine1.PenThickness = 5;
-            this.panelBorderLine1.Size = new System.Drawing.Size(966, 75);
+            this.panelBorderLine1.Size = new System.Drawing.Size(966, 39);
             this.panelBorderLine1.TabIndex = 19;
+            // 
+            // btnShowImage
+            // 
+            this.btnShowImage.Image = global::QTech.Properties.Resources.maxi_img;
+            this.btnShowImage.Location = new System.Drawing.Point(264, 7);
+            this.btnShowImage.Name = "btnShowImage";
+            this.btnShowImage.Size = new System.Drawing.Size(25, 25);
+            this.btnShowImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnShowImage.TabIndex = 23;
+            this.btnShowImage.TabStop = false;
+            this.btnShowImage.Click += new System.EventHandler(this.btnShowImage_Click);
+            this.btnShowImage.MouseLeave += new System.EventHandler(this.btnShowImage_MouseLeave);
+            this.btnShowImage.MouseHover += new System.EventHandler(this.btnShowImage_MouseHover);
+            // 
+            // cboCategory
+            // 
+            this.cboCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboCategory.FormattingEnabled = true;
+            this.cboCategory.Location = new System.Drawing.Point(555, 7);
+            this.cboCategory.Name = "cboCategory";
+            this.cboCategory.Size = new System.Drawing.Size(200, 27);
+            this.cboCategory.TabIndex = 22;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSearch.BackColor = System.Drawing.Color.White;
+            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearch.Font = new System.Drawing.Font("Khmer OS Battambang", 8.25F);
+            this.txtSearch.Location = new System.Drawing.Point(758, 7);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(5, 4, 3, 3);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Padding = new System.Windows.Forms.Padding(2, 3, 1, 4);
+            this.txtSearch.PlaceHolderText = "";
+            this.txtSearch.SearchMode = QTech.Component.ExTextbox.SearchModes.OnKeyReturn;
+            this.txtSearch.Size = new System.Drawing.Size(200, 26);
+            this.txtSearch.TabIndex = 21;
             // 
             // lblTime
             // 
             this.lblTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblTime.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTime.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTime.Font = new System.Drawing.Font("Times New Roman", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblTime.Location = new System.Drawing.Point(5, 5);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(956, 65);
+            this.lblTime.Size = new System.Drawing.Size(241, 29);
             this.lblTime.TabIndex = 20;
             this.lblTime.Text = ".";
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -236,6 +280,7 @@
             this.exPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.panelBorderLine1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnShowImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -257,5 +302,8 @@
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Integration.ElementHost flpo;
         private WpfCustomControlLibrary.WPFFlowLayout flp;
+        private System.Windows.Forms.PictureBox btnShowImage;
+        private System.Windows.Forms.ComboBox cboCategory;
+        private Component.ExTextbox txtSearch;
     }
 }

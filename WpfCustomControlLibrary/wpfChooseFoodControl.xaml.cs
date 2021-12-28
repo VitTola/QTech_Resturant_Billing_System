@@ -53,7 +53,7 @@ namespace WpfCustomControlLibrary
                 else
                 {
                     pic.Visibility = System.Windows.Visibility.Visible;
-                    this.Height = 260;
+                    this.Height = 315;
                 }
                 _isHideImage = value;
             }

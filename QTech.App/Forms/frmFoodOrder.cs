@@ -38,7 +38,7 @@ namespace QTech.Forms
         }
         public GeneralProcess Flag { get; set; }
 
-        public void Bind()
+        public  void Bind()
         {
             colName.Visible = true;
             colName.Width = 100;
@@ -57,38 +57,36 @@ namespace QTech.Forms
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            foreach (var b in flp.Children)
-            {
-                if (b is wpfChooseFoodControl wp)
-                {
-                    wp.HidePicture = !wp.HidePicture;
-                }
-            }
+
         }
 
         private void dgv_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             e.Control.RegisterEnglishInput();
-            
+
         }
-   
-        public void Read()
+
+        public  void Read()
         {
-            for (int i = 0; i < 100; i++)
-            {
-                var p = new List<wpfChooseFoodControl>() {
+                for (int i = 0; i < 2000; i++)
+                {
+                    var p = new List<wpfChooseFoodControl>() {
                     {new wpfChooseFoodControl(){
                         Width = 300,
-                        Height = 305,
+                        Height = 315,
                         FoodName = "ឆាខ្ញីសាច់គោលាយពងទាចៀងស្អំ",
                         ImagePath =  Path.Combine(@"D:\My Projects\Resturant Billing System\Icons\images.jfif"),
                         TextColor = ShareValue.CurrentTheme.LabelColor,
-            } }
+                     } 
+                        }
 
                 };
-                flp.AddFoodPanel(p);
-            }
+                    flp.AddFoodPanel(p);
+                }
+               
             
+
+
         }
         public async void Save()
         {
@@ -97,12 +95,12 @@ namespace QTech.Forms
                 Close();
             }
 
-           
+
 
             var isExist = await btnSave.RunAsync(() => TableLogic.Instance.IsExistsAsync(Model));
             if (isExist == true)
             {
-              
+
                 return;
             }
 
@@ -135,8 +133,8 @@ namespace QTech.Forms
         }
         public void Write()
         {
-           
-            
+
+
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -157,5 +155,26 @@ namespace QTech.Forms
             return false;
         }
 
+        private void btnShowImage_Click(object sender, EventArgs e)
+        {
+            foreach (var b in flp.Children)
+            {
+                if (b is wpfChooseFoodControl wp)
+                {
+                    wp.HidePicture = !wp.HidePicture;
+                }
+            }
+        }
+
+        private void btnShowImage_MouseHover(object sender, EventArgs e)
+        {
+            btnShowImage.BackColor = Color.LightBlue;
+
+        }
+
+        private void btnShowImage_MouseLeave(object sender, EventArgs e)
+        {
+            btnShowImage.BackColor = ShareValue.CurrentTheme.PanelColor;
+        }
     }
 }
