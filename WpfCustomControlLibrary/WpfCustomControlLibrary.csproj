@@ -86,6 +86,9 @@
     <Compile Include="Table.cs">
       <DependentUpon>Table.xaml</DependentUpon>
     </Compile>
+    <Compile Include="wpfChooseFoodControl.xaml.cs">
+      <DependentUpon>wpfChooseFoodControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPFFlowLayout.xaml.cs">
       <DependentUpon>WPFFlowLayout.xaml</DependentUpon>
     </Compile>
@@ -123,6 +126,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="wpfChooseFoodControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="WPFFlowLayout.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -141,6 +148,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="btn_minus.png" />
+    <Resource Include="btn_plus.png" />
     <Content Include="Dll\QTech.Component.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

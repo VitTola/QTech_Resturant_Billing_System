@@ -10,10 +10,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WpfCustomControlLibrary;
+using Table = QTech.Base.Models.Table;
 
 namespace QTech.Forms
 {
@@ -48,21 +51,19 @@ namespace QTech.Forms
             this.MaximizeBox = false;
             this.Text = Flag.GetTextDialog(Base.Properties.Resources.Table);
 
-            chooseFoodPanel1.TextBoxBackColor = ShareValue.CurrentTheme.FormBackGround;
-            chooseFoodPanel1.OrderQuantity = 2;
-            chooseFoodPanel1.FoodName = "ឆាខ្ញីសាច់មាន់លាយសាច់ទា";
-            chooseFoodPanel1.Height = 260;
-            chooseFoodPanel1.Width = 219;
-            chooseFoodPanel1.ImagePath = @"C:\Users\vitto\Downloads\DOG (2).jpg";
+            this.MaximizeBox = true;
             btnSave.Click += BtnSave_Click;
-
-
-
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            chooseFoodPanel1.HideImage = !chooseFoodPanel1.HideImage;
+            foreach (var b in flp.Children)
+            {
+                if (b is wpfChooseFoodControl wp)
+                {
+                    wp.HidePicture = !wp.HidePicture;
+                }
+            }
         }
 
         private void dgv_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -73,13 +74,19 @@ namespace QTech.Forms
    
         public void Read()
         {
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 100; i++)
             {
-                //var p = new List<ChooseFoodPanel>() {
-                //    {new ChooseFoodPanel() }
-                
-                //};
-                //flp.AddFoodPanel(p);
+                var p = new List<wpfChooseFoodControl>() {
+                    {new wpfChooseFoodControl(){
+                        Width = 300,
+                        Height = 305,
+                        FoodName = "ឆាខ្ញីសាច់គោលាយពងទាចៀងស្អំ",
+                        ImagePath =  Path.Combine(@"D:\My Projects\Resturant Billing System\Icons\images.jfif"),
+                        TextColor = ShareValue.CurrentTheme.LabelColor,
+            } }
+
+                };
+                flp.AddFoodPanel(p);
             }
             
         }
@@ -147,7 +154,8 @@ namespace QTech.Forms
 
         public bool InValid()
         {
-            throw new NotImplementedException();
+            return false;
         }
+
     }
 }

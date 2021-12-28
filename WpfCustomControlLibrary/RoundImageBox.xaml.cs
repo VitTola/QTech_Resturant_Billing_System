@@ -27,9 +27,21 @@ namespace WpfCustomControlLibrary
     {
         public EventHandler Click;
 
+        private string _imagePath;
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        public string ImagePath { get; set; }
+        public string ImagePath { get { return _imagePath; } set {
+                if (!string.IsNullOrEmpty(value) && value.IndexOfAny(System.IO.Path.GetInvalidPathChars()) == -1)
+                {
+                    ImageBrush imageBrush = new ImageBrush();
+                    imageBrush.ImageSource = new BitmapImage(new Uri(value));
+                    el.Fill = imageBrush;
+
+                    isPlaceHoder = false;
+                    _imagePath = value;
+                }
+
+            } }
 
         private byte[] ImageSourceInByte;
         public byte[] ImageSource
