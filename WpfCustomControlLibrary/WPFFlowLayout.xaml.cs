@@ -44,12 +44,12 @@ namespace WpfCustomControlLibrary
 
         }
 
-        //public void AddFoodPanel(List<QTech.Component.MyComponents> controls)
-        //{
-        //    foreach (var c in controls)
-        //    {
-        //        wrp.Children.Add(c);
-        //    }
-        //}
+        public void AddFoodPanel(List<QTech.Component.MyComponents.ChooseFoodPanel> controls)
+        {
+            foreach (var c in controls)
+            {
+                //wrp.Children.Add(c);
+            }
+        }
     }
 }

@@ -326,6 +326,11 @@ namespace DDFormsExtentions
                 {
                     up = false;
                 }
+                else if (_currentTransparency == destinationOpacity)
+                {
+                    _currentTransparency = 0;
+                    up = true;
+                }
                 else
                 {
                     return;

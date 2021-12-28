@@ -228,10 +228,13 @@
             // chooseFoodPanel1
             // 
             this.chooseFoodPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.chooseFoodPanel1.Location = new System.Drawing.Point(296, 128);
-            this.chooseFoodPanel1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.chooseFoodPanel1.FoodName = null;
+            this.chooseFoodPanel1.HideImage = false;
+            this.chooseFoodPanel1.Location = new System.Drawing.Point(238, 365);
+            this.chooseFoodPanel1.Margin = new System.Windows.Forms.Padding(3, 28, 3, 28);
             this.chooseFoodPanel1.Name = "chooseFoodPanel1";
-            this.chooseFoodPanel1.Size = new System.Drawing.Size(162, 219);
+            this.chooseFoodPanel1.OrderQuantity = 0;
+            this.chooseFoodPanel1.Size = new System.Drawing.Size(210, 260);
             this.chooseFoodPanel1.TabIndex = 21;
             // 
             // frmFoodOrder

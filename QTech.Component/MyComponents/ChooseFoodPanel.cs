@@ -13,11 +13,35 @@ namespace QTech.Component.MyComponents
 {
     public partial class ChooseFoodPanel : UserControl
     {
-        public event EventHandler IncreaseQuantityClick;
-        public event EventHandler DecreaseQuantityClick;
         public ChooseFoodPanel()
         {
             InitializeComponent();
+            InitEvent();
+            InitializeFormTransparency();
+        }
+
+        private void InitEvent()
+        {
+            txtAmount.RegisterInputNumberOnly();
+        }
+
+        DDFormsExtentions.DDFormFader FF;
+        private void InitializeFormTransparency()
+        {
+            //pass the class constructor the handle to the form
+            FF = new DDFormsExtentions.DDFormFader(Handle);
+
+            //set the form to a Layered Window Form
+            FF.setTransparentLayeredWindow();
+
+            //sets the length of time between fade steps in Milliseconds 
+            FF.seekSpeed = 2;
+
+            // sets the amount of steps to take to reach target opacity    
+            FF.StepsToFade = 2;
+
+            FF.updateOpacity((byte)0, false); // set the forms opacity to 0;
+
         }
 
         private int _quantity;
@@ -27,6 +51,8 @@ namespace QTech.Component.MyComponents
         {
             get { return _isHideImage; }
             set {
+                FF.seekTo((byte)255);
+
                 if (value)
                 {
                     pic.Visibility = System.Windows.Visibility.Hidden;
@@ -52,14 +78,36 @@ namespace QTech.Component.MyComponents
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public string FoodName { get { return _foodName; } set {
                     _foodName = value;
-                    txtName.Text = value.ToString();
+                    txtName.Text = value?.ToString();
                 } }
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        public int OrderQuantity { get { return _quantity; } set {
+        public int OrderQuantity { 
+            get {
+
+                if (int.TryParse(txtAmount.Text,out _quantity))
+                {
+                    return Parse.ToInt(txtAmount.Text);
+                }
+                return 0;
+            } set {
                 _quantity = value;
                 txtAmount.Text = value.ToString();
             } }
+
+        private void btnPlus_Click(object sender, EventArgs e)
+        {
+            var _quantity = Parse.ToInt(txtAmount.Text);
+            txtAmount.Text = (_quantity + 1).ToString();
+            OrderQuantity = _quantity + 1;
+        }
+
+        private void btnMinus_Click(object sender, EventArgs e)
+        {
+            var _quantity = Parse.ToInt(txtAmount.Text);
+            txtAmount.Text = _quantity > 0 ? (_quantity - 1).ToString() : 0.ToString(); ;
+            OrderQuantity = Parse.ToInt(txtAmount.Text);
+        }
 
     }
 }
