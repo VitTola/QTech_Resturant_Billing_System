@@ -742,4 +742,7 @@
   <data name="Calculate" xml:space="preserve">
     <value>គិតលុយ</value>
   </data>
+  <data name="FoodOrder" xml:space="preserve">
+    <value>កម្មង់ម្ហូប</value>
+  </data>
 </root>

@@ -24,6 +24,10 @@ namespace WpfCustomControlLibrary
         {
             InitializeComponent();
         }
+        public void ClearChildren()
+        {
+            wrp.Children.Clear();
+        }
         public UIElementCollection Children { 
             get { return wrp.Children; }
         }

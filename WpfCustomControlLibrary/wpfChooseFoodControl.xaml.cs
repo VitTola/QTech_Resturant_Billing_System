@@ -87,8 +87,18 @@ namespace WpfCustomControlLibrary
                 pic.ImagePath = value;
             }
         }
+        public byte[] ImageSource
+        {
+            set
+            {
+                if (value!=null)
+                {
+                    pic.ImageSource = value;
+                }
+            }
+        }
 
-        [Browsable(true)]
+       [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public string FoodName
         {

@@ -62,6 +62,7 @@
             // 
             // container
             // 
+            this.container.Controls.Add(this.btnShowImage);
             this.container.Controls.Add(this.flpo);
             this.container.Controls.Add(this.panelBorderLine1);
             this.container.Controls.Add(this.exPanel1);
@@ -131,7 +132,9 @@
             // 
             this.flpo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpo.Location = new System.Drawing.Point(1, 40);
+            this.flpo.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.flpo.Name = "flpo";
+            this.flpo.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.flpo.Size = new System.Drawing.Size(966, 541);
             this.flpo.TabIndex = 20;
             this.flpo.Text = "elementHost1";
@@ -139,7 +142,6 @@
             // 
             // panelBorderLine1
             // 
-            this.panelBorderLine1.Controls.Add(this.btnShowImage);
             this.panelBorderLine1.Controls.Add(this.cboCategory);
             this.panelBorderLine1.Controls.Add(this.txtSearch);
             this.panelBorderLine1.Controls.Add(this.lblTime);
@@ -154,8 +156,10 @@
             // 
             // btnShowImage
             // 
+            this.btnShowImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnShowImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.btnShowImage.Image = global::QTech.Properties.Resources.maxi_img;
-            this.btnShowImage.Location = new System.Drawing.Point(264, 7);
+            this.btnShowImage.Location = new System.Drawing.Point(915, 44);
             this.btnShowImage.Name = "btnShowImage";
             this.btnShowImage.Size = new System.Drawing.Size(25, 25);
             this.btnShowImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -188,12 +192,13 @@
             this.txtSearch.SearchMode = QTech.Component.ExTextbox.SearchModes.OnKeyReturn;
             this.txtSearch.Size = new System.Drawing.Size(200, 26);
             this.txtSearch.TabIndex = 21;
+            this.txtSearch.QuickSearch += new System.EventHandler(this.txtSearch_QuickSearch);
             // 
             // lblTime
             // 
             this.lblTime.BackColor = System.Drawing.Color.Transparent;
             this.lblTime.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblTime.Font = new System.Drawing.Font("Times New Roman", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblTime.Location = new System.Drawing.Point(5, 5);
             this.lblTime.Name = "lblTime";

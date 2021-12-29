@@ -15,7 +15,7 @@ namespace QTech.Component.Interface
             InitializeComponent();
             SelectedPrinter = selectedPrinter;
 
-            Bind();
+            BindAsync();
             InitEvent();
             Text = Properties.Resources.SelectPrinter;
         }
@@ -23,7 +23,7 @@ namespace QTech.Component.Interface
         public GeneralProcess Flag { get; set; }
         public string SelectedPrinter { get; set; } = string.Empty;
 
-        public void Bind()
+        public void BindAsync()
         {
             dgv.DataSource = PrinterSettings.InstalledPrinters.OfType<string>().Select(x => new { Name = x }).ToList();
             if (!string.IsNullOrEmpty(SelectedPrinter))

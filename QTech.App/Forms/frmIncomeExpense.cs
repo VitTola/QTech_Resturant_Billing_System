@@ -28,7 +28,7 @@ namespace QTech.Forms
 
             this.Model = model;
             this.Flag = flag;
-            Bind();
+            BindAsync();
             Read();
             InitEvent();
             this.SetTheme(this.Controls, null);
@@ -36,7 +36,7 @@ namespace QTech.Forms
         }
         public GeneralProcess Flag { get; set; }
 
-        public void Bind()
+        public void BindAsync()
         {
             cboMiscType.SetDataSource<MiscellaneousType>("",MiscellaneousType.All);
         }

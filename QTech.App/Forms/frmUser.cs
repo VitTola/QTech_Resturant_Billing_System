@@ -22,7 +22,7 @@ namespace QTech.Forms
             Flag = flag;
             this.SetEnabled(flag != GeneralProcess.Remove && flag != GeneralProcess.View);
             this.Text = Flag.GetTextDialog(BaseResource.User_Text);
-            Bind();
+            BindAsync();
             Read();
             InitEvent();
             this.SetTheme(this.Controls, null);
@@ -35,7 +35,7 @@ namespace QTech.Forms
         bool _isBinding = true;
         string _defaultPassword = @"*cuMQ*?EmL9tKqWp";
 
-        public async void Bind()
+        public async void BindAsync()
         {
             if (Model.UserPermissions == null)
             {

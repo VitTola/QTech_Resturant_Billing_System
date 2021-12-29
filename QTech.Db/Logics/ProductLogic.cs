@@ -48,6 +48,11 @@ namespace QTech.Db.Logics
             {
                 q = q.Where(x => x.Name.ToLower().Contains(param.Search.ToLower()));
             }
+            if (param.categoryId != 0)
+            {
+                q = q.Where(x => x.CategoryId == param.categoryId);
+                  
+            }
             return q;
         }
         public override bool IsExistsAsync(Product entity)

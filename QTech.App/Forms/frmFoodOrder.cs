@@ -1,6 +1,8 @@
-﻿using QTech.Base;
+﻿using EasyServer.Domain.Helpers;
+using QTech.Base;
 using QTech.Base.Helpers;
 using QTech.Base.Models;
+using QTech.Base.SearchModels;
 using QTech.Component;
 using QTech.Component.Helpers;
 using QTech.Component.MyComponents;
@@ -31,28 +33,62 @@ namespace QTech.Forms
             this.Model = model;
             this.Flag = flag;
 
-            Bind();
+            Read();
+            BindAsync();
             InitEvent();
             this.SetTheme(this.Controls, null);
 
         }
         public GeneralProcess Flag { get; set; }
 
-        public  void Bind()
+        public async void BindAsync()
         {
             colName.Visible = true;
             colName.Width = 100;
 
-            Read();
+            List<Category> categories = null;
+            await this.RunAsync(()=> categories = CategoryLogic.Instance.SearchAsync(new CategorySearch()));
+            if (categories?.Any() ?? false)
+            {
+                var objects = categories.Select(x => new
+                {
+                    Name = x.Name,
+                    Id = x.Id,
+                    Object = x
+                }).ToList() ;
+
+                var _allCategory = $"{QTech.Base.Properties.Resources.Category}{QTech.Base.Properties.Resources.All_}";
+                objects.Add(
+                    new
+                    {
+                        Name = _allCategory, 
+                        Id = 0,
+                        Object = new Category()
+                    }
+                    ) ;
+                cboCategory.ValueMember = "Id";
+                cboCategory.DisplayMember = "Name";
+                cboCategory.DataSource = objects;
+                cboCategory.SelectedIndex = cboCategory.FindStringExact(_allCategory);
+            }
+
         }
         public void InitEvent()
         {
             this.SetEnabled(Flag != GeneralProcess.Remove && Flag != GeneralProcess.View);
             this.MaximizeBox = false;
-            this.Text = Flag.GetTextDialog(Base.Properties.Resources.Table);
+            this.Text = Flag.GetTextDialog(Base.Properties.Resources.FoodOrder);
+
+            cboCategory.DropDownStyle = ComboBoxStyle.DropDownList;
 
             this.MaximizeBox = true;
             btnSave.Click += BtnSave_Click;
+            cboCategory.SelectedIndexChanged += CboCategory_SelectedIndexChanged;
+        }
+
+        private async void CboCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            await Search();
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -66,26 +102,44 @@ namespace QTech.Forms
 
         }
 
-        public  void Read()
+        public async void Read()
         {
-                for (int i = 0; i < 2000; i++)
+            await Search();
+        }
+        private async Task Search()
+        {
+            flp.ClearChildren();
+            int catId = Parse.ToInt(cboCategory?.SelectedValue?.ToString() ?? "0");
+            var search = new ProductSearch
+            {
+                Search = txtSearch.Text,
+                categoryId = catId
+            };
+            var result = await this.RunAsync(() =>
+            {
+                var products = ProductLogic.Instance.SearchAsync(search);
+                
+                return products;
+            });
+
+
+            var _products = new List<wpfChooseFoodControl>();
+            result.ForEach(x =>
+            {
+                var p = new wpfChooseFoodControl
                 {
-                    var p = new List<wpfChooseFoodControl>() {
-                    {new wpfChooseFoodControl(){
-                        Width = 300,
-                        Height = 315,
-                        FoodName = "ឆាខ្ញីសាច់គោលាយពងទាចៀងស្អំ",
-                        ImagePath =  Path.Combine(@"D:\My Projects\Resturant Billing System\Icons\images.jfif"),
-                        TextColor = ShareValue.CurrentTheme.LabelColor,
-                     } 
-                        }
-
+                    Width = 300,
+                    Height = 315,
+                    FoodName = x.Name,
+                    ImageSource = x.Photo,
+                    TextColor = ShareValue.CurrentTheme.LabelColor,
                 };
-                    flp.AddFoodPanel(p);
-                }
-               
-            
-
+                _products.Add(p);
+            });
+            if (_products.Any())
+            {
+                flp.AddFoodPanel(_products);
+            }
 
         }
         public async void Save()
@@ -175,6 +229,11 @@ namespace QTech.Forms
         private void btnShowImage_MouseLeave(object sender, EventArgs e)
         {
             btnShowImage.BackColor = ShareValue.CurrentTheme.PanelColor;
+        }
+
+        private async void txtSearch_QuickSearch(object sender, EventArgs e)
+        {
+            await Search();
         }
     }
 }

@@ -443,6 +443,15 @@ namespace QTech.Base.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to កម្មង់ម្ហូប.
+        /// </summary>
+        public static string FoodOrder {
+            get {
+                return ResourceManager.GetString("FoodOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ចាប់ពី.
         /// </summary>
         public static string FromDate {

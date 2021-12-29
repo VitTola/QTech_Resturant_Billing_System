@@ -118,7 +118,7 @@ namespace QTech.Forms
         {
         }
 
-        public void Bind()
+        public void BindAsync()
         {
         }
 

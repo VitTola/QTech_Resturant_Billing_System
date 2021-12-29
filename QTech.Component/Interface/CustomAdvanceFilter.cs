@@ -23,7 +23,7 @@ namespace QTech.Component.Interfaces
             InitializeComponent();
             this._exSearchCombos = exSearchCombo;
             FuncInValid = funcInValid;
-            Bind();
+            BindAsync();
             if (isSelectDefautValue)
             {
                 initDefaultValue();
@@ -67,7 +67,7 @@ namespace QTech.Component.Interfaces
 
         public void InitEvent() { }
 
-        public void Bind()
+        public void BindAsync()
         {
             CreateSearchCombo();
         }

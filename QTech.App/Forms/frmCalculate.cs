@@ -27,14 +27,14 @@ namespace QTech.Forms
             this.Model = model;
             this.Flag = flag;
 
-            Bind();
+            BindAsync();
             InitEvent();
             this.SetTheme(this.Controls, null);
 
         }
         public GeneralProcess Flag { get; set; }
 
-        public void Bind()
+        public void BindAsync()
         {
             colName.Visible = true;
             colName.Width = 100;

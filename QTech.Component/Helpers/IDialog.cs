@@ -10,7 +10,7 @@ namespace QTech.Component.Helpers
         void Read();
         void InitEvent();
         void Write();
-        void Bind();
+        void BindAsync();
         bool InValid();
         void Save();
         void ViewChangeLog();

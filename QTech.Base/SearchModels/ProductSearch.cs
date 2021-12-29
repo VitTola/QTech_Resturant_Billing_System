@@ -11,5 +11,6 @@ namespace QTech.Base.SearchModels
     {
         public string Code { get; set; }
         public string Name { get; set; }
+        public int categoryId { get; set; }
     }
 }

@@ -30,14 +30,14 @@ namespace QTech.Forms
             this.Flag = flag;
 
             Read();
-            Bind();
+            BindAsync();
             InitEvent();
             this.SetTheme(this.Controls, null);
             pnlbackground.BackColor = Color.Gray;
         }
         public GeneralProcess Flag { get; set; }
 
-        public void Bind()
+        public void BindAsync()
         {
             cboCategory.DataSourceFn = p => CategoryLogic.Instance.SearchAsync(p).ToDropDownItemModelList();
             cboCategory.SearchParamFn = () => new CategorySearch();
