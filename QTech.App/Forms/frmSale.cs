@@ -50,6 +50,7 @@ namespace QTech.Forms
 
         public async void Read()
         {
+            pnl.ClearChildren();
             var tables = await this.RunAsync(() => TableLogic.Instance.SearchAsync(new TableSearch()));
             if (tables != null)
             {
@@ -57,21 +58,29 @@ namespace QTech.Forms
                 {
                     Table table = new Table()
                     {
+                        Id = t.Id,
                         TableName = t.Name,
-                        TableColor = t.TableStus == TableStatus.Free ? Color.FromArgb(133, 191, 85) : Color.Red,
-                        PrimaryColor = t.TableStus == TableStatus.Free ? Color.FromArgb(133, 191, 85) : Color.Red,
-                        TextColor = ShareValue.CurrentTheme.LabelColor,
+                        TableStatus = t.TableStus,
+                        TableColor = t.TableStus == TableStatus.Free ? Color.FromArgb(158, 242, 156) : Color.FromArgb(238, 98, 98),
+                        PrimaryColor = t.TableStus == TableStatus.Free ? Color.FromArgb(158, 242, 156) : Color.FromArgb(238, 98, 98),
+                        TextColor = Color.Black,
                         BorderColor = Color.Gray,
                         Detail = "",
                         Width = 400,
-                        Height = 300
+                        Height = 300,
+                        Object = t
                     };
                     table.TableClick += Table_TableClick;
                     table.DoubleClick += Table_DoubleClick;
                     pnl.AddChildren(table);
+
+                    //Set FreeTable Label
+                    if(t.TableStus == TableStatus.Free)
+                    txtFreeTables.Text = txtFreeTables.Text + (!string.IsNullOrEmpty(txtFreeTables.Text) &&
+                            !string.IsNullOrEmpty(t.Name) ? " , " : "") + t.Name;
                 }
             }
-            SetFreeTable();
+            //SetFreeTable();
         }
 
         private void Table_DoubleClick(object sender, EventArgs e)
@@ -79,7 +88,9 @@ namespace QTech.Forms
             btnOrder__Click(sender, e);
         }
 
-        private void Table_TableClick(object sender, EventArgs e)
+        int currentSelectingId;
+        List<Product> products = null;
+        private async void Table_TableClick(object sender, EventArgs e)
         {
             var table = sender as Table;
             ReleaseOtherTableClick();
@@ -87,8 +98,30 @@ namespace QTech.Forms
             table.IsClicked = true;
             table.BorderColor = Color.Blue;
             lblTable_.Text = table.TableName;
-
-
+            if (Model.Id != 0 && table.Id != currentSelectingId)
+            {
+                var _sale = await dgv.RunAsync(() => {
+                    products = ProductLogic.Instance.SearchAsync(new ProductSearch());
+                    return SaleLogic.Instance.FindAsync(Model.Id);
+                });
+                _sale.SaleDetails.ForEach(x => {
+                    var row = newRow();
+                    row.Cells[colId.Name].Value = x.Id;
+                    row.Cells[colName.Name].Value = products?.FirstOrDefault(y => y.Id == x.ProductId)?.Name;
+                    row.Cells[colQuantity.Name].Value = x.Quantity;
+                });
+            }
+            currentSelectingId = table.Id;
+        }
+        private DataGridViewRow newRow(bool isFocus = false)
+        {
+            var row = dgv.Rows[dgv.Rows.Add()];
+            row.Cells[colId.Name].Value = 0;
+            if (isFocus)
+            {
+                dgv.Focus();
+            }
+            return row;
         }
         private void ReleaseOtherTableClick()
         {
@@ -120,6 +153,7 @@ namespace QTech.Forms
 
         public void BindAsync()
         {
+
         }
 
         public bool InValid()
@@ -148,7 +182,30 @@ namespace QTech.Forms
 
         private void btnOrder__Click(object sender, EventArgs e)
         {
-            new frmFoodOrder(new Base.Models.Table(), GeneralProcess.Add).ShowDialog();
+            var clickedTable = pnl.Children?.Cast<Table>()?.FirstOrDefault(x => x.IsClicked);
+            if (clickedTable.TableStatus == TableStatus.Occupy)
+            {
+                if (clickedTable.Object is QTech.Base.Models.Table table)
+                {
+                    Model.Id = table.CurrentSaleId;
+                }
+            }
+            if (clickedTable != null)
+            {
+                Model.TableId = clickedTable.Id;
+                Model.SaleDate = DateTime.Now;
+                var dig = new frmFoodOrder(Model,Flag,clickedTable.TableName);
+                if (dig.ShowDialog() == DialogResult.OK)
+                {
+                    Model.SaleDetails.ForEach(x => {
+                        var row = newRow();
+                        row.Cells[colId.Name].Value = x.Id;
+                        row.Cells[colName.Name].Value = products?.FirstOrDefault(y => y.Id == x.ProductId)?.Name;
+                        row.Cells[colQuantity.Name].Value = x.Quantity;
+                    });
+                    Read();
+                }
+            }
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)

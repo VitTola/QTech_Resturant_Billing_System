@@ -23,11 +23,14 @@ namespace WpfCustomControlLibrary
     /// </summary>
     public partial class wpfChooseFoodControl : UserControl
     {
+        public event EventHandler QuantityChange;
         public wpfChooseFoodControl()
         {
             InitializeComponent();
         }
 
+        public int Id { get; set; }
+        public decimal UnitPrice { get; set; }
         private void InitEvent()
         {
             
@@ -135,6 +138,8 @@ namespace WpfCustomControlLibrary
                 var _quantity = int.Parse(txtAmount.Text);
                 txtAmount.Text = (_quantity + 1).ToString();
                 OrderQuantity = _quantity + 1;
+
+                if (QuantityChange != null) QuantityChange(this, e);
             }
         }
 
@@ -145,6 +150,8 @@ namespace WpfCustomControlLibrary
                 var _quantity = int.Parse(txtAmount.Text);
                 txtAmount.Text = _quantity > 0 ? (_quantity - 1).ToString() : 0.ToString(); ;
                 OrderQuantity = int.Parse(txtAmount.Text);
+
+                if (QuantityChange != null) QuantityChange(this, e);
             }
         }
 

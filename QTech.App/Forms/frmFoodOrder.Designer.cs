@@ -36,10 +36,10 @@
             this.flpo = new System.Windows.Forms.Integration.ElementHost();
             this.flp = new WpfCustomControlLibrary.WPFFlowLayout();
             this.panelBorderLine1 = new SaleInventory.Components.PanelBorderLine();
-            this.btnShowImage = new System.Windows.Forms.PictureBox();
             this.cboCategory = new System.Windows.Forms.ComboBox();
             this.txtSearch = new QTech.Component.ExTextbox();
-            this.lblTime = new System.Windows.Forms.Label();
+            this.lblTableName_ = new System.Windows.Forms.Label();
+            this.btnShowImage = new System.Windows.Forms.PictureBox();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,11 +48,19 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabMain = new System.Windows.Forms.TabControl();
+            this.tabChoose_ = new System.Windows.Forms.TabPage();
+            this.tabOrdered_ = new System.Windows.Forms.TabPage();
+            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+            this.flpOrdered = new WpfCustomControlLibrary.WPFFlowLayout();
             this.container.SuspendLayout();
             this.exPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.panelBorderLine1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnShowImage)).BeginInit();
+            this.tabMain.SuspendLayout();
+            this.tabChoose_.SuspendLayout();
+            this.tabOrdered_.SuspendLayout();
             this.SuspendLayout();
             // 
             // digheader
@@ -62,8 +70,7 @@
             // 
             // container
             // 
-            this.container.Controls.Add(this.btnShowImage);
-            this.container.Controls.Add(this.flpo);
+            this.container.Controls.Add(this.tabMain);
             this.container.Controls.Add(this.panelBorderLine1);
             this.container.Controls.Add(this.exPanel1);
             this.container.Size = new System.Drawing.Size(968, 618);
@@ -131,11 +138,11 @@
             // flpo
             // 
             this.flpo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpo.Location = new System.Drawing.Point(1, 40);
+            this.flpo.Location = new System.Drawing.Point(3, 3);
             this.flpo.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.flpo.Name = "flpo";
             this.flpo.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.flpo.Size = new System.Drawing.Size(966, 541);
+            this.flpo.Size = new System.Drawing.Size(952, 503);
             this.flpo.TabIndex = 20;
             this.flpo.Text = "elementHost1";
             this.flpo.Child = this.flp;
@@ -144,30 +151,15 @@
             // 
             this.panelBorderLine1.Controls.Add(this.cboCategory);
             this.panelBorderLine1.Controls.Add(this.txtSearch);
-            this.panelBorderLine1.Controls.Add(this.lblTime);
+            this.panelBorderLine1.Controls.Add(this.lblTableName_);
             this.panelBorderLine1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBorderLine1.Location = new System.Drawing.Point(1, 1);
             this.panelBorderLine1.Name = "panelBorderLine1";
             this.panelBorderLine1.Padding = new System.Windows.Forms.Padding(5);
             this.panelBorderLine1.PenColor = System.Drawing.Color.CornflowerBlue;
-            this.panelBorderLine1.PenThickness = 5;
+            this.panelBorderLine1.PenThickness = 2;
             this.panelBorderLine1.Size = new System.Drawing.Size(966, 39);
             this.panelBorderLine1.TabIndex = 19;
-            // 
-            // btnShowImage
-            // 
-            this.btnShowImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnShowImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.btnShowImage.Image = global::QTech.Properties.Resources.maxi_img;
-            this.btnShowImage.Location = new System.Drawing.Point(915, 44);
-            this.btnShowImage.Name = "btnShowImage";
-            this.btnShowImage.Size = new System.Drawing.Size(25, 25);
-            this.btnShowImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnShowImage.TabIndex = 23;
-            this.btnShowImage.TabStop = false;
-            this.btnShowImage.Click += new System.EventHandler(this.btnShowImage_Click);
-            this.btnShowImage.MouseLeave += new System.EventHandler(this.btnShowImage_MouseLeave);
-            this.btnShowImage.MouseHover += new System.EventHandler(this.btnShowImage_MouseHover);
             // 
             // cboCategory
             // 
@@ -194,18 +186,32 @@
             this.txtSearch.TabIndex = 21;
             this.txtSearch.QuickSearch += new System.EventHandler(this.txtSearch_QuickSearch);
             // 
-            // lblTime
+            // lblTableName_
             // 
-            this.lblTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblTime.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblTime.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblTime.Location = new System.Drawing.Point(5, 5);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(241, 29);
-            this.lblTime.TabIndex = 20;
-            this.lblTime.Text = ".";
-            this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTableName_.BackColor = System.Drawing.Color.Transparent;
+            this.lblTableName_.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblTableName_.Font = new System.Drawing.Font("Khmer Muol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTableName_.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblTableName_.Location = new System.Drawing.Point(5, 5);
+            this.lblTableName_.Name = "lblTableName_";
+            this.lblTableName_.Size = new System.Drawing.Size(516, 29);
+            this.lblTableName_.TabIndex = 20;
+            this.lblTableName_.Text = ".";
+            this.lblTableName_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnShowImage
+            // 
+            this.btnShowImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnShowImage.Image = global::QTech.Properties.Resources.maxi_img;
+            this.btnShowImage.Location = new System.Drawing.Point(909, 6);
+            this.btnShowImage.Name = "btnShowImage";
+            this.btnShowImage.Size = new System.Drawing.Size(25, 25);
+            this.btnShowImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnShowImage.TabIndex = 23;
+            this.btnShowImage.TabStop = false;
+            this.btnShowImage.Click += new System.EventHandler(this.btnShowImage_Click);
+            this.btnShowImage.MouseLeave += new System.EventHandler(this.btnShowImage_MouseLeave);
+            this.btnShowImage.MouseHover += new System.EventHandler(this.btnShowImage_MouseHover);
             // 
             // colId
             // 
@@ -271,6 +277,52 @@
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
+            // tabMain
+            // 
+            this.tabMain.Controls.Add(this.tabChoose_);
+            this.tabMain.Controls.Add(this.tabOrdered_);
+            this.tabMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabMain.Location = new System.Drawing.Point(1, 40);
+            this.tabMain.Name = "tabMain";
+            this.tabMain.SelectedIndex = 0;
+            this.tabMain.Size = new System.Drawing.Size(966, 541);
+            this.tabMain.TabIndex = 21;
+            // 
+            // tabChoose_
+            // 
+            this.tabChoose_.Controls.Add(this.btnShowImage);
+            this.tabChoose_.Controls.Add(this.flpo);
+            this.tabChoose_.Location = new System.Drawing.Point(4, 28);
+            this.tabChoose_.Name = "tabChoose_";
+            this.tabChoose_.Padding = new System.Windows.Forms.Padding(3);
+            this.tabChoose_.Size = new System.Drawing.Size(958, 509);
+            this.tabChoose_.TabIndex = 0;
+            this.tabChoose_.Text = "ជ្រើសរើសមុខម្ហូប";
+            this.tabChoose_.UseVisualStyleBackColor = true;
+            // 
+            // tabOrdered_
+            // 
+            this.tabOrdered_.Controls.Add(this.elementHost1);
+            this.tabOrdered_.Location = new System.Drawing.Point(4, 28);
+            this.tabOrdered_.Name = "tabOrdered_";
+            this.tabOrdered_.Padding = new System.Windows.Forms.Padding(3);
+            this.tabOrdered_.Size = new System.Drawing.Size(958, 509);
+            this.tabOrdered_.TabIndex = 1;
+            this.tabOrdered_.Text = "ម្ហូបបានកម្មង់";
+            this.tabOrdered_.UseVisualStyleBackColor = true;
+            // 
+            // elementHost1
+            // 
+            this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.elementHost1.Location = new System.Drawing.Point(3, 3);
+            this.elementHost1.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
+            this.elementHost1.Name = "elementHost1";
+            this.elementHost1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.elementHost1.Size = new System.Drawing.Size(952, 503);
+            this.elementHost1.TabIndex = 21;
+            this.elementHost1.Text = "elementHost1";
+            this.elementHost1.Child = this.flpOrdered;
+            // 
             // frmFoodOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 19F);
@@ -286,6 +338,9 @@
             this.flowLayoutPanel2.ResumeLayout(false);
             this.panelBorderLine1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnShowImage)).EndInit();
+            this.tabMain.ResumeLayout(false);
+            this.tabChoose_.ResumeLayout(false);
+            this.tabOrdered_.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -304,11 +359,16 @@
         private Component.ExButtonLoading btnClose;
         private Component.ExButtonLoading btnSave;
         private SaleInventory.Components.PanelBorderLine panelBorderLine1;
-        private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Label lblTableName_;
         private System.Windows.Forms.Integration.ElementHost flpo;
         private WpfCustomControlLibrary.WPFFlowLayout flp;
         private System.Windows.Forms.PictureBox btnShowImage;
         private System.Windows.Forms.ComboBox cboCategory;
         private Component.ExTextbox txtSearch;
+        private System.Windows.Forms.TabControl tabMain;
+        private System.Windows.Forms.TabPage tabChoose_;
+        private System.Windows.Forms.TabPage tabOrdered_;
+        private System.Windows.Forms.Integration.ElementHost elementHost1;
+        private WpfCustomControlLibrary.WPFFlowLayout flpOrdered;
     }
 }

@@ -28,6 +28,7 @@ namespace WpfCustomControlLibrary
         public event EventHandler MouseLeave;
         public event EventHandler DoubleClick;
         public TableStatus TableStatus { get; set; } = TableStatus.Free;
+        public Object Object { get; set; }
 
         private bool _isClick;
         public bool IsClicked
@@ -39,7 +40,7 @@ namespace WpfCustomControlLibrary
             }
         }
 
-
+        public int Id { get; set; }
         public Table()
         {
             InitializeComponent();

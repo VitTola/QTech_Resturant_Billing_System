@@ -18,18 +18,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WpfCustomControlLibrary;
-using Table = QTech.Base.Models.Table;
 
 namespace QTech.Forms
 {
     public partial class frmFoodOrder : ExDialog, IDialog
     {
-        public Table Model { get; set; }
-
-        public frmFoodOrder(Table model, GeneralProcess flag)
+        public Sale Model { get; set; }
+        public string TableName { get; set; }
+        public frmFoodOrder(Sale model, GeneralProcess flag, string tableName)
         {
             InitializeComponent();
-
+            this.TableName = tableName;
             this.Model = model;
             this.Flag = flag;
 
@@ -41,37 +40,9 @@ namespace QTech.Forms
         }
         public GeneralProcess Flag { get; set; }
 
-        public async void BindAsync()
+        public void BindAsync()
         {
-            colName.Visible = true;
-            colName.Width = 100;
-
-            List<Category> categories = null;
-            await this.RunAsync(()=> categories = CategoryLogic.Instance.SearchAsync(new CategorySearch()));
-            if (categories?.Any() ?? false)
-            {
-                var objects = categories.Select(x => new
-                {
-                    Name = x.Name,
-                    Id = x.Id,
-                    Object = x
-                }).ToList() ;
-
-                var _allCategory = $"{QTech.Base.Properties.Resources.Category}{QTech.Base.Properties.Resources.All_}";
-                objects.Add(
-                    new
-                    {
-                        Name = _allCategory, 
-                        Id = 0,
-                        Object = new Category()
-                    }
-                    ) ;
-                cboCategory.ValueMember = "Id";
-                cboCategory.DisplayMember = "Name";
-                cboCategory.DataSource = objects;
-                cboCategory.SelectedIndex = cboCategory.FindStringExact(_allCategory);
-            }
-
+            lblTableName_.Text = TableName;
         }
         public void InitEvent()
         {
@@ -84,27 +55,106 @@ namespace QTech.Forms
             this.MaximizeBox = true;
             btnSave.Click += BtnSave_Click;
             cboCategory.SelectedIndexChanged += CboCategory_SelectedIndexChanged;
+            this.Load += FrmFoodOrder_Load;
+            tabMain.SelectedIndexChanged += TabMain_SelectedIndexChanged;
+        }
+
+        private async void TabMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabMain.SelectedTab.Equals(tabOrdered_))
+            {
+                Sale sale = null;
+                var products = new List<Product>();
+                var _products = new List<wpfChooseFoodControl>();
+                var ordered = await this.RunAsync(()=>{
+                    sale = SaleLogic.Instance.FindAsync(Model.Id);
+                    products = ProductLogic.Instance.SearchAsync(new ProductSearch());
+                    return sale;
+                });
+                if (sale != null)
+                {
+                    sale.SaleDetails.GroupBy(x => x.Id).Select(y => y.First()).ToList().ForEach(x =>
+                    {
+                        var p = new wpfChooseFoodControl
+                        {
+                            Id = x.ProductId,
+                            Width = 300,
+                            Height = 315,
+                            FoodName = products?.FirstOrDefault(y=>y.Id == x.ProductId)?.Name ?? "",
+                            ImageSource = products?.FirstOrDefault(y => y.Id == x.ProductId)?.Photo,
+                            OrderQuantity = x.Quantity,
+                            TextColor = ShareValue.CurrentTheme.LabelColor,
+                        };
+                        p.QuantityChange += P_QuantityChange;
+                        _products.Add(p);
+                    });
+                    if (_products.Any())
+                    {
+                        flpOrdered.ClearChildren();
+                        flpOrdered.AddFoodPanel(_products);
+                    }
+                }
+                else
+                {
+                    await Search();
+                }
+            }
+        }
+
+        private void P_QuantityChange(object sender, EventArgs e)
+        {
+            
+        }
+
+        private async void FrmFoodOrder_Load(object sender, EventArgs e)
+        {
+            colName.Visible = true;
+            colName.Width = 100;
+
+            List<Category> categories = null;
+            await this.RunAsync(() => categories = CategoryLogic.Instance.SearchAsync(new CategorySearch()));
+            if (categories?.Any() ?? false)
+            {
+                var objects = categories.Select(x => new
+                {
+                    Name = x.Name,
+                    Id = x.Id,
+                    Object = x
+                }).ToList();
+
+                var _allCategory = $"{QTech.Base.Properties.Resources.Category}{QTech.Base.Properties.Resources.All_}";
+                objects.Add(
+                    new
+                    {
+                        Name = _allCategory,
+                        Id = 0,
+                        Object = new Category()
+                    }
+                    );
+                cboCategory.ValueMember = "Id";
+                cboCategory.DisplayMember = "Name";
+                cboCategory.DataSource = objects;
+                cboCategory.SelectedIndex = cboCategory.FindStringExact(_allCategory);
+            }
+            await Search();
         }
 
         private async void CboCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             await Search();
         }
-
         private void BtnSave_Click(object sender, EventArgs e)
         {
 
         }
-
         private void dgv_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             e.Control.RegisterEnglishInput();
 
         }
-
-        public async void Read()
+        public void Read()
         {
-            await Search();
+            //await Search();
         }
         private async Task Search()
         {
@@ -118,29 +168,30 @@ namespace QTech.Forms
             var result = await this.RunAsync(() =>
             {
                 var products = ProductLogic.Instance.SearchAsync(search);
-                
+
                 return products;
             });
 
 
             var _products = new List<wpfChooseFoodControl>();
-            result.ForEach(x =>
+            result.GroupBy(x=>x.Id).Select(y=>y.First()).ToList().ForEach(x =>
             {
                 var p = new wpfChooseFoodControl
                 {
+                    Id = x.Id,
                     Width = 300,
                     Height = 315,
                     FoodName = x.Name,
                     ImageSource = x.Photo,
                     TextColor = ShareValue.CurrentTheme.LabelColor,
                 };
+                p.QuantityChange += P_QuantityChange;
                 _products.Add(p);
             });
             if (_products.Any())
             {
                 flp.AddFoodPanel(_products);
             }
-
         }
         public async void Save()
         {
@@ -149,28 +200,32 @@ namespace QTech.Forms
                 Close();
             }
 
+            Write();
+            if (InValid()) { return; }
 
-
-            var isExist = await btnSave.RunAsync(() => TableLogic.Instance.IsExistsAsync(Model));
-            if (isExist == true)
+            var isExist = await btnSave.RunAsync(() => SaleLogic.Instance.IsExistsAsync(Model));
+            if (isExist)
             {
-
-                return;
+                Flag = GeneralProcess.Update;
+            }
+            else
+            {
+                Flag = GeneralProcess.Add;
             }
 
             var result = await btnSave.RunAsync(() =>
             {
                 if (Flag == GeneralProcess.Add)
                 {
-                    return TableLogic.Instance.AddAsync(Model);
+                    return SaleLogic.Instance.AddAsync(Model);
                 }
                 else if (Flag == GeneralProcess.Update)
                 {
-                    return TableLogic.Instance.UpdateAsync(Model);
+                    return SaleLogic.Instance.UpdateAsync(Model);
                 }
                 else if (Flag == GeneralProcess.Remove)
                 {
-                    return TableLogic.Instance.RemoveAsync(Model);
+                    return SaleLogic.Instance.RemoveAsync(Model);
                 }
 
                 return null;
@@ -187,8 +242,23 @@ namespace QTech.Forms
         }
         public void Write()
         {
-
-
+            foreach (var b in flp.Children)
+            {
+                if (b is wpfChooseFoodControl wp)
+                {
+                    var _saleDetail = new SaleDetail() { 
+                       SaleId = Model.Id,
+                       ProductId = wp.Id,
+                       Quantity = wp.OrderQuantity,
+                       UnitPrice = wp.UnitPrice,
+                       Total = wp.OrderQuantity * wp.UnitPrice, 
+                    };
+                    Model.Total = Model.Total + _saleDetail.Total;
+                    Model.SaleDetails.Add(_saleDetail);
+                }
+            }
+            Model.PayStatus = Base.Enums.PayStatus.NotYetPaid;
+            Model.EmployeeId = ShareValue.User.Id;
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -198,17 +268,19 @@ namespace QTech.Forms
         {
             this.Close();
         }
-
         private void btnChangeLog_Click(object sender, EventArgs e)
         {
             ViewChangeLog();
         }
-
         public bool InValid()
         {
+            if (!Model.SaleDetails.Any())
+            {
+                MsgBox.ShowWarning("សូមធ្វើការកម្មង់ម្ហូប មុននឹងធ្វើការរក្សារទុក!","មិនទាន់កម្មង់");
+                return true;
+            }
             return false;
         }
-
         private void btnShowImage_Click(object sender, EventArgs e)
         {
             foreach (var b in flp.Children)
@@ -219,21 +291,19 @@ namespace QTech.Forms
                 }
             }
         }
-
         private void btnShowImage_MouseHover(object sender, EventArgs e)
         {
             btnShowImage.BackColor = Color.LightBlue;
 
         }
-
         private void btnShowImage_MouseLeave(object sender, EventArgs e)
         {
             btnShowImage.BackColor = ShareValue.CurrentTheme.PanelColor;
         }
-
         private async void txtSearch_QuickSearch(object sender, EventArgs e)
         {
             await Search();
         }
+
     }
 }

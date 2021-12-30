@@ -28,7 +28,23 @@ namespace QTech.Db.Logics
         public override Sale AddAsync(Sale entity)
         {
             var result = base.AddAsync(entity);
-          
+            entity.SaleDetails.ForEach(x => {
+                x.SaleId = result.Id;
+                SaleDetailLogic.Instance.AddAsync(x);
+            });
+
+            //Update TableStatus
+            var table = TableLogic.Instance.FindAsync(entity.TableId);
+            if (table!=null)
+            {
+                table.CurrentSaleId = result.Id;
+                table.TableStus = TableStatus.Occupy;
+                _db.Tables.Attach(table);
+                _db.Entry(table).Property(x => x.TableStus).IsModified = true;
+                _db.Entry(table).Property(x => x.CurrentSaleId).IsModified = true;
+                _db.SaveChanges();
+            }
+
             return result;
         }
         public override Sale UpdateAsync(Sale entity)
@@ -58,8 +74,9 @@ namespace QTech.Db.Logics
         }
         public override Sale FindAsync(int id)
         {
-            var result = All().FirstOrDefault(x => x.Active && x.Id == id);
-            return result;
+            var sale = All().FirstOrDefault(x => x.Active && x.Id == id);
+            sale.SaleDetails = _db.SaleDetails?.Where(x => x.SaleId == sale.Id)?.ToList();
+            return sale;
         }
         public override bool CanRemoveAsync(Sale entity)
         {
@@ -127,6 +144,10 @@ namespace QTech.Db.Logics
         {
             return _db.Sales.Any(x => x.Active && x.InvoiceNo == sale.InvoiceNo && x.Id != sale.Id);
         }
-       
+
+        public override bool IsExistsAsync(Sale entity)
+        {
+            return _db.Sales.Any(x=>x.Active && x.Id == entity.Id);
+        }
     }
 }

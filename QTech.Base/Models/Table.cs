@@ -20,5 +20,7 @@ namespace QTech.Base.Models
         public TableStatus TableStus { get; set; }
         [AuditData(resourceName: "Usable", index: 1)]
         public bool IsUseable { get; set; }
+        [AuditData(Ignored: true)]
+        public int CurrentSaleId { get; set; }
     }
 }
