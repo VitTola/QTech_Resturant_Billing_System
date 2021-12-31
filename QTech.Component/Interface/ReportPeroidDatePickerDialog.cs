@@ -1,4 +1,5 @@
-﻿using QTech.Component.Helpers;
+﻿using QTech.Base.Helpers;
+using QTech.Component.Helpers;
 using Storm.Domain;
 using System;
 using System.Windows.Forms;
@@ -21,6 +22,8 @@ namespace QTech.Component
 
             dtpFromDate.Value = d1;
             dtpToDate.Value = d2;
+
+            this.SetTheme(this.Controls, null);
         }
 
         public DateTime FromDate { get; set; }

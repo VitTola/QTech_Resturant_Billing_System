@@ -18,6 +18,8 @@ namespace QTech.Component.Interface
             BindAsync();
             InitEvent();
             Text = Properties.Resources.SelectPrinter;
+
+            this.SetTheme(this.Controls, null);
         }
 
         public GeneralProcess Flag { get; set; }

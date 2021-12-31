@@ -75,7 +75,10 @@ namespace QTech.Db.Logics
         public override Sale FindAsync(int id)
         {
             var sale = All().FirstOrDefault(x => x.Active && x.Id == id);
-            sale.SaleDetails = _db.SaleDetails?.Where(x => x.SaleId == sale.Id)?.ToList();
+            if (sale != null)
+            {
+                sale.SaleDetails = _db.SaleDetails?.Where(x => x.SaleId == sale.Id)?.ToList();
+            }
             return sale;
         }
         public override bool CanRemoveAsync(Sale entity)

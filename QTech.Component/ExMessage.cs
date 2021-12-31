@@ -24,6 +24,7 @@ namespace QTech.Component
             lblMessage.ClientSizeChanged += eh;
             this.SetTheme(this.Controls, null);
             lblMessage.BackColor = pictureBox.BackColor = BackColor;
+            lblMessage.ForeColor = ShareValue.CurrentTheme.LabelColor;
         }
         private bool busy = false;
         private Action<ExMessage> _action;

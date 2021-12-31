@@ -28,6 +28,7 @@ namespace QTech.Component.Interfaces
             {
                 initDefaultValue();
             }
+            this.SetTheme(this.Controls, null);
         }
 
         public void Read() { }

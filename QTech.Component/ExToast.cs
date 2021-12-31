@@ -1,4 +1,5 @@
-﻿using QTech.Component.Properties;
+﻿using QTech.Base.Helpers;
+using QTech.Component.Properties;
 using System;
 using System.Drawing;
 using System.Text;
@@ -23,6 +24,8 @@ namespace QTech.Component
                 Flyout();
                 return true;
             });
+
+            this.SetTheme(this.Controls, null);
         }
 
         Image _toastImage = Resources.oone_64;

@@ -1484,7 +1484,7 @@ namespace QTech.Component
                     }
                     if (frm.WindowState == FormWindowState.Minimized)
                     {
-                        frm.Opacity = 0;
+                        //frm.Opacity = 0;
                     }
                     else if (frm.WindowState == FormWindowState.Maximized)
                     {

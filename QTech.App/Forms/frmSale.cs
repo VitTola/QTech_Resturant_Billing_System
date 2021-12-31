@@ -98,17 +98,25 @@ namespace QTech.Forms
             table.IsClicked = true;
             table.BorderColor = Color.Blue;
             lblTable_.Text = table.TableName;
+
+
+              Model = await dgv.RunAsync(() => {
+                if(table.Object is QTech.Base.Models.Table tb && tb.CurrentSaleId != 0)
+                {
+                    products = ProductLogic.Instance.SearchAsync(new ProductSearch());
+                    var sale =  SaleLogic.Instance.FindAsync(tb.CurrentSaleId);
+                    return sale;
+                }
+                  return new Sale();
+            });
             if (Model.Id != 0 && table.Id != currentSelectingId)
             {
-                var _sale = await dgv.RunAsync(() => {
-                    products = ProductLogic.Instance.SearchAsync(new ProductSearch());
-                    return SaleLogic.Instance.FindAsync(Model.Id);
-                });
-                _sale.SaleDetails.ForEach(x => {
+                dgv.Rows.Clear();
+                Model.SaleDetails.ForEach(x => {
                     var row = newRow();
                     row.Cells[colId.Name].Value = x.Id;
-                    row.Cells[colName.Name].Value = products?.FirstOrDefault(y => y.Id == x.ProductId)?.Name;
-                    row.Cells[colQuantity.Name].Value = x.Quantity;
+                    row.Cells[colName_.Name].Value = products?.FirstOrDefault(y => y.Id == x.ProductId)?.Name;
+                    row.Cells[colQuantity_.Name].Value = x.Quantity;
                 });
             }
             currentSelectingId = table.Id;
@@ -200,8 +208,8 @@ namespace QTech.Forms
                     Model.SaleDetails.ForEach(x => {
                         var row = newRow();
                         row.Cells[colId.Name].Value = x.Id;
-                        row.Cells[colName.Name].Value = products?.FirstOrDefault(y => y.Id == x.ProductId)?.Name;
-                        row.Cells[colQuantity.Name].Value = x.Quantity;
+                        row.Cells[colName_.Name].Value = products?.FirstOrDefault(y => y.Id == x.ProductId)?.Name;
+                        row.Cells[colQuantity_.Name].Value = x.Quantity;
                     });
                     Read();
                 }

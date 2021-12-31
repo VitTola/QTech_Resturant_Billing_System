@@ -1,4 +1,5 @@
 ﻿using Easy.Domain.Helpers;
+using QTech.Base.Helpers;
 using QTech.Component.Helpers;
 using System;
 using System.Windows.Forms;
@@ -31,6 +32,8 @@ namespace QTech.Component
             }
 
             this.Text = peroid.AsOfName;
+
+            this.SetTheme(this.Controls, null);
         }
         public DateTimePeroid Peroid { get; set; }
 

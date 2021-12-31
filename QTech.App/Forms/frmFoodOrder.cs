@@ -73,7 +73,7 @@ namespace QTech.Forms
                 });
                 if (sale != null)
                 {
-                    sale.SaleDetails.GroupBy(x => x.Id).Select(y => y.First()).ToList().ForEach(x =>
+                    sale.SaleDetails.GroupBy(x => x.ProductId).Select(y => y.First()).ToList().ForEach(x =>
                     {
                         var p = new wpfChooseFoodControl
                         {
@@ -136,7 +136,7 @@ namespace QTech.Forms
                 cboCategory.DataSource = objects;
                 cboCategory.SelectedIndex = cboCategory.FindStringExact(_allCategory);
             }
-            await Search();
+            //await Search();
         }
 
         private async void CboCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -184,6 +184,7 @@ namespace QTech.Forms
                     FoodName = x.Name,
                     ImageSource = x.Photo,
                     TextColor = ShareValue.CurrentTheme.LabelColor,
+                    OrderQuantity = Model?.SaleDetails?.FirstOrDefault(y=>y.ProductId == x.Id)?.Quantity ?? 0
                 };
                 p.QuantityChange += P_QuantityChange;
                 _products.Add(p);
@@ -242,9 +243,13 @@ namespace QTech.Forms
         }
         public void Write()
         {
+            if (Model.SaleDetails == null)
+            {
+                Model.SaleDetails = new List<SaleDetail>();
+            }
             foreach (var b in flp.Children)
             {
-                if (b is wpfChooseFoodControl wp)
+                if (b is wpfChooseFoodControl wp && wp.OrderQuantity > 0)
                 {
                     var _saleDetail = new SaleDetail() { 
                        SaleId = Model.Id,
