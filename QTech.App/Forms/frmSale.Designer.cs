@@ -88,7 +88,6 @@
             this.container.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(219)))), ((int)(((byte)(247)))));
             this.container.Controls.Add(this.pnlMainLeft);
             this.container.Controls.Add(this.pnlMainRight);
-            this.container.Padding = new System.Windows.Forms.Padding(5);
             this.container.Size = new System.Drawing.Size(1527, 751);
             // 
             // elementHost1
@@ -140,13 +139,13 @@
             this.pnlMainLeft.Controls.Add(this.elementHost2);
             this.pnlMainLeft.Controls.Add(this.topLinedown);
             this.pnlMainLeft.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMainLeft.Location = new System.Drawing.Point(5, 5);
+            this.pnlMainLeft.Location = new System.Drawing.Point(1, 1);
             this.pnlMainLeft.Margin = new System.Windows.Forms.Padding(0);
             this.pnlMainLeft.Name = "pnlMainLeft";
             this.pnlMainLeft.Padding = new System.Windows.Forms.Padding(5);
             this.pnlMainLeft.PenColor = System.Drawing.Color.CornflowerBlue;
-            this.pnlMainLeft.PenThickness = 3;
-            this.pnlMainLeft.Size = new System.Drawing.Size(1249, 741);
+            this.pnlMainLeft.PenThickness = 2;
+            this.pnlMainLeft.Size = new System.Drawing.Size(1257, 749);
             this.pnlMainLeft.TabIndex = 0;
             // 
             // elementHost2
@@ -154,7 +153,7 @@
             this.elementHost2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.elementHost2.Location = new System.Drawing.Point(5, 44);
             this.elementHost2.Name = "elementHost2";
-            this.elementHost2.Size = new System.Drawing.Size(1239, 692);
+            this.elementHost2.Size = new System.Drawing.Size(1247, 700);
             this.elementHost2.TabIndex = 3;
             this.elementHost2.Text = "elementHost2";
             this.elementHost2.Child = this.pnl;
@@ -167,9 +166,10 @@
             this.topLinedown.Dock = System.Windows.Forms.DockStyle.Top;
             this.topLinedown.Location = new System.Drawing.Point(5, 5);
             this.topLinedown.Name = "topLinedown";
+            this.topLinedown.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.topLinedown.PenColor = System.Drawing.Color.CornflowerBlue;
-            this.topLinedown.PenThickness = 5;
-            this.topLinedown.Size = new System.Drawing.Size(1239, 39);
+            this.topLinedown.PenThickness = 2;
+            this.topLinedown.Size = new System.Drawing.Size(1247, 39);
             this.topLinedown.TabIndex = 6;
             // 
             // panel2
@@ -178,7 +178,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(432, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(720, 39);
+            this.panel2.Size = new System.Drawing.Size(728, 38);
             this.panel2.TabIndex = 14;
             // 
             // txtFreeTables
@@ -190,7 +190,7 @@
             this.txtFreeTables.Location = new System.Drawing.Point(3, 5);
             this.txtFreeTables.Multiline = true;
             this.txtFreeTables.Name = "txtFreeTables";
-            this.txtFreeTables.Size = new System.Drawing.Size(720, 27);
+            this.txtFreeTables.Size = new System.Drawing.Size(728, 27);
             this.txtFreeTables.TabIndex = 12;
             // 
             // panel1
@@ -204,7 +204,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.panel1.Size = new System.Drawing.Size(432, 39);
+            this.panel1.Size = new System.Drawing.Size(432, 38);
             this.panel1.TabIndex = 13;
             // 
             // txtSearch
@@ -264,10 +264,10 @@
             this.flowLayoutPanel2.Controls.Add(this.btnOrder_);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(1152, 0);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(1160, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(87, 39);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(87, 38);
             this.flowLayoutPanel2.TabIndex = 13;
             // 
             // btnOrder_
@@ -300,11 +300,11 @@
             this.lineDownPanel3.Controls.Add(this.lblDate_);
             this.lineDownPanel3.Controls.Add(this.lblTime);
             this.lineDownPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lineDownPanel3.Location = new System.Drawing.Point(0, 10);
+            this.lineDownPanel3.Location = new System.Drawing.Point(1, 1);
             this.lineDownPanel3.Name = "lineDownPanel3";
             this.lineDownPanel3.PenColor = System.Drawing.Color.CornflowerBlue;
-            this.lineDownPanel3.PenThickness = 3;
-            this.lineDownPanel3.Size = new System.Drawing.Size(268, 103);
+            this.lineDownPanel3.PenThickness = 2;
+            this.lineDownPanel3.Size = new System.Drawing.Size(266, 103);
             this.lineDownPanel3.TabIndex = 4;
             // 
             // lblDate_
@@ -315,7 +315,7 @@
             this.lblDate_.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblDate_.Location = new System.Drawing.Point(0, 55);
             this.lblDate_.Name = "lblDate_";
-            this.lblDate_.Size = new System.Drawing.Size(268, 41);
+            this.lblDate_.Size = new System.Drawing.Size(266, 41);
             this.lblDate_.TabIndex = 2;
             this.lblDate_.Text = ".";
             this.lblDate_.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -328,7 +328,7 @@
             this.lblTime.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblTime.Location = new System.Drawing.Point(0, 0);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(268, 55);
+            this.lblTime.Size = new System.Drawing.Size(266, 55);
             this.lblTime.TabIndex = 1;
             this.lblTime.Text = ".";
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -342,13 +342,13 @@
             this.pnlMainRight.Controls.Add(this.dgv);
             this.pnlMainRight.Controls.Add(this.lineDownPanel3);
             this.pnlMainRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlMainRight.Location = new System.Drawing.Point(1254, 5);
+            this.pnlMainRight.Location = new System.Drawing.Point(1258, 1);
             this.pnlMainRight.Margin = new System.Windows.Forms.Padding(0);
             this.pnlMainRight.Name = "pnlMainRight";
-            this.pnlMainRight.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.pnlMainRight.Padding = new System.Windows.Forms.Padding(1, 1, 1, 0);
             this.pnlMainRight.PenColor = System.Drawing.Color.CornflowerBlue;
-            this.pnlMainRight.PenThickness = 3;
-            this.pnlMainRight.Size = new System.Drawing.Size(268, 741);
+            this.pnlMainRight.PenThickness = 2;
+            this.pnlMainRight.Size = new System.Drawing.Size(268, 749);
             this.pnlMainRight.TabIndex = 1;
             // 
             // exPanel
@@ -356,10 +356,10 @@
             this.exPanel.BackColor = System.Drawing.Color.Transparent;
             this.exPanel.Controls.Add(this.flowLayoutPanel3);
             this.exPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.exPanel.Location = new System.Drawing.Point(0, 697);
+            this.exPanel.Location = new System.Drawing.Point(1, 705);
             this.exPanel.Name = "exPanel";
             this.exPanel.Padding = new System.Windows.Forms.Padding(2);
-            this.exPanel.Size = new System.Drawing.Size(268, 44);
+            this.exPanel.Size = new System.Drawing.Size(266, 44);
             this.exPanel.TabIndex = 23;
             // 
             // flowLayoutPanel3
@@ -369,7 +369,7 @@
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(2, 2);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(264, 40);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(262, 40);
             this.flowLayoutPanel3.TabIndex = 0;
             // 
             // btnCalculate
@@ -382,7 +382,7 @@
             this.btnCalculate.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
             this.btnCalculate.ForeColor = System.Drawing.Color.Black;
             this.btnCalculate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCalculate.Location = new System.Drawing.Point(187, 6);
+            this.btnCalculate.Location = new System.Drawing.Point(185, 6);
             this.btnCalculate.Margin = new System.Windows.Forms.Padding(2, 6, 2, 2);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
@@ -398,7 +398,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Khmer OS Battambang", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label2.Location = new System.Drawing.Point(7, 170);
+            this.label2.Location = new System.Drawing.Point(7, 159);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 33);
             this.label2.TabIndex = 9;
@@ -460,7 +460,7 @@
             this.dgv.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv.EnableHeadersVisualStyles = false;
             this.dgv.Executing = false;
-            this.dgv.Location = new System.Drawing.Point(12, 203);
+            this.dgv.Location = new System.Drawing.Point(13, 194);
             this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
             this.dgv.Paging = null;
@@ -468,7 +468,7 @@
             this.dgv.RowHeadersVisible = false;
             this.dgv.RowTemplate.Height = 28;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(250, 443);
+            this.dgv.Size = new System.Drawing.Size(248, 460);
             this.dgv.TabIndex = 6;
             // 
             // colId

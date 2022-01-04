@@ -31,6 +31,7 @@ namespace WpfCustomControlLibrary
 
         public int Id { get; set; }
         public decimal UnitPrice { get; set; }
+        public int SaleDetailId { get; set; }
         private void InitEvent()
         {
             

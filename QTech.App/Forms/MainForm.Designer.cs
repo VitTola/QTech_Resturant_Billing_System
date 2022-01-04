@@ -617,7 +617,7 @@
             this.pSecondMenue1.Controls.Add(this.pSecondMenue2);
             this.pSecondMenue1.Location = new System.Drawing.Point(104, 31);
             this.pSecondMenue1.Name = "pSecondMenue1";
-            this.pSecondMenue1.Size = new System.Drawing.Size(1176, 84);
+            this.pSecondMenue1.Size = new System.Drawing.Size(1174, 84);
             this.pSecondMenue1.TabIndex = 4;
             // 
             // pSecondMenue2
@@ -626,7 +626,7 @@
             this.pSecondMenue2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pSecondMenue2.Location = new System.Drawing.Point(0, 0);
             this.pSecondMenue2.Name = "pSecondMenue2";
-            this.pSecondMenue2.Size = new System.Drawing.Size(1176, 84);
+            this.pSecondMenue2.Size = new System.Drawing.Size(1174, 84);
             this.pSecondMenue2.TabIndex = 3;
             // 
             // colorWithAlpha3

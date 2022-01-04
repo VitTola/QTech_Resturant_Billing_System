@@ -24,6 +24,7 @@ namespace QTech.Forms
     public partial class frmFoodOrder : ExDialog, IDialog
     {
         public Sale Model { get; set; }
+        public List<Product> Products { get; set; }
         public string TableName { get; set; }
         public frmFoodOrder(Sale model, GeneralProcess flag, string tableName)
         {
@@ -40,9 +41,20 @@ namespace QTech.Forms
         }
         public GeneralProcess Flag { get; set; }
 
-        public void BindAsync()
+        public async void BindAsync()
         {
             lblTableName_.Text = TableName;
+
+            Products = await this.RunAsync(() =>
+            {
+                var products = ProductLogic.Instance.SearchAsync(new ProductSearch());
+
+                return products;
+            });
+            if (Model.SaleDetails == null)
+            {
+                Model.SaleDetails = new List<SaleDetail>();
+            }
         }
         public void InitEvent()
         {
@@ -59,51 +71,60 @@ namespace QTech.Forms
             tabMain.SelectedIndexChanged += TabMain_SelectedIndexChanged;
         }
 
-        private async void TabMain_SelectedIndexChanged(object sender, EventArgs e)
+        private void TabMain_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tabMain.SelectedTab.Equals(tabOrdered_))
             {
-                Sale sale = null;
-                var products = new List<Product>();
                 var _products = new List<wpfChooseFoodControl>();
-                var ordered = await this.RunAsync(()=>{
-                    sale = SaleLogic.Instance.FindAsync(Model.Id);
-                    products = ProductLogic.Instance.SearchAsync(new ProductSearch());
-                    return sale;
+
+                Model.SaleDetails.GroupBy(x => x.ProductId).Select(y => y.First()).ToList().ForEach(x =>
+                {
+                    var p = new wpfChooseFoodControl
+                    {
+                        Id = x.ProductId,
+                        Width = 300,
+                        Height = 315,
+                        FoodName = Products?.FirstOrDefault(y => y.Id == x.ProductId)?.Name ?? "",
+                        ImageSource = Products?.FirstOrDefault(y => y.Id == x.ProductId)?.Photo,
+                        OrderQuantity = x.Quantity,
+                        TextColor = ShareValue.CurrentTheme.LabelColor,
+                    };
+                    p.QuantityChange += P_QuantityChange;
+                    _products.Add(p);
                 });
-                if (sale != null)
+                if (_products.Any())
                 {
-                    sale.SaleDetails.GroupBy(x => x.ProductId).Select(y => y.First()).ToList().ForEach(x =>
-                    {
-                        var p = new wpfChooseFoodControl
-                        {
-                            Id = x.ProductId,
-                            Width = 300,
-                            Height = 315,
-                            FoodName = products?.FirstOrDefault(y=>y.Id == x.ProductId)?.Name ?? "",
-                            ImageSource = products?.FirstOrDefault(y => y.Id == x.ProductId)?.Photo,
-                            OrderQuantity = x.Quantity,
-                            TextColor = ShareValue.CurrentTheme.LabelColor,
-                        };
-                        p.QuantityChange += P_QuantityChange;
-                        _products.Add(p);
-                    });
-                    if (_products.Any())
-                    {
-                        flpOrdered.ClearChildren();
-                        flpOrdered.AddFoodPanel(_products);
-                    }
+                    flpOrdered.ClearChildren();
+                    flpOrdered.AddFoodPanel(_products);
                 }
-                else
-                {
-                    await Search();
-                }
+            }
+            else
+            {
+                Search();
             }
         }
 
         private void P_QuantityChange(object sender, EventArgs e)
         {
-            
+            var currentProduct = sender as wpfChooseFoodControl;
+            var saleDetail = Model.SaleDetails.FirstOrDefault(x => x.ProductId == currentProduct?.Id);
+            if (saleDetail != null)
+            {
+                Model.SaleDetails[Model.SaleDetails.IndexOf(saleDetail)].Quantity = currentProduct.OrderQuantity;
+            }
+            else
+            {
+                var _saleDetail = new SaleDetail()
+                {
+                    SaleId = Model.Id,
+                    ProductId = currentProduct.Id,
+                    Quantity = currentProduct.OrderQuantity,
+                    UnitPrice = currentProduct.UnitPrice,
+                    Total = currentProduct.OrderQuantity * currentProduct.UnitPrice,
+                };
+                Model.Total = Model.Total + _saleDetail.Total;
+                Model.SaleDetails.Add(_saleDetail);
+            }
         }
 
         private async void FrmFoodOrder_Load(object sender, EventArgs e)
@@ -139,9 +160,9 @@ namespace QTech.Forms
             //await Search();
         }
 
-        private async void CboCategory_SelectedIndexChanged(object sender, EventArgs e)
+        private  void CboCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            await Search();
+             Search();
         }
         private void BtnSave_Click(object sender, EventArgs e)
         {
@@ -156,39 +177,33 @@ namespace QTech.Forms
         {
             //await Search();
         }
-        private async Task Search()
+        private void Search()
         {
             flp.ClearChildren();
             int catId = Parse.ToInt(cboCategory?.SelectedValue?.ToString() ?? "0");
-            var search = new ProductSearch
-            {
-                Search = txtSearch.Text,
-                categoryId = catId
-            };
-            var result = await this.RunAsync(() =>
-            {
-                var products = ProductLogic.Instance.SearchAsync(search);
 
-                return products;
-            });
-
+            var filteredProducts = Products.Where(x =>
+            (catId == 0 ? true : x.CategoryId == catId) &&
+            (string.IsNullOrEmpty(txtSearch.Text) ? true : x.Name.ToLower().Contains(txtSearch.Text.ToLower()))
+            ).ToList();
 
             var _products = new List<wpfChooseFoodControl>();
-            result.GroupBy(x=>x.Id).Select(y=>y.First()).ToList().ForEach(x =>
-            {
-                var p = new wpfChooseFoodControl
+            filteredProducts.GroupBy(x => x.Id).Select(y => y.First()).ToList().ForEach(x =>
                 {
-                    Id = x.Id,
-                    Width = 300,
-                    Height = 315,
-                    FoodName = x.Name,
-                    ImageSource = x.Photo,
-                    TextColor = ShareValue.CurrentTheme.LabelColor,
-                    OrderQuantity = Model?.SaleDetails?.FirstOrDefault(y=>y.ProductId == x.Id)?.Quantity ?? 0
-                };
-                p.QuantityChange += P_QuantityChange;
-                _products.Add(p);
-            });
+                    var p = new wpfChooseFoodControl
+                    {
+                        SaleDetailId = Model?.SaleDetails.FirstOrDefault(y => y.ProductId == x.Id)?.Id ?? 0,
+                        Id = x.Id,
+                        Width = 300,
+                        Height = 315,
+                        FoodName = x.Name,
+                        ImageSource = x.Photo,
+                        TextColor = ShareValue.CurrentTheme.LabelColor,
+                        OrderQuantity = Model?.SaleDetails?.FirstOrDefault(y => y.ProductId == x.Id)?.Quantity ?? 0
+                    };
+                    p.QuantityChange += P_QuantityChange;
+                    _products.Add(p);
+                });
             if (_products.Any())
             {
                 flp.AddFoodPanel(_products);
@@ -243,25 +258,21 @@ namespace QTech.Forms
         }
         public void Write()
         {
-            if (Model.SaleDetails == null)
-            {
-                Model.SaleDetails = new List<SaleDetail>();
-            }
-            foreach (var b in flp.Children)
-            {
-                if (b is wpfChooseFoodControl wp && wp.OrderQuantity > 0)
+            Model.SaleDetails.ForEach(x => {
+                if (x.Quantity == 0)
                 {
-                    var _saleDetail = new SaleDetail() { 
-                       SaleId = Model.Id,
-                       ProductId = wp.Id,
-                       Quantity = wp.OrderQuantity,
-                       UnitPrice = wp.UnitPrice,
-                       Total = wp.OrderQuantity * wp.UnitPrice, 
-                    };
-                    Model.Total = Model.Total + _saleDetail.Total;
-                    Model.SaleDetails.Add(_saleDetail);
+                    if (x.Id == 0)
+                    {
+                        Model.SaleDetails.Remove(x);
+                    }
+                    else
+                    {
+                        Model.SaleDetails[Model.SaleDetails.IndexOf(x)].Active = false;
+                    }
                 }
-            }
+            
+            });
+
             Model.PayStatus = Base.Enums.PayStatus.NotYetPaid;
             Model.EmployeeId = ShareValue.User.Id;
         }
@@ -281,7 +292,7 @@ namespace QTech.Forms
         {
             if (!Model.SaleDetails.Any())
             {
-                MsgBox.ShowWarning("សូមធ្វើការកម្មង់ម្ហូប មុននឹងធ្វើការរក្សារទុក!","មិនទាន់កម្មង់");
+                MsgBox.ShowWarning("សូមធ្វើការកម្មង់ម្ហូប មុននឹងធ្វើការរក្សារទុក!", "មិនទាន់កម្មង់");
                 return true;
             }
             return false;
@@ -305,9 +316,9 @@ namespace QTech.Forms
         {
             btnShowImage.BackColor = ShareValue.CurrentTheme.PanelColor;
         }
-        private async void txtSearch_QuickSearch(object sender, EventArgs e)
+        private  void txtSearch_QuickSearch(object sender, EventArgs e)
         {
-            await Search();
+             Search();
         }
 
     }

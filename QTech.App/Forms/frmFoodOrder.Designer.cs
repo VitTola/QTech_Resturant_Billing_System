@@ -157,7 +157,7 @@
             this.panelBorderLine1.Name = "panelBorderLine1";
             this.panelBorderLine1.Padding = new System.Windows.Forms.Padding(5);
             this.panelBorderLine1.PenColor = System.Drawing.Color.CornflowerBlue;
-            this.panelBorderLine1.PenThickness = 2;
+            this.panelBorderLine1.PenThickness = 1;
             this.panelBorderLine1.Size = new System.Drawing.Size(966, 39);
             this.panelBorderLine1.TabIndex = 19;
             // 
@@ -306,7 +306,7 @@
             this.tabOrdered_.Location = new System.Drawing.Point(4, 28);
             this.tabOrdered_.Name = "tabOrdered_";
             this.tabOrdered_.Padding = new System.Windows.Forms.Padding(3);
-            this.tabOrdered_.Size = new System.Drawing.Size(958, 509);
+            this.tabOrdered_.Size = new System.Drawing.Size(437, 199);
             this.tabOrdered_.TabIndex = 1;
             this.tabOrdered_.Text = "ម្ហូបបានកម្មង់";
             this.tabOrdered_.UseVisualStyleBackColor = true;
@@ -318,7 +318,7 @@
             this.elementHost1.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.elementHost1.Name = "elementHost1";
             this.elementHost1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.elementHost1.Size = new System.Drawing.Size(952, 503);
+            this.elementHost1.Size = new System.Drawing.Size(431, 193);
             this.elementHost1.TabIndex = 21;
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = this.flpOrdered;

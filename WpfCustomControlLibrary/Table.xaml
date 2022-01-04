@@ -4,12 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfCustomControlLibrary"
-             mc:Ignorable="d" Width="287.989" Height="202.999">
+             mc:Ignorable="d" Width="287.989" Height="202.999" FontFamily="Fasthand">
     <Grid Margin="28,29">
         <Button x:Name="btn" Margin="0,0,0,0" HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
                 Background="#FF12F326"
-                BorderThickness="5" FontFamily="Khmer Muol"
+                BorderThickness="2" FontFamily="Fasthand"
                 FontSize="40" Content="Name" Foreground="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" ForceCursor="True" BorderBrush="DodgerBlue" MouseDoubleClick="btn_MouseDoubleClick"
                 >
             <Button.Resources>

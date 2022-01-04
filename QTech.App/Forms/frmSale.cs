@@ -51,6 +51,7 @@ namespace QTech.Forms
         public async void Read()
         {
             pnl.ClearChildren();
+            lblFreeTable_.Text = "";
             var tables = await this.RunAsync(() => TableLogic.Instance.SearchAsync(new TableSearch()));
             if (tables != null)
             {
@@ -61,8 +62,8 @@ namespace QTech.Forms
                         Id = t.Id,
                         TableName = t.Name,
                         TableStatus = t.TableStus,
-                        TableColor = t.TableStus == TableStatus.Free ? Color.FromArgb(158, 242, 156) : Color.FromArgb(238, 98, 98),
-                        PrimaryColor = t.TableStus == TableStatus.Free ? Color.FromArgb(158, 242, 156) : Color.FromArgb(238, 98, 98),
+                        TableColor = t.TableStus == TableStatus.Free ? Color.FromArgb(204, 232, 255) : Color.FromArgb(255, 240, 245),
+                        PrimaryColor = t.TableStus == TableStatus.Free ? Color.FromArgb(204, 232, 255) : Color.FromArgb(255, 240, 245),
                         TextColor = Color.Black,
                         BorderColor = Color.Gray,
                         Detail = "",
@@ -88,7 +89,6 @@ namespace QTech.Forms
             btnOrder__Click(sender, e);
         }
 
-        int currentSelectingId;
         List<Product> products = null;
         private async void Table_TableClick(object sender, EventArgs e)
         {
@@ -99,7 +99,6 @@ namespace QTech.Forms
             table.BorderColor = Color.Blue;
             lblTable_.Text = table.TableName;
 
-
               Model = await dgv.RunAsync(() => {
                 if(table.Object is QTech.Base.Models.Table tb && tb.CurrentSaleId != 0)
                 {
@@ -109,17 +108,18 @@ namespace QTech.Forms
                 }
                   return new Sale();
             });
-            if (Model.Id != 0 && table.Id != currentSelectingId)
-            {
-                dgv.Rows.Clear();
-                Model.SaleDetails.ForEach(x => {
+
+            dgv.Rows.Clear();
+
+            if (Model?.Id != 0)
+            {           
+                Model.SaleDetails?.ForEach(x => {
                     var row = newRow();
                     row.Cells[colId.Name].Value = x.Id;
                     row.Cells[colName_.Name].Value = products?.FirstOrDefault(y => y.Id == x.ProductId)?.Name;
                     row.Cells[colQuantity_.Name].Value = x.Quantity;
                 });
             }
-            currentSelectingId = table.Id;
         }
         private DataGridViewRow newRow(bool isFocus = false)
         {
@@ -152,7 +152,6 @@ namespace QTech.Forms
             txtFreeTables.BackColor = ShareValue.CurrentTheme.PanelColor;
             txtFreeTables.ForeColor = ShareValue.CurrentTheme.LabelColor;
             txtFreeTables.ReadOnly = true;
-
         }
 
         public void Write()
@@ -191,26 +190,30 @@ namespace QTech.Forms
         private void btnOrder__Click(object sender, EventArgs e)
         {
             var clickedTable = pnl.Children?.Cast<Table>()?.FirstOrDefault(x => x.IsClicked);
-            if (clickedTable.TableStatus == TableStatus.Occupy)
-            {
-                if (clickedTable.Object is QTech.Base.Models.Table table)
-                {
-                    Model.Id = table.CurrentSaleId;
-                }
-            }
+            
             if (clickedTable != null)
             {
+                if (clickedTable.TableStatus == TableStatus.Occupy)
+                {
+                    if (clickedTable.Object is QTech.Base.Models.Table table)
+                    {
+                        Model.Id = table.CurrentSaleId;
+                    }
+                }
+
                 Model.TableId = clickedTable.Id;
                 Model.SaleDate = DateTime.Now;
                 var dig = new frmFoodOrder(Model,Flag,clickedTable.TableName);
                 if (dig.ShowDialog() == DialogResult.OK)
                 {
-                    Model.SaleDetails.ForEach(x => {
-                        var row = newRow();
-                        row.Cells[colId.Name].Value = x.Id;
-                        row.Cells[colName_.Name].Value = products?.FirstOrDefault(y => y.Id == x.ProductId)?.Name;
-                        row.Cells[colQuantity_.Name].Value = x.Quantity;
-                    });
+                    dgv.Rows.Clear();
+                        Model.SaleDetails.ForEach(x => {
+                            var row = newRow();
+                            row.Cells[colId.Name].Value = x.Id;
+                            row.Cells[colName_.Name].Value = products?.FirstOrDefault(y => y.Id == x.ProductId)?.Name;
+                            row.Cells[colQuantity_.Name].Value = x.Quantity;
+                        });
+               
                     Read();
                 }
             }
