@@ -98,7 +98,6 @@ namespace WpfCustomControlLibrary
             get { return _isHideImage; }
             set
             {
-
                 if (value)
                 {
                     pic.Visibility = System.Windows.Visibility.Hidden;

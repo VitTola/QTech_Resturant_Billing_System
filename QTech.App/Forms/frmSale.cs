@@ -51,8 +51,11 @@ namespace QTech.Forms
         public async void Read()
         {
             pnl.ClearChildren();
-            lblFreeTable_.Text = "";
-            var tables = await this.RunAsync(() => TableLogic.Instance.SearchAsync(new TableSearch()));
+            var search = new TableSearch
+            {
+                Search = txtSearch.Text
+            };
+            var tables = await this.RunAsync(() => TableLogic.Instance.SearchAsync(search));
             if (tables != null)
             {
                 foreach (var t in tables.Where(x => x.IsUseable))
@@ -88,7 +91,7 @@ namespace QTech.Forms
         {
             btnOrder__Click(sender, e);
         }
-
+        List<Scale> scales = null;
         List<Product> products = null;
         private async void Table_TableClick(object sender, EventArgs e)
         {
@@ -104,6 +107,7 @@ namespace QTech.Forms
                 {
                     products = ProductLogic.Instance.SearchAsync(new ProductSearch());
                     var sale =  SaleLogic.Instance.FindAsync(tb.CurrentSaleId);
+                      scales = ScaleLogic.Instance.SearchAsync(new ScaleSearch());
                     return sale;
                 }
                   return new Sale();
@@ -111,12 +115,13 @@ namespace QTech.Forms
 
             dgv.Rows.Clear();
 
-            if (Model!= null)
+            if (Model!= null && Model.SaleDetails != null)
             {           
                 Model.SaleDetails?.ForEach(x => {
                     var row = newRow();
                     row.Cells[colId.Name].Value = x.Id;
                     row.Cells[colName_.Name].Value = products?.FirstOrDefault(y => y.Id == x.ProductId)?.Name;
+                    row.Cells[colScale.Name].Value = scales?.FirstOrDefault(y=> x.ScaleId == y.Id)?.Name ?? "";
                     row.Cells[colQuantity_.Name].Value = x.Quantity;
                 });
             }
@@ -152,6 +157,13 @@ namespace QTech.Forms
             txtFreeTables.BackColor = ShareValue.CurrentTheme.PanelColor;
             txtFreeTables.ForeColor = ShareValue.CurrentTheme.LabelColor;
             txtFreeTables.ReadOnly = true;
+
+            txtSearch.QuickSearch += TxtSearch_QuickSearch;
+        }
+
+        private void TxtSearch_QuickSearch(object sender, EventArgs e)
+        {
+            Read();
         }
 
         public void Write()
@@ -211,14 +223,16 @@ namespace QTech.Forms
                 if (dig.ShowDialog() == DialogResult.OK)
                 {
                     dgv.Rows.Clear();
-                        Model.SaleDetails.ForEach(x => {
-                            var row = newRow();
-                            row.Cells[colId.Name].Value = x.Id;
-                            row.Cells[colName_.Name].Value = products?.FirstOrDefault(y => y.Id == x.ProductId)?.Name;
-                            row.Cells[colQuantity_.Name].Value = x.Quantity;
-                        });
-               
+                    dig.Model.SaleDetails.ForEach(x =>
+                    {
+                        var row = newRow();
+                        row.Cells[colId.Name].Value = x.Id;
+                        row.Cells[colName_.Name].Value = products?.FirstOrDefault(y => y.Id == x.ProductId)?.Name;
+                        row.Cells[colScale.Name].Value = scales?.FirstOrDefault(y => x.ScaleId == y.Id)?.Name ?? "";
+                        row.Cells[colQuantity_.Name].Value = x.Quantity;
+                    });
                     Read();
+
                 }
             }
         }

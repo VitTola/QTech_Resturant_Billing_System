@@ -81,7 +81,7 @@ namespace QTech.Forms
             {
                 var _products = new List<wpfChooseFoodControl>();
 
-                Model.SaleDetails.GroupBy(x => x.ProductId).Select(y => y.First()).ToList().ForEach(x =>
+                Model.SaleDetails.ForEach(x =>
                 {
                     var p = new wpfChooseFoodControl
                     {
@@ -196,17 +196,19 @@ namespace QTech.Forms
             var _products = new List<wpfChooseFoodControl>();
             _productPrices?.ForEach(x =>
                 {
+                    int Qty = Model?.SaleDetails?.FirstOrDefault(y => y.ProductId == x.ProductId && y.ScaleId == x.ScaleId)?.Quantity ?? 0;
+                 
                     var p = new wpfChooseFoodControl
                     {
                         SaleDetailId = Model?.SaleDetails.FirstOrDefault(y => y.ProductId == x.Id)?.Id ?? 0,
-                        Id = x.Id,
+                        Id = x.ProductId,
                         Width = 300,
                         Height = 340,
                         FoodName = Products.FirstOrDefault(z=>z.Id == x.ProductId)?.Name ?? "",
                         ImageSource = Products.FirstOrDefault(z => z.Id == x.ProductId)?.Photo,
                         TextColor = ShareValue.CurrentTheme.LabelColor,
                         Scale = scales.FirstOrDefault(y=>y.Id == x.ScaleId),
-                        OrderQuantity = Model?.SaleDetails?.FirstOrDefault(y => y.ProductId == x.Id)?.Quantity ?? 0
+                        OrderQuantity = Qty
                     };
                     p.QuantityChange += P_QuantityChange;
                     _products.Add(p);

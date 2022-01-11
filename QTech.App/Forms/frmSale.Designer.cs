@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.lineDownPanel1 = new SaleInventory.Components.LineDownPanel();
             this.panelLineRight1 = new SaleInventory.Components.PanelLineRight();
@@ -50,6 +50,7 @@
             this._lbl = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnOrder_ = new QTech.Component.ExButtonLoading();
+            this.btnReset_ = new QTech.Component.ExButtonLoading();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.lineDownPanel3 = new SaleInventory.Components.LineDownPanel();
             this.lblDate_ = new System.Windows.Forms.Label();
@@ -64,8 +65,8 @@
             this.dgv = new QTech.Component.ExDataGridView();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colScale = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colQuantity_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnReset_ = new QTech.Component.ExButtonLoading();
             this.container.SuspendLayout();
             this.pnlMainLeft.SuspendLayout();
             this.topLinedown.SuspendLayout();
@@ -293,6 +294,27 @@
             this.btnOrder_.UseVisualStyleBackColor = true;
             this.btnOrder_.Click += new System.EventHandler(this.btnOrder__Click);
             // 
+            // btnReset_
+            // 
+            this.btnReset_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReset_.BackColor = System.Drawing.Color.Ivory;
+            this.btnReset_.DefaultImage = null;
+            this.btnReset_.Executing = false;
+            this.btnReset_.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset_.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
+            this.btnReset_.ForeColor = System.Drawing.Color.Black;
+            this.btnReset_.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReset_.Location = new System.Drawing.Point(8, 6);
+            this.btnReset_.Margin = new System.Windows.Forms.Padding(2, 6, 2, 2);
+            this.btnReset_.Name = "btnReset_";
+            this.btnReset_.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
+            this.btnReset_.ShortcutText = "Del";
+            this.btnReset_.Size = new System.Drawing.Size(93, 27);
+            this.btnReset_.TabIndex = 12;
+            this.btnReset_.Text = "លុបការកម្មង់";
+            this.btnReset_.UseVisualStyleBackColor = true;
+            this.btnReset_.Click += new System.EventHandler(this.btnReset__Click);
+            // 
             // timer
             // 
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
@@ -439,8 +461,8 @@
             this.dgv.AllowUserToAddRows = false;
             this.dgv.AllowUserToDeleteRows = false;
             this.dgv.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -451,15 +473,16 @@
             this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colId,
             this.colName_,
+            this.colScale,
             this.colQuantity_});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Khmer OS System", 8.25F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(205)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Khmer OS System", 8.25F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(205)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv.EnableHeadersVisualStyles = false;
             this.dgv.Executing = false;
             this.dgv.Location = new System.Drawing.Point(13, 194);
@@ -488,33 +511,19 @@
             this.colName_.Name = "colName_";
             this.colName_.ReadOnly = true;
             // 
+            // colScale
+            // 
+            this.colScale.HeaderText = "ខ្នាត";
+            this.colScale.Name = "colScale";
+            this.colScale.ReadOnly = true;
+            // 
             // colQuantity_
             // 
             this.colQuantity_.DataPropertyName = "Quantity";
             this.colQuantity_.HeaderText = "ចំនួន";
             this.colQuantity_.Name = "colQuantity_";
             this.colQuantity_.ReadOnly = true;
-            // 
-            // btnReset_
-            // 
-            this.btnReset_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnReset_.BackColor = System.Drawing.Color.Ivory;
-            this.btnReset_.DefaultImage = null;
-            this.btnReset_.Executing = false;
-            this.btnReset_.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReset_.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
-            this.btnReset_.ForeColor = System.Drawing.Color.Black;
-            this.btnReset_.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReset_.Location = new System.Drawing.Point(8, 6);
-            this.btnReset_.Margin = new System.Windows.Forms.Padding(2, 6, 2, 2);
-            this.btnReset_.Name = "btnReset_";
-            this.btnReset_.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
-            this.btnReset_.ShortcutText = "Del";
-            this.btnReset_.Size = new System.Drawing.Size(93, 27);
-            this.btnReset_.TabIndex = 12;
-            this.btnReset_.Text = "លុបការកម្មង់";
-            this.btnReset_.UseVisualStyleBackColor = true;
-            this.btnReset_.Click += new System.EventHandler(this.btnReset__Click);
+            this.colQuantity_.Width = 40;
             // 
             // frmSale
             // 
@@ -576,9 +585,10 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private Component.ExButtonLoading btnReset_;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName_;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colScale;
         private System.Windows.Forms.DataGridViewTextBoxColumn colQuantity_;
-        private Component.ExButtonLoading btnReset_;
     }
 }
