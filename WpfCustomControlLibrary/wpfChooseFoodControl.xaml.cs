@@ -1,4 +1,5 @@
 ﻿
+using QTech.Base.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,13 @@ namespace WpfCustomControlLibrary
         public wpfChooseFoodControl()
         {
             InitializeComponent();
+            Bind();
+            InitEvent();
+        }
+
+        private void Bind()
+        {
+
         }
 
         public int Id { get; set; }
@@ -34,14 +42,34 @@ namespace WpfCustomControlLibrary
         public int SaleDetailId { get; set; }
         private void InitEvent()
         {
-            
+
+
         }
+
+        public Scale Scale
+        {
+            get
+            {
+                var scale = txtScale.Tag as Scale;
+                return scale;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    txtScale.Text = value.Name;
+                    txtScale.Tag = value;
+                }
+            }
+        }
+
         public System.Drawing.Color TextColor
         {
             set
             {
                 var bg = new SolidColorBrush(System.Windows.Media.Color.FromArgb(value.A, value.R, value.G, value.B));
-                txtAmount.Foreground = txtName.Foreground = bg;
+                txtAmount.Foreground = txtName.Foreground = txtScale.Foreground = bg;
+
             }
         }
         public bool HidePicture
@@ -57,7 +85,7 @@ namespace WpfCustomControlLibrary
                 else
                 {
                     pic.Visibility = System.Windows.Visibility.Visible;
-                    this.Height = 315;
+                    this.Height = 340;
                 }
                 _isHideImage = value;
             }
@@ -95,14 +123,14 @@ namespace WpfCustomControlLibrary
         {
             set
             {
-                if (value!=null)
+                if (value != null)
                 {
                     pic.ImageSource = value;
                 }
             }
         }
 
-       [Browsable(true)]
+        [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public string FoodName
         {

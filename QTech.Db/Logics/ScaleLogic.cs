@@ -61,5 +61,10 @@ namespace QTech.Db.Logics
             }
             return result;
         }
+
+        public List<Scale> GetScaleByIds(List<int> Ids)
+        {
+            return _db.Scales.Where(x => x.Active && Ids.Contains(x.Id)).ToList();
+        }
     }
 }

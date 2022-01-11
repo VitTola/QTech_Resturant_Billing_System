@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.lineDownPanel1 = new SaleInventory.Components.LineDownPanel();
             this.panelLineRight1 = new SaleInventory.Components.PanelLineRight();
@@ -65,6 +65,7 @@
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colQuantity_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnReset_ = new QTech.Component.ExButtonLoading();
             this.container.SuspendLayout();
             this.pnlMainLeft.SuspendLayout();
             this.topLinedown.SuspendLayout();
@@ -178,7 +179,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(432, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(728, 38);
+            this.panel2.Size = new System.Drawing.Size(631, 38);
             this.panel2.TabIndex = 14;
             // 
             // txtFreeTables
@@ -190,7 +191,7 @@
             this.txtFreeTables.Location = new System.Drawing.Point(3, 5);
             this.txtFreeTables.Multiline = true;
             this.txtFreeTables.Name = "txtFreeTables";
-            this.txtFreeTables.Size = new System.Drawing.Size(728, 27);
+            this.txtFreeTables.Size = new System.Drawing.Size(631, 27);
             this.txtFreeTables.TabIndex = 12;
             // 
             // panel1
@@ -245,7 +246,7 @@
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.label1.BackColor = System.Drawing.Color.LavenderBlush;
             this.label1.Location = new System.Drawing.Point(232, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(20, 20);
@@ -253,7 +254,7 @@
             // 
             // _lbl
             // 
-            this._lbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(242)))), ((int)(((byte)(156)))));
+            this._lbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             this._lbl.Location = new System.Drawing.Point(349, 8);
             this._lbl.Name = "_lbl";
             this._lbl.Size = new System.Drawing.Size(20, 20);
@@ -262,12 +263,13 @@
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.btnOrder_);
+            this.flowLayoutPanel2.Controls.Add(this.btnReset_);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(1160, 0);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(1063, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(87, 38);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(184, 38);
             this.flowLayoutPanel2.TabIndex = 13;
             // 
             // btnOrder_
@@ -280,7 +282,7 @@
             this.btnOrder_.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
             this.btnOrder_.ForeColor = System.Drawing.Color.Black;
             this.btnOrder_.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrder_.Location = new System.Drawing.Point(8, 6);
+            this.btnOrder_.Location = new System.Drawing.Point(105, 6);
             this.btnOrder_.Margin = new System.Windows.Forms.Padding(2, 6, 2, 2);
             this.btnOrder_.Name = "btnOrder_";
             this.btnOrder_.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
@@ -437,8 +439,8 @@
             this.dgv.AllowUserToAddRows = false;
             this.dgv.AllowUserToDeleteRows = false;
             this.dgv.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -450,14 +452,14 @@
             this.colId,
             this.colName_,
             this.colQuantity_});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Khmer OS System", 8.25F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(205)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Khmer OS System", 8.25F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(205)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgv.EnableHeadersVisualStyles = false;
             this.dgv.Executing = false;
             this.dgv.Location = new System.Drawing.Point(13, 194);
@@ -492,6 +494,27 @@
             this.colQuantity_.HeaderText = "ចំនួន";
             this.colQuantity_.Name = "colQuantity_";
             this.colQuantity_.ReadOnly = true;
+            // 
+            // btnReset_
+            // 
+            this.btnReset_.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReset_.BackColor = System.Drawing.Color.Ivory;
+            this.btnReset_.DefaultImage = null;
+            this.btnReset_.Executing = false;
+            this.btnReset_.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset_.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
+            this.btnReset_.ForeColor = System.Drawing.Color.Black;
+            this.btnReset_.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReset_.Location = new System.Drawing.Point(8, 6);
+            this.btnReset_.Margin = new System.Windows.Forms.Padding(2, 6, 2, 2);
+            this.btnReset_.Name = "btnReset_";
+            this.btnReset_.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
+            this.btnReset_.ShortcutText = "Del";
+            this.btnReset_.Size = new System.Drawing.Size(93, 27);
+            this.btnReset_.TabIndex = 12;
+            this.btnReset_.Text = "លុបការកម្មង់";
+            this.btnReset_.UseVisualStyleBackColor = true;
+            this.btnReset_.Click += new System.EventHandler(this.btnReset__Click);
             // 
             // frmSale
             // 
@@ -556,5 +579,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName_;
         private System.Windows.Forms.DataGridViewTextBoxColumn colQuantity_;
+        private Component.ExButtonLoading btnReset_;
     }
 }

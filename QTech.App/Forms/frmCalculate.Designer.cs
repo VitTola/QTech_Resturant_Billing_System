@@ -45,24 +45,28 @@
             this.btnClose = new QTech.Component.ExButtonLoading();
             this.btnSave = new QTech.Component.ExButtonLoading();
             this.chkUseable_ = new System.Windows.Forms.CheckBox();
-            this.panelBorderLine1 = new SaleInventory.Components.PanelBorderLine();
             this.lblTime = new System.Windows.Forms.Label();
+            this.topLinedown = new SaleInventory.Components.LineDownPanel();
             this.container.SuspendLayout();
             this.exPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            this.panelBorderLine1.SuspendLayout();
+            this.topLinedown.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // digheader
+            // 
+            this.digheader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.digheader.Size = new System.Drawing.Size(509, 20);
             // 
             // container
             // 
-            this.container.Controls.Add(this.panelBorderLine1);
+            this.container.Controls.Add(this.topLinedown);
             this.container.Controls.Add(this.chkUseable_);
             this.container.Controls.Add(this.exPanel1);
             this.container.Controls.Add(this.lblNote);
             this.container.Controls.Add(this.txtNote);
             this.container.Controls.Add(this.lblName);
             this.container.Controls.Add(this.txtName);
-            this.container.Padding = new System.Windows.Forms.Padding(5);
             this.container.Size = new System.Drawing.Size(509, 677);
             // 
             // colId
@@ -140,7 +144,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(54, 161);
+            this.lblName.Location = new System.Drawing.Point(50, 157);
             this.lblName.Name = "lblName";
             this.lblName.Required = true;
             this.lblName.Size = new System.Drawing.Size(40, 19);
@@ -150,7 +154,7 @@
             // lblNote
             // 
             this.lblNote.AutoSize = true;
-            this.lblNote.Location = new System.Drawing.Point(54, 193);
+            this.lblNote.Location = new System.Drawing.Point(50, 189);
             this.lblNote.Name = "lblNote";
             this.lblNote.Required = false;
             this.lblNote.Size = new System.Drawing.Size(39, 19);
@@ -171,10 +175,10 @@
             this.exPanel1.BackColor = System.Drawing.Color.Transparent;
             this.exPanel1.Controls.Add(this.flowLayoutPanel2);
             this.exPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.exPanel1.Location = new System.Drawing.Point(5, 636);
+            this.exPanel1.Location = new System.Drawing.Point(1, 640);
             this.exPanel1.Name = "exPanel1";
             this.exPanel1.Padding = new System.Windows.Forms.Padding(2);
-            this.exPanel1.Size = new System.Drawing.Size(499, 36);
+            this.exPanel1.Size = new System.Drawing.Size(507, 36);
             this.exPanel1.TabIndex = 17;
             // 
             // flowLayoutPanel2
@@ -185,7 +189,7 @@
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(2, 2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(495, 32);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(503, 32);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // btnClose
@@ -196,7 +200,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(406, 3);
+            this.btnClose.Location = new System.Drawing.Point(414, 3);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
@@ -215,7 +219,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Khmer OS Battambang", 8F);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(315, 3);
+            this.btnSave.Location = new System.Drawing.Point(323, 3);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.btnSave.Name = "btnSave";
             this.btnSave.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
@@ -231,38 +235,39 @@
             this.chkUseable_.AutoSize = true;
             this.chkUseable_.Checked = true;
             this.chkUseable_.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkUseable_.Location = new System.Drawing.Point(144, 294);
+            this.chkUseable_.Location = new System.Drawing.Point(140, 290);
             this.chkUseable_.Name = "chkUseable_";
             this.chkUseable_.Size = new System.Drawing.Size(78, 23);
             this.chkUseable_.TabIndex = 18;
             this.chkUseable_.Text = "ប្រើការបាន";
             this.chkUseable_.UseVisualStyleBackColor = true;
             // 
-            // panelBorderLine1
-            // 
-            this.panelBorderLine1.Controls.Add(this.lblTime);
-            this.panelBorderLine1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelBorderLine1.Location = new System.Drawing.Point(5, 5);
-            this.panelBorderLine1.Name = "panelBorderLine1";
-            this.panelBorderLine1.Padding = new System.Windows.Forms.Padding(5);
-            this.panelBorderLine1.PenColor = System.Drawing.Color.CornflowerBlue;
-            this.panelBorderLine1.Size = new System.Drawing.Size(499, 75);
-            this.panelBorderLine1.TabIndex = 19;
-            // 
             // lblTime
             // 
             this.lblTime.BackColor = System.Drawing.Color.Transparent;
             this.lblTime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTime.Font = new System.Drawing.Font("Times New Roman", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblTime.Location = new System.Drawing.Point(5, 5);
+            this.lblTime.Location = new System.Drawing.Point(0, 0);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(489, 65);
+            this.lblTime.Size = new System.Drawing.Size(507, 68);
             this.lblTime.TabIndex = 20;
             this.lblTime.Text = ".";
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // frmFoodOrder
+            // topLinedown
+            // 
+            this.topLinedown.Controls.Add(this.lblTime);
+            this.topLinedown.Dock = System.Windows.Forms.DockStyle.Top;
+            this.topLinedown.Location = new System.Drawing.Point(1, 1);
+            this.topLinedown.Name = "topLinedown";
+            this.topLinedown.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.topLinedown.PenColor = System.Drawing.Color.CornflowerBlue;
+            this.topLinedown.PenThickness = 2;
+            this.topLinedown.Size = new System.Drawing.Size(507, 69);
+            this.topLinedown.TabIndex = 21;
+            // 
+            // frmCalculate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -270,13 +275,13 @@
             this.Font = new System.Drawing.Font("Khmer OS Battambang", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Location = new System.Drawing.Point(0, 0);
             this.MaximizeBox = false;
-            this.Name = "frmFoodOrder";
+            this.Name = "frmCalculate";
             this.Text = "frmTable";
             this.container.ResumeLayout(false);
             this.container.PerformLayout();
             this.exPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
-            this.panelBorderLine1.ResumeLayout(false);
+            this.topLinedown.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -299,7 +304,7 @@
         private Component.ExButtonLoading btnClose;
         private Component.ExButtonLoading btnSave;
         private System.Windows.Forms.CheckBox chkUseable_;
-        private SaleInventory.Components.PanelBorderLine panelBorderLine1;
         private System.Windows.Forms.Label lblTime;
+        private SaleInventory.Components.LineDownPanel topLinedown;
     }
 }

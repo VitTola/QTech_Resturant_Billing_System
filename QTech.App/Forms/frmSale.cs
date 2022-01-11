@@ -111,7 +111,7 @@ namespace QTech.Forms
 
             dgv.Rows.Clear();
 
-            if (Model?.Id != 0)
+            if (Model!= null)
             {           
                 Model.SaleDetails?.ForEach(x => {
                     var row = newRow();
@@ -189,6 +189,10 @@ namespace QTech.Forms
 
         private void btnOrder__Click(object sender, EventArgs e)
         {
+            if (Model == null)
+            {
+                Model = new Sale();
+            }
             var clickedTable = pnl.Children?.Cast<Table>()?.FirstOrDefault(x => x.IsClicked);
             
             if (clickedTable != null)
@@ -231,6 +235,11 @@ namespace QTech.Forms
                 btnCalculate_Click(btnCalculate, EventArgs.Empty);
                 return true;
             }
+            else if (keyData ==  Keys.Delete)
+            {
+                btnReset__Click(btnReset_, EventArgs.Empty);
+                return true;
+            }
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
@@ -244,6 +253,31 @@ namespace QTech.Forms
                     { 
                         txtFreeTables.Text = txtFreeTables.Text + (!string.IsNullOrEmpty(txtFreeTables.Text) &&
                             !string.IsNullOrEmpty(t.TableName)? " , " : "" )+ t.TableName; 
+                    }
+                }
+            }
+        }
+
+        private void btnReset__Click(object sender, EventArgs e)
+        {
+            var table = pnl.Children?.Cast<Table>()?.FirstOrDefault(x => x.IsClicked);
+            if (table != null)
+            {
+                if (table.Object is QTech.Base.Models.Table tb)
+                {
+                    if (tb.CurrentSaleId != 0)
+                    {
+                        var currentSale = SaleLogic.Instance.FindAsync(tb.CurrentSaleId);
+                        if (currentSale != null)
+                        {
+                            SaleLogic.Instance.RemoveAsync(currentSale);
+
+                            if (TableLogic.Instance.SetTableToFree(currentSale.TableId))
+                            {
+                                Read();
+                            }
+                            
+                        }
                     }
                 }
             }

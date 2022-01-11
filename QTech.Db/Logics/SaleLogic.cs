@@ -139,6 +139,7 @@ namespace QTech.Db.Logics
         public override Sale RemoveAsync(Sale entity)
         {
             var result = base.RemoveAsync(entity);
+            entity.SaleDetails.ForEach(x => SaleDetailLogic.Instance.RemoveAsync(x));
             return result;
         }
        

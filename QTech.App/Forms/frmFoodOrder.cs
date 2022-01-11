@@ -25,6 +25,8 @@ namespace QTech.Forms
     {
         public Sale Model { get; set; }
         public List<Product> Products { get; set; }
+        public List<ProductPrice> productPrices { get; set; }
+        public List<Scale> scales { get; set; }
         public string TableName { get; set; }
         public frmFoodOrder(Sale model, GeneralProcess flag, string tableName)
         {
@@ -48,6 +50,8 @@ namespace QTech.Forms
             Products = await this.RunAsync(() =>
             {
                 var products = ProductLogic.Instance.SearchAsync(new ProductSearch());
+                productPrices = ProductPriceLogic.Instance.SearchAsync(new ProductPriceSearch());
+                scales = ScaleLogic.Instance.SearchAsync(new ScaleSearch());
 
                 return products;
             });
@@ -83,10 +87,11 @@ namespace QTech.Forms
                     {
                         Id = x.ProductId,
                         Width = 300,
-                        Height = 315,
+                        Height = 340,
                         FoodName = Products?.FirstOrDefault(y => y.Id == x.ProductId)?.Name ?? "",
                         ImageSource = Products?.FirstOrDefault(y => y.Id == x.ProductId)?.Photo,
                         OrderQuantity = x.Quantity,
+                        Scale = scales.FirstOrDefault(y => y.Id == x.ScaleId),
                         TextColor = ShareValue.CurrentTheme.LabelColor,
                     };
                     p.QuantityChange += P_QuantityChange;
@@ -120,6 +125,7 @@ namespace QTech.Forms
                     ProductId = currentProduct.Id,
                     Quantity = currentProduct.OrderQuantity,
                     UnitPrice = currentProduct.UnitPrice,
+                    ScaleId = currentProduct.Scale?.Id ?? 0,
                     Total = currentProduct.OrderQuantity * currentProduct.UnitPrice,
                 };
                 Model.Total = Model.Total + _saleDetail.Total;
@@ -186,19 +192,20 @@ namespace QTech.Forms
             (catId == 0 ? true : x.CategoryId == catId) &&
             (string.IsNullOrEmpty(txtSearch.Text) ? true : x.Name.ToLower().Contains(txtSearch.Text.ToLower()))
             ).ToList();
-
+            var _productPrices = productPrices?.Where(x => filteredProducts.Any(y => y.Id == x.ProductId))?.ToList() ?? new List<ProductPrice>();
             var _products = new List<wpfChooseFoodControl>();
-            filteredProducts.GroupBy(x => x.Id).Select(y => y.First()).ToList().ForEach(x =>
+            _productPrices?.ForEach(x =>
                 {
                     var p = new wpfChooseFoodControl
                     {
                         SaleDetailId = Model?.SaleDetails.FirstOrDefault(y => y.ProductId == x.Id)?.Id ?? 0,
                         Id = x.Id,
                         Width = 300,
-                        Height = 315,
-                        FoodName = x.Name,
-                        ImageSource = x.Photo,
+                        Height = 340,
+                        FoodName = Products.FirstOrDefault(z=>z.Id == x.ProductId)?.Name ?? "",
+                        ImageSource = Products.FirstOrDefault(z => z.Id == x.ProductId)?.Photo,
                         TextColor = ShareValue.CurrentTheme.LabelColor,
+                        Scale = scales.FirstOrDefault(y=>y.Id == x.ScaleId),
                         OrderQuantity = Model?.SaleDetails?.FirstOrDefault(y => y.ProductId == x.Id)?.Quantity ?? 0
                     };
                     p.QuantityChange += P_QuantityChange;

@@ -79,11 +79,13 @@ namespace WpfCustomControlLibrary
         private void LblDetail_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (TableClick != null) TableClick(this, e);
+            TableColor = System.Drawing.Color.Gray;
         }
 
         private void Btn_Click(object sender, RoutedEventArgs e)
         {
             if (TableClick != null) TableClick(this, e);
+            TableColor = System.Drawing.Color.Gray;
         }
 
         private void Btn_MouseEnter(object sender, MouseEventArgs e)
@@ -92,7 +94,7 @@ namespace WpfCustomControlLibrary
             {
                 PrimaryColor = TableColor;
             }
-            TableColor = System.Drawing.Color.FromArgb(190, 230, 253);
+            TableColor = System.Drawing.Color.Gray;
             if (MouseHover != null) MouseHover(this, e);
         }
 
@@ -102,7 +104,7 @@ namespace WpfCustomControlLibrary
             {
                 PrimaryColor = TableColor;
             }
-            TableColor = System.Drawing.Color.FromArgb(190, 230, 253);
+            TableColor = System.Drawing.Color.Gray;
             if (MouseHover != null) MouseHover(this, e);
         }
 
@@ -195,6 +197,11 @@ namespace WpfCustomControlLibrary
         }
 
         private void btn_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (DoubleClick != null) DoubleClick(sender, e);
+        }
+
+        private void lblDetail_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (DoubleClick != null) DoubleClick(sender, e);
         }

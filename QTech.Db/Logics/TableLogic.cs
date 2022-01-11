@@ -65,5 +65,28 @@ namespace QTech.Db.Logics
             }
             return result;
         }
+
+        public bool SetTableToFree(int id)
+        {
+            try
+            {
+                var _table = FindAsync(id);
+                if (_table != null)
+                {
+                    _table.CurrentSaleId = 0;
+                    _table.TableStus = Base.Enums.TableStatus.Free;
+                    _db.Tables.Attach(_table);
+                    _db.Entry(_table).Property(x => x.TableStus).IsModified = true;
+                    _db.Entry(_table).Property(x => x.CurrentSaleId).IsModified = true;
+                    _db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return false;
+        }
     }
 }

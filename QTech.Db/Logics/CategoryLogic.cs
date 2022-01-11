@@ -65,5 +65,6 @@ namespace QTech.Db.Logics
             }
             return result;
         }
+
     }
 }

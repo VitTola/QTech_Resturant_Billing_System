@@ -4,9 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfCustomControlLibrary"
-             mc:Ignorable="d" Height="188.771" Width="170.417">
+             mc:Ignorable="d" Height="222.771" Width="170.417">
     <Grid Margin="4,1,0,1">
-        <local:RoundImageBox x:Name="pic" Height="Auto" Width="Auto" Margin="42,35,42,67" RenderTransformOrigin="0.5,0.5">
+        <local:RoundImageBox x:Name="pic" Height="Auto" Width="Auto" Margin="42,41,42,95" RenderTransformOrigin="0.5,0.5">
             <local:RoundImageBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -16,24 +16,24 @@
                 </TransformGroup>
             </local:RoundImageBox.RenderTransform>
         </local:RoundImageBox>
-        <TextBox x:Name="txtName" Margin="0,0,0,38" TextWrapping="Wrap" Text="Name" Height="25" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" FontFamily="Khmer OS Siemreap" FontSize="14">
+        <TextBox x:Name="txtName" Margin="0,0,0,70" TextWrapping="Wrap" Text="Name" Height="25" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" FontFamily="Khmer OS Siemreap" FontSize="14">
             <TextBox.Background>
                 <ImageBrush/>
             </TextBox.Background>
         </TextBox>
-        <TextBox x:Name="panelDown" Margin="40,0,40,18" TextWrapping="Wrap" Height="21" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0">
+        <TextBox x:Name="panelDown" Margin="40,0,40,25" TextWrapping="Wrap" Height="21" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0">
             <TextBox.Background>
                 <ImageBrush/>
             </TextBox.Background>
         </TextBox>
-        <WrapPanel HorizontalAlignment="Center" Height="20" Margin="55,0,54,19" Width="29" VerticalAlignment="Bottom">
+        <WrapPanel HorizontalAlignment="Center" Height="20" Margin="69,0,68,26" Width="29" VerticalAlignment="Bottom">
             <TextBox x:Name="txtAmount" Height="20" TextWrapping="Wrap" Width="29" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="0"  Text="0" PreviewTextInput="txtAmount_PreviewTextInput" FontFamily="Arial" FontSize="14">
                 <TextBox.Background>
                     <ImageBrush/>
                 </TextBox.Background>
             </TextBox>
         </WrapPanel>
-        <Image x:Name="btnMinus" Margin="36,0,84,19" Width="18" Source="btn_minus.png" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" Height="19"  MouseLeftButtonDown="btnMinus_MouseLeftButtonDown">
+        <Image x:Name="btnMinus" Margin="50,0,98,26" Width="18" Source="btn_minus.png" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" Height="19"  MouseLeftButtonDown="btnMinus_MouseLeftButtonDown">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -43,6 +43,17 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="btnPlus" Margin="84,0,36,19" Height="19" Width="18" Source="btn_plus.png" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.553"  MouseLeftButtonDown="btnPlus_MouseLeftButtonDown"/>
+        <Image x:Name="btnPlus" Margin="98,0,50,26" Height="19" Width="18" Source="btn_plus.png" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.553"  MouseLeftButtonDown="btnPlus_MouseLeftButtonDown"/>
+        <TextBox x:Name="txtScale" Margin="0,0,0,47" TextWrapping="Wrap" Text="Scale" Height="25" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" FontFamily="Khmer OS Siemreap" FontSize="14">
+            <TextBox.Background>
+                <ImageBrush/>
+            </TextBox.Background>
+        </TextBox>
+
+
     </Grid>
+
+
 </UserControl>
+
+

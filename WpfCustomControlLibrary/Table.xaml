@@ -18,9 +18,9 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Label x:Name="lblDetail" Content="lblDetail" Margin="10,135,-3,8" Width="225"
+        <Label x:Name="lblDetail" Content="" Margin="0,0,-3,1"
                VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center" FontFamily="Kh Siemreap"
-               Foreground="Blue" RenderTransformOrigin="0.5,0.5">
+               Foreground="Blue" RenderTransformOrigin="0.5,0.5" MouseDoubleClick="lblDetail_MouseDoubleClick">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="-1"/>
