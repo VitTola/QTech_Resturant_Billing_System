@@ -69,6 +69,7 @@ namespace QTech.Forms
             cboCategory.DropDownStyle = ComboBoxStyle.DropDownList;
 
             this.MaximizeBox = true;
+            WindowState = FormWindowState.Maximized;
             btnSave.Click += BtnSave_Click;
             cboCategory.SelectedIndexChanged += CboCategory_SelectedIndexChanged;
             this.Load += FrmFoodOrder_Load;
@@ -91,6 +92,7 @@ namespace QTech.Forms
                         FoodName = Products?.FirstOrDefault(y => y.Id == x.ProductId)?.Name ?? "",
                         ImageSource = Products?.FirstOrDefault(y => y.Id == x.ProductId)?.Photo,
                         OrderQuantity = x.Quantity,
+                        UnitPrice = x.UnitPrice,
                         Scale = scales.FirstOrDefault(y => y.Id == x.ScaleId),
                         TextColor = ShareValue.CurrentTheme.LabelColor,
                     };
@@ -116,9 +118,10 @@ namespace QTech.Forms
             if (saleDetail != null)
             {
                 Model.SaleDetails[Model.SaleDetails.IndexOf(saleDetail)].Quantity = currentProduct.OrderQuantity;
+                Model.SaleDetails[Model.SaleDetails.IndexOf(saleDetail)].Total = currentProduct.OrderQuantity * currentProduct.UnitPrice;
             }
             else
-            {
+            {   
                 var _saleDetail = new SaleDetail()
                 {
                     SaleId = Model.Id,
@@ -208,7 +211,8 @@ namespace QTech.Forms
                         ImageSource = Products.FirstOrDefault(z => z.Id == x.ProductId)?.Photo,
                         TextColor = ShareValue.CurrentTheme.LabelColor,
                         Scale = scales.FirstOrDefault(y=>y.Id == x.ScaleId),
-                        OrderQuantity = Qty
+                        OrderQuantity = Qty,
+                        UnitPrice = x.SalePrice
                     };
                     p.QuantityChange += P_QuantityChange;
                     _products.Add(p);

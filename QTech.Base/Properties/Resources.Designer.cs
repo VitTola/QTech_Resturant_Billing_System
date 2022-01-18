@@ -1134,6 +1134,25 @@ namespace QTech.Base.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to កំណត់ផ្សេងៗ.
+        /// </summary>
+        public static string OtherSetting {
+            get {
+                return ResourceManager.GetString("OtherSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap OtherSetting_Img {
+            get {
+                object obj = ResourceManager.GetObject("OtherSetting_Img", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ទឹកប្រាក់បានបង់.
         /// </summary>
         public static string PaidAmount {

@@ -24,6 +24,7 @@ namespace QTech.Forms
         public Sale Model { get; set; }
         private GeneralProcess flag = GeneralProcess.None;
         SaleSearchKey saleSearchKey = SaleSearchKey.None;
+        public List<Table>Tables{ get; set; }
 
         public SalePage()
         {
@@ -41,18 +42,14 @@ namespace QTech.Forms
             txtSearch.PatternChanged += txtSearch_PatternChanged;
             registerSearchMenu();
             cboPayStatus.SetDataSource<PayStatus>();
-            cboImport.SetDataSource<ImportPrice>();
         }
         private void InitEvent()
         {
             this.Text = BaseResource.Sales;
             cboPayStatus.SelectedIndexChanged += CboPayStatus_SelectedIndexChanged;
-            cboImport.SelectedIndexChanged += CboPayStatus_SelectedIndexChanged;
             btnAdd.Visible = ShareValue.IsAuthorized(AuthKey.Sale_Sale_Add);
-            btnRemove.Visible = ShareValue.IsAuthorized(AuthKey.Sale_Sale_Remove);
-            btnUpdate.Visible = ShareValue.IsAuthorized(AuthKey.Sale_Sale_Update);
-            cboImport.SelectedIndex = cboImport.FindStringExact(BaseResource.ImportPrice_All);
             pagination.TextColor = ShareValue.CurrentTheme.LabelColor;
+
         }
         private async void CboPayStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -78,87 +75,28 @@ namespace QTech.Forms
                 dgv.RowSelected(colId.Name, dig.Model.Id);
             }
         }
-        public async void EditAsync()
-        {
-            if (dgv.SelectedRows.Count == 0)
-            {
-                return;
-            }
-
-            var id = (int)dgv.SelectedRows[0].Cells[colId.Name].Value;
-            Model = await btnUpdate.RunAsync(() => SaleLogic.Instance.FindAsync(id));
-            if (Model.PayStatus != PayStatus.NotYetPaid)
-            {
-                MsgBox.ShowWarning(BaseResource.MsgSaleCanEdit,
-                    GeneralProcess.Remove.GetTextDialog(BaseResource.Sales));
-                return;
-            }
-
-            Model = await btnUpdate.RunAsync(() => SaleLogic.Instance.FindAsync(id));
-            if (Model == null)
-            {
-                return;
-            }
-
-            flag = GeneralProcess.Update;
-            var dig = new frmSale(Model, flag);
-
-            if (dig.ShowDialog() == DialogResult.OK)
-            {
-                await Search();
-                dgv.RowSelected(colId.Name, dig.Model.Id);
-            }
-        }
+      
         public async void Reload()
         {
             await Search();
         }
-        public async void Remove()
-        {
-            if (dgv.SelectedRows.Count == 0)
-            {
-                return;
-            }
-
-            var id = (int)dgv.SelectedRows[0].Cells[colId.Name].Value;
-            var canRemove = await btnRemove.RunAsync(() => SaleLogic.Instance.CanRemoveAsync(id));
-            if (canRemove == false)
-            {
-                MsgBox.ShowWarning(EasyServer.Domain.Resources.RowCannotBeRemoved,
-                    GeneralProcess.Remove.GetTextDialog(BaseResource.Sales));
-                return;
-            }
-
-            Model = await btnRemove.RunAsync(() => SaleLogic.Instance.FindAsync(id));
-            if (Model == null)
-            {
-                return;
-            }
-
-            var dig = new frmSale(Model, GeneralProcess.Remove);
-            if (dig.ShowDialog() == DialogResult.OK)
-            {
-                await Search();
-            }
-        }        
+      
         public async Task Search()
         {
             dgv.Rows.Clear();
             List<Customer> _Customers = null;
             var _payStatus = (PayStatus)cboPayStatus.SelectedValue;
-            var _importPrice = (ImportPrice)cboImport.SelectedValue;
             var search = new SaleSearch()
             {
                 saleSearchKey = this.saleSearchKey,
                 Search = txtSearch.Text,
                 payStatus = _payStatus,
-                ImportPrice = _importPrice,
                 Paging = pagination.Paging
             };
             pagination.ListModel = await dgv.RunAsync(() =>
              {
                  var _result = SaleLogic.Instance.SearchAsync(search);
-
+                 Tables = TableLogic.Instance.SearchAsync(new TableSearch());
                  return _result;
              });
             if (pagination.ListModel == null)
@@ -166,16 +104,15 @@ namespace QTech.Forms
                 return;
             }
             List<Sale> sales = pagination.ListModel;
-            sales.ForEach(x =>
+            sales.OrderByDescending(x=>x.RowDate).ToList().ForEach(x =>
             {
                 var row = newRow(false);
                 row.Cells[colId.Name].Value = x.Id;
                 row.Cells[colInvoiceNo.Name].Value = x.InvoiceNo;
                 row.Cells[colTotal.Name].Value = x.Total;
                 row.Cells[colSaleDate.Name].Value = x.SaleDate.ToString("dd-MMM-yyyy hh:mm");
-                row.Cells[colIsPaid.Name].Value = x.PayStatus;
-                row.Cells[colRowDate.Name].Value = x.RowDate;
-
+                row.Cells[colTable.Name].Value = Tables?.FirstOrDefault(y => y.Id == x.TableId)?.Name ?? "";
+               
                 var cell = row.Cells[colStatus.Name];
                 if (x.PayStatus == PayStatus.Paid)
                 {
@@ -193,7 +130,7 @@ namespace QTech.Forms
                     cell.Style.ForeColor = Color.Green;
                 }
             });
-            dgv.Sort(dgv.Columns[colRowDate.Name], ListSortDirection.Descending);
+           
             if (dgv.RowCount > 0) dgv.Rows[0].Selected = true;
 
         }
@@ -216,7 +153,7 @@ namespace QTech.Forms
 
             var id = (int)dgv.SelectedRows[0].Cells[colId.Name].Value;
 
-            Model = await btnUpdate.RunAsync(() => SaleLogic.Instance.FindAsync(id));
+            Model = await btnAdd.RunAsync(() => SaleLogic.Instance.FindAsync(id));
 
             if (Model == null)
             {
@@ -315,15 +252,15 @@ namespace QTech.Forms
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            EditAsync();
+            
         }
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            Remove();
+           
         }
         private void dgv_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            dgv.Rows[e.RowIndex].Cells[colRow.Name].Value = (e.RowIndex + 1).ToString();
+            dgv.Rows[e.RowIndex].Cells[colRow_.Name].Value = (e.RowIndex + 1).ToString();
         }
 
         private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
@@ -334,6 +271,16 @@ namespace QTech.Forms
         private void flowLayoutPanel3_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        public void Remove()
+        {
+            
+        }
+
+        public void EditAsync()
+        {
+            
         }
     }
 }

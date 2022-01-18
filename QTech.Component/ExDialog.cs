@@ -37,7 +37,7 @@ namespace QTech.Component
             FormBorderStyle = FormBorderStyle.None;
             DoubleBuffered = true;
             this.SetStyle(ControlStyles.ResizeRedraw, true);
-            Icon = Properties.Resources.OoneIcon;
+            //Icon = Properties.Resources.OoneIcon;
             container.Padding = new Padding(1);
             imgICON.Image = Icon.ToBitmap();
             imgICON.DataBindings.Add("Visible", this, "ShowIcon");

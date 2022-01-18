@@ -191,16 +191,28 @@ namespace QTech.Base.BaseModels
                 FormName = "QTech.Forms.ScalePage"
 
             },
-             new MenuBar()
+            // new MenuBar()
+            //{
+            //    Index = 2,
+            //    Level = 2,
+            //    Key = AuthKey.General_Currency,
+            //    ParentKey = AuthKey.General,
+            //    DisplayName = BaseResource.Currency,
+            //    Icon = BaseResource.Currency_img,
+            //    Children = new List<MenuBar>(),
+            //    FormName = "QTech.Forms.CurrencyPage"
+
+            //},
+                 new MenuBar()
             {
                 Index = 2,
                 Level = 2,
-                Key = AuthKey.General_Currency,
-                ParentKey = AuthKey.General,
-                DisplayName = BaseResource.Currency,
-                Icon = BaseResource.Currency_img,
+                Key = AuthKey.Setting_OtherSetting,
+                ParentKey = AuthKey.Setting,
+                DisplayName = BaseResource.OtherSetting,
+                Icon = BaseResource.OtherSetting_Img,
                 Children = new List<MenuBar>(),
-                FormName = "QTech.Forms.CurrencyPage"
+                FormName = "QTech.Forms.frmSetting"
 
             },
 

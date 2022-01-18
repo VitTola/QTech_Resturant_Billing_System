@@ -40,16 +40,12 @@ namespace QTech.Forms
             QTech.Base.BaseModels.Paging paging1 = new QTech.Base.BaseModels.Paging();
             this.dgv = new QTech.Component.ExDataGridView();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRow = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRowDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPurchaseOrderNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRow_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colInvoiceNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colToCompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colToSite = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSaleDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIsPaid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.graPanel1 = new QTech.Component.GRAPanel();
             this.colorWithAlpha1 = new QTech.Component.ColorWithAlpha();
             this.colorWithAlpha4 = new QTech.Component.ColorWithAlpha();
@@ -57,10 +53,7 @@ namespace QTech.Forms
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.txtSearch = new QTech.Component.ExTextboxIconPattern();
             this.cboPayStatus = new System.Windows.Forms.ComboBox();
-            this.cboImport = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnRemove = new QTech.Component.ExButtonLoading();
-            this.btnUpdate = new QTech.Component.ExButtonLoading();
             this.btnAdd = new QTech.Component.ExButtonLoading();
             this.colorWithAlpha2 = new QTech.Component.ColorWithAlpha();
             this.colorWithAlpha3 = new QTech.Component.ColorWithAlpha();
@@ -98,16 +91,13 @@ namespace QTech.Forms
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colId,
-            this.colRow,
-            this.colRowDate,
-            this.colPurchaseOrderNo,
+            this.colRow_,
             this.colInvoiceNo,
-            this.colToCompany,
-            this.colToSite,
+            this.colTable,
             this.colSaleDate,
             this.colTotal,
-            this.colStatus,
-            this.colIsPaid});
+            this.colStatus
+            });
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Khmer OS System", 8F);
@@ -144,32 +134,15 @@ namespace QTech.Forms
             this.colId.Name = "colId";
             this.colId.ReadOnly = true;
             this.colId.Visible = false;
-            // 
-            // colRow
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colRow.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colRow.HeaderText = "ល.រ";
-            this.colRow.Name = "colRow";
-            this.colRow.ReadOnly = true;
-            this.colRow.Width = 30;
+         
             // 
             // colRowDate
             // 
-            this.colRowDate.HeaderText = "RowDate";
-            this.colRowDate.Name = "colRowDate";
-            this.colRowDate.ReadOnly = true;
-            this.colRowDate.Visible = false;
-            // 
-            // colPurchaseOrderNo
-            // 
-            this.colPurchaseOrderNo.DataPropertyName = "PurchaseOrderNo";
-            this.colPurchaseOrderNo.FillWeight = 40F;
-            this.colPurchaseOrderNo.HeaderText = "លេខបញ្ជាទិញ";
-            this.colPurchaseOrderNo.MinimumWidth = 100;
-            this.colPurchaseOrderNo.Name = "colPurchaseOrderNo";
-            this.colPurchaseOrderNo.ReadOnly = true;
-            this.colPurchaseOrderNo.Width = 150;
+            this.colRow_.HeaderText = "";
+            this.colRow_.Name = "colRow_";
+            this.colRow_.ReadOnly = true;
+            this.colRow_.Visible = true;
+            this.colRow_.Width = 40;
             // 
             // colInvoiceNo
             // 
@@ -180,23 +153,7 @@ namespace QTech.Forms
             this.colInvoiceNo.Name = "colInvoiceNo";
             this.colInvoiceNo.ReadOnly = true;
             this.colInvoiceNo.Width = 150;
-            // 
-            // colToCompany
-            // 
-            this.colToCompany.DataPropertyName = "ToCompany";
-            this.colToCompany.FillWeight = 60F;
-            this.colToCompany.HeaderText = "ទៅកាន់ក្រុមហ៊ុន";
-            this.colToCompany.Name = "colToCompany";
-            this.colToCompany.ReadOnly = true;
-            this.colToCompany.Width = 300;
-            // 
-            // colToSite
-            // 
-            this.colToSite.DataPropertyName = "Site";
-            this.colToSite.HeaderText = "ទៅកាន់គំរោង";
-            this.colToSite.Name = "colToSite";
-            this.colToSite.ReadOnly = true;
-            this.colToSite.Width = 300;
+
             // 
             // colSaleDate
             // 
@@ -226,10 +183,11 @@ namespace QTech.Forms
             // 
             // colIsPaid
             // 
-            this.colIsPaid.HeaderText = "IsPaid";
-            this.colIsPaid.Name = "colIsPaid";
-            this.colIsPaid.ReadOnly = true;
-            this.colIsPaid.Visible = false;
+            this.colTable.HeaderText = "លេខតុ";
+            this.colTable.Name = "colTable";
+            this.colTable.ReadOnly = true;
+            this.colTable.Visible = true;
+            this.colTable.Width = 200;
             // 
             // graPanel1
             // 
@@ -287,7 +245,6 @@ namespace QTech.Forms
             // 
             this.flowLayoutPanel2.Controls.Add(this.txtSearch);
             this.flowLayoutPanel2.Controls.Add(this.cboPayStatus);
-            this.flowLayoutPanel2.Controls.Add(this.cboImport);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -306,7 +263,7 @@ namespace QTech.Forms
             this.txtSearch.ReadOnly = false;
             this.txtSearch.SearchMode = QTech.Component.ExTextboxIconPattern.SearchModes.OnKeyReturn;
             this.txtSearch.SelectedMenuPattern = null;
-            this.txtSearch.Size = new System.Drawing.Size(222, 26);
+            this.txtSearch.Size = new System.Drawing.Size(200, 26);
             this.txtSearch.SizeIcon = new System.Drawing.Size(16, 16);
             this.txtSearch.TabIndex = 0;
             // 
@@ -316,22 +273,12 @@ namespace QTech.Forms
             this.cboPayStatus.FormattingEnabled = true;
             this.cboPayStatus.Location = new System.Drawing.Point(230, 3);
             this.cboPayStatus.Name = "cboPayStatus";
-            this.cboPayStatus.Size = new System.Drawing.Size(237, 27);
+            this.cboPayStatus.Size = new System.Drawing.Size(200, 27);
             this.cboPayStatus.TabIndex = 2;
-            // 
-            // cboImport
-            // 
-            this.cboImport.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboImport.FormattingEnabled = true;
-            this.cboImport.Location = new System.Drawing.Point(473, 3);
-            this.cboImport.Name = "cboImport";
-            this.cboImport.Size = new System.Drawing.Size(237, 27);
-            this.cboImport.TabIndex = 3;
+         
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.btnRemove);
-            this.flowLayoutPanel1.Controls.Add(this.btnUpdate);
             this.flowLayoutPanel1.Controls.Add(this.btnAdd);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
@@ -340,42 +287,7 @@ namespace QTech.Forms
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1091, 35);
             this.flowLayoutPanel1.TabIndex = 1;
-            // 
-            // btnRemove
-            // 
-            this.btnRemove.BackColor = System.Drawing.Color.Ivory;
-            this.btnRemove.DefaultImage = null;
-            this.btnRemove.Executing = false;
-            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemove.ForeColor = System.Drawing.Color.White;
-            this.btnRemove.Location = new System.Drawing.Point(997, 4);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(0, 4, 4, 2);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
-            this.btnRemove.ShortcutText = null;
-            this.btnRemove.Size = new System.Drawing.Size(90, 27);
-            this.btnRemove.TabIndex = 2;
-            this.btnRemove.Text = "លុប";
-            this.btnRemove.UseVisualStyleBackColor = true;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.Color.Ivory;
-            this.btnUpdate.DefaultImage = null;
-            this.btnUpdate.Executing = false;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(905, 4);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(0, 4, 2, 2);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.ShortcutAligment = QTech.Component.ExButtonLoading.Aligment.Horizontal;
-            this.btnUpdate.ShortcutText = null;
-            this.btnUpdate.Size = new System.Drawing.Size(90, 27);
-            this.btnUpdate.TabIndex = 1;
-            this.btnUpdate.Text = "កែប្រែ";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+           
             // 
             // btnAdd
             // 
@@ -466,8 +378,6 @@ namespace QTech.Forms
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Component.ExButtonLoading btnAdd;
-        private Component.ExButtonLoading btnRemove;
-        private Component.ExButtonLoading btnUpdate;
         private Component.ExDataGridView dgv;
         private Component.ColorWithAlpha colorWithAlpha2;
         private Component.ColorWithAlpha colorWithAlpha3;
@@ -475,18 +385,13 @@ namespace QTech.Forms
         private System.Windows.Forms.ComboBox cboPayStatus;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private Component.ExPaging pagination;
-        private System.Windows.Forms.ComboBox cboImport;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRowDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPurchaseOrderNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRow_;
         private System.Windows.Forms.DataGridViewTextBoxColumn colInvoiceNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colToCompany;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colToSite;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSaleDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colIsPaid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTable;
         private Component.ColorWithAlpha colorWithAlpha4;
         private Component.ColorWithAlpha colorWithAlpha5;
     }

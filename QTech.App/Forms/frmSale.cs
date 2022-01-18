@@ -159,6 +159,8 @@ namespace QTech.Forms
             txtFreeTables.ReadOnly = true;
 
             txtSearch.QuickSearch += TxtSearch_QuickSearch;
+            this.FormClosed += (s, e) => DialogResult = DialogResult.OK;
+
         }
 
         private void TxtSearch_QuickSearch(object sender, EventArgs e)
@@ -294,6 +296,7 @@ namespace QTech.Forms
                         }
                     }
                 }
+                dgv.Rows.Clear();
             }
         }
     }

@@ -71,6 +71,7 @@ namespace QTech.Base.Enums
         ,General_Currency_Add	=	61
         ,General_Currency_Update	=	62
         ,General_Currency_Remove	=	63
+        ,Setting_OtherSetting = 65
 
     }
 }

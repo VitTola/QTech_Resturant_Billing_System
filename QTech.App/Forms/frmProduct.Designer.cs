@@ -46,10 +46,6 @@
             this.picDish = new System.Windows.Forms.Integration.ElementHost();
             this.picFood = new WpfCustomControlLibrary.RoundImageBox();
             this.dgv = new QTech.Component.ExDataGridView();
-            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colScale = new QTech.Component.ExSearchComboColumn();
-            this.colSalePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCurrency = new QTech.Component.ExSearchComboColumn();
             this.exLabel1 = new QTech.Component.ExLabel();
             this.txtNote = new System.Windows.Forms.TextBox();
             this.lblNote = new QTech.Component.ExLabel();
@@ -57,6 +53,9 @@
             this.lblRemove = new System.Windows.Forms.LinkLabel();
             this.lblAdd = new System.Windows.Forms.LinkLabel();
             this.pnlbackground = new System.Windows.Forms.Panel();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colScale = new QTech.Component.ExSearchComboColumn();
+            this.colSalePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.container.SuspendLayout();
             this.exPanel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -276,8 +275,7 @@
             this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colId,
             this.colScale,
-            this.colSalePrice,
-            this.colCurrency});
+            this.colSalePrice});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Khmer OS Battambang", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -299,53 +297,6 @@
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv.Size = new System.Drawing.Size(286, 273);
             this.dgv.TabIndex = 35;
-            // 
-            // colId
-            // 
-            this.colId.HeaderText = "Id";
-            this.colId.Name = "colId";
-            this.colId.ReadOnly = true;
-            this.colId.Visible = false;
-            // 
-            // colScale
-            // 
-            this.colScale.Choose = null;
-            this.colScale.CustomSearchForm = null;
-            this.colScale.DataSourceFn = null;
-            this.colScale.FillWeight = 120F;
-            this.colScale.HeaderText = "ខ្នាត";
-            this.colScale.Name = "colScale";
-            this.colScale.ReadOnly = true;
-            this.colScale.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colScale.SearchParamFn = null;
-            this.colScale.ShowAll = false;
-            this.colScale.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colScale.TextAll = null;
-            // 
-            // colSalePrice
-            // 
-            this.colSalePrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.colSalePrice.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colSalePrice.HeaderText = "តម្លៃ";
-            this.colSalePrice.Name = "colSalePrice";
-            this.colSalePrice.ReadOnly = true;
-            // 
-            // colCurrency
-            // 
-            this.colCurrency.Choose = null;
-            this.colCurrency.CustomSearchForm = null;
-            this.colCurrency.DataSourceFn = null;
-            this.colCurrency.HeaderText = "រូបីប័ណ្ណ";
-            this.colCurrency.Name = "colCurrency";
-            this.colCurrency.ReadOnly = true;
-            this.colCurrency.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colCurrency.SearchParamFn = null;
-            this.colCurrency.ShowAll = false;
-            this.colCurrency.TextAll = null;
-            this.colCurrency.Width = 70;
             // 
             // exLabel1
             // 
@@ -421,6 +372,40 @@
             this.pnlbackground.Size = new System.Drawing.Size(288, 275);
             this.pnlbackground.TabIndex = 38;
             // 
+            // colId
+            // 
+            this.colId.HeaderText = "Id";
+            this.colId.Name = "colId";
+            this.colId.ReadOnly = true;
+            this.colId.Visible = false;
+            // 
+            // colScale
+            // 
+            this.colScale.Choose = null;
+            this.colScale.CustomSearchForm = null;
+            this.colScale.DataSourceFn = null;
+            this.colScale.FillWeight = 120F;
+            this.colScale.HeaderText = "ខ្នាត";
+            this.colScale.Name = "colScale";
+            this.colScale.ReadOnly = true;
+            this.colScale.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colScale.SearchParamFn = null;
+            this.colScale.ShowAll = false;
+            this.colScale.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colScale.TextAll = null;
+            this.colScale.Width = 150;
+            // 
+            // colSalePrice
+            // 
+            this.colSalePrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.colSalePrice.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colSalePrice.HeaderText = "តម្លៃ";
+            this.colSalePrice.Name = "colSalePrice";
+            this.colSalePrice.ReadOnly = true;
+            // 
             // frmProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 19F);
@@ -467,10 +452,9 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayOutLabelRemoveAdd;
         private System.Windows.Forms.LinkLabel lblRemove;
         private System.Windows.Forms.LinkLabel lblAdd;
+        private System.Windows.Forms.Panel pnlbackground;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
         private Component.ExSearchComboColumn colScale;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSalePrice;
-        private Component.ExSearchComboColumn colCurrency;
-        private System.Windows.Forms.Panel pnlbackground;
     }
 }

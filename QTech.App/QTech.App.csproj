@@ -154,6 +154,16 @@
     <Compile Include="Forms\frmCalculate.Designer.cs">
       <DependentUpon>frmCalculate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSetting.Designer.cs">
+      <DependentUpon>frmSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SalePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SalePage.Designer.cs" />
     <Compile Include="Forms\ScalePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +199,12 @@
     </Compile>
     <Compile Include="Forms\ReloadMainForm.Designer.cs">
       <DependentUpon>ReloadMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingPage.Designer.cs">
+      <DependentUpon>SettingPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\TablePage.cs">
       <SubType>Form</SubType>
@@ -255,12 +271,6 @@
     </Compile>
     <Compile Include="Forms\frmUser.designer.cs">
       <DependentUpon>frmUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\SalePage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\SalePage.Designer.cs">
-      <DependentUpon>SalePage.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\EmployeePage.cs">
       <SubType>Form</SubType>
@@ -372,6 +382,10 @@
     <EmbeddedResource Include="Forms\frmCalculate.resx">
       <DependentUpon>frmCalculate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSetting.resx">
+      <DependentUpon>frmSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SalePage.resx" />
     <EmbeddedResource Include="Forms\ScalePage.resx">
       <DependentUpon>ScalePage.cs</DependentUpon>
     </EmbeddedResource>
@@ -392,6 +406,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ReloadMainForm.resx">
       <DependentUpon>ReloadMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingPage.resx">
+      <DependentUpon>SettingPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TablePage.resx">
       <DependentUpon>TablePage.cs</DependentUpon>
@@ -422,9 +439,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmUser.resx">
       <DependentUpon>frmUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SalePage.resx">
-      <DependentUpon>SalePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EmployeePage.resx">
       <DependentUpon>EmployeePage.cs</DependentUpon>

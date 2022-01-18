@@ -24,9 +24,33 @@ namespace QTech.Db.Logics
         {
             
         }
-       
+        private string NewInvoiceNumber()
+        {
+            string invoiceNo;
+            try
+            {
+                var lastInvoiceNo = _db.Sales.Max(x => x.InvoiceNo);
+
+                if (lastInvoiceNo == null)
+                {
+                    invoiceNo = "SYSINV-000001";
+                }
+                else
+                {
+                    int interval = int.Parse(lastInvoiceNo.Substring(7, 6));
+                    interval = interval + 1;
+                    invoiceNo = string.Format("SYSINV-{0:000000}", interval);
+                }
+                return invoiceNo;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public override Sale AddAsync(Sale entity)
         {
+            entity.InvoiceNo = NewInvoiceNumber();
             var result = base.AddAsync(entity);
             entity.SaleDetails.ForEach(x => {
                 x.SaleId = result.Id;

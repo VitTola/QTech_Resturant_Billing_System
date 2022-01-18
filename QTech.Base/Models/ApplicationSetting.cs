@@ -10,5 +10,6 @@ namespace QTech.Base.Models
     {
         public string AppDownloadLink { get; set; }
         public string CurrentAppVersion { get; set; }
+        public int CurrencyId { get; set; }
     }
 }

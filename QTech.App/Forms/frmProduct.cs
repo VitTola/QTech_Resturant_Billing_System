@@ -46,8 +46,6 @@ namespace QTech.Forms
             colScale.DataSourceFn = p => ScaleLogic.Instance.SearchAsync(p).OrderByDescending(x => x.RowDate)
             .Where(x=>!AddedScaleIds().Contains(x.Id)).ToDropDownItemModelList();
 
-            colCurrency.SearchParamFn = () => new CurrencySearch() { };
-            colCurrency.DataSourceFn = p => CurrencyLogic.Instance.SearchAsync(p).OrderByDescending(x => x.RowDate).ToDropDownItemModelList();
         }
         private List<int> AddedScaleIds()
         {
@@ -78,7 +76,6 @@ namespace QTech.Forms
             dgv.EditMode = DataGridViewEditMode.EditOnEnter;
             dgv.EditingControlShowing += dgv_EditingControlShowing;
             this.SetEnabled(Flag != GeneralProcess.Remove && Flag != GeneralProcess.View);
-            dgv.EditColumnIcon(colScale, colSalePrice, colCurrency);
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
         }
@@ -164,7 +161,6 @@ namespace QTech.Forms
                                     ItemObject = cur,
                                 }
                     };
-                        row.Cells[colCurrency.Name].Value = _currency;
                     }
                 });
             }
@@ -259,7 +255,6 @@ namespace QTech.Forms
                 pp.ProductId = Model.Id;
                 pp.ScaleId = Parse.ToInt(row?.Cells[colScale.Name]?.Value?.ToString() ?? "0");
                 pp.SalePrice = Parse.ToDecimal(row?.Cells[colSalePrice.Name]?.Value?.ToString() ?? "0");
-                pp.CurrencyId = Parse.ToInt(row?.Cells[colCurrency.Name]?.Value?.ToString() ?? "0");
                 var temp = Model.ProductPrices.FirstOrDefault(x => x.Id == pp.Id);
                 if (temp !=null && temp.Id != 0)
                 {
@@ -322,8 +317,7 @@ namespace QTech.Forms
             {
                 var cells = row.Cells.OfType<DataGridViewCell>().Where(x =>
                 x.ColumnIndex == row.Cells[colScale.Name].ColumnIndex
-                || x.ColumnIndex == row.Cells[colSalePrice.Name].ColumnIndex
-                || x.ColumnIndex == row.Cells[colCurrency.Name].ColumnIndex).ToList();
+                || x.ColumnIndex == row.Cells[colSalePrice.Name].ColumnIndex).ToList();
                 cells.ForEach(x =>
                 {
                     if (x.Value == null)
@@ -378,8 +372,7 @@ namespace QTech.Forms
             if (dgv?.SelectedRows?.Count > 0)
             {
                 if (row.Cells[colScale.Name].Value == null &&
-                 row.Cells[colSalePrice.Name].Value == null &&
-                 row.Cells[colCurrency.Name].Value == null)
+                 row.Cells[colSalePrice.Name].Value == null)
                 {
                     return;
                 }
