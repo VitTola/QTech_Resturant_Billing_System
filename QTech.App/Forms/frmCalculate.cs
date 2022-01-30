@@ -30,6 +30,8 @@ namespace QTech.Forms
             BindAsync();
             InitEvent();
             this.SetTheme(this.Controls, null);
+            panel1.BackColor = panel5.BackColor = panel6.BackColor = 
+                txtLeftAmount.BackColor = txtPaidAmount.BackColor = txtTotal.BackColor=ShareValue.CurrentTheme.FormBackGround;
 
         }
         public GeneralProcess Flag { get; set; }
@@ -46,8 +48,6 @@ namespace QTech.Forms
             this.SetEnabled(Flag != GeneralProcess.Remove && Flag != GeneralProcess.View);
             this.MaximizeBox = false;
             this.Text = Flag.GetTextDialog(Base.Properties.Resources.Table);
-            txtNote.RegisterPrimaryInput();
-            chkUseable_.Checked = true;
 
         }
         private void dgv_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -57,18 +57,11 @@ namespace QTech.Forms
         }
         public bool InValid()
         {
-            if (!txtName.IsValidRequired(lblName.Text) 
-              )
-            {
-                return true;
-            }
             return false;
         }
         public void Read()
         {
-            txtName.Text = Model.Name;
-            txtNote.Text = Model.Note;
-            chkUseable_.Checked = Model.IsUseable;
+           
         }
         public async void Save()
         {
@@ -83,7 +76,6 @@ namespace QTech.Forms
             var isExist = await btnSave.RunAsync(() => TableLogic.Instance.IsExistsAsync(Model));
             if (isExist == true)
             {
-                txtName.IsExists(lblName.Text);
                 return;
             }
 
@@ -116,9 +108,7 @@ namespace QTech.Forms
         }
         public void Write()
         {
-            Model.Name = txtName.Text;
-            Model.Note = txtNote.Text;
-            Model.IsUseable = chkUseable_.Checked;
+       
             
         }
         private void btnSave_Click(object sender, EventArgs e)

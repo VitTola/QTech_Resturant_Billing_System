@@ -65,7 +65,7 @@ namespace QTech.Component
             // 
             this.digheader.BackColor = System.Drawing.Color.Transparent;
             this.digheader.Border = true;
-            this.digheader.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(117)))), ((int)(((byte)(226)))));
+            this.digheader.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.digheader.Colors.Add(this.colorWithAlpha1);
             this.digheader.Colors.Add(this.colorWithAlpha2);
             this.digheader.Colors.Add(this.colorWithAlpha3);

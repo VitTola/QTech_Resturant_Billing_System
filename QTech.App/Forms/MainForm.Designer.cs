@@ -197,11 +197,11 @@
             this._lblComanyName.AutoSize = true;
             this._lblComanyName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this._lblComanyName.Cursor = System.Windows.Forms.Cursors.Hand;
-            this._lblComanyName.Font = new System.Drawing.Font("Khmer Muol", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._lblComanyName.Font = new System.Drawing.Font("Fasthand", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._lblComanyName.ForeColor = System.Drawing.Color.Blue;
             this._lblComanyName.Location = new System.Drawing.Point(0, 4);
             this._lblComanyName.Name = "_lblComanyName";
-            this._lblComanyName.Size = new System.Drawing.Size(170, 24);
+            this._lblComanyName.Size = new System.Drawing.Size(172, 24);
             this._lblComanyName.TabIndex = 8;
             this._lblComanyName.Text = "សម្រាប់ប្រើបណ្ដោះអាសន្ន";
             this._lblComanyName.Click += new System.EventHandler(this._lblComanyName_Click);
@@ -741,7 +741,7 @@
             // 
             // lblWhitbackG_
             // 
-            this.lblWhitbackG_.BackColor = System.Drawing.SystemColors.Control;
+            this.lblWhitbackG_.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(190)))));
             this.lblWhitbackG_.Location = new System.Drawing.Point(2, -2);
             this.lblWhitbackG_.Name = "lblWhitbackG_";
             this.lblWhitbackG_.Size = new System.Drawing.Size(103, 23);
@@ -876,7 +876,6 @@
         private System.Windows.Forms.Integration.ElementHost elementHost1;
         private System.Windows.Forms.Label labelHideCurveBg_;
         private System.Windows.Forms.Label lblWhitbackG_;
-        private WpfCustomControlLibrary.CurvePanel curvePanel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTheme_;
@@ -887,5 +886,6 @@
         private System.Windows.Forms.ToolStripMenuItem Template2;
         private System.Windows.Forms.ToolStripMenuItem Template3;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private WpfCustomControlLibrary.CurvePanel curvePanel;
     }
 }
