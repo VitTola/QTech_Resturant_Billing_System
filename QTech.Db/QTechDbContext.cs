@@ -56,7 +56,7 @@ namespace QTech.Db
     public static class DataBaseSetting
     {
         public static DbConfig config = new DbConfig() {
-            DataSource = ".",
+            DataSource = "localhost\\sqlexpress",
             DataBase = "QTech_ResturantDb",
             Theme = ShareValue.User?.Theme ?? QTech.Base.Enums.Theme.Template1
             
